@@ -66,9 +66,10 @@
 
       # Aliases
       shellAliases = {
-        ll = "ls -l";
-        la = "ls -la";
-        gs = "git status";
+        ls = "eza --color=always --icons=always";
+        ll = "eza -l --color=always --icons=always";
+        la = "eza -la --color=always --icons=always";
+        gs = "git status -u";
         nfu = "sudo nixos-rebuild switch --impure --flake /etc/nixos#utkar";
       };
 

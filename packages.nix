@@ -22,8 +22,9 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    eza
     wl-clipboard
-    (lib.hiPrio wl-clipboard-rs)
+    (lib.hiPrio pkgs.wl-clipboard-rs)
     nh
     yazi
     nil
