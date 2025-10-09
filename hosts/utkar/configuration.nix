@@ -222,14 +222,14 @@
     shell = pkgs.zsh;
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    extraPackages = with pkgs; [
-      sddm-astronaut
-    ];
-    theme = "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
-  };
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = true;
+  #   extraPackages = with pkgs; [
+  #     sddm-astronaut
+  #   ];
+  #   theme = "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
+  # };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

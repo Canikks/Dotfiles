@@ -23,7 +23,6 @@
     };
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
     ghostty = {
@@ -366,11 +365,11 @@
             };
           }
           {
-            # programs.dankMaterialShell.greeter = {
-            #   enable = true;
-            #   compositor.name = "niri"; # or set to hyprland
-            #   configHome = "/home/user"; # optionally copyies that users DMS settings (and wallpaper if set) to the greeters data directory as root before greeter starts
-            # };
+            programs.dankMaterialShell.greeter = {
+              enable = true;
+              compositor.name = "niri"; # or set to hyprland
+              configHome = "/home/user"; # optionally copyies that users DMS settings (and wallpaper if set) to the greeters data directory as root before greeter starts
+            };
           }
           {programs.nix-index-database.comma.enable = true;}
           {

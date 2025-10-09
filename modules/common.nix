@@ -55,7 +55,9 @@
       enableBashCompletion = true;
       syntaxHighlighting.enable = true;
       autosuggestions.enable = true;
+      autosuggestions.strategy = ["history" "completion" "match_prev_cmd"];
       zsh-autoenv.enable = true;
+      enableGlobalCompInit = true;
       # Zsh options
       histSize = 10000;
       setOptions = [

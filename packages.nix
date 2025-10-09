@@ -22,6 +22,7 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    tmux
     eza
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
