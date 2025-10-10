@@ -632,6 +632,7 @@ programs.alacritty.enable
 programs.alacritty.package
 programs.alacritty.settings
 programs.alacritty.theme
+programs.alacritty.themePackage
 programs.algia.enable
 programs.algia.package
 programs.algia.settings
@@ -670,6 +671,13 @@ programs.amber.ambrSettings
 programs.amber.ambsSettings
 programs.amber.enable
 programs.amber.package
+programs.amfora.bookmarks
+programs.amfora.enable
+programs.amfora.package
+programs.amfora.settings
+programs.amoco.config
+programs.amoco.enable
+programs.amoco.package
 programs.animdl.enable
 programs.animdl.package
 programs.animdl.settings
@@ -965,6 +973,7 @@ programs.desktoppr.settings.sha256
 programs.dircolors.enable
 programs.dircolors.enableBashIntegration
 programs.dircolors.enableFishIntegration
+programs.dircolors.enableNushellIntegration
 programs.dircolors.enableZshIntegration
 programs.dircolors.extraConfig
 programs.dircolors.package
@@ -1071,6 +1080,8 @@ programs.firefox.profiles.<name>.containers.<name>.id
 programs.firefox.profiles.<name>.containers.<name>.name
 programs.firefox.profiles.<name>.containersForce
 programs.firefox.profiles.<name>.extensions
+programs.firefox.profiles.<name>.extensions.exactPermissions
+programs.firefox.profiles.<name>.extensions.exhaustivePermissions
 programs.firefox.profiles.<name>.extensions.force
 programs.firefox.profiles.<name>.extensions.packages
 programs.firefox.profiles.<name>.extensions.settings
@@ -1151,6 +1162,8 @@ programs.floorp.profiles.<name>.containers.<name>.id
 programs.floorp.profiles.<name>.containers.<name>.name
 programs.floorp.profiles.<name>.containersForce
 programs.floorp.profiles.<name>.extensions
+programs.floorp.profiles.<name>.extensions.exactPermissions
+programs.floorp.profiles.<name>.extensions.exhaustivePermissions
 programs.floorp.profiles.<name>.extensions.force
 programs.floorp.profiles.<name>.extensions.packages
 programs.floorp.profiles.<name>.extensions.settings
@@ -1749,6 +1762,8 @@ programs.librewolf.profiles.<name>.containers.<name>.id
 programs.librewolf.profiles.<name>.containers.<name>.name
 programs.librewolf.profiles.<name>.containersForce
 programs.librewolf.profiles.<name>.extensions
+programs.librewolf.profiles.<name>.extensions.exactPermissions
+programs.librewolf.profiles.<name>.extensions.exhaustivePermissions
 programs.librewolf.profiles.<name>.extensions.force
 programs.librewolf.profiles.<name>.extensions.packages
 programs.librewolf.profiles.<name>.extensions.settings

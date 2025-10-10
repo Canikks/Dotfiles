@@ -142,8 +142,8 @@
                     nix = {
                       enable = true;
                       lsp.enable = true;
-                      lsp.server = "nixd";
-                      # treesitter.enable = true;
+                      lsp.server = "nil";
+                      treesitter.enable = true;
                     };
                     markdown.enable = true;
 
