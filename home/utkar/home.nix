@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
     inputs.niri.homeModules.niri
     inputs.nix-index-database.homeModules.nix-index
@@ -61,8 +62,47 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
+    languages = {
+      language-servers.nil = {
+        command = "nil";
+      };
+      language-servers.alejandra = {
+        command = "alejandra";
+      };
+
+      language = [
+        {
+          name = "nix";
+          language-server = {
+            command = "nil";
+          };
+          formatter = {
+            command = "alejandra";
+          };
+        }
+      ];
+    };
     settings = {
       theme = "base16_transparent";
+      # languages = {
+      #   language-server.nil = {
+      #     command = "nil";
+      #   };
+      #   language-server.alejandra = {
+      #     command = "alejandra";
+      #   };
+      # };
+      # language = [
+      #   {
+      #     name = "nix";
+      #     language-server = {
+      #       command = "nil";
+      #     };
+      #     formatter = {
+      #       command = "alejandra";
+      #     };
+      #   }
+      # ];
       editor = {
         line-number = "relative";
         lsp.display-messages = true;

@@ -63,19 +63,16 @@
     })
     nixfmt
     alejandra
-    nixd
+    # nixd
     # wl-clipboard-rs
     wl-clip-persist
     distrobox
     distrobox-tui
     podman
     boxbuddy
-    # tuigreet
     greetd
     dbus
     dbus-broker
-    # ghostty
-    # ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
     nur.repos.Ev357.helium
     fastfetch
     kdePackages.qtmultimedia
@@ -102,9 +99,7 @@
     ripgrep
     nix-search-tv
     vscode-json-languageserver
-    # quickshell
     # (lib.hiPrio pkgs.uutils-coreutils-noprefix)
-    # gitoxide
     upower
   ];
 }

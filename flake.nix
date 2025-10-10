@@ -98,9 +98,9 @@
 
                   options = {
                     autoindent = true;
-                    shiftwidth = 4;
-                    tabstop = 4;
-                    softtabstop = 4;
+                    shiftwidth = 2;
+                    tabstop = 2;
+                    softtabstop = 2;
                     wrap = true;
                   };
 
@@ -115,7 +115,7 @@
                     enable = true;
 
                     formatOnSave = true;
-                    lspkind.enable = false;
+                    lspkind.enable = true;
                     lightbulb.enable = true;
                     lspsaga.enable = true;
                     trouble.enable = true;
@@ -143,7 +143,7 @@
                       enable = true;
                       lsp.enable = true;
                       lsp.server = "nil";
-                      treesitter.enable = true;
+                      treesitter.enable = false;
                     };
                     markdown.enable = true;
 
