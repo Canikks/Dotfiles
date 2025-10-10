@@ -22,6 +22,7 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    vimPlugins.nvim-treesitter-parsers.nix
     ouch
     tmux
     eza

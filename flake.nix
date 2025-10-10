@@ -78,6 +78,8 @@
                 ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
                 dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.default
               ];
+              nixpkgs.overlays = [niri.overlays.niri];
+              # niri-flake.cache.enable = true;
             }
           )
           {
@@ -92,6 +94,14 @@
                     enable = false;
                     level = 16;
                     logFile = "/tmp/nvim.log";
+                  };
+
+                  options = {
+                    autoindent = true;
+                    shiftwidth = 4;
+                    tabstop = 4;
+                    softtabstop = 4;
+                    wrap = true;
                   };
 
                   spellcheck = {
@@ -129,7 +139,12 @@
                     enableExtraDiagnostics = true;
 
                     # Languages that will be supported in default and maximal configurations.
-                    nix.enable = true;
+                    nix = {
+                      enable = true;
+                      lsp.enable = true;
+                      lsp.server = "nixd";
+                      # treesitter.enable = true;
+                    };
                     markdown.enable = true;
 
                     # Languages that are enabled in the maximal configuration.
@@ -188,6 +203,7 @@
 
                     highlight-undo.enable = true;
                     indent-blankline.enable = true;
+                    indent-blankline.setupOpts.indent.smart_indent_cap = true;
 
                     # Fun
                     cellular-automaton.enable = true;
