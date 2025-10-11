@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   imports = [
     inputs.niri.homeModules.niri
     inputs.nix-index-database.homeModules.nix-index
@@ -63,49 +62,21 @@
     enable = true;
     defaultEditor = true;
     languages = {
-      language-servers.nil = {
-        command = "nil";
-      };
-      language-servers.alejandra = {
-        command = "alejandra";
-      };
-
       language = [
         {
           name = "nix";
-          language-server = {
-            command = "nil";
-          };
-          formatter = {
-            command = "alejandra";
-          };
+          language-servers = ["nixd"];
+          formatter = {command = "alejandra";};
         }
       ];
     };
     settings = {
       theme = "base16_transparent";
-      # languages = {
-      #   language-server.nil = {
-      #     command = "nil";
-      #   };
-      #   language-server.alejandra = {
-      #     command = "alejandra";
-      #   };
-      # };
-      # language = [
-      #   {
-      #     name = "nix";
-      #     language-server = {
-      #       command = "nil";
-      #     };
-      #     formatter = {
-      #       command = "alejandra";
-      #     };
-      #   }
-      # ];
       editor = {
         line-number = "relative";
+        completion-replace = true;
         lsp.display-messages = true;
+        whitespace.render = "all";
         color-modes = true;
         clipboard-provider = "wayland";
         end-of-line-diagnostics = "hint";

@@ -53,7 +53,6 @@
     zsh-completions
     fzf
     zsh-syntax-highlighting
-    kitty
     ripgrep
     (brave.override {
       commandLineArgs = [
@@ -61,10 +60,8 @@
         "--ozone-platform=wayland"
       ];
     })
-    nixfmt
     alejandra
-    # nixd
-    # wl-clipboard-rs
+    nixd
     wl-clip-persist
     distrobox
     distrobox-tui
@@ -96,7 +93,6 @@
     aria2
     ariang
     fd
-    ripgrep
     nix-search-tv
     vscode-json-languageserver
     # (lib.hiPrio pkgs.uutils-coreutils-noprefix)
