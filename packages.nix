@@ -34,13 +34,11 @@
     nil
     cmake
     zed-editor-fhs
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     neovim
     firefox
     mesa-demos
     alacritty
-    # kdePackages.dolphin
     gtk4
     nautilus
     colloid-gtk-theme
@@ -54,12 +52,6 @@
     fzf
     zsh-syntax-highlighting
     ripgrep
-    (brave.override {
-      commandLineArgs = [
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-      ];
-    })
     alejandra
     nixd
     wl-clip-persist

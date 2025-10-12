@@ -244,6 +244,12 @@
     intel-media-driver
   ];
 
+  hardware.cpu = {
+    intel = {
+      updateMicrocode = true;
+    };
+  };
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

@@ -74,7 +74,7 @@
           (
             {pkgs, ...}: {
               environment.systemPackages = [
-                quickshell.packages.x86_64-linux.default
+                # quickshell.packages.x86_64-linux.default
                 ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
                 dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.default
               ];
