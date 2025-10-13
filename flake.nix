@@ -77,12 +77,12 @@
                 # quickshell.packages.x86_64-linux.default
                 ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
                 dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.default
+                # niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-stable
               ];
-              nixpkgs.overlays = [niri.overlays.niri];
-              # niri-flake.cache.enable = true;
             }
           )
           {
+            nixpkgs.overlays = [niri.overlays.niri];
             programs.nvf = {
               enable = true;
               settings = {

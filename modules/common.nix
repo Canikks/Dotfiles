@@ -9,13 +9,6 @@
     "nix-command"
     "flakes"
   ];
-  # nix.gc = {
-  #   automatic = true;
-  #   dates = "weekly";
-  # };
-
-  # programs.git.enable = true;
-  # programs.ssh.startAgent = true;
   programs = {
     nh = {
       enable = true;
@@ -31,9 +24,6 @@
       enable = true;
       enableZshIntegration = true;
     };
-    # neovim = {
-    #   enable = true;
-    # };
 
     git = {
       enable = true;
@@ -44,6 +34,7 @@
 
     niri = {
       enable = true;
+      # cache.enable = true;
     };
     television = {
       enable = true;

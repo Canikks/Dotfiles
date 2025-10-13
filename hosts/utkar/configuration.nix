@@ -20,6 +20,7 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelModules = ["intel_pstate" "msr"];
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
@@ -267,90 +268,6 @@
       };
     };
   };
-
-  # programs = {
-  #   bat = {
-  #     enable = true;
-  #   };
-  #   zoxide = {
-  #     enable = true;
-  #     enableZshIntegration = true;
-  #   };
-  #   neovim = {
-  #     enable = true;
-  #   };
-
-  #   git = {
-  #     enable = true;
-  #     lfs = {
-  #       enable = true;
-  #     };
-  #   };
-
-  #   niri = {
-  #     enable = true;
-  #   };
-  #   television = {
-  #     enable = true;
-  #     enableZshIntegration = true;
-  #   };
-  #   zsh = {
-  #     enable = true;
-  #     enableCompletion = true;
-  #     enableBashCompletion = true;
-  #     syntaxHighlighting.enable = true;
-  #     autosuggestions.enable = true;
-  #     zsh-autoenv.enable = true;
-  #     # Zsh options
-  #     histSize = 10000;
-  #     setOptions = [
-  #       "HIST_IGNORE_ALL_DUPS"
-  #       "HIST_FIND_NO_DUPS"
-  #       "HIST_IGNORE_SPACE"
-  #     ];
-
-  #     # Aliases
-  #     shellAliases = {
-  #       ll = "ls -l";
-  #       la = "ls -la";
-  #       gs = "git status";
-  #       nfu = "sudo nixos-rebuild switch --impure --flake /etc/nixos#utkar";
-  #     };
-
-  #     # Plugins
-  #     ohMyZsh.plugins = [
-  #       { name = "zsh-users/zsh-autosuggestions"; }
-  #       { name = "zsh-users/zsh-syntax-highlighting"; }
-  #       { name = "zsh-users/zsh-completions"; }
-  #       { name = "zsh-users/zsh-history-substring-search"; }
-  #       { name = "junegunn/fzf"; }
-  #       { name = "romkatv/powerlevel10k"; }
-  #     ];
-
-  #     # Prompt
-  #     promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-  #   };
-  #   uwsm = {
-  #     enable = true;
-  #     waylandCompositors = {
-  #       niri = {
-  #         prettyName = "Niri";
-  #         comment = "Niri compositor managed by UWSM";
-  #         binPath = "/run/current-system/sw/bin/niri-session";
-  #       };
-  #     };
-  #   };
-  #   steam = {
-  #     enable = true;
-  #     extest.enable = true;
-  #   };
-  #   gamescope = {
-  #     enable = true;
-  #   };
-  #   gamemode = {
-  #     enable = true;
-  #   };
-  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

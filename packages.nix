@@ -13,15 +13,11 @@
         colmena
         ;
     })
-    # (final: prev: {
-    #   allegro = prev.allegro.overrideAttrs (old: {
-    #     cmakeFlags = (old.cmakeFlags or []) ++ ["-DCMAKE_POLICY_VERSION_MINIMUM=3.5"];
-    #   });
-    # })
   ];
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    nirius
     vimPlugins.nvim-treesitter-parsers.nix
     vimPlugins.nvim-treesitter.builtGrammars.nix
     ouch
