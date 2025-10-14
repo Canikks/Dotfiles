@@ -16,6 +16,9 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  # boot.loader.limine.enable = true;
+  # boot.loader.limine.efiSupport = true;
+  # boot.loader.limine.biosSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.

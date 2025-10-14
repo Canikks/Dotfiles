@@ -19,12 +19,13 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    nushell
     go
     nirius
     vimPlugins.nvim-treesitter-parsers.nix
     vimPlugins.nvim-treesitter.builtGrammars.nix
     ouch
-    tmux
+    zellij
     eza
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
