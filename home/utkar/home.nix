@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  # pkgs,
+  ...
+}: {
   imports = [
     inputs.niri.homeModules.niri
     inputs.nix-index-database.homeModules.nix-index
@@ -8,6 +12,7 @@
     # inputs.nvf.homeManagerModules.default
   ];
   home.stateVersion = "25.05";
+  # home.packages = [pkgs.kdePackages.qtmultimedia];
   nixpkgs.config = {
     allowUnfree = true;
   };

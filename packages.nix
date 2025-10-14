@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  # niri,
   ...
 }: {
   nixpkgs.overlays = [
@@ -13,10 +14,12 @@
         colmena
         ;
     })
+    # niri.overlays.niri
   ];
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    go
     nirius
     vimPlugins.nvim-treesitter-parsers.nix
     vimPlugins.nvim-treesitter.builtGrammars.nix

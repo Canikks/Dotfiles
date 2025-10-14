@@ -78,18 +78,21 @@
     tlp = {
       enable = false;
     };
-    auto-cpufreq = {
+    # auto-cpufreq = {
+    #   enable = true;
+    #   settings = {
+    #     battery = {
+    #       governor = "powersaver";
+    #       turbo = "never";
+    #     };
+    #     charger = {
+    #       governer = "performance";
+    #       turbo = "auto";
+    #     };
+    #   };
+    # };
+    power-profiles-daemon = {
       enable = true;
-      settings = {
-        battery = {
-          governor = "powersaver";
-          turbo = "never";
-        };
-        charger = {
-          governer = "performance";
-          turbo = "auto";
-        };
-      };
     };
   };
 
