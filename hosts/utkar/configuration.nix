@@ -16,17 +16,17 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
-  # boot.loader.limine.enable = true;
-  # boot.loader.limine.efiSupport = true;
-  # boot.loader.limine.biosSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  boot.kernelModules = ["intel_pstate" "msr"];
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelModules = ["intel_pstate" "msr" "coretemp"];
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
+    extraArgs = [
+      "--autopilot"
+    ];
   };
 
   networking.hostName = "utkar"; # Define your hostname.
@@ -66,6 +66,9 @@
   };
 
   services = {
+    bpftune = {
+      enable = true;
+    };
     psd = {
       enable = true;
     };
@@ -81,19 +84,6 @@
     tlp = {
       enable = false;
     };
-    # auto-cpufreq = {
-    #   enable = true;
-    #   settings = {
-    #     battery = {
-    #       governor = "powersaver";
-    #       turbo = "never";
-    #     };
-    #     charger = {
-    #       governer = "performance";
-    #       turbo = "auto";
-    #     };
-    #   };
-    # };
     power-profiles-daemon = {
       enable = true;
     };
@@ -167,6 +157,7 @@
   # This is where environment stuff should be done.
   # This is a temperary config as I will be trying to make this a module.
   environment = {
+    pathsToLink = [ "/share/zsh" ];
     variables = {
       EDITOR = "hx";
       VISUAL = "hx";
@@ -174,7 +165,6 @@
       OZONE_PLATFORM = "wayland";
       STEAM_USE_NATIVE_LIBRARIES = "1";
       STEAM_RUNTIME_PREFER_HOST_LIBRARIES = "0";
-      # DMS_RUN_GREETER = "1 qs -p ${pkgs.dms}/bin/dms";
     };
     sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";
@@ -230,15 +220,6 @@
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
-
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland.enable = true;
-  #   extraPackages = with pkgs; [
-  #     sddm-astronaut
-  #   ];
-  #   theme = "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
-  # };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

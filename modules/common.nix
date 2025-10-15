@@ -337,45 +337,48 @@
       enable = true;
       enableZshIntegration = true;
     };
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      enableBashCompletion = true;
-      syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
-      autosuggestions.strategy = ["history" "completion" "match_prev_cmd"];
-      zsh-autoenv.enable = true;
-      enableGlobalCompInit = true;
-      # Zsh options
-      histSize = 10000;
-      setOptions = [
-        "HIST_IGNORE_ALL_DUPS"
-        "HIST_FIND_NO_DUPS"
-        "HIST_IGNORE_SPACE"
-      ];
-
-      # Aliases
-      shellAliases = {
-        ls = "eza --color=always --icons=always";
-        ll = "eza -l --color=always --icons=always";
-        la = "eza -la --color=always --icons=always";
-        gs = "git status -u";
-        nfu = "sudo nixos-rebuild switch --impure --flake /etc/nixos#utkar";
+      zsh = {
+        enable = true;
       };
+    # zsh = {
+    #   enable = true;
+    #   enableCompletion = true;
+    #   enableBashCompletion = true;
+    #   syntaxHighlighting.enable = true;
+    #   autosuggestions.enable = true;
+    #   autosuggestions.strategy = ["history" "completion" "match_prev_cmd"];
+    #   zsh-autoenv.enable = true;
+    #   enableGlobalCompInit = true;
+    #   # Zsh options
+    #   histSize = 10000;
+    #   setOptions = [
+    #     "HIST_IGNORE_ALL_DUPS"
+    #     "HIST_FIND_NO_DUPS"
+    #     "HIST_IGNORE_SPACE"
+    #   ];
 
-      # Plugins
-      ohMyZsh.plugins = [
-        {name = "zsh-users/zsh-autosuggestions";}
-        {name = "zsh-users/zsh-syntax-highlighting";}
-        {name = "zsh-users/zsh-completions";}
-        {name = "zsh-users/zsh-history-substring-search";}
-        {name = "junegunn/fzf";}
-        {name = "romkatv/powerlevel10k";}
-      ];
+    #   # Aliases
+    #   shellAliases = {
+    #     ls = "eza --color=always --icons=always";
+    #     ll = "eza -l --color=always --icons=always";
+    #     la = "eza -la --color=always --icons=always";
+    #     gs = "git status -u";
+    #     nfu = "sudo nixos-rebuild switch --impure --flake /etc/nixos#utkar";
+    #   };
 
-      # Prompt
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    };
+    #   # Plugins
+    #   ohMyZsh.plugins = [
+    #     {name = "zsh-users/zsh-autosuggestions";}
+    #     {name = "zsh-users/zsh-syntax-highlighting";}
+    #     {name = "zsh-users/zsh-completions";}
+    #     {name = "zsh-users/zsh-history-substring-search";}
+    #     {name = "junegunn/fzf";}
+    #     {name = "romkatv/powerlevel10k";}
+    #   ];
+
+    #   # Prompt
+    #   promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    # };
     uwsm = {
       enable = true;
       waylandCompositors = {
