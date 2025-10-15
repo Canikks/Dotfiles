@@ -12,7 +12,7 @@
     # inputs.nvf.homeManagerModules.default
   ];
   home.stateVersion = "25.05";
-  # home.packages = [pkgs.kdePackages.qtmultimedia];
+  # home.packages = with pkgs; [kdePackages.qtmultimedia];
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -104,7 +104,7 @@
         "romkatv/powerlevel10k"
       ];
 
-      initExtra = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
+      initContent = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
       prezto = {
         enable = true;
         color = true;
