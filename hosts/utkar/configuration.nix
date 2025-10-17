@@ -230,6 +230,8 @@
     vaapiVdpau
     vpl-gpu-rt
     intel-media-driver
+    intel-compute-runtime-legacy1
+    intel-vaapi-driver
   ];
 
   hardware.cpu = {

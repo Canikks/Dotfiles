@@ -21,9 +21,20 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dms-cli = {
+      url = "github:AvengeMedia/danklinux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
+      inputs.dgop.follows = "dgop";
+      inputs.dms-cli.follows = "dms-cli";
     };
     flake-utils.url = "github:numtide/flake-utils";
     ghostty = {
@@ -78,6 +89,7 @@
               environment.systemPackages = [
                 ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
                 pkgs.niri-unstable
+                # quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
               ];
             }
           )

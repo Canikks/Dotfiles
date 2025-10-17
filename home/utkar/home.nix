@@ -19,6 +19,9 @@
 
   programs.yazi = {
     enable = true;
+    # extraPackages = with pkgs; [
+    #   yaziPlugins.yatline
+    # ];
     # plugins = {
     #   yatline = pkgs.yaziPlugins.yatline;
     # };

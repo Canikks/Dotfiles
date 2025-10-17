@@ -19,6 +19,8 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    quickshell
+    inteltool
     nushell
     go
     nirius
