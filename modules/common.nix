@@ -68,9 +68,7 @@
             # Languages that will be supported in default and maximal configurations.
             nix = {
               enable = true;
-              lsp.enable = true;
               lsp.server = "nixd";
-              treesitter.enable = true;
             };
             markdown.enable = true;
 

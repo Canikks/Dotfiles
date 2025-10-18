@@ -27,7 +27,7 @@
     vimPlugins.nvim-treesitter-parsers.nix
     vimPlugins.nvim-treesitter.builtGrammars.nix
     ouch
-    zellij
+    tmux
     eza
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
