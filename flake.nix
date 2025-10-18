@@ -32,7 +32,6 @@
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
       inputs.dgop.follows = "dgop";
       inputs.dms-cli.follows = "dms-cli";
     };
@@ -49,6 +48,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nixd = {
+      url = "github:nix-community/nixd";
+    };
   };
 
   outputs = inputs @ {
@@ -65,6 +67,7 @@
     quickshell,
     nvix,
     nvf,
+    nixd,
     ...
   }: {
     nixosConfigurations = {
@@ -89,7 +92,7 @@
               environment.systemPackages = [
                 ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
                 pkgs.niri-unstable
-                # quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+                nixd.packages.${pkgs.stdenv.hostPlatform.system}.default
               ];
             }
           )

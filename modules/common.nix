@@ -69,8 +69,8 @@
             nix = {
               enable = true;
               lsp.enable = true;
-              lsp.server = "nil";
-              treesitter.enable = false;
+              lsp.server = "nixd";
+              treesitter.enable = true;
             };
             markdown.enable = true;
 
@@ -337,9 +337,9 @@
       enable = true;
       enableZshIntegration = true;
     };
-      zsh = {
-        enable = true;
-      };
+    zsh = {
+      enable = true;
+    };
     # zsh = {
     #   enable = true;
     #   enableCompletion = true;

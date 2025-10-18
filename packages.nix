@@ -55,7 +55,7 @@
     zsh-syntax-highlighting
     ripgrep
     alejandra
-    nixd
+    # nixd
     wl-clip-persist
     distrobox
     distrobox-tui
