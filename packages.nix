@@ -19,6 +19,8 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    libadwaita
+    unrar
     quickshell
     inteltool
     nushell
@@ -42,6 +44,7 @@
     mesa-demos
     alacritty
     gtk4
+    gtk3
     nautilus
     colloid-gtk-theme
     polkit_gnome

@@ -19,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   boot.kernelModules = ["intel_pstate" "msr" "coretemp"];
   services.scx = {
     enable = true;
@@ -157,7 +157,7 @@
   # This is where environment stuff should be done.
   # This is a temperary config as I will be trying to make this a module.
   environment = {
-    pathsToLink = [ "/share/zsh" ];
+    pathsToLink = ["/share/zsh"];
     variables = {
       EDITOR = "hx";
       VISUAL = "hx";
