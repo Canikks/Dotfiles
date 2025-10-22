@@ -80,26 +80,15 @@
         modules = [
           ./hosts/utkar/configuration.nix
           ./packages.nix
+          # ./home/utkar/shell/zsh.nix
           dankMaterialShell.nixosModules.greeter
           home-manager.nixosModules.home-manager
           chaotic.nixosModules.default
           nur.modules.nixos.default
           nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
           nvf.nixosModules.default
+          # nvf.homeManagerModules.default
           nix-index-database.nixosModules.nix-index
-          (
-            {pkgs, ...}: {
-              nixpkgs.overlays = [niri.overlays.niri];
-              environment.systemPackages = [
-                ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
-                pkgs.niri-unstable
-                nixd.packages.${pkgs.stdenv.hostPlatform.system}.default
-              ];
-            }
-          )
-          {
-            nixpkgs.overlays = [niri.overlays.niri];
-          }
           {
             programs.dankMaterialShell.greeter = {
               enable = true;

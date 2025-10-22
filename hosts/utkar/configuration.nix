@@ -5,6 +5,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
@@ -159,8 +160,8 @@
   environment = {
     pathsToLink = ["/share/zsh"];
     variables = {
-      EDITOR = "hx";
-      VISUAL = "hx";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
       NIXOS_OZONE_WL = "1";
       OZONE_PLATFORM = "wayland";
       STEAM_USE_NATIVE_LIBRARIES = "1";

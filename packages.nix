@@ -2,6 +2,7 @@
   pkgs,
   lib,
   # niri,
+  inputs,
   ...
 }: {
   nixpkgs.overlays = [
@@ -14,11 +15,24 @@
         colmena
         ;
     })
-    # niri.overlays.niri
+    inputs.niri.overlays.niri
   ];
 
   nix.package = pkgs.lixPackageSets.stable.lix;
   environment.systemPackages = with pkgs; [
+    inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
+    pkgs.niri-unstable
+    (inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight.override {
+      extraPrefsFiles = [
+        (builtins.fetchurl {
+          url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
+          sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
+        })
+      ];
+    })
+    # inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
+    inputs.nixd.packages.${pkgs.stdenv.hostPlatform.system}.default
+    localsend
     libadwaita
     unrar
     quickshell
@@ -34,7 +48,7 @@
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
     nh
-    yazi
+    # yazi
     nil
     cmake
     zed-editor-fhs
