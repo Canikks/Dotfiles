@@ -10,6 +10,9 @@
     "flakes"
   ];
   programs = {
+    xwayland = {
+      enable = true;
+    };
     nvf = {
       enable = true;
       settings = {
@@ -68,7 +71,12 @@
             # Languages that will be supported in default and maximal configurations.
             nix = {
               enable = true;
+              format.enable = true;
               lsp.server = "nixd";
+              extraDiagnostics = {
+                enable = true;
+                types = ["statix" "deadnix"];
+              };
             };
             markdown.enable = true;
 
@@ -212,10 +220,12 @@
           };
 
           utility = {
+            yazi-nvim.enable = true;
             ccc.enable = false;
             vim-wakatime.enable = false;
             diffview-nvim.enable = true;
-            yanky-nvim.enable = false;
+            yanky-nvim.enable = true;
+            yanky-nvim.setupOpts.ring.storage = "sqlite";
             icon-picker.enable = true;
             surround.enable = true;
             leetcode-nvim.enable = true;
@@ -338,45 +348,6 @@
     zsh = {
       enable = true;
     };
-    # zsh = {
-    #   enable = true;
-    #   enableCompletion = true;
-    #   enableBashCompletion = true;
-    #   syntaxHighlighting.enable = true;
-    #   autosuggestions.enable = true;
-    #   autosuggestions.strategy = ["history" "completion" "match_prev_cmd"];
-    #   zsh-autoenv.enable = true;
-    #   enableGlobalCompInit = true;
-    #   # Zsh options
-    #   histSize = 10000;
-    #   setOptions = [
-    #     "HIST_IGNORE_ALL_DUPS"
-    #     "HIST_FIND_NO_DUPS"
-    #     "HIST_IGNORE_SPACE"
-    #   ];
-
-    #   # Aliases
-    #   shellAliases = {
-    #     ls = "eza --color=always --icons=always";
-    #     ll = "eza -l --color=always --icons=always";
-    #     la = "eza -la --color=always --icons=always";
-    #     gs = "git status -u";
-    #     nfu = "sudo nixos-rebuild switch --impure --flake /etc/nixos#utkar";
-    #   };
-
-    #   # Plugins
-    #   ohMyZsh.plugins = [
-    #     {name = "zsh-users/zsh-autosuggestions";}
-    #     {name = "zsh-users/zsh-syntax-highlighting";}
-    #     {name = "zsh-users/zsh-completions";}
-    #     {name = "zsh-users/zsh-history-substring-search";}
-    #     {name = "junegunn/fzf";}
-    #     {name = "romkatv/powerlevel10k";}
-    #   ];
-
-    #   # Prompt
-    #   promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    # };
     uwsm = {
       enable = true;
       waylandCompositors = {
@@ -401,12 +372,4 @@
 
   services.flatpak.enable = true;
   # services.udisks2.enable = true;
-
-  # Optional example overlay usage
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     # Example overlay
-  #     my-custom-htop = prev.htop.override { enableDelay = true; };
-  #   })
-  # ];
 }

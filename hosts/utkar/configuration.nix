@@ -11,31 +11,27 @@
   imports = [
     # Include the results of the hardware scan.
     ../../modules/common.nix
+    ../../modules/services.nix
+    ../../modules/environment.nix
     # ../../packages.nix
     ../../hardware-configuration.nix
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
-  boot.kernelModules = ["intel_pstate" "msr" "coretemp"];
-  services.scx = {
-    enable = true;
-    scheduler = "scx_lavd";
-    extraArgs = [
-      "--autopilot"
-    ];
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
+    };
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelModules = ["intel_pstate" "msr" "coretemp"];
   };
 
   networking.hostName = "utkar"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -62,84 +58,16 @@
     LC_TIME = "en_IN";
   };
 
-  xdg.autostart = {
-    enable = true;
-  };
-
-  services = {
-    bpftune = {
+  xdg = {
+    autostart = {
       enable = true;
     };
-    psd = {
+    portal = {
       enable = true;
-    };
-    geoclue2 = {
-      enable = true;
-    };
-    upower = {
-      enable = true;
-    };
-    thermald = {
-      enable = true;
-    };
-    tlp = {
-      enable = false;
-    };
-    power-profiles-daemon = {
-      enable = true;
-    };
-  };
-
-  programs.xwayland = {
-    enable = true;
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-    ];
-  };
-
-  # this is where services should be set.
-  services = {
-    xserver = {
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      videoDrivers = [
-        "intel"
-        "modesetting"
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
       ];
-    };
-    aria2 = {
-      enable = true;
-      rpcSecretFile = "/home/utkar/secret-rpc.txt";
-      openPorts = true;
-      settings = {
-        enable-rpc = true;
-        max-connection-per-server = 16;
-        split = 16;
-        rpc-allow-origin-all = true;
-      };
-    };
-    gvfs = {
-      enable = true;
-    };
-    udisks2 = {
-      enable = true;
-    };
-    dbus = {
-      enable = true;
-    };
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
     };
   };
 
@@ -152,46 +80,6 @@
     };
     sudo-rs = {
       enable = true;
-    };
-  };
-
-  # This is where environment stuff should be done.
-  # This is a temperary config as I will be trying to make this a module.
-  environment = {
-    pathsToLink = ["/share/zsh"];
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      NIXOS_OZONE_WL = "1";
-      OZONE_PLATFORM = "wayland";
-      STEAM_USE_NATIVE_LIBRARIES = "1";
-      STEAM_RUNTIME_PREFER_HOST_LIBRARIES = "0";
-    };
-    sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
-      TERMINAL = "ghostty";
-    };
-    etc = {
-      "polkit-1/rules.d/10-udisks2.rules" = {
-        text = ''
-          polkit.addRule(function(action, subject) {
-            if ((action.id.indexOf("org.freedesktop.udisks2.") == 0) &&
-                subject.isInGroup("wheel")) {
-              return polkit.Result.YES;
-            }
-          });
-        '';
-      };
-      "xdg/wayland-sessions/niri.desktop" = {
-        text = ''
-          [Desktop Entry]
-          Name=Niri
-          Comment=Niri Wayland Compositor
-          Exec=${pkgs.dbus}/bin/dbus-run-session ${pkgs.niri}/bin/niri-session
-          Type=Application
-          DesktopNames=niri
-        '';
-      };
     };
   };
 
@@ -224,37 +112,37 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    mesa
-    vaapi-intel-hybrid
-    vaapiIntel
-    vaapiVdpau
-    vpl-gpu-rt
-    intel-media-driver
-    intel-compute-runtime-legacy1
-    intel-vaapi-driver
-  ];
 
-  hardware.cpu = {
-    intel = {
-      updateMicrocode = true;
-    };
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
-  hardware.bluetooth = {
-    enable = true;
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
+  hardware = {
+    cpu = {
+      intel = {
+        updateMicrocode = true;
       };
-      Policy = {
-        AutoEnable = true;
+    };
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        mesa
+        vaapi-intel-hybrid
+        vaapiIntel
+        vaapiVdpau
+        vpl-gpu-rt
+        intel-media-driver
+        intel-compute-runtime-legacy1
+        intel-vaapi-driver
+      ];
+    };
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+        Policy = {
+          AutoEnable = true;
+        };
       };
     };
   };

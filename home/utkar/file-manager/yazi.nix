@@ -5,6 +5,7 @@
 }: {
   programs.yazi = {
     enable = true;
+    enableZshIntegration = true;
     extraPackages = with pkgs; [
       yaziPlugins.yatline
       yaziPlugins.yatline-githead
@@ -169,6 +170,12 @@
           on = ["R" "D"];
           run = "plugin sudo -- remove --permanently";
           desc = "sudo delete";
+        }
+        {
+          on = "!";
+          for = "unix";
+          run = ''shell "$SHELL" --block'';
+          desc = "Open $SHELL here";
         }
       ];
     };

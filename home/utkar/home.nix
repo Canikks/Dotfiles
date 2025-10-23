@@ -8,7 +8,7 @@
     inputs.nix-index-database.homeModules.nix-index
     inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-    inputs.zen-browser.homeModules.twilight
+    # inputs.zen-browser.homeModules.twilight
     ./shell/zsh.nix
     ./terminal/ghostty.nix
     ./editor/helix.nix

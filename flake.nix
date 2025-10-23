@@ -80,7 +80,6 @@
         modules = [
           ./hosts/utkar/configuration.nix
           ./packages.nix
-          # ./home/utkar/shell/zsh.nix
           dankMaterialShell.nixosModules.greeter
           home-manager.nixosModules.home-manager
           chaotic.nixosModules.default

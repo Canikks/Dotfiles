@@ -8,7 +8,7 @@
   nixpkgs.overlays = [
     (final: prev: {
       inherit
-        (prev.lixPackageSets.stable)
+        (prev.lixPackageSets.latest)
         nixpkgs-review
         nix-eval-jobs
         nix-fast-build
@@ -18,8 +18,9 @@
     inputs.niri.overlays.niri
   ];
 
-  nix.package = pkgs.lixPackageSets.stable.lix;
+  nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-termfilechooser
     inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.niri-unstable
     (inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight.override {
@@ -84,7 +85,7 @@
     nur.repos.Ev357.helium
     fastfetch
     kdePackages.qtmultimedia
-    libsForQt5.qt5.qtmultimedia
+    # libsForQt5.qt5.qtmultimedia
     lutris
     kdePackages.qt6ct
     gamescope
