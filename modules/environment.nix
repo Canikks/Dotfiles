@@ -1,11 +1,16 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   environment = {
     pathsToLink = ["/share/zsh"];
     variables = {
+      QML2_IMPORT_PATH = lib.concatStringsSep ":" [
+        "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
+        "${pkgs.hicolor-icon-theme}/lib/qt-6/qml"
+      ];
       EDITOR = "nvim";
       VISUAL = "nvim";
       NIXOS_OZONE_WL = "1";
@@ -38,6 +43,21 @@
           DesktopNames=niri
         '';
       };
+      # "xdg/gtk-2.0/gtkrc".text = ''
+      #   gtk-icon-theme-name="hicolor"
+      # '';
+      # "xdg/gtk-3.0/settings.ini".text = ''
+      #   [Settings]
+      #   gtk-icon-theme-name=hicolor
+      # '';
+      # "xdg/gtk-4.0/settings.ini".text = ''
+      #   [Settings]
+      #   gtk-icon-theme-name=hicolor
+      # '';
+      # "xdg/icons/default/index.theme".text = ''
+      #   [Icon Theme]
+      #   Inherits=hicolor
+      # '';
     };
   };
 }

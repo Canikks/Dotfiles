@@ -20,23 +20,26 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    hicolor-icon-theme
+    papirus-icon-theme
+    adw-gtk3
     xdg-desktop-portal-termfilechooser
     inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.niri-unstable
-    (inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight.override {
-      extraPrefsFiles = [
-        (builtins.fetchurl {
-          url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
-          sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
-        })
-      ];
-    })
+    # (inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight.override {
+    #   extraPrefsFiles = [
+    #     (builtins.fetchurl {
+    #       url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
+    #       sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
+    #     })
+    #   ];
+    # })
     # inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
     inputs.nixd.packages.${pkgs.stdenv.hostPlatform.system}.default
     localsend
     libadwaita
     unrar
-    quickshell
+    # quickshell
     inteltool
     nushell
     go
@@ -75,19 +78,18 @@
     alejandra
     # nixd
     wl-clip-persist
-    distrobox
-    distrobox-tui
+    # distrobox
+    # distrobox-tui
     podman
-    boxbuddy
+    # boxbuddy
     greetd
     dbus
     dbus-broker
     nur.repos.Ev357.helium
     fastfetch
     kdePackages.qtmultimedia
-    # libsForQt5.qt5.qtmultimedia
     lutris
-    kdePackages.qt6ct
+    # kdePackages.qt6ct
     gamescope
     wineWowPackages.waylandFull
     xwayland-satellite

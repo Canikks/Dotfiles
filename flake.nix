@@ -32,6 +32,7 @@
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.quickshell.follows = "quickshell";
       inputs.dgop.follows = "dgop";
       inputs.dms-cli.follows = "dms-cli";
     };
@@ -97,7 +98,7 @@
           }
           {programs.nix-index-database.comma.enable = true;}
           {
-            home-manager.useGlobalPkgs = true;
+            home-manager.useGlobalPkgs = false;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.users.utkar = import ./home/utkar/home.nix {

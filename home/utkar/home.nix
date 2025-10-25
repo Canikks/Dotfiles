@@ -1,8 +1,4 @@
-{
-  inputs,
-  # pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.niri.homeModules.niri
     inputs.nix-index-database.homeModules.nix-index
@@ -13,24 +9,33 @@
     ./terminal/ghostty.nix
     ./editor/helix.nix
     ./file-manager/yazi.nix
+    ./home-packages.nix
   ];
   home.stateVersion = "25.05";
   nixpkgs.config = {
     allowUnfree = true;
   };
-  gtk = {
-    gtk3 = {
-      extraConfig = {
-        gtk-theme-name = "Colloid";
-      };
-    };
-    gtk4 = {
-      extraConfig = {
-        gtk-theme-name = "Colloid";
-      };
-    };
-  };
 
+  # gtk = {
+  #   gtk3 = {
+  #     extraConfig = {
+  #       gtk-icon-theme-name = "Papirus-Dark";
+  #       gtk-theme-name = "Colloid";
+  #     };
+  #   };
+  #   gtk4 = {
+  #     extraConfig = {
+  #       gtk-icon-theme-name = "Papirus-Dark";
+  #       gtk-theme-name = "Colloid";
+  #     };
+  #   };
+  # };
+
+  programs.dankMaterialShell = {
+    enable = true;
+    enableSystemSound = true;
+    quickshell.package = inputs.quickshell.packages.x86_64-linux.default;
+  };
   programs.nix-search-tv.enableTelevisionIntegration = true;
   programs.home-manager.enable = true;
   xdg.autostart = {
@@ -41,5 +46,4 @@
     autostart = true;
   };
   programs.fish.enable = true;
-  programs.dankMaterialShell.enable = true;
 }
