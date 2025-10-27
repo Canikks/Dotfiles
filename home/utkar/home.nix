@@ -12,28 +12,19 @@
     ./home-packages.nix
   ];
   home.stateVersion = "25.05";
+  home.shell.enableZshIntegration = true;
   nixpkgs.config = {
     allowUnfree = true;
   };
 
-  # gtk = {
-  #   gtk3 = {
-  #     extraConfig = {
-  #       gtk-icon-theme-name = "Papirus-Dark";
-  #       gtk-theme-name = "Colloid";
-  #     };
-  #   };
-  #   gtk4 = {
-  #     extraConfig = {
-  #       gtk-icon-theme-name = "Papirus-Dark";
-  #       gtk-theme-name = "Colloid";
-  #     };
-  #   };
-  # };
-
   programs.dankMaterialShell = {
     enable = true;
+    enableSystemd = true;
     enableSystemSound = true;
+    enableClipboard = true;
+    enableSystemMonitoring = true;
+    enableBrightnessControl = true;
+    enableColorPicker = true;
     quickshell.package = inputs.quickshell.packages.x86_64-linux.default;
   };
   programs.nix-search-tv.enableTelevisionIntegration = true;

@@ -16,30 +16,25 @@
         ;
     })
     inputs.niri.overlays.niri
+    inputs.nh.overlays.default
+    inputs.ghostty.overlays.releasefast
+    inputs.alejandra.overlays.default
+    inputs.nixd.overlays.default
+    inputs.yazi.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    appimage-run
     hicolor-icon-theme
     papirus-icon-theme
     adw-gtk3
     xdg-desktop-portal-termfilechooser
-    inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ghostty
     pkgs.niri-unstable
-    # (inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight.override {
-    #   extraPrefsFiles = [
-    #     (builtins.fetchurl {
-    #       url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
-    #       sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
-    #     })
-    #   ];
-    # })
-    # inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
-    inputs.nixd.packages.${pkgs.stdenv.hostPlatform.system}.default
     localsend
     libadwaita
     unrar
-    # quickshell
     inteltool
     nushell
     go
@@ -52,7 +47,9 @@
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
     nh
-    # yazi
+    (yazi.override {
+      _7zz = pkgs._7zz-rar;
+    })
     nil
     cmake
     zed-editor-fhs
@@ -76,12 +73,9 @@
     zsh-syntax-highlighting
     ripgrep
     alejandra
-    # nixd
+    nixd
     wl-clip-persist
-    # distrobox
-    # distrobox-tui
     podman
-    # boxbuddy
     greetd
     dbus
     dbus-broker
@@ -89,7 +83,7 @@
     fastfetch
     kdePackages.qtmultimedia
     lutris
-    # kdePackages.qt6ct
+    kdePackages.qt6ct
     gamescope
     wineWowPackages.waylandFull
     xwayland-satellite
@@ -107,7 +101,7 @@
     aria2
     ariang
     fd
-    nix-search-tv
+    inputs.nix-search-tv.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode-json-languageserver
     # (lib.hiPrio pkgs.uutils-coreutils-noprefix)
     upower

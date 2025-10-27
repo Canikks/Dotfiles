@@ -32,7 +32,6 @@
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.quickshell.follows = "quickshell";
       inputs.dgop.follows = "dgop";
       inputs.dms-cli.follows = "dms-cli";
     };
@@ -53,6 +52,22 @@
     nixd = {
       url = "github:nix-community/nixd";
     };
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-search-tv = {
+      url = "github:3timeslazy/nix-search-tv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yazi = {
+      url = "github:sxyazi/yazi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -70,6 +85,9 @@
     nvix,
     nvf,
     nixd,
+    nh,
+    nix-search-tv,
+    alejandra,
     ...
   }: {
     nixosConfigurations = {

@@ -338,7 +338,6 @@
 
     niri = {
       enable = true;
-      # cache.enable = true;
       package = pkgs.niri-unstable;
     };
     television = {
