@@ -19,10 +19,10 @@
       STEAM_RUNTIME_PREFER_HOST_LIBRARIES = "0";
     };
     sessionVariables = {
-      QML2_IMPORT_PATH = lib.concatStringsSep ":" [
-        "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
-        "${pkgs.hicolor-icon-theme}/lib/qt-6/qml"
-      ];
+      # QML2_IMPORT_PATH = lib.concatStringsSep ":" [
+      #   "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
+      #   "${pkgs.hicolor-icon-theme}/lib/qt-6/qml"
+      # ];
       LIBVA_DRIVER_NAME = "iHD";
       TERMINAL = "ghostty";
     };

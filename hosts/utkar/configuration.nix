@@ -10,7 +10,7 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ../../modules/common.nix
+    ../../modules/programs.nix
     ../../modules/services.nix
     ../../modules/environment.nix
     # ../../packages.nix
@@ -45,6 +45,12 @@
   i18n.defaultLocale = "en_GB.UTF-8";
 
   # Ensure en_IN.UTF-8 locale is supported by glibc
+
+  stylix = {
+    enable = true;
+    image = ../../Pictures/maxresdefault.jpg;
+    polarity = "dark";
+  };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";

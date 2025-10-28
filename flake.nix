@@ -68,6 +68,10 @@
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -88,6 +92,7 @@
     nh,
     nix-search-tv,
     alejandra,
+    stylix,
     ...
   }: {
     nixosConfigurations = {
@@ -105,8 +110,8 @@
           nur.modules.nixos.default
           nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
           nvf.nixosModules.default
-          # nvf.homeManagerModules.default
           nix-index-database.nixosModules.nix-index
+          stylix.nixosModules.stylix
           {
             programs.dankMaterialShell.greeter = {
               enable = true;

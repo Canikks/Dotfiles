@@ -10,6 +10,9 @@
     "flakes"
   ];
   programs = {
+    dconf = {
+      enable = true;
+    };
     xwayland = {
       enable = true;
     };
@@ -145,14 +148,14 @@
           statusline = {
             lualine = {
               enable = true;
-              theme = "base16";
+              # theme = "base16";
             };
           };
 
           theme = {
             enable = true;
-            name = "tokyonight";
-            style = "storm";
+            # name = "tokyonight";
+            # style = "storm";
             transparent = true;
           };
 
