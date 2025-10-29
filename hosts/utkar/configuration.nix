@@ -48,7 +48,7 @@
 
   stylix = {
     enable = true;
-    image = ../../Pictures/maxresdefault.jpg;
+    image = ../../Pictures/nebula-thumb.jpg;
     polarity = "dark";
   };
 
