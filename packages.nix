@@ -28,6 +28,10 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    xorg.xrdb
+    wlr-randr
+    bluez
+    fcitx5
     bibata-cursors
     mate.mate-polkit
     gparted

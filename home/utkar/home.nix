@@ -23,6 +23,7 @@
 
   wayland.windowManager.mango = {
     enable = true;
+    # systemd.enable = true;
     # autostart_sh = ''
     #   dms run
     # '';
