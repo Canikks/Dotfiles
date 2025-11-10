@@ -6,9 +6,7 @@
     autosuggestion.enable = true;
     autosuggestion.strategy = ["history" "completion" "match_prev_cmd"];
     enableVteIntegration = true;
-    # zsh-autoenv.enable = true;
     # enableGlobalCompInit = true;
-    # Zsh options
     history.size = 10000;
     setOptions = [
       "HIST_IGNORE_ALL_DUPS"

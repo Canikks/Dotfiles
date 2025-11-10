@@ -46,11 +46,11 @@
 
   # Ensure en_IN.UTF-8 locale is supported by glibc
 
-  stylix = {
-    enable = true;
-    image = ../../Pictures/nebula-thumb.jpg;
-    polarity = "dark";
-  };
+  # stylix = {
+  #   enable = true;
+  #   image = ../../Pictures/nebula-thumb.jpg;
+  #   polarity = "dark";
+  # };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
@@ -80,6 +80,7 @@
   security = {
     polkit = {
       enable = true;
+      # package = pkgs.mate.mate-polkit;
     };
     rtkit = {
       enable = true;
@@ -131,12 +132,12 @@
       extraPackages = with pkgs; [
         mesa
         vaapi-intel-hybrid
-        vaapiIntel
-        vaapiVdpau
+        libva
+        libva-vdpau-driver
+        intel-vaapi-driver
         vpl-gpu-rt
         intel-media-driver
         intel-compute-runtime-legacy1
-        intel-vaapi-driver
       ];
     };
     bluetooth = {

@@ -154,8 +154,8 @@
 
           theme = {
             enable = true;
-            # name = "tokyonight";
-            # style = "storm";
+            name = "tokyonight";
+            style = "storm";
             transparent = true;
           };
 
@@ -357,6 +357,11 @@
           prettyName = "Niri";
           comment = "Niri compositor managed by UWSM";
           binPath = "/run/current-system/sw/bin/niri-session";
+        };
+        waylandCompositors = {
+          prettyName = "Mango";
+          comment = "Mango compositor managed by UWSM";
+          binPath = "/run/current-system/sw/bin/mango";
         };
       };
     };

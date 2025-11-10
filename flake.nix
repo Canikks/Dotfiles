@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mango = {
+      url = "github:DreamMaoMao/mangowc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri.url = "github:sodiboo/niri-flake";
     nvf = {
       url = "github:notashelf/nvf";
@@ -29,11 +33,16 @@
       url = "github:AvengeMedia/danklinux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dsearch = {
+      url = "github:AvengeMedia/danksearch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
       inputs.dms-cli.follows = "dms-cli";
+      inputs.dsearch.follows = "dsearch";
     };
     flake-utils.url = "github:numtide/flake-utils";
     ghostty = {
@@ -72,6 +81,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sine-zen-test = {
+      url = "path:/home/utkar/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -93,6 +106,8 @@
     nix-search-tv,
     alejandra,
     stylix,
+    sine-zen-test,
+    mango,
     ...
   }: {
     nixosConfigurations = {
@@ -112,7 +127,9 @@
           nvf.nixosModules.default
           nix-index-database.nixosModules.nix-index
           stylix.nixosModules.stylix
+          mango.nixosModules.mango
           {
+            programs.mango.enable = true;
             programs.dankMaterialShell.greeter = {
               enable = true;
               compositor.name = "niri"; # or set to hyprland

@@ -21,10 +21,18 @@
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
     inputs.yazi.overlays.default
+    (final: prev: {
+      poppler_utils = prev.poppler-utils;
+    })
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    bibata-cursors
+    mate.mate-polkit
+    gparted
+    zed-editor-fhs
+    floorp-bin
     appimage-run
     hicolor-icon-theme
     papirus-icon-theme
@@ -47,9 +55,9 @@
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
     nh
-    (yazi.override {
-      _7zz = pkgs._7zz-rar;
-    })
+    # (yazi.override {
+    #   _7zz = pkgs._7zz-rar;
+    # })
     nil
     cmake
     zed-editor-fhs
@@ -57,7 +65,7 @@
     neovim
     firefox
     mesa-demos
-    alacritty
+    # alacritty
     gtk4
     gtk3
     nautilus
@@ -82,7 +90,7 @@
     nur.repos.Ev357.helium
     fastfetch
     kdePackages.qtmultimedia
-    lutris
+    lutris-free
     kdePackages.qt6ct
     gamescope
     wineWowPackages.waylandFull
