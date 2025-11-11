@@ -26,6 +26,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    opencode
     slurp
     quickshell
     satty
