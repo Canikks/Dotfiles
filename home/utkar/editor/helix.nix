@@ -12,7 +12,7 @@
       ];
     };
     settings = {
-      # theme = "base16_transparent";
+      theme = "base16_transparent";
       editor = {
         line-number = "relative";
         completion-replace = true;

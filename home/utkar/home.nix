@@ -50,6 +50,14 @@
     enable = true;
     autostart = true;
   };
+  programs.tealdeer = {
+    settings = {
+      updates = {
+        auto_update = true;
+      };
+    };
+  };
+
   programs.fish.enable = true;
   # Provide SSH key files declaratively
   # home.file.".ssh/id_ed25519".source = /home/utkar/.dotfiles/keys/id_ed25519;

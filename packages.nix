@@ -21,13 +21,19 @@
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
     inputs.yazi.overlays.default
-    (final: prev: {
-      poppler_utils = prev.poppler-utils;
-    })
+    inputs.quickshell.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    slurp
+    quickshell
+    satty
+    grim
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
+    util-linux
+    tealdeer
     xorg.xrdb
     wlr-randr
     bluez
@@ -41,7 +47,6 @@
     hicolor-icon-theme
     papirus-icon-theme
     adw-gtk3
-    xdg-desktop-portal-termfilechooser
     ghostty
     pkgs.niri-unstable
     localsend
@@ -59,9 +64,9 @@
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
     nh
-    # (yazi.override {
-    #   _7zz = pkgs._7zz-rar;
-    # })
+    (yazi.override {
+      _7zz = pkgs._7zz-rar;
+    })
     nil
     cmake
     zed-editor-fhs
@@ -94,7 +99,7 @@
     nur.repos.Ev357.helium
     fastfetch
     kdePackages.qtmultimedia
-    lutris-free
+    lutris
     kdePackages.qt6ct
     gamescope
     wineWowPackages.waylandFull

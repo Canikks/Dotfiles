@@ -5,6 +5,7 @@
 }: {
   programs.yazi = {
     enable = true;
+    package = pkgs.yazi;
     enableZshIntegration = true;
     extraPackages = with pkgs; [
       yaziPlugins.yatline
@@ -119,7 +120,8 @@
         }
         {
           on = ["M"];
-          run = "Plugin mount";
+          run = "plugin mount";
+          desc = "Open mount menu";
         }
         {
           on = ["R" "b"];

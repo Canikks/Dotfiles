@@ -28,7 +28,17 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_cachyos-lto;
-    kernelModules = ["intel_pstate" "msr" "coretemp"];
+    kernelModules = ["intel_pstate" "msr" "coretemp" "tcp_bbr"];
+    kernel = {
+      sysctl = {
+        "net.core.default_qdisc" = "fq";
+        "net.ipv4.tcp_congestion_control" = "bbr";
+        "net.core.wmem_max" = 1073741824;
+        "net.core.rmem_max" = 1073741824;
+        "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
+        "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
+      };
+    };
   };
 
   networking.hostName = "utkar"; # Define your hostname.
@@ -74,13 +84,20 @@
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
       ];
+      config = {
+        common = {
+          defaults = [
+            "wlr"
+            "gtk"
+          ];
+        };
+      };
     };
   };
 
   security = {
     polkit = {
       enable = true;
-      # package = pkgs.mate.mate-polkit;
     };
     rtkit = {
       enable = true;
@@ -109,6 +126,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "flatpak"
       "networkmanager"
       "wheel"
       "podman"
@@ -172,11 +190,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # nix.settings.experimental-features = [
-  #   "nix-command"
-  #   "flakes"
-  # ];
 
   nix.settings = {
     extra-substituters = ["https://yazi.cachix.org"];
