@@ -41,8 +41,8 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
-      inputs.dms-cli.follows = "dms-cli";
-      inputs.dsearch.follows = "dsearch";
+      # inputs.dms-cli.follows = "dms-cli";
+      # inputs.dsearch.follows = "dsearch";
     };
     flake-utils.url = "github:numtide/flake-utils";
     ghostty = {
@@ -81,10 +81,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sine-zen-test = {
-      url = "path:/home/utkar/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
@@ -105,7 +101,6 @@
     nix-search-tv,
     alejandra,
     stylix,
-    sine-zen-test,
     mango,
     ...
   }: {

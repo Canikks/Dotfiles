@@ -178,11 +178,11 @@
 
           snippets.luasnip.enable = true;
 
-          filetree = {
-            neo-tree = {
-              enable = true;
-            };
-          };
+          # filetree = {
+          #   neo-tree = {
+          #     enable = true;
+          #   };
+          # };
 
           tabline = {
             nvimBufferline.enable = true;

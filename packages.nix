@@ -22,10 +22,14 @@
     inputs.nixd.overlays.default
     inputs.yazi.overlays.default
     inputs.quickshell.overlays.default
+    inputs.chaotic.overlays.cache-friendly
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    onlyoffice-desktopeditors
+    jq
+    ollama
     opencode
     slurp
     quickshell
@@ -102,7 +106,7 @@
     kdePackages.qtmultimedia
     lutris
     kdePackages.qt6ct
-    gamescope
+    gamescope_git
     wineWowPackages.waylandFull
     xwayland-satellite
     libx11

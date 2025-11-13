@@ -15,6 +15,7 @@
       yaziPlugins.recycle-bin
       trash-cli
       yaziPlugins.sudo
+      yaziPlugins.diff
     ];
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
@@ -23,6 +24,7 @@
       mount = pkgs.yaziPlugins.mount;
       recycle-bin = pkgs.yaziPlugins.recycle-bin;
       sudo = pkgs.yaziPlugins.sudo;
+      diff = pkgs.yaziPlugins.diff;
     };
     initLua = ''
             require("yatline"):setup({
@@ -178,6 +180,11 @@
           for = "unix";
           run = ''shell "$SHELL" --block'';
           desc = "Open $SHELL here";
+        }
+        {
+          on = ["D" "s"];
+          run = "plugin diff";
+          desc = "Diff the selected with the hovered file";
         }
       ];
     };

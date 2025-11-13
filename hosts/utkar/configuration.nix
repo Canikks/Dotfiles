@@ -13,7 +13,6 @@
     ../../modules/programs.nix
     ../../modules/services.nix
     ../../modules/environment.nix
-    # ../../packages.nix
     ../../hardware-configuration.nix
   ];
 
@@ -55,12 +54,6 @@
   i18n.defaultLocale = "en_GB.UTF-8";
 
   # Ensure en_IN.UTF-8 locale is supported by glibc
-
-  # stylix = {
-  #   enable = true;
-  #   image = ../../Pictures/nebula-thumb.jpg;
-  #   polarity = "dark";
-  # };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
@@ -193,7 +186,6 @@
 
   nix.settings = {
     extra-substituters = ["https://yazi.cachix.org"];
-
     # trust the public key that signs that cache
     extra-trusted-public-keys = [
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
