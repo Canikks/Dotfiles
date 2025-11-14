@@ -37,7 +37,7 @@
       "romkatv/powerlevel10k"
     ];
 
-    initContent = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
+    # initContent = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
     prezto = {
       enable = true;
       color = true;

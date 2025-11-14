@@ -122,15 +122,7 @@
           nix-index-database.nixosModules.nix-index
           stylix.nixosModules.stylix
           mango.nixosModules.mango
-          {
-            programs.mango.enable = true;
-            programs.dankMaterialShell.greeter = {
-              enable = true;
-              compositor.name = "niri"; # or set to hyprland
-              configHome = "/home/utkar"; # optionally copyies that users DMS settings (and wallpaper if set) to the greeters data directory as root before greeter starts
-            };
-          }
-          {programs.nix-index-database.comma.enable = true;}
+          # {programs.nix-index-database.comma.enable = true;}
           {
             home-manager.useGlobalPkgs = false;
             home-manager.useUserPackages = true;

@@ -10,6 +10,15 @@
     "flakes"
   ];
   programs = {
+    nix-index-database.comma.enable = true;
+    dankMaterialShell.greeter = {
+      enable = true;
+      compositor.name = "niri"; # or set to hyprland
+      configHome = "/home/utkar"; # optionally copyies that users DMS settings (and wallpaper if set) to the greeters data directory as root before greeter starts
+    };
+    mango = {
+      enable = true;
+    };
     dconf = {
       enable = true;
     };
@@ -371,6 +380,7 @@
     };
     gamescope = {
       enable = true;
+      package = pkgs.gamescope_git;
     };
     gamemode = {
       enable = true;
