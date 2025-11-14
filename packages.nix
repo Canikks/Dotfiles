@@ -27,6 +27,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    starship
     onlyoffice-desktopeditors
     jq
     ollama

@@ -34,7 +34,7 @@
       "zdharma-continuum/fast-syntax-highlighting kind:defer"
       "zsh-users/zsh-completions kind:fpath path:src"
       "zsh-users/zsh-history-substring-search"
-      "romkatv/powerlevel10k"
+      # "romkatv/powerlevel10k"
     ];
 
     # initContent = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";

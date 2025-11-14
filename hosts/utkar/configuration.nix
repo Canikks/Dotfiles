@@ -67,6 +67,12 @@
     LC_TIME = "en_IN";
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [nerd-fonts.jetbrains-mono nerd-fonts.caskaydia-cove];
+    fontDir.enable = true;
+  };
+
   xdg = {
     autostart = {
       enable = true;

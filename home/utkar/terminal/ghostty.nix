@@ -3,6 +3,7 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
+      font-family = "CankaydiaCove Nerd Font Propo";
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;
