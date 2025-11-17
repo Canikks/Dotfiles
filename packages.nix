@@ -27,6 +27,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    papirus-icon-theme
     starship
     onlyoffice-desktopeditors
     jq
@@ -105,7 +106,9 @@
     nur.repos.Ev357.helium
     fastfetch
     kdePackages.qtmultimedia
-    lutris
+    (lutris.override {
+      extraPkgs = pkgs: [proton-cachyos];
+    })
     kdePackages.qt6ct
     gamescope_git
     wineWowPackages.waylandFull

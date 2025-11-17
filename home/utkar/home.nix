@@ -24,8 +24,13 @@
 
   programs.dankMaterialShell = {
     enable = true;
+    default.settings = {
+      theme = "dark";
+      dynamicTheming = true;
+    };
     niri = {
       enableSpawn = true;
+      enableKeybinds = true;
     };
     # systemd = {
     #   enable = true;
@@ -56,6 +61,4 @@
       };
     };
   };
-
-  programs.fish.enable = true;
 }

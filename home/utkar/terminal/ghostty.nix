@@ -9,7 +9,7 @@
       window-padding-y = 12;
       background-opacity = 0.90;
       background-blur-radius = 32;
-      custom-shader = "/home/utkar/.config/ghostty/ghostty-shader-playground/public/shaders/cursor_smear.glsl";
+      custom-shader = "/home/utkar/.config/ghostty/cursor_smear.glsl";
       config-file = "/home/utkar/.config/ghostty/config-dankcolors";
       cursor-style = "block";
       unfocused-split-opacity = 0.7;
@@ -17,7 +17,7 @@
       gtk-titlebar = false;
       # gtk-toolbar-style = "flat";
       shell-integration = "detect";
-      shell-integration-features = "cursor,sudo,title,no-cursor";
+      shell-integration-features = "sudo,title,no-cursor";
     };
   };
 }

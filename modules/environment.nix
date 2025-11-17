@@ -7,9 +7,9 @@
   environment = {
     pathsToLink = ["/share/zsh"];
     variables = {
-      # QML2_IMPORT_PATH = lib.concatStringsSep ":" [
-      #   "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
-      # ];
+      QML2_IMPORT_PATH = lib.concatStringsSep ":" [
+        "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
+      ];
       EDITOR = "nvim";
       VISUAL = "nvim";
       NIXOS_OZONE_WL = "1";
@@ -18,9 +18,6 @@
       STEAM_RUNTIME_PREFER_HOST_LIBRARIES = "0";
     };
     sessionVariables = {
-      QML2_IMPORT_PATH = lib.concatStringsSep ":" [
-        "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
-      ];
       LIBVA_DRIVER_NAME = "iHD";
       TERMINAL = "ghostty";
     };
@@ -35,16 +32,6 @@
           });
         '';
       };
-      # "xdg/wayland-sessions/niri.desktop" = {
-      #   text = ''
-      #     [Desktop Entry]
-      #     Name=Niri
-      #     Comment=Niri Wayland Compositor
-      #     Exec=${pkgs.dbus}/bin/dbus-run-session ${pkgs.niri}/bin/niri-session
-      #     Type=Application
-      #     DesktopNames=niri
-      #   '';
-      # };
     };
   };
 }

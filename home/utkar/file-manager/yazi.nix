@@ -16,6 +16,7 @@
       trash-cli
       yaziPlugins.sudo
       yaziPlugins.diff
+      yaziPlugins.rsync
     ];
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
@@ -25,6 +26,7 @@
       recycle-bin = pkgs.yaziPlugins.recycle-bin;
       sudo = pkgs.yaziPlugins.sudo;
       diff = pkgs.yaziPlugins.diff;
+      rsync = pkgs.yaziPlugins.rsync;
     };
     initLua = ''
             require("yatline"):setup({
@@ -185,6 +187,11 @@
           on = ["D" "s"];
           run = "plugin diff";
           desc = "Diff the selected with the hovered file";
+        }
+        {
+          on = ["R" "s"];
+          run = "plugin rsync";
+          desc = "Copy files using rsync";
         }
       ];
     };

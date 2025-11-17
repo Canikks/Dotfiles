@@ -19,14 +19,23 @@
   # Bootloader.
   boot = {
     loader = {
-      systemd-boot = {
+      # systemd-boot = {
+      #   enable = true;
+      # };
+      limine = {
+        # biosSupport = true;
         enable = true;
+        efiSupport = true;
+        efiInstallAsRemovable = true;
+        style = {
+          wallpapers = [../../Pictures/1140x641.jpg];
+        };
       };
       efi = {
         canTouchEfiVariables = true;
       };
     };
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelModules = ["intel_pstate" "msr" "coretemp" "tcp_bbr"];
     kernel = {
       sysctl = {
