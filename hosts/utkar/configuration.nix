@@ -200,8 +200,10 @@
   # networking.firewall.enable = false;
 
   nix.settings = {
+    substituters = ["https://watersucks.cachix.org"];
     extra-substituters = ["https://yazi.cachix.org"];
     # trust the public key that signs that cache
+    trusted-public-keys = ["watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="];
     extra-trusted-public-keys = [
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
     ];

@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  # niri,
   inputs,
   ...
 }: {
@@ -22,11 +21,13 @@
     inputs.nixd.overlays.default
     inputs.yazi.overlays.default
     inputs.quickshell.overlays.default
-    inputs.chaotic.overlays.cache-friendly
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    easyeffects
+    taplo
+    lazygit
     papirus-icon-theme
     starship
     onlyoffice-desktopeditors
@@ -51,8 +52,6 @@
     zed-editor-fhs
     floorp-bin
     appimage-run
-    hicolor-icon-theme
-    papirus-icon-theme
     adw-gtk3
     ghostty
     pkgs.niri-unstable
@@ -78,10 +77,8 @@
     cmake
     zed-editor-fhs
     wget
-    neovim
     firefox
     mesa-demos
-    # alacritty
     gtk4
     gtk3
     nautilus

@@ -41,8 +41,6 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
-      # inputs.dms-cli.follows = "dms-cli";
-      # inputs.dsearch.follows = "dsearch";
     };
     flake-utils.url = "github:numtide/flake-utils";
     ghostty = {
@@ -89,6 +87,7 @@
     home-manager,
     niri,
     dankMaterialShell,
+    dsearch,
     ghostty,
     zen-browser,
     nur,

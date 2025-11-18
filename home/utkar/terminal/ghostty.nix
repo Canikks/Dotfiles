@@ -17,7 +17,7 @@
       gtk-titlebar = false;
       # gtk-toolbar-style = "flat";
       shell-integration = "detect";
-      shell-integration-features = "sudo,title,no-cursor";
+      shell-integration-features = "sudo,title,cursor";
     };
   };
 }

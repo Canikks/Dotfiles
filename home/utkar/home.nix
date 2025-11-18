@@ -5,6 +5,7 @@
     inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     inputs.mango.hmModules.mango
+    inputs.dsearch.homeModules.default
     ./shell/zsh.nix
     ./terminal/ghostty.nix
     ./editor/helix.nix
@@ -14,12 +15,23 @@
   ];
   home.stateVersion = "25.05";
   home.shell.enableZshIntegration = true;
+  home.shell.enableBashIntegration = true;
   nixpkgs.config = {
     allowUnfree = true;
   };
 
   wayland.windowManager.mango = {
     enable = true;
+  };
+
+  programs.dsearch = {
+    enable = true;
+    # config = ''
+    #   [[index_paths]]
+    #   path = "/home/utkar"
+    #   max_depth = 0
+    #   exclude_hidden = false
+    # '';
   };
 
   programs.dankMaterialShell = {
@@ -32,10 +44,6 @@
       enableSpawn = true;
       enableKeybinds = true;
     };
-    # systemd = {
-    #   enable = true;
-    #   restartIfChanged = true;
-    # };
     enableSystemSound = true;
     enableClipboard = true;
     enableSystemMonitoring = true;

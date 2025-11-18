@@ -39,7 +39,7 @@
           };
 
           options = {
-            autoindent = true;
+            autoindent = false;
             shiftwidth = 2;
             tabstop = 2;
             softtabstop = 2;
@@ -82,6 +82,7 @@
 
             # Languages that will be supported in default and maximal configurations.
             nix = {
+              treesitter.enable = true;
               enable = true;
               format.enable = true;
               lsp.server = "nixd";
