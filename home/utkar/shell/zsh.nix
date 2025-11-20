@@ -36,14 +36,14 @@
       "zsh-users/zsh-history-substring-search"
     ];
 
-    # prezto = {
-    #   enable = true;
-    #   color = true;
-    #   editor = {
-    #     dotExpansion = true;
-    #     keymap = "vi";
-    #     promptContext = true;
-    #   };
-    # };
+    prezto = {
+      enable = true;
+      color = true;
+      editor = {
+        dotExpansion = false;
+        keymap = "vi";
+        promptContext = true;
+      };
+    };
   };
 }

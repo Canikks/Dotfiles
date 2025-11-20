@@ -43,6 +43,10 @@
       inputs.dgop.follows = "dgop";
     };
     flake-utils.url = "github:numtide/flake-utils";
+    rio = {
+      url = "github:raphamorim/rio/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ghostty = {
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -88,6 +92,7 @@
     niri,
     dankMaterialShell,
     dsearch,
+    rio,
     ghostty,
     zen-browser,
     nur,

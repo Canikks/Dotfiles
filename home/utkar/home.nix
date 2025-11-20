@@ -26,12 +26,6 @@
 
   programs.dsearch = {
     enable = true;
-    # config = ''
-    #   [[index_paths]]
-    #   path = "/home/utkar"
-    #   max_depth = 0
-    #   exclude_hidden = false
-    # '';
   };
 
   programs.dankMaterialShell = {
@@ -39,10 +33,6 @@
     default.settings = {
       theme = "dark";
       dynamicTheming = true;
-    };
-    niri = {
-      enableSpawn = true;
-      enableKeybinds = true;
     };
     enableSystemSound = true;
     enableClipboard = true;
@@ -58,6 +48,18 @@
   xdg.autostart = {
     enable = true;
   };
+
+  xdg = {
+    configFile."mango" = {
+      source = ./mango;
+      recursive = true;
+    };
+  };
+
+  # services.easyeffects = {
+  #   enable = true;
+  # };
+
   programs.keepassxc = {
     enable = true;
     autostart = true;

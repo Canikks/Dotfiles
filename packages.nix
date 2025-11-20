@@ -17,6 +17,7 @@
     inputs.niri.overlays.niri
     inputs.nh.overlays.default
     inputs.ghostty.overlays.releasefast
+    inputs.rio.overlays.default
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
     inputs.yazi.overlays.default

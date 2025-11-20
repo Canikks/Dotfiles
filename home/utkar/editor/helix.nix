@@ -9,6 +9,11 @@
           language-servers = ["nixd"];
           formatter = {command = "alejandra";};
         }
+        {
+          name = "toml";
+          language-servers = ["taplo"];
+          formatter = {command = "taplo format";};
+        }
       ];
     };
     settings = {

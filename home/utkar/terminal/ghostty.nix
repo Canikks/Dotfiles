@@ -17,7 +17,8 @@
       gtk-titlebar = false;
       # gtk-toolbar-style = "flat";
       shell-integration = "detect";
-      shell-integration-features = "sudo,title,cursor";
+      shell-integration-features = "sudo,title,no-cursor";
     };
   };
+  xdg.configFile."ghostty/cursor_smear.glsl".source = ./cursor_smear.glsl;
 }
