@@ -5,9 +5,9 @@ A comprehensive, modular NixOS configuration with Home Manager for a modern Wayl
 ## Overview
 
 This repository contains a complete NixOS system configuration featuring:
-- **Window Manager**: Niri (Wayland compositor) with Mango window manager
-- **Shell**: Zsh with Fish shell support
-- **Terminal**: Ghostty
+- **Window Manager**: Niri (Wayland compositor) with Mango window manager and custom automation scripts
+- **Shell**: Zsh with Starship prompt and Fish shell support
+- **Terminal**: Ghostty with custom cursor shader
 - **Editor**: Helix and Neovim with comprehensive LSP setup
 - **File Manager**: Yazi
 - **Theme System**: Stylix for consistent theming
@@ -25,13 +25,34 @@ dotfiles/
 ├── hosts/utkar/                 # Host-specific system configuration
 │   └── configuration.nix        # Main system-level config (boot, networking, services)
 │
-├── home/utkar/                  # User-level Home Manager configuration  
+├── home/utkar/                  # User-level Home Manager configuration
 │   ├── home.nix                 # Main home manager config
 │   ├── home-packages.nix        # Additional user packages
 │   ├── editor/helix.nix         # Helix editor configuration
 │   ├── file-manager/yazi.nix    # Yazi file manager configuration
-│   ├── shell/zsh.nix            # Zsh shell configuration
-│   └── terminal/ghostty.nix     # Ghostty terminal configuration
+│   ├── mango/                   # Mango window manager configuration
+│   │   ├── scripts/             # Utility scripts for Mango
+│   │   │   ├── brightness.sh    # Screen brightness control
+│   │   │   ├── exitdim.sh       # Exit dimming script
+│   │   │   ├── hide_waybar_mango.sh # Waybar toggle for Mango
+│   │   │   ├── idle.sh          # Idle management
+│   │   │   ├── monitor.sh       # Monitor configuration
+│   │   │   ├── restart_wlsunset.sh # Wlsunset restart
+│   │   │   ├── virmon.sh        # Virtual monitor setup
+│   │   │   └── volume.sh        # Audio volume control
+│   │   ├── autostart.sh         # Auto-start applications
+│   │   ├── bind.conf            # Key bindings configuration
+│   │   ├── config.conf          # Main Mango configuration
+│   │   ├── env.conf             # Environment variables
+│   │   └── rule.conf            # Window rules
+│   ├── shell/                   # Shell configuration
+│   │   ├── prompt/              # Shell prompt configuration
+│   │   │   ├── starship.nix     # Starship prompt Home Manager config
+│   │   │   └── starship.toml    # Starship prompt configuration
+│   │   └── zsh.nix              # Zsh shell configuration
+│   └── terminal/                # Terminal configuration
+│       ├── cursor_smear.glsl    # Cursor shader for Ghostty
+│       └── ghostty.nix          # Ghostty terminal configuration
 │
 ├── modules/                     # Reusable configuration modules
 │   ├── environment.nix          # Environment variables and paths
@@ -56,11 +77,17 @@ dotfiles/
 - **XDG**: Portal support for Wayland (wlr, gtk backends)
 
 ### Home Manager Configuration (`home/utkar/home.nix`)
-- **Window Manager**: Mango (Wayland) with UWSM integration
-- **Shell**: Zsh with Fish shell support
+- **Window Manager**: Mango (Wayland) with UWSM integration and custom scripts
+- **Shell**: Zsh with Starship prompt and Fish shell support
 - **Database**: KeePassXC with auto-start
 - **CLI Tools**: Tealdeer with auto-updates, nix-index integration
 - **Nix Integration**: Home Manager with backup file extensions
+
+### Mango Window Manager Configuration (`home/utkar/mango/`)
+- **Core Configuration**: Window management, key bindings, and environment setup
+- **Utility Scripts**: Brightness control, volume management, monitor configuration
+- **Automation**: Auto-start applications, idle management, and Waybar integration
+- **Window Rules**: Custom rules for application behavior and placement
 
 ### Modular Program Configuration (`modules/programs.nix`)
 - **Neovim (nvf)**: Comprehensive development setup with:
