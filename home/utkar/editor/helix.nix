@@ -1,7 +1,7 @@
 {config, ...}: {
   programs.helix = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     languages = {
       language = [
         {
@@ -20,6 +20,7 @@
       theme = "base16_transparent";
       editor = {
         line-number = "relative";
+        bufferline = "always";
         completion-replace = true;
         lsp.display-messages = true;
         whitespace.render = "all";

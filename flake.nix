@@ -17,6 +17,10 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -100,6 +104,7 @@
     nix-index-database,
     quickshell,
     nvf,
+    helix,
     nixd,
     nh,
     nix-search-tv,
@@ -126,14 +131,12 @@
           nix-index-database.nixosModules.nix-index
           stylix.nixosModules.stylix
           mango.nixosModules.mango
-          # {programs.nix-index-database.comma.enable = true;}
           {
-            home-manager.useGlobalPkgs = false;
+            home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.utkar = import ./home/utkar/home.nix {
-              inherit inputs;
-            };
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.users.utkar = import ./home/utkar/home.nix;
           }
         ];
       };

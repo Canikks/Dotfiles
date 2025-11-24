@@ -7,17 +7,6 @@
     enable = true;
     package = pkgs.yazi;
     enableZshIntegration = true;
-    extraPackages = with pkgs; [
-      yaziPlugins.yatline
-      yaziPlugins.yatline-githead
-      yaziPlugins.full-border
-      yaziPlugins.mount
-      yaziPlugins.recycle-bin
-      trash-cli
-      yaziPlugins.sudo
-      yaziPlugins.diff
-      yaziPlugins.rsync
-    ];
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
       yatline-githead = pkgs.yaziPlugins.yatline-githead;
@@ -27,6 +16,7 @@
       sudo = pkgs.yaziPlugins.sudo;
       diff = pkgs.yaziPlugins.diff;
       rsync = pkgs.yaziPlugins.rsync;
+      lazygit = pkgs.yaziPlugins.lazygit;
     };
     initLua = ''
             require("yatline"):setup({
@@ -65,7 +55,6 @@
                     			{type = "line", custom = false, name = "tabs", params = {"left"}},
             			},
             			section_b = {
-                          {type = "coloreds", custom = false, name = "githead"},
             			},
             			section_c = {
             			}
@@ -109,7 +98,6 @@
             		}
             	},
             })
-      require("yatline-githead"):setup()
       require("full-border"):setup {
       	type = ui.Border.ROUNDED,
       }
@@ -192,6 +180,11 @@
           on = ["R" "s"];
           run = "plugin rsync";
           desc = "Copy files using rsync";
+        }
+        {
+          on = ["g" "i"];
+          run = "plugin lazygit";
+          desc = "run lazygit";
         }
       ];
     };

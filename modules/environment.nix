@@ -10,8 +10,8 @@
       QML2_IMPORT_PATH = lib.concatStringsSep ":" [
         "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
       ];
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "hx";
+      VISUAL = "hx";
       NIXOS_OZONE_WL = "1";
       OZONE_PLATFORM = "wayland";
       STEAM_USE_NATIVE_LIBRARIES = "1";

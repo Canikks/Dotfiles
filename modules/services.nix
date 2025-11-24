@@ -12,7 +12,7 @@
     };
     aria2 = {
       enable = true;
-      rpcSecretFile = "/home/utkar/secret-rpc.txt";
+      rpcSecretFile = "/home/utkar/Dotfiles/modules/secret-rpc.txt";
       openPorts = true;
       settings = {
         enable-rpc = true;

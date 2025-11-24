@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.niri.homeModules.niri
     inputs.nix-index-database.homeModules.nix-index
@@ -10,8 +14,9 @@
     ./terminal/ghostty.nix
     ./editor/helix.nix
     ./file-manager/yazi.nix
-    ./home-packages.nix
+    # ./home-packages.nix
     ./shell/prompt/starship.nix
+    # ./multiplexer/zellij.nix
   ];
   home.stateVersion = "25.05";
   home.shell.enableZshIntegration = true;
@@ -41,7 +46,7 @@
     enableDynamicTheming = true;
     enableAudioWavelength = true;
     enableColorPicker = true;
-    quickshell.package = inputs.quickshell.packages.x86_64-linux.default;
+    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
   programs.nix-search-tv.enableTelevisionIntegration = true;
   programs.home-manager.enable = true;
@@ -70,5 +75,9 @@
         auto_update = true;
       };
     };
+  };
+  programs.lazygit = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

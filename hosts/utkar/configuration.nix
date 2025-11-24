@@ -6,6 +6,7 @@
   pkgs,
   lib,
   inputs,
+  chaotic,
   ...
 }: {
   imports = [
@@ -14,6 +15,7 @@
     ../../modules/services.nix
     ../../modules/environment.nix
     ../../hardware-configuration.nix
+    ../../modules/nvf-nvim.nix
   ];
 
   # Bootloader.
@@ -35,8 +37,8 @@
         canTouchEfiVariables = true;
       };
     };
-    kernelPackages = pkgs.linuxPackages_cachyos;
-    kernelModules = ["intel_pstate" "msr" "coretemp" "tcp_bbr"];
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelModules = ["intel_pstate" "msr" "coretemp" "tcp_bbr" "kvm_intel"];
     kernel = {
       sysctl = {
         "net.core.default_qdisc" = "fq";
@@ -115,6 +117,10 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware}"
+  ];
+
   # virtualisation.containers.enable = true;
   virtualisation = {
     containers = {
@@ -138,9 +144,19 @@
       "networkmanager"
       "wheel"
       "podman"
+      "libvirtd"
+      "kvm"
+      "video"
+      "audio"
     ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
+  };
+
+  chaotic.nyx = {
+    cache.enable = true;
+    nixPath.enable = true;
+    overlay.enable = true;
   };
 
   # Allow unfree packages

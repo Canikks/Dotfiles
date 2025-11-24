@@ -20,12 +20,28 @@
     inputs.rio.overlays.default
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
-    inputs.yazi.overlays.default
+    # inputs.yazi.overlays.default
     inputs.quickshell.overlays.default
+    inputs.helix.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    devenv
+    xdg-ninja
+    yaziPlugins.lazygit
+    yaziPlugins.yatline
+    yaziPlugins.yatline-githead
+    yaziPlugins.full-border
+    yaziPlugins.mount
+    yaziPlugins.recycle-bin
+    trash-cli
+    yaziPlugins.sudo
+    yaziPlugins.diff
+    yaziPlugins.rsync
+    qemu_kvm
+    libvirt
+    virt-manager
     easyeffects
     taplo
     lazygit
@@ -55,7 +71,7 @@
     appimage-run
     adw-gtk3
     ghostty
-    pkgs.niri-unstable
+    niri-unstable
     localsend
     libadwaita
     unrar
