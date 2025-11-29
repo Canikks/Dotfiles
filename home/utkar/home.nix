@@ -14,7 +14,6 @@
     ./terminal/ghostty.nix
     ./editor/helix.nix
     ./file-manager/yazi.nix
-    # ./home-packages.nix
     ./shell/prompt/starship.nix
     # ./multiplexer/zellij.nix
   ];
@@ -65,9 +64,14 @@
     };
   };
 
-  # services.easyeffects = {
-  #   enable = true;
-  # };
+  services.easyeffects = {
+    enable = true;
+  };
+
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.keepassxc = {
     enable = true;

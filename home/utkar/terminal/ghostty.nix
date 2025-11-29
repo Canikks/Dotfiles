@@ -11,7 +11,10 @@
       window-padding-y = 12;
       background-opacity = 0.90;
       background-blur-radius = 32;
-      custom-shader = "/home/utkar/.config/ghostty/cursor_smear.glsl";
+      custom-shader = [
+        "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
+        "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"
+      ];
       config-file = "/home/utkar/.config/ghostty/config-dankcolors";
       cursor-style = "block";
       unfocused-split-opacity = 0.7;
@@ -22,5 +25,8 @@
       shell-integration-features = "sudo,title,no-cursor";
     };
   };
-  xdg.configFile."ghostty/cursor_smear.glsl".source = ./cursor_smear.glsl;
+  xdg.configFile."ghostty/shaders" = {
+    source = ./shaders;
+    recursive = true;
+  };
 }

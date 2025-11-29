@@ -34,6 +34,8 @@
     qutebrowser
     devenv
     xdg-ninja
+    rich-cli
+    yaziPlugins.rich-preview
     yaziPlugins.lazygit
     yaziPlugins.yatline
     yaziPlugins.yatline-githead

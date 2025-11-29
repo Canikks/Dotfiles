@@ -36,11 +36,7 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
-      "intel_pstate"
-      "msr"
-      "coretemp"
       "tcp_bbr"
-      "kvm_intel"
     ];
     kernel = {
       sysctl = {
@@ -173,24 +169,9 @@
   nixpkgs.config.allowUnfree = true;
 
   hardware = {
-    cpu = {
-      intel = {
-        updateMicrocode = true;
-      };
-    };
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        mesa
-        vaapi-intel-hybrid
-        libva
-        libva-vdpau-driver
-        intel-vaapi-driver
-        vpl-gpu-rt
-        intel-media-driver
-        intel-compute-runtime-legacy1
-      ];
     };
     bluetooth = {
       enable = true;

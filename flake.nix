@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     mango = {
       url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -98,6 +99,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixos-hardware,
     niri,
     dankMaterialShell,
     dsearch,
@@ -138,6 +140,9 @@
           nix-index-database.nixosModules.nix-index
           stylix.nixosModules.stylix
           mango.nixosModules.mango
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-pc-laptop-ssd
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

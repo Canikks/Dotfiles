@@ -7,7 +7,6 @@
   # Common reusable configuration for all systems (useful if you ever add another host)
   nix.settings.experimental-features = [
     "nix-command"
-
     "flakes"
   ];
 

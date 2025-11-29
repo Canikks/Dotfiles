@@ -17,6 +17,25 @@
       diff = pkgs.yaziPlugins.diff;
       rsync = pkgs.yaziPlugins.rsync;
       lazygit = pkgs.yaziPlugins.lazygit;
+      rich-preview = pkgs.yaziPlugins.rich-preview;
+    };
+    settings = {
+      plugin = {
+        prepand_previewers = [
+          {
+            name = "*.csv";
+            run = "rich-preview";
+          }
+          {
+            name = "*.md";
+            run = "rich-preview";
+          }
+          {
+            name = "*.nix";
+            run = "rich-preview";
+          }
+        ];
+      };
     };
     initLua = ''
             require("yatline"):setup({
