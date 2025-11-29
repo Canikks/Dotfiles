@@ -2,6 +2,8 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+    installBatSyntax = true;
+    systemd.enable = true;
     settings = {
       font-family = "CankaydiaCove Nerd Font Propo";
       window-decoration = false;

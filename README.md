@@ -111,7 +111,8 @@ dotfiles/
 ## Package Sources
 
 The flake includes numerous community inputs:
-- `nixpkgs` - NixOS packages (unstable channel)
+- `nixpkgs` - NixOS packages (stable channel)
+- `unstable-nixpkgs` - NixOS packages (unstable channel)
 - `home-manager` - User environment management
 - `niri` - Wayland compositor
 - `nvf` - Neovim configuration framework

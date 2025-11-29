@@ -10,6 +10,8 @@
       QML2_IMPORT_PATH = lib.concatStringsSep ":" [
         "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
       ];
+      SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";
+      NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";
       EDITOR = "hx";
       VISUAL = "hx";
       NIXOS_OZONE_WL = "1";

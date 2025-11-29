@@ -1,5 +1,9 @@
 {config, ...}: {
   services = {
+    flatpak = {
+      enable = true;
+    };
+
     xserver = {
       xkb = {
         layout = "us";
@@ -10,6 +14,7 @@
         "modesetting"
       ];
     };
+
     aria2 = {
       enable = true;
       rpcSecretFile = "/home/utkar/Dotfiles/modules/secret-rpc.txt";
@@ -21,15 +26,19 @@
         rpc-allow-origin-all = true;
       };
     };
+
     gvfs = {
       enable = true;
     };
+
     udisks2 = {
       enable = true;
     };
+
     dbus = {
       enable = true;
     };
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -37,6 +46,7 @@
       pulse.enable = true;
       jack.enable = true;
     };
+
     scx = {
       enable = true;
       scheduler = "scx_lavd";
@@ -44,24 +54,27 @@
         "--autopilot"
       ];
     };
-    bpftune = {
-      enable = true;
-    };
+
     psd = {
       enable = true;
     };
+
     geoclue2 = {
       enable = true;
     };
+
     upower = {
       enable = true;
     };
+
     thermald = {
       enable = true;
     };
+
     tlp = {
       enable = false;
     };
+
     power-profiles-daemon = {
       enable = true;
     };

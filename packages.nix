@@ -23,10 +23,15 @@
     # inputs.yazi.overlays.default
     inputs.quickshell.overlays.default
     inputs.helix.overlays.default
+    inputs.nix-your-shell.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    cacert
+    inputs.nix-output-monitor.packages.${pkgs.stdenv.hostPlatform.system}.default
+    nix-your-shell
+    qutebrowser
     devenv
     xdg-ninja
     yaziPlugins.lazygit
@@ -66,8 +71,7 @@
     bibata-cursors
     mate.mate-polkit
     gparted
-    zed-editor-fhs
-    floorp-bin
+    # floorp-bin
     appimage-run
     adw-gtk3
     ghostty
@@ -92,7 +96,7 @@
     })
     nil
     cmake
-    zed-editor-fhs
+    zed-editor
     wget
     firefox
     mesa-demos
@@ -141,7 +145,7 @@
     aria2
     ariang
     fd
-    inputs.nix-search-tv.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.nix-search-tv.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode-json-languageserver
     # (lib.hiPrio pkgs.uutils-coreutils-noprefix)
     upower

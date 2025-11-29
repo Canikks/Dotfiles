@@ -46,6 +46,7 @@
     enableDynamicTheming = true;
     enableAudioWavelength = true;
     enableColorPicker = true;
+    enableCalendarEvents = false;
     quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
   programs.nix-search-tv.enableTelevisionIntegration = true;
@@ -58,6 +59,9 @@
     configFile."mango" = {
       source = ./mango;
       recursive = true;
+    };
+    configFile."television/cable/nix.toml" = {
+      source = ./nix.toml;
     };
   };
 

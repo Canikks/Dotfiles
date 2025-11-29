@@ -4,9 +4,11 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-    autosuggestion.strategy = ["history" "completion" "match_prev_cmd"];
+    autosuggestion.strategy = [
+      "history"
+      "completion"
+    ];
     enableVteIntegration = true;
-    # enableGlobalCompInit = true;
     history.size = 10000;
     setOptions = [
       "HIST_IGNORE_ALL_DUPS"
@@ -20,6 +22,8 @@
       ll = "eza -l --color=always --icons=always";
       la = "eza -la --color=always --icons=always";
       gs = "git status -u";
+      nix = "noglob nix";
+      nom = "noglob nom";
     };
 
     # Plugins
@@ -36,13 +40,13 @@
       "zsh-users/zsh-history-substring-search"
     ];
 
+    initContent = ''
+      nix-your-shell zsh | source /dev/stdin
+    '';
     prezto = {
       enable = true;
-      color = true;
       editor = {
-        dotExpansion = false;
-        keymap = "vi";
-        promptContext = true;
+        dotExpansion = true;
       };
     };
   };

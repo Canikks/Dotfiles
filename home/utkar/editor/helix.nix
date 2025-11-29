@@ -27,6 +27,9 @@
         color-modes = true;
         clipboard-provider = "wayland";
         end-of-line-diagnostics = "hint";
+        soft-wrap = {
+          enable = true;
+        };
         inline-diagnostics = {
           cursor-line = "warning";
         };

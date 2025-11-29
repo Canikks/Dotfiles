@@ -15,15 +15,12 @@
     ../../modules/services.nix
     ../../modules/environment.nix
     ../../hardware-configuration.nix
-    ../../modules/nvf-nvim.nix
+    # ../../modules/nvf-nvim.nix
   ];
 
   # Bootloader.
   boot = {
     loader = {
-      # systemd-boot = {
-      #   enable = true;
-      # };
       limine = {
         # biosSupport = true;
         enable = true;
@@ -37,8 +34,14 @@
         canTouchEfiVariables = true;
       };
     };
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
-    kernelModules = ["intel_pstate" "msr" "coretemp" "tcp_bbr" "kvm_intel"];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = [
+      "intel_pstate"
+      "msr"
+      "coretemp"
+      "tcp_bbr"
+      "kvm_intel"
+    ];
     kernel = {
       sysctl = {
         "net.core.default_qdisc" = "fq";
@@ -56,7 +59,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "none";
-  networking.nameservers = ["1.1.1.1" "9.9.9.9"];
+  networking.nameservers = [
+    "1.1.1.1"
+    "9.9.9.9"
+  ];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -80,7 +86,10 @@
 
   fonts = {
     enableDefaultPackages = true;
-    packages = with pkgs; [nerd-fonts.jetbrains-mono nerd-fonts.caskaydia-cove];
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.caskaydia-cove
+    ];
     fontDir.enable = true;
   };
 
@@ -115,6 +124,9 @@
     sudo-rs = {
       enable = true;
     };
+    pki = {
+      certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"];
+    };
   };
 
   systemd.tmpfiles.rules = [
@@ -128,9 +140,7 @@
     };
     podman = {
       enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
       dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
   };
@@ -204,8 +214,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
@@ -215,14 +223,27 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  nix.settings = {
-    substituters = ["https://watersucks.cachix.org"];
-    extra-substituters = ["https://yazi.cachix.org"];
-    # trust the public key that signs that cache
-    trusted-public-keys = ["watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="];
-    extra-trusted-public-keys = [
-      "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
-    ];
+  nix = {
+    channel.enable = true;
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+    settings = {
+      builders-use-substitutes = true;
+      auto-optimise-store = true;
+      extra-substituters = [
+        "https://watersucks.cachix.org"
+        "https://yazi.cachix.org"
+        "https://helix.cachix.org"
+        "https://niri.cachix.org"
+      ];
+      # trust the public key that signs that cache
+      extra-trusted-public-keys = [
+        "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
+        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      ];
+    };
   };
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
