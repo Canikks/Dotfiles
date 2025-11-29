@@ -28,6 +28,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    ariang
     cacert
     inputs.nix-output-monitor.packages.${pkgs.stdenv.hostPlatform.system}.default
     nix-your-shell
@@ -47,6 +48,7 @@
     yaziPlugins.diff
     yaziPlugins.rsync
     qemu_kvm
+    qemu
     libvirt
     virt-manager
     easyeffects
@@ -145,7 +147,6 @@
     material-symbols
     material-icons
     aria2
-    ariang
     fd
     # inputs.nix-search-tv.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode-json-languageserver

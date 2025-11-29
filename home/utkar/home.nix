@@ -20,6 +20,7 @@
   home.stateVersion = "25.05";
   home.shell.enableZshIntegration = true;
   home.shell.enableBashIntegration = true;
+  home.preferXdgDirectories = true;
   nixpkgs.config = {
     allowUnfree = true;
   };

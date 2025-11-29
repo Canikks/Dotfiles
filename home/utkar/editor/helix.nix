@@ -15,6 +15,25 @@
           formatter = {command = "taplo format";};
         }
       ];
+      language-server.nixd = {
+        command = "nixd";
+        config.nixd = {
+          nixpkgs = {
+            expr = "import (builtins.getFlake \"/home/utkar/Dotfiles\").inputs.nixpkgs { }";
+          };
+          options = {
+            # Enable Home Manager options completion
+            home-manager = {
+              # info: Adjust the path and configuration name below
+              expr = "(builtins.getFlake \"/home/utkar/Dotfiles\").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []";
+            };
+            # (Optional) Enable NixOS options completion
+            nixos = {
+              expr = "(builtins.getFlake \"/home/utkar/Dotfiles\").nixosConfigurations.utkar.options";
+            };
+          };
+        };
+      };
     };
     settings = {
       theme = "base16_transparent";
