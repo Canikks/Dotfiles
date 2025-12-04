@@ -10,11 +10,16 @@
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     inputs.mango.hmModules.mango
     inputs.dsearch.homeModules.default
+    inputs.nvf.homeManagerModules.default
     ./shell/zsh.nix
     ./terminal/ghostty.nix
+    ./terminal/kitty.nix
     ./editor/helix.nix
     ./file-manager/yazi.nix
     ./shell/prompt/starship.nix
+    # ./editor/nvf-nvim.nix
+    ./cli/aria2.nix
+    # ./gaming/lutris.nix
     # ./multiplexer/zellij.nix
   ];
   home.stateVersion = "25.05";

@@ -15,7 +15,6 @@
     ../../modules/services.nix
     ../../modules/environment.nix
     ../../hardware-configuration.nix
-    # ../../modules/nvf-nvim.nix
   ];
 
   # Bootloader.
@@ -49,6 +48,8 @@
       };
     };
   };
+
+  systemd.user.services.niri-flake-polkit.enable = false;
 
   networking.hostName = "utkar"; # Define your hostname.
 
@@ -146,6 +147,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "aria2"
       "flatpak"
       "networkmanager"
       "wheel"
@@ -159,10 +161,17 @@
     shell = pkgs.zsh;
   };
 
-  chaotic.nyx = {
-    cache.enable = true;
-    nixPath.enable = true;
-    overlay.enable = true;
+  chaotic = {
+    nyx = {
+      cache.enable = true;
+      nixPath.enable = true;
+      overlay.enable = true;
+    };
+    # duckdns = {
+    #   certs = {
+    #     enable = true;
+    #   };
+    # };
   };
 
   # Allow unfree packages
@@ -170,7 +179,7 @@
 
   hardware = {
     graphics = {
-      enable = true;
+      # enable = true;
       enable32Bit = true;
     };
     bluetooth = {
@@ -190,21 +199,33 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg = {
+    dirmngr.enable = true;
+    agent = {
+      enable = true;
+      enableSSHSupport = true;
+      enableBrowserSocket = true;
+      enableExtraSocket = true;
+    };
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [8888 8080];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   nix = {
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
     channel.enable = true;
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
@@ -226,8 +247,6 @@
       ];
     };
   };
-
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

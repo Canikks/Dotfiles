@@ -34,13 +34,18 @@
     antidote.enable = true;
     antidote.plugins = [
       "olets/zsh-abbr kind:defer"
-      "belak/zsh-utils path:editor"
-      "belak/zsh-utils path:utility"
-      "belak/zsh-utils path:history"
+      "mattmc3/zephyr path:plugins/color"
+      "mattmc3/zephyr path:plugins/editor"
+      "mattmc3/zephyr path:plugins/utility"
+      "mattmc3/zephyr path:plugins/history"
+      "mattmc3/zephyr path:plugins/directory"
+      "mattmc3/zephyr path:plugins/compstyle"
+      "mattmc3/zephyr path:plugins/prompt"
+      "mattmc3/zephyr path:plugins/directory"
       "zsh-users/zsh-autosuggestions"
-      "mattmc3/zfunctions"
+      "mattmc3/zephyr path:plugins/zfunctions"
       "zdharma-continuum/fast-syntax-highlighting kind:defer"
-      "zsh-users/zsh-completions kind:fpath path:src"
+      "mattmc3/zephyr path:plugins/completion"
       "zsh-users/zsh-history-substring-search"
     ];
 

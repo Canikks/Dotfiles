@@ -93,67 +93,69 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-test = {
+      url = "path:/home/utkar/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      nixos-hardware,
-      niri,
-      dankMaterialShell,
-      dsearch,
-      rio,
-      ghostty,
-      zen-browser,
-      nur,
-      chaotic,
-      nix-index-database,
-      nix-your-shell,
-      nix-output-monitor,
-      quickshell,
-      nvf,
-      helix,
-      nixd,
-      nh,
-      nix-search-tv,
-      alejandra,
-      stylix,
-      mango,
-      ...
-    }:
-    {
-      nixosConfigurations = {
-        utkar = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/utkar/configuration.nix
-            ./packages.nix
-            dankMaterialShell.nixosModules.greeter
-            home-manager.nixosModules.home-manager
-            chaotic.nixosModules.default
-            nur.modules.nixos.default
-            nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
-            nvf.nixosModules.default
-            nix-index-database.nixosModules.nix-index
-            stylix.nixosModules.stylix
-            mango.nixosModules.mango
-            nixos-hardware.nixosModules.common-cpu-intel
-            nixos-hardware.nixosModules.common-gpu-intel
-            nixos-hardware.nixosModules.common-pc-laptop-ssd
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.utkar = import ./home/utkar/home.nix;
-            }
-          ];
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-hardware,
+    niri,
+    dankMaterialShell,
+    dsearch,
+    rio,
+    ghostty,
+    zen-browser,
+    nur,
+    chaotic,
+    nix-index-database,
+    nix-your-shell,
+    nix-output-monitor,
+    quickshell,
+    nvf,
+    helix,
+    nixd,
+    nh,
+    nix-search-tv,
+    alejandra,
+    stylix,
+    mango,
+    zen-test,
+    ...
+  }: {
+    nixosConfigurations = {
+      utkar = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
         };
+        modules = [
+          ./hosts/utkar/configuration.nix
+          ./packages.nix
+          dankMaterialShell.nixosModules.greeter
+          home-manager.nixosModules.home-manager
+          chaotic.nixosModules.default
+          nur.modules.nixos.default
+          nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
+          nix-index-database.nixosModules.nix-index
+          stylix.nixosModules.stylix
+          mango.nixosModules.mango
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-pc-laptop-ssd
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.users.utkar = import ./home/utkar/home.nix;
+          }
+        ];
       };
     };
+  };
 }

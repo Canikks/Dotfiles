@@ -15,17 +15,25 @@
       ];
     };
 
-    aria2 = {
-      enable = true;
-      rpcSecretFile = "/home/utkar/Dotfiles/modules/secret-rpc.txt";
-      openPorts = true;
-      settings = {
-        enable-rpc = true;
-        max-connection-per-server = 16;
-        split = 16;
-        rpc-allow-origin-all = true;
-      };
-    };
+    # aria2 = {
+    #   enable = true;
+    #   rpcSecretFile = "/home/utkar/Dotfiles/modules/secret-rpc.txt";
+    #   openPorts = true;
+    #   serviceUMask = "0002";
+    #   downloadDirPermission = "0770";
+    #   settings = {
+    #     dir = "/home/utkar/Downloads";
+    #     enable-rpc = true;
+    #     max-connection-per-server = 16;
+    #     split = 16;
+    #     min-split-size = "4M";
+    #     file-allocation = "falloc";
+    #     console-log-level = "error";
+    #     summary-interval = 0;
+    #     show-console-readout = true;
+    #     rpc-allow-origin-all = true;
+    #   };
+    # };
 
     gvfs = {
       enable = true;

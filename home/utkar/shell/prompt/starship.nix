@@ -8,5 +8,5 @@
     enableZshIntegration = true;
     enableBashIntegration = true;
   };
-  xdg.configFile."starship.toml".source = ./starship.toml;
+  xdg.configFile."starship.toml".source = ./zephyr.toml;
 }

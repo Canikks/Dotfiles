@@ -4,12 +4,6 @@
   lib,
   ...
 }: {
-  # Common reusable configuration for all systems (useful if you ever add another host)
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   programs = {
     virt-manager.enable = true;
 
@@ -92,6 +86,9 @@
     steam = {
       enable = true;
       extest.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
     };
 
     gamescope = {

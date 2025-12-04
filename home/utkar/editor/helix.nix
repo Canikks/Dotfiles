@@ -25,11 +25,11 @@
             # Enable Home Manager options completion
             home-manager = {
               # info: Adjust the path and configuration name below
-              expr = "(builtins.getFlake \"/home/utkar/Dotfiles\").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []";
+              expr = "(builtins.getFlake \"/home/utkar/Dotfiles#utkar\").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []";
             };
             # (Optional) Enable NixOS options completion
             nixos = {
-              expr = "(builtins.getFlake \"/home/utkar/Dotfiles\").nixosConfigurations.utkar.options";
+              expr = "(builtins.getFlake \"/home/utkar/Dotfiles#utkar\").nixosConfigurations.utkar.options";
             };
           };
         };

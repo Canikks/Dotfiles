@@ -28,6 +28,9 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    inputs.zen-test.packages.${stdenv.hostPlatform.system}.beta
+    proton-cachyos_x86_64_v4
+    aria2
     ariang
     cacert
     inputs.nix-output-monitor.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -128,9 +131,10 @@
     nur.repos.Ev357.helium
     fastfetch
     kdePackages.qtmultimedia
-    (lutris.override {
-      extraPkgs = pkgs: [proton-cachyos];
-    })
+    lutris
+    # (lutris.override {
+    #   extraPkgs = pkgs: [ proton-cachyos ];
+    # })
     kdePackages.qt6ct
     gamescope_git
     wineWowPackages.waylandFull
@@ -146,7 +150,6 @@
     adwaita-icon-theme
     material-symbols
     material-icons
-    aria2
     fd
     # inputs.nix-search-tv.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode-json-languageserver
