@@ -13,14 +13,16 @@
     inputs.nvf.homeManagerModules.default
     ./shell/zsh.nix
     ./terminal/ghostty.nix
-    ./terminal/kitty.nix
+    # ./terminal/kitty.nix
+    ./terminal/rio.nix
     ./editor/helix.nix
     ./file-manager/yazi.nix
     ./shell/prompt/starship.nix
     # ./editor/nvf-nvim.nix
     ./cli/aria2.nix
-    # ./gaming/lutris.nix
+    ./gaming/lutris.nix
     # ./multiplexer/zellij.nix
+    ./audio/easyeffects.nix
   ];
   home.stateVersion = "25.05";
   home.shell.enableZshIntegration = true;
@@ -40,6 +42,7 @@
 
   programs.dankMaterialShell = {
     enable = true;
+    # systemd.enable = true;
     default.settings = {
       theme = "dark";
       dynamicTheming = true;
@@ -68,10 +71,6 @@
     configFile."television/cable/nix.toml" = {
       source = ./nix.toml;
     };
-  };
-
-  services.easyeffects = {
-    enable = true;
   };
 
   programs.nix-index = {

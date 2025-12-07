@@ -1,13 +1,20 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.lutris = {
     enable = true;
-    # extraPackages = [
-    #   pkgs.mangohud
-    # ];
+    extraPackages = with pkgs; [
+      mangohud
+      umu-launcher
+      proton-cachyos
+      gamescope_git
+      gamemode
+      srb2
+    ];
     protonPackages = [
       pkgs.proton-ge-bin
-      pkgs.proton-cachyos
-      pkgs.proton-cachyos_x86_64_v4
     ];
   };
 }

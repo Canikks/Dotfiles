@@ -1,161 +1,97 @@
 {
-  description = "My NixOS system configuration flake (modularized and maintainable)";
+  description = "My NixOS system configuration flake";
 
   inputs = {
-    stable-nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager?ref=master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    mango = {
-      url = "github:DreamMaoMao/mangowc";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-utils.url = "github:numtide/flake-utils";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nixd.url = "github:nix-community/nixd";
+
+    # Community tools & Desktops
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-output-monitor = {
-      url = "github:maralorn/nix-output-monitor";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-your-shell = {
-      url = "github:MercuryTechnologies/nix-your-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dsearch = {
-      url = "github:AvengeMedia/danksearch";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dgop.follows = "dgop";
-    };
-    flake-utils.url = "github:numtide/flake-utils";
-    rio = {
-      url = "github:raphamorim/rio/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    nixd = {
-      url = "github:nix-community/nixd";
-    };
-    nh = {
-      url = "github:nix-community/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-search-tv = {
-      url = "github:3timeslazy/nix-search-tv";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    alejandra = {
-      url = "github:kamadorueda/alejandra";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    yazi = {
-      url = "github:sxyazi/yazi";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zen-test = {
-      url = "path:/home/utkar/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    
+    dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
+    dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
+    dankMaterialShell.inputs.dgop.follows = "dgop";
+
+    # Helpers & Utils (Consolidated follows)
+    mango.url = "github:DreamMaoMao/mangowc";
+    nvf.url = "github:notashelf/nvf";
+    helix.url = "github:helix-editor/helix";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-output-monitor.url = "github:maralorn/nix-output-monitor";
+    nix-your-shell.url = "github:MercuryTechnologies/nix-your-shell";
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    dgop.url = "github:AvengeMedia/dgop";
+    dsearch.url = "github:AvengeMedia/danksearch";
+    rio.url = "github:raphamorim/rio/main";
+    ghostty.url = "github:ghostty-org/ghostty";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    nur.url = "github:nix-community/NUR";
+    nh.url = "github:nix-community/nh";
+    nix-search-tv.url = "github:3timeslazy/nix-search-tv";
+    alejandra.url = "github:kamadorueda/alejandra";
+    yazi.url = "github:sxyazi/yazi";
+    stylix.url = "github:nix-community/stylix";
+    
+    # Local
+    zen-test.url = "path:/home/utkar/zen-browser-flake";
+
+    # Force all above to follow the main nixpkgs to save space/versions
+    mango.inputs.nixpkgs.follows = "nixpkgs";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
+    helix.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-output-monitor.inputs.nixpkgs.follows = "nixpkgs";
+    nix-your-shell.inputs.nixpkgs.follows = "nixpkgs";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+    dgop.inputs.nixpkgs.follows = "nixpkgs";
+    dsearch.inputs.nixpkgs.follows = "nixpkgs";
+    rio.inputs.nixpkgs.follows = "nixpkgs";
+    ghostty.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
+    nix-search-tv.inputs.nixpkgs.follows = "nixpkgs";
+    alejandra.inputs.nixpkgs.follows = "nixpkgs";
+    yazi.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    zen-test.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    home-manager,
-    nixos-hardware,
-    niri,
-    dankMaterialShell,
-    dsearch,
-    rio,
-    ghostty,
-    zen-browser,
-    nur,
-    chaotic,
-    nix-index-database,
-    nix-your-shell,
-    nix-output-monitor,
-    quickshell,
-    nvf,
-    helix,
-    nixd,
-    nh,
-    nix-search-tv,
-    alejandra,
-    stylix,
-    mango,
-    zen-test,
-    ...
-  }: {
-    nixosConfigurations = {
-      utkar = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./hosts/utkar/configuration.nix
-          ./packages.nix
-          dankMaterialShell.nixosModules.greeter
-          home-manager.nixosModules.home-manager
-          chaotic.nixosModules.default
-          nur.modules.nixos.default
-          nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
-          nix-index-database.nixosModules.nix-index
-          stylix.nixosModules.stylix
-          mango.nixosModules.mango
-          nixos-hardware.nixosModules.common-cpu-intel
-          nixos-hardware.nixosModules.common-gpu-intel
-          nixos-hardware.nixosModules.common-pc-laptop-ssd
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.utkar = import ./home/utkar/home.nix;
-          }
-        ];
-      };
+  outputs = inputs: {
+    nixosConfigurations.utkar = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = with inputs; [
+        ./hosts/utkar/configuration.nix
+        ./packages.nix
+        dankMaterialShell.nixosModules.greeter
+        home-manager.nixosModules.home-manager
+        chaotic.nixosModules.default
+        nur.modules.nixos.default
+        nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
+        nix-index-database.nixosModules.nix-index
+        stylix.nixosModules.stylix
+        mango.nixosModules.mango
+        nixos-hardware.nixosModules.common-cpu-intel
+        nixos-hardware.nixosModules.common-gpu-intel
+        nixos-hardware.nixosModules.common-pc-laptop-ssd
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.utkar = import ./home/utkar/home.nix;
+        }
+      ];
     };
   };
 }

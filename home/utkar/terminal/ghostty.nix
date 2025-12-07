@@ -10,7 +10,6 @@
       window-padding-x = 12;
       window-padding-y = 12;
       background-opacity = 0.90;
-      background-blur-radius = 32;
       custom-shader = [
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
         "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"
@@ -23,6 +22,7 @@
       # gtk-toolbar-style = "flat";
       shell-integration = "detect";
       shell-integration-features = "sudo,title,no-cursor";
+      gtk-single-instance = true;
     };
   };
   xdg.configFile."ghostty/shaders" = {

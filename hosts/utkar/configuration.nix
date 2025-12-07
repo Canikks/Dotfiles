@@ -132,6 +132,12 @@
 
   # virtualisation.containers.enable = true;
   virtualisation = {
+    libvirtd.enable = true;
+    libvirtd.qemu = {
+      runAsRoot = true;
+      swtpm.enable = true;
+    };
+    spiceUSBRedirection.enable = true;
     containers = {
       enable = true;
     };
@@ -147,6 +153,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "libvirtd"
       "aria2"
       "flatpak"
       "networkmanager"

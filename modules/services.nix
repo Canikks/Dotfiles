@@ -4,6 +4,8 @@
       enable = true;
     };
 
+    spice-vdagentd.enable = true;
+
     xserver = {
       xkb = {
         layout = "us";

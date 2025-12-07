@@ -28,10 +28,17 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    mindustry-wayland
+    gearlever
+    ibus
+    kitty
+    rio
     inputs.zen-test.packages.${stdenv.hostPlatform.system}.beta
-    proton-cachyos_x86_64_v4
+    lsp-plugins
+    zam-plugins
+    calf
+    mda_lv2
     aria2
-    ariang
     cacert
     inputs.nix-output-monitor.packages.${pkgs.stdenv.hostPlatform.system}.default
     nix-your-shell
@@ -39,6 +46,8 @@
     devenv
     xdg-ninja
     rich-cli
+    yaziPlugins.vcs-files
+    yaziPlugins.no-status
     yaziPlugins.rich-preview
     yaziPlugins.lazygit
     yaziPlugins.yatline
@@ -76,13 +85,13 @@
     bluez
     fcitx5
     bibata-cursors
-    mate.mate-polkit
     gparted
     # floorp-bin
     appimage-run
     adw-gtk3
     ghostty
     niri-unstable
+    xwayland-satellite-unstable
     localsend
     libadwaita
     unrar
@@ -130,21 +139,15 @@
     dbus-broker
     nur.repos.Ev357.helium
     fastfetch
-    kdePackages.qtmultimedia
     lutris
-    # (lutris.override {
-    #   extraPkgs = pkgs: [ proton-cachyos ];
-    # })
     kdePackages.qt6ct
-    gamescope_git
+    kdePackages.qtmultimedia
     wineWowPackages.waylandFull
-    xwayland-satellite
     libx11
     libxkbcommon
     libGL
     vulkan-loader
     vulkan-tools
-    srb2
     keepassxc
     kdlfmt
     adwaita-icon-theme

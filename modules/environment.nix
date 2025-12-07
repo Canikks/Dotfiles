@@ -21,7 +21,7 @@
     };
     sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";
-      TERMINAL = "ghostty";
+      # TERMINAL = "ghostty";
     };
     etc = {
       "polkit-1/rules.d/10-udisks2.rules" = {
