@@ -1,0 +1,261 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  # chaotic,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ../../modules/programs.nix
+    ../../modules/services.nix
+    ../../modules/environment.nix
+    ../../hardware-configuration.nix
+  ];
+
+  # Bootloader.
+  boot = {
+    loader = {
+      limine = {
+        # biosSupport = true;
+        enable = true;
+        efiSupport = true;
+        efiInstallAsRemovable = true;
+        style = {
+          wallpapers = [../../Pictures/1140x641.jpg];
+        };
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
+    };
+    kernelPackages = pkgs.linuxPackages_zen;
+    kernelModules = [
+      "tcp_bbr"
+    ];
+    kernel = {
+      sysctl = {
+        "net.core.default_qdisc" = "fq";
+        "net.ipv4.tcp_congestion_control" = "bbr";
+        "net.core.wmem_max" = 1073741824;
+        "net.core.rmem_max" = 1073741824;
+        "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
+        "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
+      };
+    };
+  };
+
+  systemd.user.services.niri-flake-polkit.enable = false;
+
+  networking.hostName = "utkar"; # Define your hostname.
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
+  networking.nameservers = [
+    "1.1.1.1"
+    "9.9.9.9"
+  ];
+
+  # Set your time zone.
+  time.timeZone = "Asia/Kolkata";
+
+  # Set the default locale to English (India) with UTF-8 encoding
+  i18n.defaultLocale = "en_GB.UTF-8";
+
+  # Ensure en_IN.UTF-8 locale is supported by glibc
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_IN";
+    LC_IDENTIFICATION = "en_IN";
+    LC_MEASUREMENT = "en_IN";
+    LC_MONETARY = "en_IN";
+    LC_NAME = "en_IN";
+    LC_NUMERIC = "en_IN";
+    LC_PAPER = "en_IN";
+    LC_TELEPHONE = "en_IN";
+    LC_TIME = "en_IN";
+  };
+
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.caskaydia-cove
+    ];
+    fontDir.enable = true;
+  };
+
+  xdg = {
+    autostart = {
+      enable = true;
+    };
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+      config = {
+        common = {
+          defaults = [
+            "wlr"
+            "gtk"
+          ];
+        };
+      };
+    };
+  };
+
+  security = {
+    polkit = {
+      enable = true;
+    };
+    rtkit = {
+      enable = true;
+    };
+    sudo-rs = {
+      enable = true;
+    };
+    pki = {
+      certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"];
+    };
+  };
+
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware}"
+  ];
+
+  # virtualisation.containers.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    libvirtd.qemu = {
+      runAsRoot = true;
+      swtpm.enable = true;
+    };
+    spiceUSBRedirection.enable = true;
+    containers = {
+      enable = true;
+    };
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.utkar = {
+    isNormalUser = true;
+    description = "utkar";
+    extraGroups = [
+      "pipewire"
+      "libvirtd"
+      "aria2"
+      "flatpak"
+      "networkmanager"
+      "wheel"
+      "podman"
+      "libvirtd"
+      "kvm"
+      "video"
+      "audio"
+    ];
+    packages = with pkgs; [];
+    shell = pkgs.zsh;
+  };
+
+  # chaotic = {
+  #   nyx = {
+  #     cache.enable = true;
+  #     nixPath.enable = true;
+  #     overlay.enable = true;
+  #   };
+  # };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+        Policy = {
+          AutoEnable = true;
+        };
+      };
+    };
+  };
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  programs.mtr.enable = true;
+  programs.gnupg = {
+    dirmngr.enable = true;
+    agent = {
+      enable = true;
+      enableSSHSupport = true;
+      enableBrowserSocket = true;
+      enableExtraSocket = true;
+    };
+  };
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  networking.firewall.allowedTCPPorts = [8888 8080];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall.enable = true;
+
+  nix = {
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+    channel.enable = true;
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+    settings = {
+      builders-use-substitutes = true;
+      auto-optimise-store = true;
+      extra-substituters = [
+        "https://watersucks.cachix.org"
+        "https://yazi.cachix.org"
+        "https://helix.cachix.org"
+        "https://niri.cachix.org"
+      ];
+      # trust the public key that signs that cache
+      extra-trusted-public-keys = [
+        "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
+        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      ];
+    };
+  };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.05"; # Did you read the comment?
+}
