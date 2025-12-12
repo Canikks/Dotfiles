@@ -6,7 +6,6 @@
   pkgs,
   lib,
   inputs,
-  # chaotic,
   ...
 }: {
   imports = [
@@ -21,7 +20,6 @@
   boot = {
     loader = {
       limine = {
-        # biosSupport = true;
         enable = true;
         efiSupport = true;
         efiInstallAsRemovable = true;
@@ -169,14 +167,6 @@
     shell = pkgs.zsh;
   };
 
-  # chaotic = {
-  #   nyx = {
-  #     cache.enable = true;
-  #     nixPath.enable = true;
-  #     overlay.enable = true;
-  #   };
-  # };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -239,14 +229,14 @@
         "https://watersucks.cachix.org"
         "https://yazi.cachix.org"
         "https://helix.cachix.org"
-        "https://niri.cachix.org"
+        # "https://niri.cachix.org"
       ];
       # trust the public key that signs that cache
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+        # "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       ];
     };
   };
