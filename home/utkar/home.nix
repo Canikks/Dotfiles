@@ -45,8 +45,16 @@
       dynamicTheming = true;
     };
   };
-  programs.nix-search-tv.enableTelevisionIntegration = true;
+  programs.nix-search-tv = {
+    enable = true;
+    settings = {
+      indexes = ["nixpkgs" "home-manager" "nixos" "nur"];
+    };
+    enableTelevisionIntegration = true;
+  };
+
   programs.home-manager.enable = true;
+
   xdg.autostart = {
     enable = true;
   };

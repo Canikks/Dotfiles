@@ -22,7 +22,7 @@
       # gtk-toolbar-style = "flat";
       shell-integration = "detect";
       shell-integration-features = "sudo,title,no-cursor";
-      gtk-single-instance = true;
+      gtk-single-instance = false;
     };
   };
   xdg.configFile."ghostty/shaders" = {

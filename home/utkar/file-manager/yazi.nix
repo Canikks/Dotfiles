@@ -7,6 +7,23 @@
     enable = true;
     package = pkgs.yazi;
     enableZshIntegration = true;
+    extraPackages = with pkgs; [
+      rich-cli
+      yaziPlugins.ouch
+      yaziPlugins.vcs-files
+      yaziPlugins.no-status
+      yaziPlugins.rich-preview
+      yaziPlugins.lazygit
+      yaziPlugins.yatline
+      yaziPlugins.yatline-githead
+      yaziPlugins.full-border
+      yaziPlugins.mount
+      yaziPlugins.recycle-bin
+      trash-cli
+      yaziPlugins.sudo
+      yaziPlugins.diff
+      yaziPlugins.rsync
+    ];
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
       yatline-githead = pkgs.yaziPlugins.yatline-githead;
@@ -20,10 +37,11 @@
       rich-preview = pkgs.yaziPlugins.rich-preview;
       no-status = pkgs.yaziPlugins.no-status;
       vcs-files = pkgs.yaziPlugins.vcs-files;
+      ouch = pkgs.yaziPlugins.ouch;
     };
     settings = {
       mgr = {
-        linemode ="permissions";
+        linemode = "permissions";
         sort_by = "mtime";
       };
       plugin = {
@@ -39,6 +57,10 @@
           {
             name = "*.nix";
             run = "rich-preview";
+          }
+          {
+            mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}";
+            run = "ouch";
           }
         ];
       };
@@ -182,6 +204,11 @@
           on = ["g" "s"];
           run = "plugin vcs-files";
           desc = "Show Git file changes";
+        }
+        {
+          on = ["C" "f"];
+          run = "plugin ouch tar.xz";
+          desc = "Compress with ouch";
         }
       ];
     };
