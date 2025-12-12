@@ -16,7 +16,7 @@
     })
     inputs.niri.overlays.niri
     inputs.nh.overlays.default
-    inputs.ghostty.overlays.releasefast
+    inputs.ghostty.overlays.default
     inputs.rio.overlays.default
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
@@ -53,20 +53,6 @@
     qutebrowser
     devenv
     xdg-ninja
-    rich-cli
-    yaziPlugins.vcs-files
-    yaziPlugins.no-status
-    yaziPlugins.rich-preview
-    yaziPlugins.lazygit
-    yaziPlugins.yatline
-    yaziPlugins.yatline-githead
-    yaziPlugins.full-border
-    yaziPlugins.mount
-    yaziPlugins.recycle-bin
-    trash-cli
-    yaziPlugins.sudo
-    yaziPlugins.diff
-    yaziPlugins.rsync
     qemu_kvm
     qemu
     libvirt
@@ -107,8 +93,6 @@
     nushell
     go
     nirius
-    vimPlugins.nvim-treesitter-parsers.nix
-    vimPlugins.nvim-treesitter.builtGrammars.nix
     ouch
     tmux
     eza
