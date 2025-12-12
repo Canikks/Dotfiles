@@ -10,7 +10,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-utils.url = "github:numtide/flake-utils";
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixd.url = "github:nix-community/nixd";
 
     # Community tools & Desktops
@@ -77,7 +76,6 @@
         dankMaterialShell.nixosModules.greeter
         dankMaterialShell.nixosModules.dankMaterialShell
         home-manager.nixosModules.home-manager
-        # chaotic.nixosModules.default
         nur.modules.nixos.default
         nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
         nix-index-database.nixosModules.nix-index
