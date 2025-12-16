@@ -28,6 +28,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    nodejs_20
     firefox
     ffmpeg-full
     srb2
