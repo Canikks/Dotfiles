@@ -151,6 +151,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "greeter"
       "pipewire"
       "libvirtd"
       "aria2"
@@ -206,23 +207,30 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [8888 8080];
+  networking.firewall.allowedTCPPorts = [
+    8888
+    8080
+    8000
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    channel.enable = false;
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
     settings = {
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-    };
-    channel.enable = true;
-    daemonCPUSchedPolicy = "idle";
-    daemonIOSchedClass = "idle";
-    settings = {
+      trusted-users = [
+        "root"
+        "utkar"
+      ];
+      use-xdg-base-directories = true;
       builders-use-substitutes = true;
       auto-optimise-store = true;
       extra-substituters = [
@@ -230,6 +238,7 @@
         "https://yazi.cachix.org"
         "https://helix.cachix.org"
         # "https://niri.cachix.org"
+        "https://nix-community.cachix.org"
       ];
       # trust the public key that signs that cache
       extra-trusted-public-keys = [
@@ -237,6 +246,7 @@
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
         # "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
   };

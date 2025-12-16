@@ -28,31 +28,21 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
-    (ffmpeg-full.override {
-      withUnfree = true; # Allow unfree dependencies (for Nvidia features notably)
-      withMetal = false; # Use Metal API on Mac. Unfree and requires manual downloading of files
-      withMfx = false; # Hardware acceleration via the deprecated intel-media-sdk/libmfx. Use oneVPL instead (enabled by default) from Intel's oneAPI.
-      withTensorflow = false; # Tensorflow dnn backend support (Increases closure size by ~390 MiB)
-      withSmallBuild = false; # Prefer binary size to performance.
-      withDebug = false; # Build using debug options
-    })
+    firefox
+    ffmpeg-full
     srb2
     mindustry-wayland
     gearlever
     ibus
     rio
-    inputs.zen-test.packages.${stdenv.hostPlatform.system}.twilight
+    inputs.zen-test.packages.${pkgs.stdenv.hostPlatform.system}.twilight
     lsp-plugins
     zam-plugins
     calf
     mda_lv2
     aria2
     cacert
-    inputs.nix-output-monitor.packages.${pkgs.stdenv.hostPlatform.system}.default
-    nix-your-shell
-    qutebrowser
     devenv
-    xdg-ninja
     qemu_kvm
     qemu
     libvirt
@@ -63,33 +53,20 @@
     papirus-icon-theme
     starship
     onlyoffice-desktopeditors
-    jq
     ollama
     opencode
-    slurp
     quickshell
     satty
-    grim
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-gtk
-    util-linux
     tealdeer
-    xorg.xrdb
     wlr-randr
-    bluez
     fcitx5
     bibata-cursors
-    gparted
     # floorp-bin
-    appimage-run
     adw-gtk3
     ghostty
     niri-unstable
     xwayland-satellite-unstable
-    localsend
     libadwaita
-    unrar
-    inteltool
     nushell
     go
     nirius
@@ -102,25 +79,14 @@
     (yazi.override {
       _7zz = pkgs._7zz-rar;
     })
-    nil
-    cmake
     zed-editor
-    wget
-    firefox
     mesa-demos
     gtk4
     gtk3
     nautilus
-    colloid-gtk-theme
-    polkit_gnome
     btop
     gnome.gvfs
-    nautilus-python
-    zsh-powerlevel10k
-    zsh-autosuggestions
-    zsh-completions
     fzf
-    zsh-syntax-highlighting
     ripgrep
     alejandra
     nixd
@@ -133,22 +99,16 @@
     fastfetch
     lutris
     kdePackages.qt6ct
-    # kdePackages.qtmultimedia
     wineWowPackages.waylandFull
-    libx11
-    libxkbcommon
     libGL
     vulkan-loader
-    vulkan-tools
     keepassxc
     kdlfmt
     adwaita-icon-theme
     material-symbols
     material-icons
     fd
-    # inputs.nix-search-tv.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode-json-languageserver
     # (lib.hiPrio pkgs.uutils-coreutils-noprefix)
-    upower
   ];
 }

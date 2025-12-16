@@ -34,7 +34,7 @@
           # This must be enabled for the language modules to hook into
           # the LSP API.
           enable = true;
-
+          null-ls.enable = true;
           formatOnSave = true;
           lspkind.enable = true;
           lightbulb.enable = true;
@@ -64,7 +64,7 @@
             treesitter.enable = true;
             enable = true;
             format.enable = true;
-            lsp.server = "nixd";
+            lsp.servers = ["nixd"];
             extraDiagnostics = {
               enable = true;
               types = ["statix" "deadnix"];
@@ -88,7 +88,7 @@
           typst.enable = true;
           rust = {
             enable = true;
-            crates.enable = true;
+            extensions.crates-nvim.enable = true;
           };
 
           # Language modules that are not as common.
@@ -238,20 +238,20 @@
           };
         };
 
-        notes = {
-          obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
-          neorg.enable = false;
-          orgmode.enable = false;
-          mind-nvim.enable = false;
-          todo-comments.enable = false;
-        };
+        # notes = {
+        #   obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
+        #   neorg.enable = false;
+        #   orgmode.enable = false;
+        #   mind-nvim.enable = false;
+        #   todo-comments.enable = false;
+        # };
 
-        terminal = {
-          toggleterm = {
-            enable = true;
-            lazygit.enable = true;
-          };
-        };
+        # terminal = {
+        #   toggleterm = {
+        #     enable = true;
+        #     lazygit.enable = true;
+        #   };
+        # };
 
         ui = {
           borders.enable = true;
@@ -279,31 +279,14 @@
           fastaction.enable = true;
         };
 
-        assistant = {
-          chatgpt.enable = false;
-          copilot = {
-            enable = false;
-            cmp.enable = false;
-          };
-          codecompanion-nvim.enable = false;
-          avante-nvim.enable = false;
-        };
-
         session = {
           nvim-session-manager.enable = false;
-        };
-
-        gestures = {
-          gesture-nvim.enable = false;
         };
 
         comments = {
           comment-nvim.enable = true;
         };
 
-        presence = {
-          neocord.enable = false;
-        };
       };
     };
   };

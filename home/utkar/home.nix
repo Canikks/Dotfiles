@@ -20,10 +20,11 @@
     # ./editor/nvf-nvim.nix
     ./cli/aria2.nix
     ./gaming/lutris.nix
-    # ./multiplexer/zellij.nix
+    ./multiplexer/zellij.nix
     ./audio/easyeffects.nix
   ];
   home.stateVersion = "25.05";
+  home.shell.enableShellIntegration = true;
   home.shell.enableZshIntegration = true;
   home.shell.enableBashIntegration = true;
   home.preferXdgDirectories = true;
@@ -51,6 +52,12 @@
       indexes = ["nixpkgs" "home-manager" "nixos" "nur"];
     };
     enableTelevisionIntegration = true;
+  };
+
+  programs.nix-your-shell = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-output-monitor.enable = true;
   };
 
   programs.home-manager.enable = true;

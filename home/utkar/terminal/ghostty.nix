@@ -14,7 +14,8 @@
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
         "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"
       ];
-      config-file = "/home/utkar/.config/ghostty/config-dankcolors";
+      # config-file = "/home/utkar/.config/ghostty/config-dankcolors";
+      theme = "dankcolors";
       cursor-style = "block";
       unfocused-split-opacity = 0.7;
       unfocused-split-fill = "#44464f";

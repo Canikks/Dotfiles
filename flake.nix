@@ -63,6 +63,7 @@
     yazi.inputs.nixpkgs.follows = "nixpkgs";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     zen-test.inputs.nixpkgs.follows = "nixpkgs";
+    zen-test.inputs.home-manager.follows = "home-manager";
   };
 
   outputs = inputs: {

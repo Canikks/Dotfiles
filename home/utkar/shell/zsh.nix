@@ -49,9 +49,6 @@
       "zsh-users/zsh-history-substring-search"
     ];
 
-    initContent = ''
-      nix-your-shell zsh | source /dev/stdin
-    '';
     prezto = {
       enable = true;
       editor = {
