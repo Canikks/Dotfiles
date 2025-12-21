@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -28,6 +24,8 @@
       gs = "git status -u";
       nix = "noglob nix";
       nom = "noglob nom";
+      ze = "zellij";
+      zserver = "zellij --layout=server";
     };
 
     # Plugins

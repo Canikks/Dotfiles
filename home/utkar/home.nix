@@ -1,20 +1,18 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.nix-index-database.homeModules.nix-index
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+    inputs.dankMaterialShell.homeModules.dank-material-shell
+    inputs.dankMaterialShell.homeModules.niri
     inputs.mango.hmModules.mango
     inputs.dsearch.homeModules.default
     inputs.nvf.homeManagerModules.default
     ./shell/zsh.nix
+    ./shell/fish.nix
     ./terminal/ghostty.nix
     # ./terminal/kitty.nix
-    ./terminal/rio.nix
+    # ./terminal/rio.nix
     ./editor/helix.nix
+    ./editor/zeditor.nix
     ./file-manager/yazi.nix
     ./shell/prompt/starship.nix
     # ./editor/nvf-nvim.nix
@@ -27,6 +25,7 @@
   home.shell.enableShellIntegration = true;
   home.shell.enableZshIntegration = true;
   home.shell.enableBashIntegration = true;
+  home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
   nixpkgs.config = {
     allowUnfree = true;
@@ -40,7 +39,27 @@
     enable = true;
   };
 
-  programs.dankMaterialShell = {
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
+  programs.pay-respects = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.dank-material-shell = {
     default.settings = {
       theme = "dark";
       dynamicTheming = true;
@@ -57,6 +76,7 @@
   programs.nix-your-shell = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
     nix-output-monitor.enable = true;
   };
 
@@ -79,6 +99,7 @@
   programs.nix-index = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.keepassxc = {
@@ -92,8 +113,13 @@
       };
     };
   };
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
   programs.lazygit = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 }

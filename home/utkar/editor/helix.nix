@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -19,17 +19,17 @@
         command = "nixd";
         config.nixd = {
           nixpkgs = {
-            expr = "import (builtins.getFlake \"/home/utkar/Dotfiles\").inputs.nixpkgs { }";
+            expr = "import (builtins.getFlake \"/home/utkar/dotfiles\").inputs.nixpkgs { }";
           };
           options = {
             # Enable Home Manager options completion
             home-manager = {
               # info: Adjust the path and configuration name below
-              expr = "(builtins.getFlake \"/home/utkar/Dotfiles#utkar\").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []";
+              expr = "(builtins.getFlake \"/home/utkar/dotfiles#utkar\").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []";
             };
             # (Optional) Enable NixOS options completion
             nixos = {
-              expr = "(builtins.getFlake \"/home/utkar/Dotfiles#utkar\").nixosConfigurations.utkar.options";
+              expr = "(builtins.getFlake \"/home/utkar/dotfiles#utkar\").nixosConfigurations.utkar.options";
             };
           };
         };

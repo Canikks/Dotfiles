@@ -1,7 +1,8 @@
-{config, ...}: {
+{...}: {
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
     installBatSyntax = true;
     systemd.enable = true;
     settings = {
@@ -14,16 +15,13 @@
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
         "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"
       ];
-      # config-file = "/home/utkar/.config/ghostty/config-dankcolors";
       theme = "dankcolors";
       cursor-style = "block";
       unfocused-split-opacity = 0.7;
       unfocused-split-fill = "#44464f";
       gtk-titlebar = false;
-      # gtk-toolbar-style = "flat";
       shell-integration = "detect";
       shell-integration-features = "sudo,title,no-cursor";
-      gtk-single-instance = false;
     };
   };
   xdg.configFile."ghostty/shaders" = {

@@ -1,15 +1,14 @@
 {
-  config,
   pkgs,
   lib,
   ...
 }: {
   environment = {
-    pathsToLink = ["/share/zsh"];
+    pathsToLink = ["/share/zsh" "/share/fish"];
     variables = {
-      # QML2_IMPORT_PATH = lib.concatStringsSep ":" [
-      #   "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
-      # ];
+      QML2_IMPORT_PATH = lib.concatStringsSep ":" [
+        "${pkgs.kdePackages.qtmultimedia}/lib/qt-6/qml"
+      ];
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";
       NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";
       NIXOS_OZONE_WL = "1";

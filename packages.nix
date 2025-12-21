@@ -21,13 +21,14 @@
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
     # inputs.yazi.overlays.default
-    inputs.quickshell.overlays.default
+    # inputs.quickshell.overlays.default
     inputs.helix.overlays.default
     inputs.nix-your-shell.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    gparted
     nodejs_20
     firefox
     ffmpeg-full
@@ -35,8 +36,7 @@
     mindustry-wayland
     gearlever
     ibus
-    rio
-    inputs.zen-test.packages.${pkgs.stdenv.hostPlatform.system}.twilight
+    inputs.zen-test.packages.${pkgs.stdenv.hostPlatform.system}.beta
     lsp-plugins
     zam-plugins
     calf
@@ -56,13 +56,11 @@
     onlyoffice-desktopeditors
     ollama
     opencode
-    quickshell
     satty
     tealdeer
     wlr-randr
     fcitx5
     bibata-cursors
-    # floorp-bin
     adw-gtk3
     ghostty
     niri-unstable
@@ -80,7 +78,7 @@
     (yazi.override {
       _7zz = pkgs._7zz-rar;
     })
-    zed-editor
+    # zed-editor
     mesa-demos
     gtk4
     gtk3
@@ -92,7 +90,6 @@
     alejandra
     nixd
     wl-clip-persist
-    podman
     greetd
     dbus
     dbus-broker
@@ -101,8 +98,6 @@
     lutris
     kdePackages.qt6ct
     wineWowPackages.waylandFull
-    libGL
-    vulkan-loader
     keepassxc
     kdlfmt
     adwaita-icon-theme

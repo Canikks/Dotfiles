@@ -20,6 +20,9 @@
     dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
     dankMaterialShell.inputs.dgop.follows = "dgop";
 
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
     # Helpers & Utils (Consolidated follows)
     mango.url = "github:DreamMaoMao/mangowc";
     nvf.url = "github:notashelf/nvf";
@@ -55,6 +58,7 @@
     dsearch.inputs.nixpkgs.follows = "nixpkgs";
     rio.inputs.nixpkgs.follows = "nixpkgs";
     ghostty.inputs.nixpkgs.follows = "nixpkgs";
+    ghostty.inputs.home-manager.follows = "home-manager";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     nur.inputs.nixpkgs.follows = "nixpkgs";
     nh.inputs.nixpkgs.follows = "nixpkgs";
@@ -75,7 +79,8 @@
         ./packages.nix
         niri.nixosModules.niri
         dankMaterialShell.nixosModules.greeter
-        dankMaterialShell.nixosModules.dankMaterialShell
+        dankMaterialShell.nixosModules.dank-material-shell
+        noctalia.nixosModules.default
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
         nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya

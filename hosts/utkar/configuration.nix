@@ -2,9 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
   pkgs,
-  lib,
   inputs,
   ...
 }: {
@@ -31,6 +29,12 @@
         canTouchEfiVariables = true;
       };
     };
+    supportedFilesystems = {
+      bcachefs = true;
+    };
+    initrd.systemd.enable = true;
+    resumeDevice = "/dev/disk/by-uuid/539e1e37-72a1-47b4-add9-d4eb2cc6c398";
+    kernelParams = ["resume_offset=13223936"];
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [
       "tcp_bbr"
@@ -47,18 +51,26 @@
     };
   };
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 12 * 1024; # 12GB in MB
+    }
+  ];
+
   systemd.user.services.niri-flake-polkit.enable = false;
 
   networking.hostName = "utkar"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
+  networking.networkmanager.dns = "systemd-resolved";
   networking.nameservers = [
-    "1.1.1.1"
     "9.9.9.9"
+    "149.112.112.112"
+    "2620:fe::fe"
+    "2620:fe::9"
   ];
-
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -151,6 +163,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "internet"
       "greeter"
       "pipewire"
       "libvirtd"
@@ -164,8 +177,8 @@
       "video"
       "audio"
     ];
-    packages = with pkgs; [];
-    shell = pkgs.zsh;
+    packages = with pkgs; [hello];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages

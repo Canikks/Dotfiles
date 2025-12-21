@@ -1,16 +1,10 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   programs = {
     virt-manager.enable = true;
 
     nix-index-database.comma.enable = true;
 
-    dankMaterialShell = {
+    dank-material-shell = {
       enable = true;
       enableSystemMonitoring = true; # System monitoring widgets (dgop)
       enableVPN = true; # VPN management widget
@@ -57,6 +51,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     git = {
@@ -74,6 +69,12 @@
     television = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+
+    fish = {
+      enable = true;
+      useBabelfish = true;
     };
 
     zsh = {

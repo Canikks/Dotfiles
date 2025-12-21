@@ -1,12 +1,9 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.yazi = {
     enable = true;
     package = pkgs.yazi;
     enableZshIntegration = true;
+    enableFishIntegration = true;
     extraPackages = with pkgs; [
       rich-cli
       yaziPlugins.ouch
@@ -23,6 +20,7 @@
       yaziPlugins.sudo
       yaziPlugins.diff
       yaziPlugins.rsync
+      yaziPlugins.starship
     ];
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
@@ -38,11 +36,12 @@
       no-status = pkgs.yaziPlugins.no-status;
       vcs-files = pkgs.yaziPlugins.vcs-files;
       ouch = pkgs.yaziPlugins.ouch;
+      starship = pkgs.yaziPlugins.starship;
     };
     settings = {
       mgr = {
         linemode = "permissions";
-        sort_by = "mtime";
+        sort_by = "alphabetical";
       };
       plugin = {
         prepand_previewers = [
@@ -77,7 +76,6 @@
       			section_b = {
       			},
       			section_c = {
-              			{type = "coloreds", custom = false, name = "permissions"},
       			}
       		},
       		right = {

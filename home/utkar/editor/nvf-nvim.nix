@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{...}: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -286,7 +281,6 @@
         comments = {
           comment-nvim.enable = true;
         };
-
       };
     };
   };
