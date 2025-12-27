@@ -28,6 +28,12 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    fishPlugins.forgit
+    fishPlugins.pisces
+    fishPlugins.fzf-fish
+    fishPlugins.plugin-sudope
+    babelfish
+    nur.repos.xddxdd.magiskboot
     gparted
     nodejs_20
     firefox

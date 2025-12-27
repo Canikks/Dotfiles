@@ -1,5 +1,6 @@
 {...}: {
   programs.fish = {
+    preferAbbrs = true;
     enable = true;
     shellAliases = {
       ls = "eza --color=always --icons=always";

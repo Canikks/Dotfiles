@@ -1,7 +1,7 @@
 {...}: {
   programs.ghostty = {
     enable = true;
-    enableZshIntegration = true;
+    # enableZshIntegration = true;
     enableFishIntegration = true;
     installBatSyntax = true;
     systemd.enable = true;

@@ -2,39 +2,6 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    languages = {
-      language = [
-        {
-          name = "nix";
-          language-servers = ["nixd"];
-          formatter = {command = "alejandra";};
-        }
-        {
-          name = "toml";
-          language-servers = ["taplo"];
-          formatter = {command = "taplo format";};
-        }
-      ];
-      language-server.nixd = {
-        command = "nixd";
-        config.nixd = {
-          nixpkgs = {
-            expr = "import (builtins.getFlake \"/home/utkar/dotfiles\").inputs.nixpkgs { }";
-          };
-          options = {
-            # Enable Home Manager options completion
-            home-manager = {
-              # info: Adjust the path and configuration name below
-              expr = "(builtins.getFlake \"/home/utkar/dotfiles#utkar\").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []";
-            };
-            # (Optional) Enable NixOS options completion
-            nixos = {
-              expr = "(builtins.getFlake \"/home/utkar/dotfiles#utkar\").nixosConfigurations.utkar.options";
-            };
-          };
-        };
-      };
-    };
     settings = {
       theme = "base16_transparent";
       editor = {
@@ -51,6 +18,45 @@
         };
         inline-diagnostics = {
           cursor-line = "warning";
+        };
+      };
+    };
+    languages = {
+      language = [
+        {
+          name = "nix";
+          language-servers = ["nixd"];
+          formatter = {command = "alejandra";};
+        }
+        {
+          name = "toml";
+          language-servers = ["taplo"];
+          formatter = {command = "taplo format";};
+        }
+      ];
+
+      language-server.nixd = {
+        command = "nixd";
+        config.nixd = {
+          nixpkgs = {
+            expr = ''
+              import (builtins.getFlake \"/home/utkar/dotfiles\").inputs.nixpkgs { }
+            '';
+          };
+
+          options = {
+            home-manager = {
+              expr = ''
+                (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions [])
+              '';
+            };
+
+            nixos = {
+              expr = ''
+                (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options
+              '';
+            };
+          };
         };
       };
     };

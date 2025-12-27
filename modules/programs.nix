@@ -1,8 +1,25 @@
 {pkgs, ...}: {
   programs = {
+    java = {
+      enable = true;
+      binfmt = true;
+    };
+
     virt-manager.enable = true;
 
     nix-index-database.comma.enable = true;
+
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        gcc.cc.lib
+        glibc
+        libmd
+        libz
+        gccNGPackages_15.libstdcxx
+        icu
+      ];
+    };
 
     dank-material-shell = {
       enable = true;
@@ -66,11 +83,11 @@
       package = pkgs.niri-unstable;
     };
 
-    television = {
-      enable = true;
-      enableZshIntegration = true;
-      enableFishIntegration = true;
-    };
+    # television = {
+    #   enable = true;
+    #   # enableZshIntegration = true;
+    #   # enableFishIntegration = true;
+    # };
 
     fish = {
       enable = true;

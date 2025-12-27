@@ -8,6 +8,7 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
+    ../../packages.nix
     ../../modules/programs.nix
     ../../modules/services.nix
     ../../modules/environment.nix
@@ -74,10 +75,7 @@
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
-  # Set the default locale to English (India) with UTF-8 encoding
   i18n.defaultLocale = "en_GB.UTF-8";
-
-  # Ensure en_IN.UTF-8 locale is supported by glibc
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
@@ -97,6 +95,7 @@
       nerd-fonts.jetbrains-mono
       nerd-fonts.caskaydia-cove
     ];
+
     fontDir.enable = true;
   };
 
@@ -136,6 +135,12 @@
     };
   };
 
+  systemd.user.targets = {
+    mango-session.description = "MangoWC Session Target";
+    mango-session.requires = ["graphical-session.target"];
+    mango-session.after = ["graphical-session.target"];
+  };
+  systemd.user.tmpfiles.enable = true;
   systemd.tmpfiles.rules = [
     "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware}"
   ];
@@ -177,7 +182,9 @@
       "video"
       "audio"
     ];
-    packages = with pkgs; [hello];
+    packages = with pkgs; [
+      hello
+    ];
     shell = pkgs.fish;
   };
 
@@ -197,7 +204,7 @@
           FastConnectable = true;
         };
         Policy = {
-          AutoEnable = true;
+          AutoEnable = false;
         };
       };
     };
@@ -250,7 +257,6 @@
         "https://watersucks.cachix.org"
         "https://yazi.cachix.org"
         "https://helix.cachix.org"
-        # "https://niri.cachix.org"
         "https://nix-community.cachix.org"
       ];
       # trust the public key that signs that cache
@@ -258,7 +264,6 @@
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-        # "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };

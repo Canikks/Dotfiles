@@ -10,5 +10,10 @@
     mutableUserDebug = true;
     mutableUserKeymaps = true;
     mutableUserSettings = true;
+    userSettings = {
+      features = {
+        edit_prediction_provider = "codestral";
+      };
+    };
   };
 }

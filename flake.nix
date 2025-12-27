@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -15,7 +15,7 @@
     # Community tools & Desktops
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
     dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
     dankMaterialShell.inputs.dgop.follows = "dgop";
@@ -24,6 +24,7 @@
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
     # Helpers & Utils (Consolidated follows)
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     mango.url = "github:DreamMaoMao/mangowc";
     nvf.url = "github:notashelf/nvf";
     helix.url = "github:helix-editor/helix";
@@ -42,11 +43,12 @@
     alejandra.url = "github:kamadorueda/alejandra";
     yazi.url = "github:sxyazi/yazi";
     stylix.url = "github:nix-community/stylix";
-    
+
     # Local
     zen-test.url = "path:/home/utkar/zen-browser-flake";
 
     # Force all above to follow the main nixpkgs to save space/versions
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     mango.inputs.nixpkgs.follows = "nixpkgs";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     helix.inputs.nixpkgs.follows = "nixpkgs";
@@ -73,10 +75,9 @@
   outputs = inputs: {
     nixosConfigurations.utkar = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = with inputs; [
         ./hosts/utkar/configuration.nix
-        ./packages.nix
         niri.nixosModules.niri
         dankMaterialShell.nixosModules.greeter
         dankMaterialShell.nixosModules.dank-material-shell
@@ -85,7 +86,6 @@
         nur.modules.nixos.default
         nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
         nix-index-database.nixosModules.nix-index
-        # stylix.nixosModules.stylix
         mango.nixosModules.mango
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-gpu-intel
@@ -94,7 +94,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.utkar = import ./home/utkar/home.nix;
         }
       ];

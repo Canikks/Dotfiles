@@ -1,125 +1,78 @@
 {inputs, ...}: {
   imports = [
+    # INPUT MODULES
     inputs.nix-index-database.homeModules.nix-index
     inputs.dankMaterialShell.homeModules.dank-material-shell
     inputs.dankMaterialShell.homeModules.niri
     inputs.mango.hmModules.mango
     inputs.dsearch.homeModules.default
     inputs.nvf.homeManagerModules.default
-    ./shell/zsh.nix
+
+    # SHELL CONFIG
+    # ./shell/zsh.nix
     ./shell/fish.nix
+    ./shell/prompt/starship.nix
+
+    # TERMINAL CONFIG
     ./terminal/ghostty.nix
     # ./terminal/kitty.nix
     # ./terminal/rio.nix
+
+    # EDITOR CONFIG
     ./editor/helix.nix
     ./editor/zeditor.nix
-    ./file-manager/yazi.nix
-    ./shell/prompt/starship.nix
     # ./editor/nvf-nvim.nix
+
+    # FILE MANAGER CONFIG
+    ./file-manager/yazi.nix
+
+    # CLI TOOLS
     ./cli/aria2.nix
+    ./cli/dsearch.nix
+    ./cli/delta.nix
+    ./cli/pay-respects.nix
+    ./cli/fzf.nix
+    ./cli/eza.nix
+    ./cli/dank-material-shell.nix
+    # ./cli/television.nix
+    # ./cli/nix-search-tv.nix
+    ./cli/nix-your-shell.nix
+    ./cli/home-manager.nix
+    ./cli/nix-index.nix
+    ./cli/keepassxc.nix
+    ./cli/tealdeer.nix
+    ./cli/zoxide.nix
+    ./cli/lazygit.nix
+
+    # GAMING
     ./gaming/lutris.nix
+
+    # MULTIPLEXER
     ./multiplexer/zellij.nix
+
+    # AUDIO
     ./audio/easyeffects.nix
   ];
+
   home.stateVersion = "25.05";
-  home.shell.enableShellIntegration = true;
-  home.shell.enableZshIntegration = true;
-  home.shell.enableBashIntegration = true;
   home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
 
-  wayland.windowManager.mango = {
-    enable = true;
-  };
+  # Nixpkgs Configuration
+  nixpkgs.config.allowUnfree = true;
 
-  programs.dsearch = {
-    enable = true;
-  };
+  # Window Manager
+  wayland.windowManager.mango.enable = true;
 
-  programs.delta = {
-    enable = true;
-    enableGitIntegration = true;
-  };
-
-  programs.pay-respects = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.eza = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.dank-material-shell = {
-    default.settings = {
-      theme = "dark";
-      dynamicTheming = true;
-    };
-  };
-  programs.nix-search-tv = {
-    enable = true;
-    settings = {
-      indexes = ["nixpkgs" "home-manager" "nixos" "nur"];
-    };
-    enableTelevisionIntegration = true;
-  };
-
-  programs.nix-your-shell = {
-    enable = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
-    nix-output-monitor.enable = true;
-  };
-
-  programs.home-manager.enable = true;
-
-  xdg.autostart = {
-    enable = true;
-  };
-
+  # XDG Configuration
   xdg = {
-    configFile."mango" = {
-      source = ./mango;
-      recursive = true;
-    };
-    configFile."television/cable/nix.toml" = {
-      source = ./nix.toml;
-    };
-  };
-
-  programs.nix-index = {
-    enable = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
-  };
-
-  programs.keepassxc = {
-    enable = true;
-    autostart = true;
-  };
-  programs.tealdeer = {
-    settings = {
-      updates = {
-        auto_update = true;
+    autostart.enable = true;
+    configFile = {
+      "mango" = {
+        source = ./mango;
+        recursive = true;
       };
+      # "television/cable/nix.toml" = {source = ./nix.toml;};
     };
-  };
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-  programs.lazygit = {
-    enable = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
   };
 }
