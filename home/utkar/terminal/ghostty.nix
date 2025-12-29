@@ -1,9 +1,9 @@
 {...}: {
   programs.ghostty = {
     enable = true;
-    # enableZshIntegration = true;
     enableFishIntegration = true;
     installBatSyntax = true;
+    installVimSyntax = true;
     systemd.enable = true;
     settings = {
       font-family = "CankaydiaCove Nerd Font Propo";

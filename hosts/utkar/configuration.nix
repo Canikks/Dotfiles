@@ -4,6 +4,7 @@
 {
   pkgs,
   inputs,
+  sops,
   ...
 }: {
   imports = [
@@ -23,7 +24,7 @@
         efiSupport = true;
         efiInstallAsRemovable = true;
         style = {
-          wallpapers = [../../Pictures/1140x641.jpg];
+          wallpapers = [../../Pictures/maxresdefault.jpg];
         };
       };
       efi = {
@@ -34,6 +35,7 @@
       bcachefs = true;
     };
     initrd.systemd.enable = true;
+    initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-uuid/539e1e37-72a1-47b4-add9-d4eb2cc6c398";
     kernelParams = ["resume_offset=13223936"];
     kernelPackages = pkgs.linuxPackages_zen;
@@ -120,6 +122,21 @@
     };
   };
 
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/utkar/.config/sops/age/keys.txt";
+    # secrets.my_secret_token = {
+    #   owner = "utkar";
+    # };
+    # secrets.openrouter_api_key = {
+    #   owner = "utkar";
+    # };
+    # secrets.mistral_api_key = {
+    #   owner = "utkar";
+    # };
+  };
+
   security = {
     polkit = {
       enable = true;
@@ -148,6 +165,7 @@
   # virtualisation.containers.enable = true;
   virtualisation = {
     libvirtd.enable = true;
+    libvirtd.dbus.enable = true;
     libvirtd.qemu = {
       runAsRoot = true;
       swtpm.enable = true;
@@ -168,6 +186,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "aria2"
       "internet"
       "greeter"
       "pipewire"
@@ -231,6 +250,7 @@
     8888
     8080
     8000
+    6800
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
@@ -258,6 +278,7 @@
         "https://yazi.cachix.org"
         "https://helix.cachix.org"
         "https://nix-community.cachix.org"
+        "https://devenv.cachix.org"
       ];
       # trust the public key that signs that cache
       extra-trusted-public-keys = [
@@ -265,6 +286,7 @@
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
     };
   };

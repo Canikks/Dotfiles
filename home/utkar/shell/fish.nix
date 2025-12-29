@@ -1,4 +1,4 @@
-{...}: {
+{osConfig, ...}: {
   programs.fish = {
     preferAbbrs = true;
     enable = true;
@@ -9,6 +9,7 @@
       gs = "git status -u";
       zel = "zellij";
       zserver = "zellij --layout=server";
+      gpra = "git pull --rebase --autostash";
     };
     shellInit = ''
       set -g fish_greeting ""
@@ -26,6 +27,7 @@
 
       # Enable terminal integration (VTE-like)
       set -g fish_term24bit 1
+
     '';
   };
 }

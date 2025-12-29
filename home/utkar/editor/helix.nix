@@ -1,7 +1,7 @@
 {...}: {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
     settings = {
       theme = "base16_transparent";
       editor = {
@@ -40,7 +40,7 @@
         config.nixd = {
           nixpkgs = {
             expr = ''
-              import (builtins.getFlake \"/home/utkar/dotfiles\").inputs.nixpkgs { }
+              import (builtins.getFlake "/home/utkar/dotfiles").inputs.nixpkgs { }
             '';
           };
 

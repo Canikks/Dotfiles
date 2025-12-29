@@ -18,6 +18,7 @@
         libz
         gccNGPackages_15.libstdcxx
         icu
+        libc
       ];
     };
 
@@ -95,6 +96,10 @@
     };
 
     zsh = {
+      enable = true;
+    };
+
+    direnv = {
       enable = true;
     };
 

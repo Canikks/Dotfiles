@@ -1,6 +1,7 @@
 {...}: {
   programs.nvf = {
     enable = true;
+    defaultEditor = true;
     settings = {
       vim = {
         syntaxHighlighting = true;
@@ -11,6 +12,19 @@
           level = 16;
           logFile = "/tmp/nvim.log";
         };
+
+        keymaps = [
+          {
+            key = "<leader>-";
+            mode = "n";
+            silent = true;
+            action = "<CMD>Oil<CR>";
+          }
+        ];
+
+        extraLuaFiles = [
+          ./nixd.lua
+        ];
 
         options = {
           autoindent = false;
@@ -56,7 +70,6 @@
 
           # Languages that will be supported in default and maximal configurations.
           nix = {
-            treesitter.enable = true;
             enable = true;
             format.enable = true;
             lsp.servers = ["nixd"];
@@ -69,25 +82,25 @@
 
           # Languages that are enabled in the maximal configuration.
           bash.enable = true;
-          clang.enable = true;
+          clang.enable = false;
           css.enable = true;
           html.enable = true;
           sql.enable = true;
           java.enable = true;
-          kotlin.enable = true;
+          kotlin.enable = false;
           ts.enable = true;
           go.enable = true;
           lua.enable = true;
-          zig.enable = true;
+          zig.enable = false;
           python.enable = true;
-          typst.enable = true;
+          typst.enable = false;
           rust = {
             enable = true;
             extensions.crates-nvim.enable = true;
           };
 
           # Language modules that are not as common.
-          assembly.enable = true;
+          assembly.enable = false;
           astro.enable = false;
           nu.enable = false;
           csharp.enable = false;
@@ -100,7 +113,7 @@
           ocaml.enable = false;
           elixir.enable = false;
           haskell.enable = false;
-          ruby.enable = true;
+          ruby.enable = false;
           fsharp.enable = false;
 
           tailwind.enable = false;
@@ -190,7 +203,7 @@
 
         minimap = {
           minimap-vim.enable = false;
-          codewindow.enable = true; # lighter, faster, and uses lua for configuration
+          codewindow.enable = false; # lighter, faster, and uses lua for configuration
         };
 
         dashboard = {
@@ -207,8 +220,14 @@
         };
 
         utility = {
-          yazi-nvim.enable = true;
-          yazi-nvim.setupOpts.open_for_directories = true;
+          # yazi-nvim.enable = true;
+          # yazi-nvim.setupOpts.open_for_directories = true;
+          oil-nvim = {
+            enable = true;
+            gitStatus = {
+              enable = true;
+            };
+          };
           ccc.enable = false;
           vim-wakatime.enable = false;
           diffview-nvim.enable = true;
@@ -241,12 +260,12 @@
         #   todo-comments.enable = false;
         # };
 
-        # terminal = {
-        #   toggleterm = {
-        #     enable = true;
-        #     lazygit.enable = true;
-        #   };
-        # };
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+        };
 
         ui = {
           borders.enable = true;

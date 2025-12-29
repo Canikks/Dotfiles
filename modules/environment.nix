@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   environment = {
     pathsToLink = ["/share/zsh" "/share/fish"];
     variables = {

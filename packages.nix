@@ -28,6 +28,8 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    vivaldi-ffmpeg-codecs
+    vivaldi
     fishPlugins.forgit
     fishPlugins.pisces
     fishPlugins.fzf-fish
@@ -42,11 +44,33 @@
     mindustry-wayland
     gearlever
     ibus
-    inputs.zen-test.packages.${pkgs.stdenv.hostPlatform.system}.beta
-    lsp-plugins
-    zam-plugins
-    calf
-    mda_lv2
+    (
+      inputs.zen-browser.packages.${system}.beta-unwrapped.overrideAttrs
+      (oldAttrs: rec {
+        libName = "zen-bin-1.17.15b";
+        fsautoconfig = (
+          builtins.fetchurl {
+            url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
+            sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
+          }
+        );
+        configpref = (
+          builtins.fetchurl {
+            url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/refs/heads/master/program/defaults/pref/config-prefs.js";
+            sha256 = "sha256-a/0u0TnRj/UXjg/GKjtAWFQN2+ujrckSwNae23DBfs4=";
+          }
+        );
+
+        postInstall =
+          (oldAttrs.postInstall or "")
+          + ''
+            chmod -R u+w "$out/lib/${libName}"
+            cp "${(builtins.trace fsautoconfig fsautoconfig)}" "$out/lib/${libName}/config.js"
+            mkdir -p "$out/lib/${libName}/defaults/pref"
+            cp "${configpref}" "$out/lib/${libName}/defaults/pref/config-pref.js"
+          '';
+      })
+    )
     aria2
     cacert
     devenv
@@ -93,11 +117,8 @@
     gnome.gvfs
     fzf
     ripgrep
-    alejandra
-    nixd
     wl-clip-persist
     greetd
-    dbus
     dbus-broker
     nur.repos.forkprince.helium-nightly
     fastfetch

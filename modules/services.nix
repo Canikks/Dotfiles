@@ -1,10 +1,49 @@
-{...}: {
+{pkgs, ...}: {
   services = {
     flatpak = {
       enable = true;
     };
 
+    aria2 = {
+      enable = true;
+      rpcSecretFile = "/home/utkar/dotfiles/modules/secret-rpc.txt";
+      settings = {
+        enable-rpc = true;
+        dir = "/home/utkar/Downloads";
+        openPorts = true;
+      };
+    };
+
+    avahi = {
+      enable = true;
+      reflector = true;
+      publish = {
+        enable = true;
+      };
+    };
+
     spice-vdagentd.enable = true;
+
+    clamav = {
+      scanner = {
+        enable = true;
+        scanDirectories = [
+          "/home/utkar/Downloads"
+          "/tmp"
+          "/var/lib"
+          "/var/tmp"
+        ];
+      };
+      daemon = {
+        enable = true;
+      };
+      fangfrisch = {
+        enable = true;
+      };
+      updater = {
+        enable = true;
+      };
+    };
 
     xserver = {
       xkb = {
@@ -36,10 +75,20 @@
 
     dbus = {
       enable = true;
+      implementation = "broker";
     };
 
     pipewire = {
       enable = true;
+      wireplumber = {
+        enable = true;
+        extraLv2Packages = with pkgs; [
+          lsp-plugins
+          zam-plugins
+          calf
+          mda_lv2
+        ];
+      };
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
@@ -52,6 +101,10 @@
       extraArgs = [
         "--autopilot"
       ];
+    };
+
+    fwupd = {
+      enable = true;
     };
 
     psd = {

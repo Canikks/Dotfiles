@@ -11,14 +11,14 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-utils.url = "github:numtide/flake-utils";
     nixd.url = "github:nix-community/nixd";
-
+    sops-nix.url = "github:Mic92/sops-nix";
     # Community tools & Desktops
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
     dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
     dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
-    dankMaterialShell.inputs.dgop.follows = "dgop";
+    # dankMaterialShell.inputs.dgop.follows = "dgop";
 
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +43,7 @@
     alejandra.url = "github:kamadorueda/alejandra";
     yazi.url = "github:sxyazi/yazi";
     stylix.url = "github:nix-community/stylix";
+    devenv.url = "github:cachix/devenv";
 
     # Local
     zen-test.url = "path:/home/utkar/zen-browser-flake";
@@ -70,11 +71,17 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     zen-test.inputs.nixpkgs.follows = "nixpkgs";
     zen-test.inputs.home-manager.follows = "home-manager";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs: {
+  outputs = inputs: let
+    system = "x86_64-linux";
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+  in {
+    formatter.${system} = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.utkar = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = "${system}";
       specialArgs = {inherit inputs;};
       modules = with inputs; [
         ./hosts/utkar/configuration.nix
@@ -90,6 +97,7 @@
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-gpu-intel
         nixos-hardware.nixosModules.common-pc-laptop-ssd
+        sops-nix.nixosModules.sops
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -97,6 +105,13 @@
           home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.utkar = import ./home/utkar/home.nix;
         }
+      ];
+    };
+    devShells.${system}.default = inputs.devenv.lib.mkShell {
+      inherit inputs pkgs;
+      modules = [
+        # Import the actual logic from a separate file to keep flake.nix clean
+        ./devenv.nix
       ];
     };
   };
