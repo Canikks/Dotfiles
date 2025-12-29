@@ -51,7 +51,7 @@
     # Format Nix code
     treefmt.enable = true;
     # Check for dead code (optional)
-    deadnix.enable = false;
+    deadnix.enable = true;
     # Lint shell scripts if you have them
     shellcheck.enable = true;
     shellcheck.args = ["-e" "SC2034" "-e" "SC2148"];
