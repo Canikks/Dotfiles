@@ -4,6 +4,26 @@
       enable = true;
     };
 
+    pihole-ftl = {
+      enable = false;
+      settings = {
+        dns.upstreams = [
+          "9.9.9.9"
+          "149.112.112.112"
+          "2620:fe::fe"
+          "2620:fe::9"
+        ];
+        # dns.listeningMode = "all";
+      };
+    };
+
+    pihole-web = {
+      enable = false;
+      ports = [
+        "80r"
+      ];
+    };
+
     aria2 = {
       enable = true;
       rpcSecretFile = "/home/utkar/dotfiles/modules/secret-rpc.txt";
@@ -26,7 +46,7 @@
 
     clamav = {
       scanner = {
-        enable = true;
+        enable = false;
         scanDirectories = [
           "/home/utkar/Downloads"
           "/tmp"
@@ -35,7 +55,7 @@
         ];
       };
       daemon = {
-        enable = true;
+        enable = false;
       };
       fangfrisch = {
         enable = true;
@@ -60,9 +80,9 @@
       dnsovertls = "true";
       domains = ["~."];
       fallbackDns = ["1.1.1.1#cloudflare-dns.com"];
-      extraConfig = ''
-        DNS=9.9.9.9#dns.quad9.net 149.112.112.112#dns.quad9.net
-      '';
+      # extraConfig = ''
+      #   DNSStubListener=no
+      # '';
     };
 
     gvfs = {

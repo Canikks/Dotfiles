@@ -50,6 +50,7 @@
         "net.core.rmem_max" = 1073741824;
         "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
         "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
+        "dev.tty.ldisc_autoload" = 0;
       };
     };
   };
@@ -126,15 +127,6 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/utkar/.config/sops/age/keys.txt";
-    # secrets.my_secret_token = {
-    #   owner = "utkar";
-    # };
-    # secrets.openrouter_api_key = {
-    #   owner = "utkar";
-    # };
-    # secrets.mistral_api_key = {
-    #   owner = "utkar";
-    # };
   };
 
   security = {
@@ -186,6 +178,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "pihole"
       "aria2"
       "internet"
       "greeter"
@@ -251,8 +244,9 @@
     8080
     8000
     6800
+    53
   ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [53];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 

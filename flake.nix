@@ -52,6 +52,7 @@
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     mango.inputs.nixpkgs.follows = "nixpkgs";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
+    nvf.inputs.ndg.follows = "nixpkgs";
     helix.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-output-monitor.inputs.nixpkgs.follows = "nixpkgs";

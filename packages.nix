@@ -37,10 +37,10 @@
     babelfish
     nur.repos.xddxdd.magiskboot
     gparted
-    nodejs_20
+    # nodejs_20
     firefox
     ffmpeg-full
-    srb2
+    # srb2
     mindustry-wayland
     gearlever
     ibus
@@ -80,7 +80,6 @@
     virt-manager
     easyeffects
     taplo
-    lazygit
     papirus-icon-theme
     starship
     onlyoffice-desktopeditors

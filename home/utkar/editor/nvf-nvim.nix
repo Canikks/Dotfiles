@@ -44,7 +44,7 @@
           # the LSP API.
           enable = true;
           null-ls.enable = true;
-          formatOnSave = true;
+          formatOnSave = false;
           lspkind.enable = true;
           lightbulb.enable = true;
           lspsaga.enable = true;
@@ -85,7 +85,7 @@
           clang.enable = false;
           css.enable = true;
           html.enable = true;
-          sql.enable = true;
+          sql.enable = false;
           java.enable = true;
           kotlin.enable = false;
           ts.enable = true;
@@ -133,7 +133,6 @@
           nvim-cursorline.enable = true;
           cinnamon-nvim.enable = true;
           fidget-nvim.enable = true;
-
           highlight-undo.enable = true;
           indent-blankline.enable = true;
           indent-blankline.setupOpts.indent.smart_indent_cap = true;
@@ -252,13 +251,13 @@
           };
         };
 
-        # notes = {
-        #   obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
-        #   neorg.enable = false;
-        #   orgmode.enable = false;
-        #   mind-nvim.enable = false;
-        #   todo-comments.enable = false;
-        # };
+        notes = {
+          obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
+          neorg.enable = false;
+          orgmode.enable = false;
+          mind-nvim.enable = false;
+          todo-comments.enable = false;
+        };
 
         terminal = {
           toggleterm = {

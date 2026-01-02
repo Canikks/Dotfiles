@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs = {
     java = {
       enable = true;
@@ -22,7 +26,7 @@
       ];
     };
 
-    dank-material-shell = {
+    dms-shell = {
       enable = true;
       enableSystemMonitoring = true; # System monitoring widgets (dgop)
       enableVPN = true; # VPN management widget
@@ -33,6 +37,11 @@
         enable = true; # Systemd service for auto-start
         restartIfChanged = true; # Auto-restart dms.service when dankMaterialShell changes
       };
+      package = inputs.dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    };
+
+    dank-material-shell = {
+      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
       greeter = {
         enable = true;
         compositor.name = "niri"; # or set to hyprland
