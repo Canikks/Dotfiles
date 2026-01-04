@@ -21,7 +21,7 @@
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
     # inputs.yazi.overlays.default
-    # inputs.quickshell.overlays.default
+    inputs.quickshell.overlays.default
     inputs.helix.overlays.default
     inputs.nix-your-shell.overlays.default
   ];
@@ -121,5 +121,6 @@
     fd
     vscode-json-languageserver
     # (lib.hiPrio pkgs.uutils-coreutils-noprefix)
+    quickshell
   ];
 }

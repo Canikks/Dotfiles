@@ -1,4 +1,4 @@
-{osConfig, ...}: {
+{...}: {
   programs.fish = {
     preferAbbrs = true;
     enable = true;

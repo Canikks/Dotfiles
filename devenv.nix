@@ -26,6 +26,7 @@
     treefmt
     nixd
     alejandra
+    deadnix
   ];
 
   cachix = {
@@ -35,7 +36,8 @@
 
   git-hooks.hooks = {
     treefmt.enable = true;
-    deadnix.enable = false;
+    deadnix.enable = true;
+    deadnix.args = ["-l"];
     shellcheck.enable = true;
     shellcheck.args = ["-e" "SC2034" "-e" "SC2148"];
   };
