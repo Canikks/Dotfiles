@@ -26,7 +26,7 @@
 
     aria2 = {
       enable = true;
-      rpcSecretFile = "/home/utkar/dotfiles/modules/secret-rpc.txt";
+      rpcSecretFile = "/home/utkar/dotfiles/secrets/secret-rpc.txt";
       settings = {
         enable-rpc = true;
         dir = "/home/utkar/Downloads";

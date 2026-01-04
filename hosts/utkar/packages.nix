@@ -32,6 +32,9 @@
     fishPlugins.pisces
     fishPlugins.fzf-fish
     fishPlugins.plugin-sudope
+    fishPlugins.grc
+    fishPlugins.fifc
+    grc
     babelfish
     nur.repos.xddxdd.magiskboot
     gparted

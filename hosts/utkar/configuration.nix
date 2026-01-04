@@ -1,59 +1,20 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
-    ../../packages.nix
-    ../../modules/programs.nix
-    ../../modules/services.nix
-    ../../modules/environment.nix
-    ../../hardware-configuration.nix
+    ./packages.nix
+    ./programs.nix
+    ./services.nix
+    ./environment.nix
+    ./hardware-configuration.nix
+    ./network.nix
+    ./hardware.nix
+    ./boot.nix
+    ./virtualisation.nix
+    ./nix.nix
   ];
-
-  # Bootloader.
-  boot = {
-    loader = {
-      limine = {
-        enable = true;
-        efiSupport = true;
-        efiInstallAsRemovable = true;
-        style = {
-          wallpapers = [../../Pictures/maxresdefault.jpg];
-        };
-      };
-      efi = {
-        canTouchEfiVariables = true;
-      };
-    };
-    supportedFilesystems = {
-      bcachefs = true;
-    };
-    initrd.systemd.enable = true;
-    initrd.systemd.dbus.enable = true;
-    resumeDevice = "/dev/disk/by-uuid/539e1e37-72a1-47b4-add9-d4eb2cc6c398";
-    kernelParams = ["resume_offset=13223936"];
-    kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = [
-      "tcp_bbr"
-    ];
-    kernel = {
-      sysctl = {
-        "net.core.default_qdisc" = "fq";
-        "net.ipv4.tcp_congestion_control" = "bbr";
-        "net.core.wmem_max" = 1073741824;
-        "net.core.rmem_max" = 1073741824;
-        "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
-        "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
-        "dev.tty.ldisc_autoload" = 0;
-      };
-    };
-  };
-
   swapDevices = [
     {
       device = "/var/lib/swapfile";
@@ -65,12 +26,6 @@
 
   networking.hostName = "utkar"; # Define your hostname.
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
-  networking.nameservers = [
-    "127.0.0.1"
-  ];
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -150,25 +105,6 @@
     "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware}"
   ];
 
-  # virtualisation.containers.enable = true;
-  virtualisation = {
-    libvirtd.enable = true;
-    libvirtd.dbus.enable = true;
-    libvirtd.qemu = {
-      runAsRoot = true;
-      swtpm.enable = true;
-    };
-    spiceUSBRedirection.enable = true;
-    containers = {
-      enable = true;
-    };
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.utkar = {
     isNormalUser = true;
@@ -199,25 +135,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-    bluetooth = {
-      enable = true;
-      settings = {
-        General = {
-          Experimental = true;
-          FastConnectable = true;
-        };
-        Policy = {
-          AutoEnable = false;
-        };
-      };
-    };
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -233,53 +150,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    8888
-    8080
-    8000
-    6800
-    53
-  ];
-  networking.firewall.allowedUDPPorts = [53];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
-
-  nix = {
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-    channel.enable = false;
-    daemonCPUSchedPolicy = "idle";
-    daemonIOSchedClass = "idle";
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      trusted-users = [
-        "root"
-        "utkar"
-      ];
-      use-xdg-base-directories = true;
-      builders-use-substitutes = true;
-      auto-optimise-store = true;
-      extra-substituters = [
-        "https://watersucks.cachix.org"
-        "https://yazi.cachix.org"
-        "https://helix.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://devenv.cachix.org"
-      ];
-      # trust the public key that signs that cache
-      extra-trusted-public-keys = [
-        "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
-        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-      ];
-    };
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

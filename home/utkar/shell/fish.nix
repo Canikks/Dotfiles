@@ -24,10 +24,10 @@
       set -g fish_color_command blue
       set -g fish_color_param cyan
       set -g fish_color_error red
+      set -Ux fifc_editor hx
 
       # Enable terminal integration (VTE-like)
       set -g fish_term24bit 1
-
     '';
   };
 }
