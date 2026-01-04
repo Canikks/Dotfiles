@@ -6,26 +6,6 @@
       enable = true;
     };
 
-    pihole-ftl = {
-      enable = false;
-      settings = {
-        dns.upstreams = [
-          "9.9.9.9"
-          "149.112.112.112"
-          "2620:fe::fe"
-          "2620:fe::9"
-        ];
-        # dns.listeningMode = "all";
-      };
-    };
-
-    pihole-web = {
-      enable = false;
-      ports = [
-        "80r"
-      ];
-    };
-
     aria2 = {
       enable = true;
       rpcSecretFile = "/home/utkar/dotfiles/secrets/secret-rpc.txt";
@@ -126,9 +106,6 @@
       dnsovertls = "true";
       domains = ["~."];
       fallbackDns = ["1.1.1.1#cloudflare-dns.com"];
-      # extraConfig = ''
-      #   DNSStubListener=no
-      # '';
     };
 
     gvfs = {
