@@ -28,8 +28,6 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
-    vivaldi-ffmpeg-codecs
-    vivaldi
     fishPlugins.forgit
     fishPlugins.pisces
     fishPlugins.fzf-fish
@@ -43,7 +41,6 @@
     # srb2
     mindustry-wayland
     gearlever
-    ibus
     (
       inputs.zen-browser.packages.${system}.beta-unwrapped.overrideAttrs
       (oldAttrs: rec {
@@ -71,7 +68,6 @@
           '';
       })
     )
-    aria2
     cacert
     devenv
     qemu_kvm
@@ -87,7 +83,6 @@
     opencode
     satty
     tealdeer
-    wlr-randr
     fcitx5
     bibata-cursors
     adw-gtk3
@@ -95,8 +90,6 @@
     niri-unstable
     xwayland-satellite-unstable
     libadwaita
-    nushell
-    go
     nirius
     ouch
     tmux
@@ -107,11 +100,8 @@
     (yazi.override {
       _7zz = pkgs._7zz-rar;
     })
-    # zed-editor
-    mesa-demos
     gtk4
     gtk3
-    nautilus
     btop
     gnome.gvfs
     fzf
@@ -121,7 +111,6 @@
     dbus-broker
     nur.repos.forkprince.helium-nightly
     fastfetch
-    lutris
     kdePackages.qt6ct
     wineWowPackages.waylandFull
     keepassxc

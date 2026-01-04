@@ -1,9 +1,10 @@
 {...}: {
   programs.nvf = {
     enable = true;
-    defaultEditor = true;
+    # defaultEditor = true;
     settings = {
       vim = {
+        enableLuaLoader = true;
         syntaxHighlighting = true;
         viAlias = true;
         vimAlias = true;
@@ -93,7 +94,7 @@
           lua.enable = true;
           zig.enable = false;
           python.enable = true;
-          typst.enable = false;
+          typst.enable = true;
           rust = {
             enable = true;
             extensions.crates-nvim.enable = true;

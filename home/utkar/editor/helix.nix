@@ -1,7 +1,7 @@
 {...}: {
   programs.helix = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     settings = {
       theme = "base16_transparent";
       editor = {

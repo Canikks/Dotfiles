@@ -18,6 +18,7 @@
     ./terminal/ghostty.nix
     # ./terminal/kitty.nix
     # ./terminal/rio.nix
+    # ./terminal/wezterm.nix
 
     # EDITOR CONFIG
     ./editor/helix.nix

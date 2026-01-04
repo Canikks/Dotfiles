@@ -21,6 +21,7 @@
       yaziPlugins.diff
       yaziPlugins.rsync
       yaziPlugins.starship
+      yaziPlugins.git
     ];
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
@@ -37,6 +38,7 @@
       vcs-files = pkgs.yaziPlugins.vcs-files;
       ouch = pkgs.yaziPlugins.ouch;
       starship = pkgs.yaziPlugins.starship;
+      git = pkgs.yaziPlugins.git;
     };
     settings = {
       mgr = {
@@ -44,7 +46,19 @@
         sort_by = "alphabetical";
       };
       plugin = {
-        prepand_previewers = [
+        prepend_fetchers = [
+          {
+            id = "git";
+            url = "*";
+            run = "git";
+          }
+          {
+            id = "git";
+            url = "*/";
+            run = "git";
+          }
+        ];
+        prepend_previewers = [
           {
             name = "*.csv";
             run = "rich-preview";
@@ -70,6 +84,7 @@
       }
       require("recycle-bin"):setup()
       require("no-status"):setup()
+      require("git"):setup()
     '';
     keymap = {
       mgr.prepend_keymap = [

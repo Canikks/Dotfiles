@@ -2,28 +2,25 @@
   description = "My NixOS system configuration flake";
 
   inputs = {
+    # Core inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-utils.url = "github:numtide/flake-utils";
     nixd.url = "github:nix-community/nixd";
     sops-nix.url = "github:Mic92/sops-nix";
+
     # Community tools & Desktops
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
-
     dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
     dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
-    # dankMaterialShell.inputs.dgop.follows = "dgop";
-
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Helpers & Utils (Consolidated follows)
+    # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
     mango.url = "github:DreamMaoMao/mangowc";
     nvf.url = "github:notashelf/nvf";
@@ -36,6 +33,8 @@
     dsearch.url = "github:AvengeMedia/danksearch";
     rio.url = "github:raphamorim/rio/main";
     ghostty.url = "github:ghostty-org/ghostty";
+    ghostty.inputs.home-manager.follows = "home-manager";
+    wezterm.url = "github:wezterm/wezterm?dir=nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nur.url = "github:nix-community/NUR";
     nh.url = "github:nix-community/nh";
@@ -47,35 +46,10 @@
 
     # Local
     zen-test.url = "path:/home/utkar/zen-browser-flake";
-
-    # Force all above to follow the main nixpkgs to save space/versions
-    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-    mango.inputs.nixpkgs.follows = "nixpkgs";
-    nvf.inputs.nixpkgs.follows = "nixpkgs";
-    nvf.inputs.ndg.follows = "nixpkgs";
-    helix.inputs.nixpkgs.follows = "nixpkgs";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-output-monitor.inputs.nixpkgs.follows = "nixpkgs";
-    nix-your-shell.inputs.nixpkgs.follows = "nixpkgs";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
-    dgop.inputs.nixpkgs.follows = "nixpkgs";
-    dsearch.inputs.nixpkgs.follows = "nixpkgs";
-    rio.inputs.nixpkgs.follows = "nixpkgs";
-    ghostty.inputs.nixpkgs.follows = "nixpkgs";
-    ghostty.inputs.home-manager.follows = "home-manager";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
-    nh.inputs.nixpkgs.follows = "nixpkgs";
-    nix-search-tv.inputs.nixpkgs.follows = "nixpkgs";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
-    yazi.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-    zen-test.inputs.nixpkgs.follows = "nixpkgs";
     zen-test.inputs.home-manager.follows = "home-manager";
-    devenv.inputs.nixpkgs.follows = "nixpkgs";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  # Force all inputs to follow the main nixpkgs to save space/versions
   outputs = inputs: let
     system = "x86_64-linux";
     pkgs = inputs.nixpkgs.legacyPackages.${system};
