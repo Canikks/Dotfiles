@@ -14,19 +14,15 @@
     ./boot.nix
     ./virtualisation.nix
     ./nix.nix
+    ./systemd.nix
   ];
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 12 * 1024; # 12GB in MB
+      size = 12 * 1024;
     }
   ];
 
-  systemd.user.services.niri-flake-polkit.enable = false;
-
-  networking.hostName = "utkar"; # Define your hostname.
-
-  # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -48,6 +44,7 @@
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       nerd-fonts.caskaydia-cove
+      nerd-fonts.meslo-lg
     ];
 
     fontDir.enable = true;
@@ -95,17 +92,6 @@
     };
   };
 
-  systemd.user.targets = {
-    mango-session.description = "MangoWC Session Target";
-    mango-session.requires = ["graphical-session.target"];
-    mango-session.after = ["graphical-session.target"];
-  };
-  systemd.user.tmpfiles.enable = true;
-  systemd.tmpfiles.rules = [
-    "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware}"
-  ];
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.utkar = {
     isNormalUser = true;
     description = "utkar";
@@ -132,30 +118,7 @@
     shell = pkgs.fish;
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg = {
-    dirmngr.enable = true;
-    agent = {
-      enable = true;
-      enableSSHSupport = true;
-      enableBrowserSocket = true;
-      enableExtraSocket = true;
-    };
-  };
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05";
 }

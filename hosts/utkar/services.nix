@@ -1,5 +1,7 @@
 {pkgs, ...}: {
   services = {
+    openssh.enable = true;
+
     flatpak = {
       enable = true;
     };
@@ -50,21 +52,16 @@
           http = 4000;
         };
 
-        # CRITICAL FIX: Bootstrap DNS
-        # Blocky uses these specific IPs to resolve the DoH upstreams below.
-        # Without this, Blocky cannot start because it can't resolve "dns.quad9.net".
         bootstrapDns = {
           upstream = "https://one.one.one.one/dns-query";
           ips = ["1.1.1.1" "1.0.0.1"];
         };
 
-        # Encrypted Upstreams (DoH)
         upstreams.groups.default = [
           "https://dns.quad9.net/dns-query"
           "https://dns.mullvad.net/dns-query"
         ];
 
-        # Performance: Prefetching
         caching = {
           minTime = "5m";
           maxTime = "30m";
@@ -73,7 +70,6 @@
           prefetchThreshold = 5;
         };
 
-        # Blocklists
         blocking = {
           refreshPeriod = "4h";
           blackLists = {

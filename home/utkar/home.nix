@@ -82,12 +82,5 @@
   # XDG Configuration
   xdg = {
     autostart.enable = true;
-    # configFile = {
-    #   "mango" = {
-    #     source = ./mango;
-    #     recursive = true;
-    #   };
-    #   # "television/cable/nix.toml" = {source = ./nix.toml;};
-    # };
   };
 }

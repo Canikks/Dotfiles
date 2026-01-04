@@ -4,6 +4,20 @@
   ...
 }: {
   programs = {
+    mtr = {
+      enable = true;
+    };
+
+    gnupg = {
+      dirmngr.enable = true;
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+        enableBrowserSocket = true;
+        enableExtraSocket = true;
+      };
+    };
+
     java = {
       enable = true;
       binfmt = true;

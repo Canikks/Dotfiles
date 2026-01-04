@@ -28,13 +28,13 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    ddccontrol
+    fprintd
     fishPlugins.forgit
     fishPlugins.pisces
     fishPlugins.fzf-fish
     fishPlugins.plugin-sudope
-    fishPlugins.grc
     fishPlugins.fifc
-    grc
     babelfish
     nur.repos.xddxdd.magiskboot
     gparted

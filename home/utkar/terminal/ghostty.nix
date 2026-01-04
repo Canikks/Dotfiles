@@ -6,7 +6,7 @@
     installVimSyntax = true;
     systemd.enable = true;
     settings = {
-      font-family = "CankaydiaCove Nerd Font Propo";
+      font-family = "MesloLGL Nerd Font Propo Bold";
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;

@@ -1,5 +1,5 @@
 {...}: {
-  programs.dank-material-shell.default.settings = {
+  programs.dank-material-shell.settings = {
     theme = "dark";
     dynamicTheming = true;
   };
