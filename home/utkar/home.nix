@@ -45,6 +45,8 @@
     ./cli/tealdeer.nix
     ./cli/zoxide.nix
     ./cli/lazygit.nix
+    ./cli/git.nix
+    # ./cli/navi.nix
 
     # GAMING
     ./gaming/lutris.nix
