@@ -40,26 +40,22 @@
       ];
     };
 
-    dms-shell = {
-      enable = true;
-      enableSystemMonitoring = true; # System monitoring widgets (dgop)
-      enableVPN = true; # VPN management widget
-      enableDynamicTheming = true; # Wallpaper-based theming (matugen)
-      enableAudioWavelength = true; # Audio visualizer (cava)
-      enableCalendarEvents = false; # Calendar integration (khal)
-      systemd = {
-        enable = true; # Systemd service for auto-start
-        restartIfChanged = true; # Auto-restart dms.service when dankMaterialShell changes
-      };
-      package = inputs.dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    };
-
     dank-material-shell = {
+      enable = true;
+      enableSystemMonitoring = true;
+      enableVPN = true;
+      enableDynamicTheming = true;
+      enableAudioWavelength = true;
+      enableCalendarEvents = false;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
       quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
       greeter = {
         enable = true;
-        compositor.name = "niri"; # or set to hyprland
-        configHome = "/home/utkar"; # optionally copyies that users DMS settings (and wallpaper if set) to the greeters data directory as root before greeter starts
+        compositor.name = "niri";
+        configHome = "/home/utkar";
       };
     };
 
@@ -107,12 +103,6 @@
       package = pkgs.niri-unstable;
     };
 
-    # television = {
-    #   enable = true;
-    #   # enableZshIntegration = true;
-    #   # enableFishIntegration = true;
-    # };
-
     fish = {
       enable = true;
       useBabelfish = true;
@@ -129,12 +119,7 @@
     uwsm = {
       enable = true;
       waylandCompositors = {
-        niri = {
-          prettyName = "Niri";
-          comment = "Niri compositor managed by UWSM";
-          binPath = "/run/current-system/sw/bin/niri-session";
-        };
-        waylandCompositors = {
+        mangowc = {
           prettyName = "Mango";
           comment = "Mango compositor managed by UWSM";
           binPath = "/run/current-system/sw/bin/mango";
