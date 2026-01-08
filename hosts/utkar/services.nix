@@ -6,6 +6,23 @@
       enable = true;
     };
 
+    nixos-cli = {
+      enable = true;
+      prebuildOptionCache = true;
+      useActivationInterface = true;
+      config = {
+        aliases = {
+          genlist = ["generation" "list"];
+          switch = ["generation" "switch"];
+          rollback = ["generation" "rollback"];
+        };
+        use_nvd = true;
+        apply = {
+          use_nom = true;
+        };
+      };
+    };
+
     aria2 = {
       enable = true;
       rpcSecretFile = "/home/utkar/dotfiles/secrets/secret-rpc.txt";
