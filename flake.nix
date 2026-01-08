@@ -10,6 +10,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixd.url = "github:nix-community/nixd";
     sops-nix.url = "github:Mic92/sops-nix";
+    nixos-cli.url = "github:nix-community/nixos-cli";
 
     # Compositors and desktop shells
     niri.url = "github:sodiboo/niri-flake";
@@ -61,6 +62,7 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     nur.inputs.nixpkgs.follows = "nixpkgs";
     nh.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     nix-search-tv.inputs.nixpkgs.follows = "nixpkgs";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
     yazi.inputs.nixpkgs.follows = "nixpkgs";
@@ -91,6 +93,7 @@
         nixos-hardware.nixosModules.common-gpu-intel
         nixos-hardware.nixosModules.common-pc-laptop-ssd
         sops-nix.nixosModules.sops
+        nixos-cli.nixosModules.nixos-cli
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
