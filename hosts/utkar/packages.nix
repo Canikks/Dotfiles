@@ -28,26 +28,27 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
-    ddccontrol
+    nvd
+    i2c-tools
     fprintd
     fishPlugins.forgit
     fishPlugins.pisces
     fishPlugins.fzf-fish
     fishPlugins.plugin-sudope
     fishPlugins.fifc
+    fishPlugins.colored-man-pages
     babelfish
     nur.repos.xddxdd.magiskboot
     gparted
-    # nodejs_20
     firefox
     ffmpeg-full
-    # srb2
+    srb2
     mindustry-wayland
     gearlever
     (
-      inputs.zen-browser.packages.${system}.beta-unwrapped.overrideAttrs
+      inputs.zen-browser.packages.${system}.twilight-unwrapped.overrideAttrs
       (oldAttrs: rec {
-        libName = "zen-bin-1.17.15b";
+        libName = "zen-bin-1.18t";
         fsautoconfig = (
           builtins.fetchurl {
             url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
