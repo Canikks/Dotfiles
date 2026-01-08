@@ -1,6 +1,11 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   nix = {
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) inputs;
+    nixPath = lib.mapAttrsToList (n: v: "${n}=${v}") inputs;
     channel.enable = false;
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
@@ -23,7 +28,6 @@
         "https://nix-community.cachix.org"
         "https://devenv.cachix.org"
       ];
-      # trust the public key that signs that cache
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
