@@ -28,6 +28,8 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    nur.repos.nakido.zellij-forgot
+    alacritty
     nvd
     i2c-tools
     fprintd
