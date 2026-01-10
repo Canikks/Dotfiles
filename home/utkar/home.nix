@@ -36,8 +36,8 @@
     ./cli/fzf.nix
     ./cli/eza.nix
     ./cli/dank-material-shell.nix
-    # ./cli/television.nix
-    # ./cli/nix-search-tv.nix
+    ./cli/television.nix
+    ./cli/nix-search-tv.nix
     ./cli/nix-your-shell.nix
     ./cli/home-manager.nix
     ./cli/nix-index.nix
@@ -47,6 +47,7 @@
     ./cli/lazygit.nix
     ./cli/git.nix
     # ./cli/navi.nix
+    ./cli/bat.nix
 
     # GAMING
     ./gaming/lutris.nix
