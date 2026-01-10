@@ -42,7 +42,7 @@
     shellcheck.args = ["-e" "SC2034" "-e" "SC2148"];
   };
 
-  scripts.rebuild-flake.exec = "nh os switch ~/dotfiles --cores 2 -j 2 --ask";
+  scripts.rebuild-flake.exec = "nh os switch ~/dotfiles --cores 2 -j 2 --ask --commit-lock-file";
   scripts.build-flake.exec = "nh os build ~/dotfiles --cores 2 -j 2";
   scripts.test-flake.exec = "nh os test ~/dotfiles --cores 2 -j 2";
   scripts.update-flake.exec = "nix flake update";
