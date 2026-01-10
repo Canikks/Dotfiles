@@ -16,19 +16,32 @@
       "HIST_IGNORE_SPACE"
     ];
 
-    # Aliases
+    sessionVariables = {
+      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      MANROFFOPT = "-c"; # Fixes formatting issues with some man pages
+
+      FZF_DEFAULT_OPTS = "--preview 'bat --style=numbers --color=always --line-range :500 {}'";
+    };
+
     shellAliases = {
       ls = "eza --color=always --icons=always";
       ll = "eza -l --color=always --icons=always";
       la = "eza -la --color=always --icons=always";
       gs = "git status -u";
       nix = "noglob nix";
-      nom = "noglob nom";
-      ze = "zellij";
-      zserver = "zellij --layout=server";
+      cat = "bat";
+      man = "batman";
+      bg = "batgrep";
+      diff = "batdiff";
     };
 
-    # Plugins
+    initContent = ''
+      alias -s {md,txt,json,yaml,toml,xml,conf,ini,log}=bat
+
+      # Since you use zsh-abbr plugin, you can define abbreviations here too
+      abbr b=bat
+    '';
+
     antidote.enable = true;
     antidote.plugins = [
       "olets/zsh-abbr kind:defer"
