@@ -3,13 +3,17 @@
     preferAbbrs = true;
     enable = true;
     shellAliases = {
-      ls = "eza --color=always --icons=always";
-      ll = "eza -l --color=always --icons=always";
-      la = "eza -la --color=always --icons=always";
+      ls = "eza";
+      ll = "eza -l";
+      la = "eza -la";
       gs = "git status -u";
       zel = "zellij";
       zserver = "zellij --layout=server";
       gpra = "git pull --rebase --autostash";
+      cat = "bat";
+      diff = "batdiff";
+      rg = "batgrep";
+      man = "batman";
     };
     shellInit = ''
       set -g fish_greeting ""
@@ -25,7 +29,14 @@
       set -g fish_color_param cyan
       set -g fish_color_error red
       set -Ux fifc_editor hx
-
+      set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+      set -gx MANROFFOPT "-c"
+      set -gx FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+      set -g fish_cursor_default block
+      set -g fish_cursor_insert block
+      set -g fish_cursor_visual block
+      set -g fish_cursor_replace_one block
+      set -g fish_cursor_replace block
       # Enable terminal integration (VTE-like)
       set -g fish_term24bit 1
     '';
