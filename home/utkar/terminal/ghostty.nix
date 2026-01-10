@@ -1,6 +1,7 @@
 {...}: {
   programs.ghostty = {
     enable = true;
+    # enableZshIntegration = true;
     enableFishIntegration = true;
     installBatSyntax = true;
     installVimSyntax = true;
