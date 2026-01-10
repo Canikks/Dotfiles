@@ -78,7 +78,7 @@
         extraArgs = "--keep 3";
         dates = "daily";
       };
-      flake = "home/utkar/dotfiles";
+      flake = "~/dotfiles";
     };
 
     bat = {
