@@ -6,7 +6,7 @@
         efiSupport = true;
         efiInstallAsRemovable = true;
         style = {
-          wallpapers = [../../Pictures/Giant_black_hole_awakens_with_repetitive_X-ray_bursts_pillars.jpg];
+          wallpapers = [../../Pictures/stars-1654074_1280.jpg];
         };
       };
       efi = {
