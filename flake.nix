@@ -60,6 +60,7 @@
     ghostty.inputs.home-manager.follows = "home-manager";
     wezterm.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.inputs.home-manager.follows = "home-manager";
     nur.inputs.nixpkgs.follows = "nixpkgs";
     nh.inputs.nixpkgs.follows = "nixpkgs";
     nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
