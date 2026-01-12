@@ -48,6 +48,7 @@
     ./cli/git.nix
     # ./cli/navi.nix
     ./cli/bat.nix
+    ./cli/opencode.nix
 
     # GAMING
     ./gaming/lutris.nix
