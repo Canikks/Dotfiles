@@ -33,6 +33,7 @@
     nvd
     i2c-tools
     fprintd
+    trash-cli
     fishPlugins.forgit
     fishPlugins.pisces
     fishPlugins.fzf-fish
@@ -80,7 +81,6 @@
     qemu
     libvirt
     virt-manager
-    easyeffects
     taplo
     papirus-icon-theme
     starship
@@ -88,7 +88,6 @@
     ollama
     opencode
     satty
-    tealdeer
     fcitx5
     bibata-cursors
     adw-gtk3
@@ -99,10 +98,8 @@
     nirius
     ouch
     tmux
-    eza
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
-    nh
     (yazi.override {
       _7zz = pkgs._7zz-rar;
     })
@@ -110,23 +107,19 @@
     gtk3
     btop
     gnome.gvfs
-    fzf
     ripgrep
     wl-clip-persist
     greetd
-    dbus-broker
     nur.repos.forkprince.helium-nightly
     fastfetch
     kdePackages.qt6ct
     wineWowPackages.waylandFull
-    keepassxc
     kdlfmt
     adwaita-icon-theme
     material-symbols
     material-icons
     fd
     vscode-json-languageserver
-    # (lib.hiPrio pkgs.uutils-coreutils-noprefix)
     quickshell
   ];
 }
