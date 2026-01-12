@@ -7,8 +7,6 @@
       ll = "eza -l";
       la = "eza -la";
       gs = "git status -u";
-      zel = "zellij";
-      zserver = "zellij --layout=server";
       gpra = "git pull --rebase --autostash";
       cat = "bat";
       diff = "batdiff";
