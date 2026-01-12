@@ -71,6 +71,10 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/utkar/.config/sops/age/keys.txt";
+
+    secrets.aria2_rpc_secret = {
+      path = "/home/utkar/dotfiles/secrets/secret-rpc.txt.enc";
+    };
   };
 
   security = {
