@@ -67,10 +67,6 @@
       enable = true;
     };
 
-    xwayland = {
-      enable = true;
-    };
-
     nh = {
       enable = true;
       clean = {
@@ -103,6 +99,80 @@
       package = pkgs.niri-unstable;
     };
 
+    # 3. Configure Xonsh
+    xonsh = {
+      enable = true;
+
+      # Inject xontribs into the xonsh python environment
+      package = pkgs.xonsh;
+      extraPackages = ps: [
+        pkgs.nur.repos.xonsh-xontribs.xontrib-fish-completer # Best-in-class completions
+        pkgs.nur.repos.xonsh-xontribs.xontrib-whole-word-jumping # Natural text navigation
+        pkgs.nur.repos.xonsh-xontribs.xontrib-abbrevs # Expand-as-you-type abbreviations
+        pkgs.python313Packages.prompt-toolkit
+        # pkgs.nur.repos.xonsh-xontribs.xontrib-direnv # NixOS shell integration
+        # QoL Xontribs from NUR
+      ];
+
+      # System-wide Xonsh configuration (/etc/xonsh/xonshrc)
+      config = ''
+        # --- Core Init ---
+        # Suppress the welcome message
+        $XONSH_SHOW_TRACEBACK = False
+        $SUPPRESS_ACTIVATE_MESSAGE = True
+
+        # Initialize Starship Prompt
+        execx($(starship init xonsh))
+
+        # Initialize Zoxide (Smarter cd)
+        execx($(zoxide init xonsh), 'exec')
+
+        # --- Load Xontribs ---
+        # Note: 'fish_completer' needs fish installed in systemPackages
+        xontrib load fish_completer whole_word_jumping abbrevs
+
+        # --- QoL Configuration ---
+        # Better history management
+        $XONSH_HISTORY_BACKEND = 'json'
+        $HISTCONTROL = 'ignoredups'
+
+        # Auto-pair brackets/quotes
+        $XONSH_AUTOPAIR = True
+
+        # Case-insensitive tab completion
+        $CASE_SENSITIVE_COMPLETIONS = False
+
+        # FZF Widgets Configuration (optional tweaks)
+        $FZF_WIDGETS_OPTS = {'height': '40%', 'layout': 'reverse', 'border': 'rounded'}
+
+        # --- Aliases ---
+        # Use common modern replacements if they exist
+        if $(which eza):
+            aliases['ls'] = 'eza --icons --git --group-directories-first'
+            aliases['ll'] = 'eza -l --icons --git --group-directories-first'
+            aliases['la'] = 'eza -la --icons --git --group-directories-first'
+            aliases['tree'] = 'eza --tree --icons'
+
+        if $(which bat):
+            aliases['cat'] = 'bat --style=plain'
+
+        aliases['grep'] = 'grep --color=auto'
+        aliases['..'] = 'cd ..'
+        aliases['...'] = 'cd ../..'
+
+        # NixOS Specific Aliases
+        aliases['nrs'] = 'sudo nixos-rebuild switch'
+        aliases['nfu'] = 'nix flake update'
+        aliases['ncg'] = 'sudo nix-collect-garbage -d'
+
+        # --- Abbreviations (expands space) ---
+        # Requires xontrib-abbrevs
+        abbrevs['gco'] = 'git checkout'
+        abbrevs['gst'] = 'git status'
+        abbrevs['gp'] = 'git push'
+      '';
+    };
+
     fish = {
       enable = true;
       useBabelfish = true;
@@ -114,6 +184,7 @@
 
     direnv = {
       enable = true;
+      enableXonshIntegration = true;
     };
 
     uwsm = {
