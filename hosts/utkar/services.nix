@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   services = {
     openssh.enable = true;
 
@@ -6,26 +10,27 @@
       enable = true;
     };
 
-    # nixos-cli = {
-    #   enable = true;
-    #   prebuildOptionCache = true;
-    #   useActivationInterface = true;
-    #   config = {
-    #     aliases = {
-    #       genlist = ["generation" "list"];
-    #       switch = ["generation" "switch"];
-    #       rollback = ["generation" "rollback"];
-    #     };
-    #     use_nvd = true;
-    #     apply = {
-    #       use_nom = true;
-    #     };
-    #   };
-    # };
+    nixos-cli = {
+      enable = true;
+      prebuildOptionCache = true;
+      useActivationInterface = true;
+      config = {
+        aliases = {
+          genlist = ["generation" "list"];
+          switch = ["generation" "switch"];
+          rollback = ["generation" "rollback"];
+        };
+        config_location = "/home/utkar/dotfiles";
+        use_nvd = true;
+        apply = {
+          use_nom = true;
+        };
+      };
+    };
 
     aria2 = {
       enable = true;
-      rpcSecretFile = "/home/utkar/dotfiles/secrets/secret-rpc.txt";
+      rpcSecretFile = config.sops.secrets.aria2_rpc_secret.path;
       settings = {
         enable-rpc = true;
         dir = "/home/utkar/Downloads";
