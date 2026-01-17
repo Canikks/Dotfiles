@@ -14,10 +14,13 @@
   ];
   swapDevices = [
     {
-      device = "/var/lib/swapfile";
-      size = 12 * 1024;
+      device = "/dev/disk/by-label/nix-swap";
     }
   ];
+
+  zramSwap = {
+    enable = false;
+  };
 
   time.timeZone = "Asia/Kolkata";
 

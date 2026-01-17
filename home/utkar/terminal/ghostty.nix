@@ -7,7 +7,7 @@
     installVimSyntax = true;
     systemd.enable = true;
     settings = {
-      font-family = "MesloLGL Nerd Font Propo Bold";
+      font-family = "MesloLGL Nerd Font";
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;
@@ -20,7 +20,7 @@
       cursor-style = "block";
       unfocused-split-opacity = 0.7;
       unfocused-split-fill = "#44464f";
-      gtk-titlebar = false;
+      gtk-titlebar = true;
       shell-integration = "detect";
       shell-integration-features = "sudo,title,no-cursor";
     };

@@ -18,8 +18,15 @@
     };
     initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
-    resumeDevice = "/dev/disk/by-uuid/539e1e37-72a1-47b4-add9-d4eb2cc6c398";
-    kernelParams = ["resume_offset=13223936"];
+    resumeDevice = "/dev/disk/by-label/nix-swap";
+    kernelParams = [
+      "resume_offset=9514200"
+      "i915.enable_guc=3"
+      "zswap.enabled=1"
+      "zswap.compressor=zstd"
+      "zswap.zpool=zsmalloc"
+      "zswap.max_pool_percent=20"
+    ];
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [
       "tcp_bbr"
@@ -33,6 +40,9 @@
         "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
         "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
         "dev.tty.ldisc_autoload" = 0;
+        "vm.swappiness" = 80;
+        "vm.vfs_cache_pressure" = 50;
+        "vm.watermark_scale_factor" = 125;
       };
     };
   };

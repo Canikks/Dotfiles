@@ -99,22 +99,17 @@
       package = pkgs.niri-unstable;
     };
 
-    # 3. Configure Xonsh
     xonsh = {
       enable = true;
 
-      # Inject xontribs into the xonsh python environment
       package = pkgs.xonsh;
       extraPackages = ps: [
         pkgs.nur.repos.xonsh-xontribs.xontrib-fish-completer # Best-in-class completions
         pkgs.nur.repos.xonsh-xontribs.xontrib-whole-word-jumping # Natural text navigation
         pkgs.nur.repos.xonsh-xontribs.xontrib-abbrevs # Expand-as-you-type abbreviations
         pkgs.python313Packages.prompt-toolkit
-        # pkgs.nur.repos.xonsh-xontribs.xontrib-direnv # NixOS shell integration
-        # QoL Xontribs from NUR
       ];
 
-      # System-wide Xonsh configuration (/etc/xonsh/xonshrc)
       config = ''
         # --- Core Init ---
         # Suppress the welcome message

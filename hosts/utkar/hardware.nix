@@ -1,5 +1,6 @@
 {...}: {
   hardware = {
+    intelgpu.vaapiDriver = "intel-media-driver";
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -8,7 +9,7 @@
       enable = true;
       settings = {
         General = {
-          Experimental = true;
+          Experimental = false;
           FastConnectable = true;
         };
         Policy = {

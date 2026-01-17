@@ -23,7 +23,7 @@
     # EDITOR CONFIG
     ./editor/helix.nix
     ./editor/zeditor.nix
-    ./editor/nvf-nvim.nix
+    # ./editor/nvf-nvim.nix
 
     # FILE MANAGER CONFIG
     ./file-manager/yazi.nix

@@ -28,21 +28,25 @@ The repository is split into two distinct logic domains: **Host Configuration** 
     *   `configuration.nix`: Main import hub for the host.
     *   `hardware-configuration.nix`: Auto-generated hardware map (rarely edit manually).
     *   `packages.nix`: **System-wide** packages only (e.g., drivers, system utils).
-    *   `services.nix`: Systemd services (docker, ssh, pipewire).
+    *   `services.nix`: Systemd services (podman, ssh, pipewire).
     *   `virtualisation.nix`: VM/Container logic.
 
 ### C. Home Configuration (`home/utkar/`)
 *   **Purpose:** User-space tools, dotfiles, styling, and application configuration.
 *   **Categorization:**
+    *   `audio/`: Audio-related configurations (e.g., `easyeffects.nix`).
+    *   `browser/`: Browser configurations (e.g., `qutebrowser.nix`).
     *   `cli/`: Command line tools.
         *   **Active:** `dank-material-shell.nix`, `fzf.nix`, `git.nix`, etc.
     *   `editor/`: Text editors.
         *   **Active:** `helix.nix`.
         *   **Semi-Retired:** `nvf-nvim.nix` (Maintain only if critical; waiting for upstream fixes).
-    *   `shell/`: Shell logic (`fish`, `zsh`, `starship`).
-    *   `terminal/`: Terminal emulators (`ghostty`, `kitty`, `wezterm`).
+    *   `file-manager/`: File manager configurations (e.g., `yazi.nix`).
+    *   `gaming/`: Gaming-related configurations (e.g., `lutris.nix`).
     *   `mango/`: **[SEMI-RETIRED]** Custom window management configs/scripts. Preserve content but do not actively develop.
     *   `multiplexer/`: `zellij` and `conky` configurations.
+    *   `shell/`: Shell logic (`fish`, `zsh`, `starship`).
+    *   `terminal/`: Terminal emulators (`ghostty`, `kitty`, `wezterm`).
 
 ### D. Secrets (`secrets/`)
 *   Contains encrypted `secrets.yaml`.

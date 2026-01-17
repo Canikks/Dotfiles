@@ -53,6 +53,6 @@
 
   enterShell = ''
     echo $GREETING
-    echo "Run 'rebuild-sys' to apply system changes."
+    echo "Run 'rebuild-flake' to apply system changes."
   '';
 }

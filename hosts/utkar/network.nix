@@ -3,7 +3,7 @@
     networkmanager .enable = true;
     hostName = "utkar";
     networkmanager.dns = "none";
-    nameservers = ["127.0.0.1"];
+    nameservers = ["127.0.0.1" "::1"];
     firewall = {
       enable = true;
       allowedTCPPorts = [
@@ -11,7 +11,6 @@
         8080
         8000
         6800
-        53
       ];
       allowedUDPPorts = [
         53

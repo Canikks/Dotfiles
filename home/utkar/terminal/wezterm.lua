@@ -4,7 +4,7 @@ local config = wezterm.config_builder()
 -- =========================================================
 -- 1. VISUALS
 -- =========================================================
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font("MesloLGL Nerd Font")
 config.color_scheme = "dank-theme"
 config.window_background_opacity = 0.90
 config.macos_window_background_blur = 10
@@ -13,14 +13,6 @@ config.macos_window_background_blur = 10
 -- config.use_fancy_tab_bar = true
 -- config.tab_bar_at_bottom = true
 -- config.hide_tab_bar_if_only_one_tab = true
-
--- Add padding for that "framed" Zellij look
-config.window_padding = {
-	left = 5,
-	right = 5,
-	top = 5,
-	bottom = 0,
-}
 
 -- =========================================================
 -- 2. PLUGINS
@@ -31,8 +23,6 @@ config.window_padding = {
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 smart_splits.apply_to_config(config)
 
--- Plugin: Bar (Eye Candy)
--- Provides the status bar. Loaded AFTER colors are set to ensure it picks up the theme.
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 bar.apply_to_config(config, {
 	position = "bottom",
@@ -106,62 +96,12 @@ bar.apply_to_config(config, {
 			throttle = 15,
 		},
 	},
-}) -- =========================================================
+})
+
+-- =========================================================
 -- 3. ZELLIJ EMULATION (Keys)
 -- =========================================================
 
--- Set Leader to Ctrl + g (Zellij Default)
-config.leader = { key = "g", mods = "CTRL", timeout_milliseconds = 1000 }
-
-config.keys = {
-	-- SPLITS: mimic Zellij (- for vertical, \ for horizontal)
-	-- Note: In WezTerm "Vertical" means split top/bottom, "Horizontal" means left/right
-	{
-		mods = "LEADER",
-		key = "-",
-		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
-	},
-	{
-		mods = "LEADER",
-		key = "\\",
-		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-	},
-
-	-- CLOSE PANE: Leader + x
-	{
-		mods = "LEADER",
-		key = "x",
-		action = wezterm.action.CloseCurrentPane({ confirm = true }),
-	},
-
-	-- RESIZE MODE: Leader + r (Enters a mode where hjkl resizes panes)
-	{
-		mods = "LEADER",
-		key = "r",
-		action = wezterm.action.ActivateKeyTable({
-			name = "resize_pane",
-			one_shot = false,
-		}),
-	},
-
-	-- SESSION MANAGER: Leader + s (Like Zellij session list)
-	{
-		mods = "LEADER",
-		key = "s",
-		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
-	},
-}
-
--- Key Table for Resizing (Active after pressing Leader + r)
-config.key_tables = {
-	resize_pane = {
-		{ key = "h", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
-		{ key = "j", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
-		{ key = "k", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
-		{ key = "l", action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
-		{ key = "Escape", action = "PopKeyTable" },
-		{ key = "Enter", action = "PopKeyTable" },
-	},
-}
+config.disable_default_key_bindings = true
 
 return config

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   services = {
     openssh.enable = true;
 
@@ -25,16 +21,6 @@
         apply = {
           use_nom = true;
         };
-      };
-    };
-
-    aria2 = {
-      enable = true;
-      rpcSecretFile = config.sops.secrets.aria2_rpc_secret.path;
-      settings = {
-        enable-rpc = true;
-        dir = "/home/utkar/Downloads";
-        openPorts = true;
       };
     };
 
@@ -61,22 +47,20 @@
 
         upstreams.groups.default = [
           "https://dns.quad9.net/dns-query"
-          "https://dns.mullvad.net/dns-query"
         ];
 
         caching = {
-          minTime = "5m";
-          maxTime = "30m";
+          minTime = "10m";
+          maxTime = "1h";
           prefetching = true;
-          prefetchExpires = "2h";
-          prefetchThreshold = 5;
+          prefetchExpires = "1h";
+          prefetchThreshold = 10;
         };
 
         blocking = {
           refreshPeriod = "4h";
           blackLists = {
             ads = [
-              "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
               "https://big.oisd.nl"
             ];
             security = [
@@ -123,6 +107,7 @@
         "modesetting"
       ];
     };
+
     resolved = {
       enable = false;
       dnsovertls = "true";
@@ -157,7 +142,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      jack.enable = true;
+      jack.enable = false;
     };
 
     scx = {
