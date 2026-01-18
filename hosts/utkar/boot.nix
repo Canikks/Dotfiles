@@ -20,7 +20,6 @@
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
     kernelParams = [
-      "resume_offset=9514200"
       "i915.enable_guc=3"
       "zswap.enabled=1"
       "zswap.compressor=zstd"
@@ -40,9 +39,11 @@
         "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
         "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
         "dev.tty.ldisc_autoload" = 0;
-        "vm.swappiness" = 80;
+        "vm.swappiness" = 60; # Reduced from 80 for better performance with ZRAM
         "vm.vfs_cache_pressure" = 50;
         "vm.watermark_scale_factor" = 125;
+        "vm.dirty_ratio" = 10;
+        "vm.dirty_background_ratio" = 5;
       };
     };
   };
