@@ -108,12 +108,12 @@
       ];
     };
 
-    resolved = {
-      enable = false;
-      dnsovertls = "true";
-      domains = ["~."];
-      fallbackDns = ["1.1.1.1#cloudflare-dns.com"];
-    };
+    # resolved = {
+    #   enable = false;
+    #   dnsovertls = "true";
+    #   domains = ["~."];
+    #   fallbackDns = ["1.1.1.1#cloudflare-dns.com"];
+    # };
 
     gvfs = {
       enable = true;
