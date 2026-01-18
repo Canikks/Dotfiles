@@ -28,6 +28,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    uv
     nur.repos.nakido.zellij-forgot
     alacritty
     nvd
@@ -51,7 +52,7 @@
     (
       inputs.zen-browser.packages.${system}.twilight-unwrapped.overrideAttrs
       (oldAttrs: rec {
-        libName = "zen-bin-1.18t";
+        libNameGlob = "zen-bin-*";
         fsautoconfig = (
           builtins.fetchurl {
             url = "https://raw.githubusercontent.com/sineorg/bootloader/main/program/config.js";
@@ -68,10 +69,12 @@
         postInstall =
           (oldAttrs.postInstall or "")
           + ''
-            chmod -R u+w "$out/lib/${libName}"
-            cp "${(builtins.trace fsautoconfig fsautoconfig)}" "$out/lib/${libName}/config.js"
-            mkdir -p "$out/lib/${libName}/defaults/pref"
-            cp "${configpref}" "$out/lib/${libName}/defaults/pref/config-pref.js"
+            for libdir in "$out"/lib/${libNameGlob}; do
+              chmod -R u+w "$libdir"
+              cp "${fsautoconfig}" "$libdir/config.js"
+              mkdir -p "$libdir/defaults/pref"
+              cp "${configpref}" "$libdir/defaults/pref/config-pref.js"
+            done
           '';
       })
     )
@@ -113,6 +116,9 @@
     nur.repos.forkprince.helium-nightly
     fastfetch
     kdePackages.qt6ct
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    qt6Packages.qt6ct
     wineWowPackages.waylandFull
     kdlfmt
     adwaita-icon-theme
