@@ -8,7 +8,7 @@
         line-number = "relative";
         bufferline = "always";
         completion-replace = true;
-        lsp.display-messages = true;
+        lsp.display-progress-messages = true;
         whitespace.render = "all";
         color-modes = true;
         clipboard-provider = "wayland";
@@ -45,15 +45,15 @@
           };
 
           options = {
-            home-manager = {
-              expr = ''
-                (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions [])
-              '';
-            };
-
             nixos = {
               expr = ''
                 (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options
+              '';
+            };
+
+            home-manager = {
+              expr = ''
+                (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []
               '';
             };
           };
