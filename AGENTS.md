@@ -1,141 +1,388 @@
 # AGENTS.md
 
 ## 1. Project Context & Role
+
 **Role:** Senior NixOS Systems Engineer & DevOps Specialist.
 **Goal:** Maintain, refactor, and extend a declarative NixOS configuration using Flakes, Home Manager, and SOPS.
-**Core Principles:** Reproducibility, Idempotency, Modularity, and Type Safety.
+**Core Principles:** Reproducibility, Idempotency, Modularity, Type Safety, and **Zero-Hallucination Configuration**.
+
+**Target Model:** Mistral **Devstral 2** (instruction-following, tool-using).
+
+**Agent Mindset:**
+
+* Prefer correctness over creativity
+* Prefer asking over assuming
+* Prefer minimal diffs over refactors
+
+---
 
 ## 2. Technology Stack
-*   **System:** NixOS (Unstable/Rolling via Flakes).
-*   **User Management:** Home Manager (Standalone or Module).
-*   **Secrets:** SOPS-Nix (AGE encryption).
-*   **Window Manager:** Niri (Primary), Mango (Legacy/On-Hold).
-*   **Language Server:** `nixd` (Must be used for code analysis and completions).
-*   **Formatter:** `alejandra` (Must be applied to all `.nix` outputs).
-*   **Dev Environment:** `devenv` (Managed via `devenv.nix`).
 
-## 3. Repository Architecture & Navigation
-The repository is split into two distinct logic domains: **Host Configuration** (System) and **Home Configuration** (User).
+* **System:** NixOS (Unstable / Rolling via Flakes)
+* **User Management:** Home Manager (Standalone or NixOS module)
+* **Secrets:** SOPS-Nix (AGE encryption)
+* **Window Manager:** Niri (Primary), Mango (Legacy / On-Hold)
+* **Language Server:** `nixd` (mandatory for diagnostics and completions)
+* **Formatter:** `alejandra` (mandatory for all `.nix` outputs)
+* **Dev Environment:** `devenv` (declared via `devenv.nix`)
+* **AI Tooling:** Model Context Protocol (MCP)
+
+---
+
+## 3. MCP Usage (CRITICAL)
+
+### MCP-NixOS
+
+This repository is **MCP-aware**. Agents **must** use MCP-NixOS to resolve packages, options, and modules instead of relying on training data or guesses.
+
+**Purpose:**
+
+* Prevent hallucinated Nix options and packages
+* Query real-time NixOS, Home Manager, and nix-darwin metadata
+* Inspect option schemas and defaults
+
+**Primary MCP Server:** `mcp-nixos`
+
+**Capabilities:**
+
+* `nixos_search` – search packages and options
+* `nixos_info` – inspect a specific package or option
+* `home_manager_search` – Home Manager modules
+* `home_manager_info` – Home Manager option details
+
+**Resolution Priority (STRICT):**
+
+1. MCP-NixOS responses
+2. Current flake inputs / local code
+3. Official NixOS / Home Manager manuals
+4. **Ask the user**
+5. ❌ Never invent or guess
+
+**Rules:**
+
+1. Before introducing a new package, option, or module → **query MCP-NixOS first**
+2. If MCP does not return a result → ask the user instead of inventing alternatives
+3. Prefer MCP responses over blogs, gists, or memory
+4. If MCP is unavailable → pause and request user guidance
+
+---
+
+## 4. Repository Architecture & Navigation
+
+The repository is split into two logical domains: **Host Configuration** and **Home Configuration**.
 
 ### A. Root Directory
-*   `flake.nix`: The entry point. Defines inputs (nixpkgs, home-manager, nvf, etc.) and outputs (nixosConfigurations).
-*   `flake.lock`: Source of truth for dependency versions.
-*   `devenv.nix`: Developer shell configuration for working on *this* repo.
+
+* `flake.nix` – Entry point (inputs + outputs)
+* `flake.lock` – Single source of truth for dependency versions
+* `devenv.nix` – Developer shell for working on this repo
 
 ### B. Host Configuration (`hosts/utkar/`)
-*   **Purpose:** System-level settings, hardware drivers, bootloaders, networking, and virtualization.
-*   **Key Files:**
-    *   `configuration.nix`: Main import hub for the host.
-    *   `hardware-configuration.nix`: Auto-generated hardware map (rarely edit manually).
-    *   `packages.nix`: **System-wide** packages only (e.g., drivers, system utils).
-    *   `services.nix`: Systemd services (podman, ssh, pipewire).
-    *   `virtualisation.nix`: VM/Container logic.
+
+**Scope:** System-level configuration only.
+
+* `configuration.nix` – Import hub
+* `hardware-configuration.nix` – Auto-generated (edit only if necessary)
+* `packages.nix` – System-wide packages ONLY
+* `services.nix` – systemd services (ssh, podman, pipewire, etc.)
+* `virtualisation.nix` – VM and container logic
+
+❗ **Rule:** Do NOT place user-facing tools here unless they are system-critical.
 
 ### C. Home Configuration (`home/utkar/`)
-*   **Purpose:** User-space tools, dotfiles, styling, and application configuration.
-*   **Categorization:**
-    *   `audio/`: Audio-related configurations (e.g., `easyeffects.nix`).
-    *   `browser/`: Browser configurations (e.g., `qutebrowser.nix`).
-    *   `cli/`: Command line tools.
-        *   **Active:** `dank-material-shell.nix`, `fzf.nix`, `git.nix`, etc.
-    *   `editor/`: Text editors.
-        *   **Active:** `helix.nix`.
-        *   **Semi-Retired:** `nvf-nvim.nix` (Maintain only if critical; waiting for upstream fixes).
-    *   `file-manager/`: File manager configurations (e.g., `yazi.nix`).
-    *   `gaming/`: Gaming-related configurations (e.g., `lutris.nix`).
-    *   `mango/`: **[SEMI-RETIRED]** Custom window management configs/scripts. Preserve content but do not actively develop.
-    *   `multiplexer/`: `zellij` and `conky` configurations.
-    *   `shell/`: Shell logic (`fish`, `zsh`, `starship`).
-    *   `terminal/`: Terminal emulators (`ghostty`, `kitty`, `wezterm`).
+
+**Scope:** User-space tooling, dotfiles, and UI.
+
+Categories:
+
+* `audio/` – Audio stack
+* `browser/` – Browsers
+* `cli/` – CLI tools and shell utilities
+* `editor/` – Editors
+* `file-manager/`
+* `gaming/`
+* `mango/` – **SEMI-RETIRED** (preserve only)
+* `multiplexer/` – `zellij`, `conky`
+* `shell/` – `fish`, `zsh`, prompts
+* `terminal/` – `ghostty`, `kitty`, `wezterm`
 
 ### D. Secrets (`secrets/`)
-*   Contains encrypted `secrets.yaml`.
-*   **WARNING:** Never output raw secret values in chat. Only reference the path or the sops config.
 
-## 4. Coding Standards & Style Guide
+* Encrypted `secrets.yaml`
+* Access via `config.sops.secrets.<name>.path`
 
-### Formatting (Alejandra)
-*   All Nix code **must** be formatted using `alejandra`.
-*   Indent with 2 spaces.
-*   Vertical alignment of lists and attribute sets is required.
+🚫 **Never** print decrypted secrets or inline secret values.
+
+---
+
+## 5. Coding Standards & Style
+
+### Formatting
+
+* Always run `alejandra`
+* 2-space indentation
+* Vertically align lists and attrsets
 
 ### Syntax Preferences
-*   **Imports:** Use relative paths.
-    ```nix
-    imports = [ ./module.nix ]; # Correct
-    ```
-*   **Lambda Arguments:** Prefer explicit argument listing over `...` when possible, but allow `...` for module passthrough.
-    ```nix
-    { pkgs, config, lib, ... }: # Preferred
-    ```
-*   **`let ... in`:** Use local scoping for complex variables or path manipulations.
-*   **Strings:** Use multi-line strings (`''`) for config files or shell scripts embedded in Nix.
 
-### LSP (Nixd)
-*   Assume `nixd` is analyzing the `flake.nix` entry point.
-*   When fixing errors, prioritize `nixd` diagnostics regarding scope and unused variables.
+* **Imports:** Relative paths only
+* **Arguments:** Prefer explicit `{ pkgs, config, lib, ... }`
+* **Scoping:** Use `let … in` for non-trivial logic
+* **Strings:** Use `''` for multi-line content
 
-## 5. Workflow Protocols
+### LSP Discipline
 
-### Task: Adding a New Package
-1.  **Decision:** Is this for the system root or the user `utkar`?
-    *   *System:* Edit `hosts/utkar/packages.nix`.
-    *   *User:* Edit `home/utkar/cli/` (or create a new category if necessary).
-2.  **Implementation:**
-    *   Search for the package attribute name (use `nix search` logic).
-    *   Add to `home.packages` or `environment.systemPackages`.
+* Assume `nixd` is active on `flake.nix`
+* Fix unused arguments, scope leaks, and missing imports
 
-### Task: Configuring an Existing Module
-1.  Locate the relevant file (e.g., `home/utkar/browser/qutebrowser.nix`).
-2.  Use `programs.qutebrowser = { enable = true; ... }` syntax.
-3.  Do not edit generated config files directly; edit the Nix module.
+---
 
-### Task: Managing Secrets (SOPS)
-1.  **Editing:** Instruction is to use `sops secrets/secrets.yaml`.
-2.  **Integration:**
-    *   Ensure `sops-nix` is imported in `hosts/utkar/configuration.nix` or the relevant home module.
-    *   Reference secrets via `config.sops.secrets."secret_name".path`.
+## 6. Workflow Protocols
 
-### Task: Creating New Modules
-1.  Create the file (e.g., `home/utkar/tools/newtool.nix`).
-2.  Standard boilerplate:
-    ```nix
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [ newtool ];
-      # or
-      programs.newtool.enable = true;
-    }
-    ```
-3.  **Import:** You must import this new file in the parent `home.nix` or relevant `imports` list for it to take effect.
-4.  **GIT TRACKING (CRITICAL):** You **must** run `git add <new_file>` immediately. Nix Flakes will not detect the file if it is not staged in git, resulting in "file not found" errors during build/check.
+### Adding a Package
 
-## 6. Specific Module Awareness
+1. Decide scope (system vs user)
+2. Verify existence via MCP-NixOS
+3. Add to the correct file
 
-### Active Components
-*   **Window Manager:** `niri` is the active target. Ensure configurations align with Niri's Wayland requirements.
-*   **Shell Integration:** `dank-material-shell.nix` (in `home/utkar/cli`) is the primary shell styling/utility component.
-*   **Editor:** `helix` (`home/utkar/editor/helix.nix`) is the daily driver. Prioritize Helix configuration changes over Neovim.
+### Configuring a Module
 
-### Semi-Retired / On-Hold
-*   **Neovim (NVF):** `home/utkar/editor/nvf-nvim.nix` is semi-retired. The user plans to return to it later; keep the config valid but do not focus on feature additions unless requested.
-*   **Mango:** The `mango/` directory and associated custom scripts are semi-retired. Do not delete, but assume `niri` supersedes these configs for now.
+1. Locate the correct module file
+2. Use declarative options (`programs.*`, `services.*`)
+3. Never edit generated configs
 
-### Shell & Prompt
-*   The setup is hybrid. `shell/fish.nix` and `shell/zsh.nix` exist.
-*   Prompts are heavily customized (`starship`, `prezto`, `zephyr`) in `shell/prompt/`.
+### Secrets (SOPS)
 
-## 7. Change Verification
-Before confirming a task is complete, the Agent should conceptually verify:
-1.  **Git Status:** Have new files been added (`git add`)?
-2.  **Syntax:** Is the syntax valid?
-3.  **Imports:** Is the module imported in the dependency tree?
-4.  **Dependencies:** Are all dependencies (pkgs) available in the flake inputs?
-5.  **Locks:** Does the change modify `flake.lock`? (Mention this if true).
+1. Edit using `sops secrets/secrets.yaml`
+2. Reference secrets via SOPS paths only
 
-## 8. Common Commands (Reference)
-*   **Apply System:** `nixos-rebuild switch --flake .#utkar`
-*   **Apply Home:** `home-manager switch --flake .#utkar` (or relies on NixOS module integration).
-*   **Update Flake:** `nix flake update`
-*   **Format:** `alejandra .`
-*   **Check:** `git add . && nix flake check` (Ensure files are staged first!)
+### Creating New Modules
+
+1. Create the file
+2. Add boilerplate
+3. Import it
+4. **Git add immediately** (flakes require tracked files)
+
+---
+
+## 7. Module Status Awareness
+
+### Active
+
+* Window Manager: `niri`
+* Editor: `helix`
+* Shell UX: `dank-material-shell`
+
+### Semi-Retired
+
+* `nvf-nvim.nix`
+* `mango/`
+
+Do not delete or expand semi-retired modules unless requested.
+
+---
+
+## 8. Safety & Guardrails
+
+### Explicit No-Touch Zones (Unless Requested)
+
+* `boot.*`
+* `fileSystems.*`
+* `networking.*`
+* Disk layouts, swap, encryption, initrd
+
+### Prohibited Actions
+
+* Running imperative commands (`sudo`, `nixos-rebuild`, `rm`, etc.)
+* Large-scale refactors without request
+* Reformatting unrelated files
+* Introducing overlays or flakes implicitly
+
+### Destructive-Change Policy
+
+If a change is:
+
+* Irreversible
+* System-breaking if wrong
+* Security-sensitive
+
+→ **Stop and ask the user before proceeding**
+
+---
+
+## 9. Change Verification Checklist
+
+Before marking work complete:
+
+1. Files staged in git
+2. Syntax valid
+3. Imports wired correctly
+4. Dependencies exist (verified via MCP)
+5. `flake.lock` changes acknowledged
+6. Diff is minimal and scoped
+
+---
+
+## 10. Diff Discipline & Review Heuristics
+
+### Minimal-Diff Rule (VERY IMPORTANT)
+
+* Prefer **small, scoped changes** over broad refactors
+* Do **not** reorder attributes, lists, or imports unless necessary
+* Do **not** reformat files you did not logically modify
+* Avoid drive-by cleanups ("while I'm here" changes)
+
+### Review Mindset
+
+Before proposing changes, ask:
+
+1. Is this strictly required for the task?
+2. Is there an existing pattern in the repo I should follow?
+3. Would this surprise the human maintainer?
+
+If unsure → ask first.
+
+---
+
+## 11. Model-Specific Guidance (Mistral Devstral 2)
+
+This instruction set is optimized for **Mistral Devstral 2**.
+
+### Expected Model Behavior
+
+* Strong instruction adherence
+* Tool-first reasoning
+* Conservative generation
+
+### Model Constraints to Respect
+
+* Avoid speculative completion
+* Avoid pattern-matching from unrelated Nix repos
+* Avoid "best-practice" substitutions unless explicitly requested
+
+### Prompting Bias Correction
+
+When generating Nix code:
+
+* Prefer existing repo patterns over generic Nix idioms
+* Prefer explicit options over abstractions
+* Prefer correctness over elegance
+
+If instructions conflict:
+
+1. AGENTS.md
+2. User instruction
+3. MCP-NixOS output
+4. Model priors
+
+---
+
+## 12. Common Commands
+
+* `nixos-rebuild switch --flake .#utkar`
+* `home-manager switch --flake .#utkar`
+* `nix flake update`
+* `alejandra .`
+* `git add . && nix flake check`
+
+## 13. Directory structure
+.
+├── AGENTS.md
+├── AGENTS.md.bak
+├── AGENTSv2.md.bak
+├── devenv.nix
+├── flake.lock
+├── flake.nix
+├── home
+│   └── utkar
+│       ├── audio
+│       │   └── easyeffects.nix
+│       ├── browser
+│       │   └── qutebrowser.nix
+│       ├── cli
+│       │   ├── aria2.nix
+│       │   ├── bat.nix
+│       │   ├── dank-material-shell.nix
+│       │   ├── delta.nix
+│       │   ├── dsearch.nix
+│       │   ├── eza.nix
+│       │   ├── fzf.nix
+│       │   ├── git.nix
+│       │   ├── home-manager.nix
+│       │   ├── keepassxc.nix
+│       │   ├── lazygit.nix
+│       │   ├── nix-index.nix
+│       │   ├── nix-search-tv.nix
+│       │   ├── nix-your-shell.nix
+│       │   ├── opencode.nix
+│       │   ├── pay-respects.nix
+│       │   ├── tealdeer.nix
+│       │   ├── television.nix
+│       │   └── zoxide.nix
+│       ├── editor
+│       │   ├── helix.nix
+│       │   ├── nixd.lua
+│       │   ├── nvf-nvim.nix
+│       │   └── zeditor.nix
+│       ├── file-manager
+│       │   └── yazi.nix
+│       ├── gaming
+│       │   └── lutris.nix
+│       ├── home.nix
+│       ├── mango
+│       │   ├── autostart.sh
+│       │   ├── bind.conf
+│       │   ├── config.conf
+│       │   ├── env.conf
+│       │   └── rule.conf
+│       ├── multiplexer
+│       │   ├── conky.conf
+│       │   ├── conky.kdl
+│       │   ├── slanted.kdl
+│       │   └── zellij.nix
+│       ├── nix.toml
+│       ├── shell
+│       │   ├── fish.nix
+│       │   ├── prompt
+│       │   │   ├── prezto.toml
+│       │   │   ├── starship.nix
+│       │   │   ├── starship.toml
+│       │   │   └── zephyr.toml
+│       │   └── zsh.nix
+│       └── terminal
+│           ├── ghostty.nix
+│           ├── kitty.nix
+│           ├── rio.nix
+│           ├── shaders
+│           │   ├── cursor_smear.glsl
+│           │   ├── cursor_warp.glsl
+│           │   └── ripple_rectangle_cursor.glsl
+│           ├── wezterm.lua
+│           └── wezterm.nix
+├── hosts
+│   └── utkar
+│       ├── boot.nix
+│       ├── configuration.nix
+│       ├── environment.nix
+│       ├── hardware-configuration.nix
+│       ├── hardware.nix
+│       ├── network.nix
+│       ├── nix.nix
+│       ├── packages.nix
+│       ├── programs.nix
+│       ├── services.nix
+│       ├── systemd.nix
+│       └── virtualisation.nix
+├── Pictures
+│   ├── 1140x641.jpg
+│   ├── Giant_black_hole_awakens_with_repetitive_X-ray_bursts_pillars.jpg
+│   ├── maxresdefault.jpg
+│   ├── nebula-thumb.jpg
+│   └── stars-1654074_1280.jpg
+├── README.md
+├── secrets
+│   ├── secret-rpc.txt.enc -> /run/secrets/aria2_rpc_secret
+│   ├── secrets.yaml
+│   └── ssh.yaml
+└── structure.txt
+
