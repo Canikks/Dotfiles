@@ -21,6 +21,12 @@
       use-xdg-base-directories = true;
       builders-use-substitutes = true;
       auto-optimise-store = true;
+
+      max-jobs = 2;
+      cores = 2;
+      build-cores = 2;
+      compress-build-log = true;
+
       extra-substituters = [
         "https://watersucks.cachix.org"
         "https://yazi.cachix.org"
