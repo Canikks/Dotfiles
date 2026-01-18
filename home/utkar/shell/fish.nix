@@ -17,11 +17,6 @@
       set -g fish_greeting ""
     '';
     interactiveShellInit = ''
-
-      # History substring search is default in fish:
-      # ↑ / ↓ already work as expected
-
-      # Better colors
       set -g fish_color_autosuggestion brblack
       set -g fish_color_command blue
       set -g fish_color_param cyan
@@ -35,7 +30,6 @@
       set -g fish_cursor_visual block
       set -g fish_cursor_replace_one block
       set -g fish_cursor_replace block
-      # Enable terminal integration (VTE-like)
       set -g fish_term24bit 1
     '';
   };
