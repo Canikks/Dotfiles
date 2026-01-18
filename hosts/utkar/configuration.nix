@@ -19,7 +19,8 @@
   ];
 
   zramSwap = {
-    enable = false;
+    enable = true;
+    algorithm = "zstd";
   };
 
   time.timeZone = "Asia/Kolkata";
@@ -77,6 +78,13 @@
 
     secrets.aria2_rpc_secret = {
       path = "/home/utkar/dotfiles/secrets/secret-rpc.txt.enc";
+    };
+
+    secrets.ssh_id_ed25519 = {
+      path = "/run/secrets/ssh_id_ed25519";
+      owner = "utkar";
+      group = "users";
+      mode = "0600";
     };
   };
 
