@@ -15,6 +15,7 @@
     # Compositors and desktop shells
     niri.url = "github:sodiboo/niri-flake";
     dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
+    dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
 
     # Helpers & Utils
@@ -44,6 +45,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     niri.inputs.nixpkgs.follows = "nixpkgs";
     dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
+    dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     mango.inputs.nixpkgs.follows = "nixpkgs";
