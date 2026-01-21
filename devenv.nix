@@ -19,7 +19,6 @@
   env.SOPS_AGE_KEY_FILE = "/home/utkar/.config/sops/age/keys.txt";
 
   packages = with pkgs; [
-    git
     sops
     age
     ssh-to-age
