@@ -48,7 +48,9 @@
     ./cli/tealdeer.nix
     ./cli/zoxide.nix
     ./cli/lazygit.nix
+    ./cli/jjui.nix
     ./cli/git.nix
+    ./cli/jujutsu.nix
     # ./cli/navi.nix
     ./cli/bat.nix
     ./cli/opencode.nix
