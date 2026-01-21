@@ -8,7 +8,7 @@
     inputs.dsearch.homeModules.default
     inputs.nvf.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
-
+    inputs.dms-plugin-registry.modules.default
     # SHELL CONFIG
     # ./shell/zsh.nix
     ./shell/fish.nix
@@ -24,6 +24,10 @@
     ./editor/helix.nix
     ./editor/zeditor.nix
     # ./editor/nvf-nvim.nix
+
+    # APPS
+    ./apps/keepassxc.nix
+    ./apps/vesktop.nix
 
     # FILE MANAGER CONFIG
     ./file-manager/yazi.nix
@@ -41,7 +45,6 @@
     ./cli/nix-your-shell.nix
     ./cli/home-manager.nix
     ./cli/nix-index.nix
-    ./cli/keepassxc.nix
     ./cli/tealdeer.nix
     ./cli/zoxide.nix
     ./cli/lazygit.nix
@@ -85,6 +88,10 @@
 
   # XDG Configuration
   xdg = {
+    userDirs.enable = true;
+    terminal-exec.enable = true;
+    portal.xdgOpenUsePortal = true;
+    enable = true;
     autostart.enable = true;
   };
 }

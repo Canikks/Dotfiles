@@ -47,13 +47,13 @@
           options = {
             nixos = {
               expr = ''
-                (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options
+                (builtins.getFlake "/home/utkar/dotfiles").nixosConfigurations.utkar.options
               '';
             };
 
             home-manager = {
               expr = ''
-                (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []
+                (builtins.getFlake "/home/utkar/dotfiles").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []
               '';
             };
           };

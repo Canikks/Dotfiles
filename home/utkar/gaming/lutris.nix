@@ -2,6 +2,7 @@
   programs.lutris = {
     enable = true;
     extraPackages = with pkgs; [
+      winetricks
       mangohud
       umu-launcher
       gamescope

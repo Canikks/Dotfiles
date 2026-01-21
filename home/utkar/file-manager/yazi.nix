@@ -2,7 +2,6 @@
   programs.yazi = {
     enable = true;
     package = pkgs.yazi;
-    enableZshIntegration = true;
     enableFishIntegration = true;
     extraPackages = with pkgs; [
       rich-cli

@@ -21,7 +21,6 @@
       set -g fish_color_command blue
       set -g fish_color_param cyan
       set -g fish_color_error red
-      set -Ux fifc_editor hx
       set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
       set -gx MANROFFOPT "-c"
       set -gx FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range :500 {}'"

@@ -1,7 +1,7 @@
 {...}: {
   programs.fzf = {
     enable = true;
-    enableFishIntegration = true;
+    # enableFishIntegration = true;
     fileWidgetOptions = [
       "--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
     ];

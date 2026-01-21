@@ -39,7 +39,7 @@
         "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
         "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
         "dev.tty.ldisc_autoload" = 0;
-        "vm.swappiness" = 60; # Reduced from 80 for better performance with ZRAM
+        "vm.swappiness" = 60;
         "vm.vfs_cache_pressure" = 50;
         "vm.watermark_scale_factor" = 125;
         "vm.dirty_ratio" = 10;

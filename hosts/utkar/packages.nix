@@ -28,6 +28,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    lmstudio
     uv
     nur.repos.nakido.zellij-forgot
     alacritty
@@ -37,9 +38,7 @@
     trash-cli
     fishPlugins.forgit
     fishPlugins.pisces
-    fishPlugins.fzf-fish
     fishPlugins.plugin-sudope
-    fishPlugins.fifc
     fishPlugins.colored-man-pages
     babelfish
     nur.repos.xddxdd.magiskboot
