@@ -69,19 +69,6 @@
   home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
 
-  # sops = {
-  #   defaultSopsFile = ../../secrets/secrets.yaml; # Adjust path relative to this file
-  #   defaultSopsFormat = "yaml";
-  #
-  #   age.keyFile = "/home/utkar/.config/sops/age/keys.txt";
-  #
-  #   # This enables the secret
-  #   secrets.openrouter_api_key = {
-  #     # %r gets replaced by /run/user/<UID>
-  #     path = "%r/secrets/openrouter_api_key";
-  #   };
-  # };
-
   # Nixpkgs Configuration
   nixpkgs.config.allowUnfree = true;
 
