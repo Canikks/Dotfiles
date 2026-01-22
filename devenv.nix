@@ -41,11 +41,8 @@
     # shellcheck.args = ["-e" "SC2034" "-e" "SC2148"];
   };
 
-  # scripts.rebuild-flake.exec = "nh os switch ~/dotfiles --cores 2 -j 2 --ask --commit-lock-file";
   scripts.rebuild-flake.exec = "nixos apply";
-  # scripts.build-flake.exec = "nh os build ~/dotfiles --cores 2 -j 2";
   scripts.build-flake.exec = "nixos apply --no-boot --no-activate --output ./result";
-  # scripts.test-flake.exec = "nh os test ~/dotfiles --cores 2 -j 2";
   scripts.test-flake.exec = "nixos apply --no-boot";
   scripts.update-flake.exec = "nix flake update";
   scripts.check-flake.exec = "nix flake check --impure";

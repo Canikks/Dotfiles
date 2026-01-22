@@ -28,6 +28,7 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    macchina
     lmstudio
     uv
     nur.repos.nakido.zellij-forgot
