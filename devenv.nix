@@ -38,7 +38,6 @@
     deadnix.enable = true;
     deadnix.args = ["-l"];
     shellcheck.enable = true;
-    # shellcheck.args = ["-e" "SC2034" "-e" "SC2148"];
   };
 
   scripts.rebuild-flake.exec = "nixos apply";
