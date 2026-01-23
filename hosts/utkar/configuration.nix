@@ -80,6 +80,14 @@
       path = "/home/utkar/dotfiles/secrets/secret-rpc.txt.enc";
     };
 
+    secrets.github_token = {
+      key = "github_token";
+    };
+
+    secrets.gitlab_token = {
+      key = "gitlab_token";
+    };
+
     secrets.ssh_id_ed25519 = {
       path = "/run/secrets/ssh_id_ed25519";
       owner = "utkar";

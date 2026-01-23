@@ -55,6 +55,7 @@
     ./cli/bat.nix
     ./cli/opencode.nix
     ./cli/hyfetch.nix
+    ./cli/fastfetch.nix
 
     # GAMING
     ./gaming/lutris.nix

@@ -48,7 +48,6 @@
     ffmpeg-full
     srb2
     mindustry-wayland
-    gearlever
     (
       inputs.zen-browser.packages.${system}.twilight-unwrapped.overrideAttrs
       (oldAttrs: rec {
@@ -100,7 +99,6 @@
     libadwaita
     nirius
     ouch
-    tmux
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
     (yazi.override {
@@ -116,6 +114,7 @@
     nur.repos.forkprince.helium-nightly
     fastfetch
     kdePackages.qt6ct
+    kdePackages.qt5compat
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     qt6Packages.qt6ct

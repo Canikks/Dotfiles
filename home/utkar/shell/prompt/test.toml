@@ -1,81 +1,99 @@
-# ─────────────────────────────────────────────────────────────
-# Jetpack-inspired Starship prompt
-# Optimized for Ghostty + MesloLGS Nerd Font
-# ─────────────────────────────────────────────────────────────
-
-add_newline = true
-palette = "nix"
+# ─────────────────────────────────────────
+# JATPACK-INSPIRED STARSHIP PROMPT
+# Ghostty + MesloLGS Nerd Font
+# ─────────────────────────────────────────
 
 format = """
-$os$username $directory $git_branch$git_status $nix_shell $cmd_duration
+$os$username$hostname \
+$directory \
+$git_branch$git_status \
+$nix_shell$nodejs$python$rust$golang \
+$cmd_duration \
+$time
 $character
 """
 
-# ───── Palette ─────
-[palettes.nix]
-bg = "#1e1e2e"
-fg = "#cdd6f4"
-blue = "#89b4fa"
-cyan = "#74c7ec"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-red = "#f38ba8"
-gray = "#6c7086"
+add_newline = true
 
-# ───── OS (NixOS) ─────
+# ───── Core blocks ─────
+
 [os]
 disabled = false
-style = "bg:blue fg:bg"
-format = "[$symbol]($style)"
+style = "bg:blue fg:black"
+format = "[$symbol ]($style)"
 
 [os.symbols]
 NixOS = "󱄅"
 
-# ───── User ─────
 [username]
 show_always = true
-style_user = "bg:blue fg:bg"
-style_root = "bg:red fg:bg"
-format = "[ $user ]($style)"
+style_user = "bg:blue fg:black"
+style_root = "bg:red fg:black"
+format = "[$user]($style)"
 
-# ───── Directory ─────
+[hostname]
+ssh_only = false
+style = "bg:blue fg:black"
+format = "[@$hostname]($style)"
+
 [directory]
-style = "bg:cyan fg:bg"
-format = "[   $path ]($style)"
+style = "bg:cyan fg:black"
+format = "[  $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
 # ───── Git ─────
+
 [git_branch]
-symbol = "󰘬 "
-style = "bg:green fg:bg"
-format = "[ $symbol$branch ]($style)"
+symbol = ""
+style = "bg:purple fg:black"
+format = "[ $symbol $branch ]($style)"
 
 [git_status]
-style = "bg:green fg:bg"
-format = "[ $all_status$ahead_behind ]($style)"
-conflicted = "⚠ "
-modified = "✚ "
-staged = "● "
-renamed = "» "
-untracked = "… "
-ahead = "⇡"
-behind = "⇣"
-diverged = "⇕"
+style = "bg:purple fg:black"
+format = "[$all_status$ahead_behind ]($style)"
 
-# ───── Nix ─────
+# ───── Languages / Environments ─────
+
 [nix_shell]
-symbol = "󱄅 "
-style = "bg:yellow fg:bg"
-format = "[ $symbol$name ]($style)"
+symbol = ""
+style = "bg:blue fg:black"
+format = "[ $symbol nix ]($style)"
 
-# ───── Cmd duration ─────
+[nodejs]
+symbol = ""
+style = "bg:green fg:black"
+format = "[ $symbol $version ]($style)"
+
+[python]
+symbol = ""
+style = "bg:yellow fg:black"
+format = "[ $symbol $version ]($style)"
+
+[rust]
+symbol = ""
+style = "bg:red fg:black"
+format = "[ $symbol $version ]($style)"
+
+[golang]
+symbol = ""
+style = "bg:cyan fg:black"
+format = "[ $symbol $version ]($style)"
+
+# ───── Meta ─────
+
 [cmd_duration]
-min_time = 500
-style = "bg:gray fg:fg"
+style = "bg:bright-black fg:white"
 format = "[ 󱫐 $duration ]($style)"
 
+[time]
+disabled = false
+style = "bg:bright-black fg:white"
+format = "[ 󰥔 $time ]($style)"
+time_format = "%H:%M"
+
 # ───── Prompt char ─────
+
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"

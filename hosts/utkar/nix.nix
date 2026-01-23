@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  # config,
   ...
 }: {
   nix = {
@@ -10,6 +11,10 @@
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
     settings = {
+      # access-tokens = [
+      #   "github.com=FILE:${config.sops.secrets.github_token.path}"
+      #   "gitlab.com=FILE:${config.sops.secrets.gitlab_token.path}"
+      # ];
       experimental-features = [
         "nix-command"
         "flakes"
