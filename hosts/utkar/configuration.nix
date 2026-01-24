@@ -80,8 +80,16 @@
       path = "/home/utkar/dotfiles/secrets/secret-rpc.txt.enc";
     };
 
+    secrets.netrc = {
+      key = "netrc";
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
+
     secrets.github_token = {
       key = "github_token";
+      # path = "/home/utkar/github";
     };
 
     secrets.gitlab_token = {
