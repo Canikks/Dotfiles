@@ -9,6 +9,7 @@
       STEAM_USE_NATIVE_LIBRARIES = "1";
       STEAM_RUNTIME_PREFER_HOST_LIBRARIES = "0";
       MOZ_ENABLE_WAYLAND = "1";
+      GBM_BACKEND = "mesa";
     };
     sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";
