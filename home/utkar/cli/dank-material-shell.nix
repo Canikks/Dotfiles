@@ -14,5 +14,7 @@
     dankDesktopWeather.enable = true;
     dankKDEConnect.enable = true;
     nixMonitor.enable = true;
+    dankClight.enable = true;
+    dankNotepadModule.enable = true;
   };
 }
