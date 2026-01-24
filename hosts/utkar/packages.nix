@@ -36,8 +36,6 @@
     nur.repos.nakido.zellij-forgot
     alacritty
     nvd
-    i2c-tools
-    fprintd
     trash-cli
     fishPlugins.forgit
     fishPlugins.pisces
