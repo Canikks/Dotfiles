@@ -29,7 +29,7 @@ layout {
 
             datetime          "#[fg=#000000,bg=#DCD7BA,nobold]{format}"
             datetime_format   "%d/%m %H:%M"
-            datetime_timezone "Asia/Taipei"
+            datetime_timezone "Asia/Kolkata"
         }
     }
 }
