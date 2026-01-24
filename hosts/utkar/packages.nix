@@ -108,7 +108,6 @@
     gtk3
     btop
     gnome.gvfs
-    ripgrep
     wl-clip-persist
     greetd
     nur.repos.forkprince.helium-nightly
@@ -118,14 +117,15 @@
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     qt6Packages.qt6ct
+    libsForQt5.qt5ct
     wineWowPackages.waylandFull
     kdlfmt
     adwaita-icon-theme
     material-symbols
     material-icons
-    fd
     vscode-json-languageserver
     quickshell
     podman-compose
+    (lib.hiPrio uutils-coreutils-noprefix)
   ];
 }
