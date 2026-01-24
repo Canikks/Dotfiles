@@ -39,6 +39,8 @@
     ./cli/pay-respects.nix
     ./cli/fzf.nix
     ./cli/eza.nix
+    ./cli/ripgrep-all.nix
+    ./cli/fd.nix
     ./cli/dank-material-shell.nix
     ./cli/television.nix
     ./cli/nix-search-tv.nix
