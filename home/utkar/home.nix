@@ -9,6 +9,7 @@
     inputs.nvf.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
+    inputs.nirinit.homeModules.nirinit
     # SHELL CONFIG
     # ./shell/zsh.nix
     ./shell/fish.nix
