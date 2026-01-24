@@ -60,15 +60,15 @@
         prepend_previewers = [
           {
             name = "*.csv";
-            run = "rich-preview";
+            run = "bat --color=always --style=plain --paging=never --wrap=never \"$1\"";
           }
           {
             name = "*.md";
-            run = "rich-preview";
+            run = "bat --color=always --style=plain --paging=never \"$1\"";
           }
           {
             name = "*.nix";
-            run = "rich-preview";
+            run = "bat --color=always --style=plain --paging=never \"$1\"";
           }
           {
             mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}";
