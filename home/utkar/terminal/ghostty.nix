@@ -11,6 +11,12 @@
       window-padding-x = 12;
       window-padding-y = 12;
       background-opacity = 0.90;
+      keybind = [
+        "alt+left=unbind"
+        "alt+right=unbind"
+        "alt+up=unbind"
+        "alt+down=unbind"
+      ];
       custom-shader = [
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
         "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"
