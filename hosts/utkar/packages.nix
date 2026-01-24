@@ -28,6 +28,8 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    mesa
+    nautilus
     macchina
     lmstudio
     uv
@@ -41,6 +43,8 @@
     fishPlugins.pisces
     fishPlugins.plugin-sudope
     fishPlugins.colored-man-pages
+    fishPlugins.done
+    fishPlugins.humantime-fish
     babelfish
     nur.repos.xddxdd.magiskboot
     gparted
@@ -94,7 +98,7 @@
     bibata-cursors
     adw-gtk3
     ghostty
-    niri-unstable
+    # niri-unstable
     xwayland-satellite-unstable
     libadwaita
     nirius

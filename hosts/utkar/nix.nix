@@ -1,7 +1,7 @@
 {
   inputs,
   lib,
-  # config,
+  config,
   ...
 }: {
   nix = {
@@ -12,9 +12,9 @@
     daemonIOSchedClass = "idle";
     settings = {
       # access-tokens = [
-      #   "github.com=FILE:${config.sops.secrets.github_token.path}"
-      #   "gitlab.com=FILE:${config.sops.secrets.gitlab_token.path}"
+      #   "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
       # ];
+      netrc-file = config.sops.secrets.netrc.path;
       experimental-features = [
         "nix-command"
         "flakes"

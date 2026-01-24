@@ -6,6 +6,10 @@
       enable = true;
     };
 
+    nirinit = {
+      enable = true;
+    };
+
     nixos-cli = {
       enable = true;
       prebuildOptionCache = true;

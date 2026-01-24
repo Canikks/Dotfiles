@@ -23,6 +23,11 @@
       binfmt = true;
     };
 
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "ghostty";
+    };
+
     virt-manager.enable = true;
 
     nix-index-database.comma.enable = true;
