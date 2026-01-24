@@ -51,7 +51,7 @@
         enable = true;
         restartIfChanged = true;
       };
-      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      quickshell.package = inputs.quickshell.packages.${pkgs.system}.default;
       greeter = {
         enable = true;
         compositor.name = "niri";
@@ -67,15 +67,15 @@
       enable = true;
     };
 
-    nh = {
-      enable = true;
-      clean = {
-        enable = true;
-        extraArgs = "--keep 3";
-        dates = "daily";
-      };
-      flake = "~/dotfiles";
-    };
+    # nh = {
+    #   enable = true;
+    #   clean = {
+    #     enable = true;
+    #     extraArgs = "--keep 3";
+    #     dates = "daily";
+    #   };
+    #   flake = "~/dotfiles";
+    # };
 
     bat = {
       enable = true;
