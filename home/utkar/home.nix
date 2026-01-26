@@ -9,7 +9,7 @@
     inputs.nvf.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
-    inputs.nirinit.homeModules.nirinit
+    # inputs.nirinit.homeModules.nirinit
     # SHELL CONFIG
     # ./shell/zsh.nix
     ./shell/fish.nix
@@ -19,7 +19,7 @@
     ./terminal/ghostty.nix
     # ./terminal/kitty.nix
     # ./terminal/rio.nix
-    # ./terminal/wezterm.nix
+    ./terminal/wezterm.nix
 
     # EDITOR CONFIG
     ./editor/helix.nix
@@ -51,7 +51,7 @@
     ./cli/tealdeer.nix
     ./cli/zoxide.nix
     ./cli/lazygit.nix
-    ./cli/jjui.nix
+    # ./cli/jjui.nix
     ./cli/git.nix
     ./cli/jujutsu.nix
     # ./cli/navi.nix

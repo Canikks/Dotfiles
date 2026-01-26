@@ -1,107 +1,49 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
--- =========================================================
--- 1. VISUALS
--- =========================================================
-config.font = wezterm.font("MesloLGL Nerd Font")
+config.enable_kitty_keyboard = true
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "LowPower"
+config.animation_fps = 60
+config.max_fps = 144
+config.enable_wayland = true
+config.check_for_updates = false
+
+-- config.font = wezterm.font("MesloLGL Nerd Font")
+config.font = wezterm.font_with_fallback({
+	{
+		family = "MesloLGL Nerd Font",
+		weight = "Medium",
+		harfbuzz_features = {
+			"calt=1",
+			"liga=1",
+			"clig=1",
+		},
+	},
+	"Noto Color Emoji",
+})
 config.color_scheme = "dank-theme"
 config.window_background_opacity = 0.90
-config.macos_window_background_blur = 10
+config.text_background_opacity = 1.0
 
--- Remove native tab bar settings so the plugin can take over
--- config.use_fancy_tab_bar = true
--- config.tab_bar_at_bottom = true
--- config.hide_tab_bar_if_only_one_tab = true
+-- config.window_decorations = "RESIZE"
 
--- =========================================================
--- 2. PLUGINS
--- =========================================================
-
--- Plugin: Smart Splits
--- Allows seamless navigation between Wezterm panes and Neovim splits using Ctrl+h/j/k/l
-local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
-smart_splits.apply_to_config(config)
-
-local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
-bar.apply_to_config(config, {
-	position = "bottom",
-	max_width = 32,
-	padding = {
-		left = 1,
-		right = 1,
-		tabs = {
-			left = 0,
-			right = 2,
-		},
-	},
-	separator = {
-		space = 1,
-		left_icon = wezterm.nerdfonts.fa_long_arrow_right,
-		right_icon = wezterm.nerdfonts.fa_long_arrow_left,
-		field_icon = wezterm.nerdfonts.indent_line,
-	},
-	modules = {
-		tabs = {
-			active_tab_fg = 4,
-			inactive_tab_fg = 6,
-			new_tab_fg = 2,
-		},
-		workspace = {
-			enabled = true,
-			icon = wezterm.nerdfonts.cod_window,
-			color = 8,
-		},
-		leader = {
-			enabled = true,
-			icon = wezterm.nerdfonts.oct_rocket,
-			color = 2,
-		},
-		zoom = {
-			enabled = false,
-			icon = wezterm.nerdfonts.md_fullscreen,
-			color = 4,
-		},
-		pane = {
-			enabled = true,
-			icon = wezterm.nerdfonts.cod_multiple_windows,
-			color = 7,
-		},
-		username = {
-			enabled = true,
-			icon = wezterm.nerdfonts.fa_user,
-			color = 6,
-		},
-		hostname = {
-			enabled = true,
-			icon = wezterm.nerdfonts.cod_server,
-			color = 8,
-		},
-		clock = {
-			enabled = true,
-			icon = wezterm.nerdfonts.md_calendar_clock,
-			format = "%H:%M",
-			color = 5,
-		},
-		cwd = {
-			enabled = true,
-			icon = wezterm.nerdfonts.oct_file_directory,
-			color = 7,
-		},
-		spotify = {
-			enabled = false,
-			icon = wezterm.nerdfonts.fa_spotify,
-			color = 3,
-			max_width = 64,
-			throttle = 15,
-		},
-	},
-})
-
--- =========================================================
--- 3. ZELLIJ EMULATION (Keys)
--- =========================================================
+config.use_fancy_tab_bar = true
+config.tab_bar_at_bottom = true
+config.hide_tab_bar_if_only_one_tab = true
 
 config.disable_default_key_bindings = true
+
+config.keys = {
+	-- Allow basic clipboard + zoom only
+	{ key = "C", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
+	{ key = "V", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
+
+	{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+	{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+
+	{ key = "F11", action = wezterm.action.ToggleFullScreen },
+}
 
 return config
