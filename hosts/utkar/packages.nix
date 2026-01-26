@@ -28,6 +28,14 @@
 
   nix.package = pkgs.lixPackageSets.latest.lix;
   environment.systemPackages = with pkgs; [
+    # passExtensions.pass-import
+    # gopass
+    # gopass-hibp
+    # gopass-jsonapi
+    lazyjj
+    duf
+    pwvucontrol
+    pavucontrol
     mesa
     nautilus
     macchina
