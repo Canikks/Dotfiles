@@ -6,8 +6,14 @@
       enable = true;
     };
 
-    nirinit = {
+    niri-session-manager = {
       enable = true;
+      # settings = {
+      #   app_mapping = {
+      #     "com.mitchellh.ghostty" = ["ghostty"];
+      #     "zen-twilight" = ["zen"];
+      #   };
+      # };
     };
 
     nixos-cli = {
@@ -135,6 +141,16 @@
     pipewire = {
       enable = true;
       wireplumber = {
+        # extraConfig."10-bluez" = {
+        #   "monitor.bluez.properties" = {
+        #     "bluez5.enable-sbc-xq" = true;
+        #     "bluez5.enable-msbc" = true;
+        #     "bluez5.enable-hw-volume" = true;
+        #     "bluez5.enable-ldac" = true;
+        #     "bluez5.enable-aac" = true;
+        #     "bluez5.enable-le-audio" = true;
+        #   };
+        # };
         enable = true;
         extraLv2Packages = with pkgs; [
           lsp-plugins
