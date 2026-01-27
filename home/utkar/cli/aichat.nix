@@ -11,8 +11,8 @@
           models = [
             {
               name = "mistral-large-3";
-              supports_function_calling = true;
-              supports_vision = true;
+              # supports_function_calling = true;
+              # supports_vision = true;
             }
           ];
         }
