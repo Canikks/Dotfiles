@@ -1,6 +1,11 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.rio = {
     enable = true;
+    package = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
       confirm-before-quit = false;
       window = {

@@ -1,27 +1,33 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.yazi = {
     enable = true;
-    package = pkgs.yazi;
+    package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      _7zz = pkgs._7zz-rar;
+    };
     enableFishIntegration = true;
-    extraPackages = with pkgs; [
-      rich-cli
-      yaziPlugins.ouch
-      yaziPlugins.vcs-files
-      yaziPlugins.no-status
-      yaziPlugins.rich-preview
-      yaziPlugins.lazygit
-      yaziPlugins.yatline
-      yaziPlugins.yatline-githead
-      yaziPlugins.full-border
-      yaziPlugins.mount
-      yaziPlugins.recycle-bin
-      trash-cli
-      yaziPlugins.sudo
-      yaziPlugins.diff
-      yaziPlugins.rsync
-      yaziPlugins.starship
-      yaziPlugins.git
-    ];
+    # extraPackages = [
+    #   pkgs.rich-cli
+    #   pkgs.yaziPlugins.ouch
+    #   pkgs.yaziPlugins.vcs-files
+    #   pkgs.yaziPlugins.no-status
+    #   pkgs.yaziPlugins.rich-preview
+    #   pkgs.yaziPlugins.lazygit
+    #   pkgs.yaziPlugins.yatline
+    #   pkgs.yaziPlugins.yatline-githead
+    #   pkgs.yaziPlugins.full-border
+    #   pkgs.yaziPlugins.mount
+    #   pkgs.yaziPlugins.recycle-bin
+    #   pkgs.trash-cli
+    #   pkgs.yaziPlugins.sudo
+    #   pkgs.yaziPlugins.diff
+    #   pkgs.yaziPlugins.rsync
+    #   pkgs.yaziPlugins.starship
+    #   pkgs.yaziPlugins.git
+    # ];
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
       yatline-githead = pkgs.yaziPlugins.yatline-githead;
@@ -38,6 +44,7 @@
       ouch = pkgs.yaziPlugins.ouch;
       starship = pkgs.yaziPlugins.starship;
       git = pkgs.yaziPlugins.git;
+      jjui = pkgs.yaziPlugins.jjui;
     };
     settings = {
       mgr = {
@@ -191,6 +198,11 @@
           on = ["C" "f"];
           run = "plugin ouch tar.xz";
           desc = "Compress with ouch";
+        }
+        {
+          on   = [ "g" "j" ];
+          run  = "plugin jjui";
+          desc = "run jjui";
         }
       ];
     };
