@@ -29,7 +29,6 @@
       };
 
       modules = [
-        # ───── Header ─────
         {
           type = "title";
           format = "{1} @ {2}";
@@ -48,110 +47,104 @@
 
         "break"
 
-        # ───── System ─────
         {
           type = "os";
-          key = "󱄅 OS"; # nf-linux-nixos
+          key = "󱄅 OS";
         }
         {
           type = "kernel";
-          key = "󰌢 Kernel"; # nf-md-chip
+          key = "󰌢 Kernel";
         }
         {
           type = "uptime";
-          key = "󱫐 Uptime"; # nf-md-timer
+          key = "󱫐 Uptime";
         }
         {
           type = "packages";
-          key = "󰏖 Packages"; # nf-md-package-variant
+          key = "󰏖 Packages";
         }
 
         "break"
 
-        # ───── Hardware ─────
         {
           type = "cpu";
-          key = "󰍛 CPU"; # nf-md-cpu-64-bit
+          key = "󰍛 CPU";
         }
         {
           type = "gpu";
-          key = "󰢮 GPU"; # nf-md-graphics
+          key = "󰢮 GPU";
         }
         {
           type = "memory";
-          key = "󰘚 Memory"; # nf-md-memory
+          key = "󰘚 Memory";
         }
         {
           type = "disk";
-          key = "󰋊 Disk"; # nf-md-harddisk
+          key = "󰋊 Disk";
         }
         {
           type = "battery";
-          key = "󰁹 Battery"; # nf-md-battery
+          key = "󰁹 Battery";
         }
 
         "break"
 
-        # ───── Desktop ─────
         {
           type = "de";
-          key = "󰧨 DE"; # nf-md-desktop-classic
+          key = "󰧨 DE";
         }
         {
           type = "wm";
-          key = "󱂬 WM"; # nf-md-view-dashboard
+          key = "󱂬 WM";
         }
         {
           type = "terminal";
-          key = " Terminal"; # nf-dev-terminal
+          key = " Terminal";
         }
         {
           type = "shell";
-          key = "󰆍 Shell"; # nf-md-console
+          key = "󰆍 Shell";
         }
         {
           type = "editor";
-          key = "󰏫 Editor"; # nf-md-pencil
+          key = "󰏫 Editor";
         }
         {
           type = "resolution";
-          key = "󰍹 Resolution"; # nf-md-monitor
+          key = "󰍹 Resolution";
         }
 
         "break"
 
-        # ───── Network ─────
         {
           type = "hostname";
-          key = "󰒋 Host"; # nf-md-server
+          key = "󰒋 Host";
         }
         {
           type = "localIp";
-          key = "󰩠 Local IP"; # nf-md-lan
+          key = "󰩠 Local IP";
         }
         {
           type = "publicIp";
-          key = "󰩟 Public IP"; # nf-md-earth
+          key = "󰩟 Public IP";
         }
 
         "break"
 
-        # ───── Media ─────
         {
           type = "player";
-          key = "󰎆 Player"; # nf-md-music
+          key = "󰎆 Player";
         }
         {
           type = "media";
-          key = "󰝚 Media"; # nf-md-play-circle
+          key = "󰝚 Media";
         }
 
         "break"
 
-        # ───── Fun ─────
         {
           type = "emoji";
-          key = "󰞅 Mood"; # nf-md-emoticon
+          key = "󰞅 Mood";
         }
       ];
     };
