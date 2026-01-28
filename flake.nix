@@ -41,6 +41,7 @@
     yazi.url = "github:sxyazi/yazi";
     stylix.url = "github:nix-community/stylix";
     devenv.url = "github:cachix/devenv";
+    pay-respects.url = "github:iffse/pay-respects";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +74,7 @@
     yazi.inputs.nixpkgs.follows = "nixpkgs";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
+    pay-respects.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
