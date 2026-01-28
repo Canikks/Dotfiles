@@ -15,14 +15,14 @@
         ;
     })
     inputs.niri.overlays.niri
-    inputs.nh.overlays.default
-    inputs.ghostty.overlays.default
-    inputs.rio.overlays.default
+    # inputs.nh.overlays.default
+    # inputs.ghostty.overlays.default
+    # inputs.rio.overlays.default
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
     # inputs.yazi.overlays.default
-    inputs.quickshell.overlays.default
-    inputs.helix.overlays.default
+    # inputs.quickshell.overlays.default
+    # inputs.helix.overlays.default
     inputs.nix-your-shell.overlays.default
   ];
 
@@ -32,6 +32,26 @@
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    rich-cli
+    yaziPlugins.ouch
+    yaziPlugins.vcs-files
+    yaziPlugins.no-status
+    yaziPlugins.rich-preview
+    yaziPlugins.lazygit
+    yaziPlugins.yatline
+    yaziPlugins.yatline-githead
+    yaziPlugins.full-border
+    yaziPlugins.mount
+    yaziPlugins.recycle-bin
+    trash-cli
+    yaziPlugins.sudo
+    yaziPlugins.diff
+    yaziPlugins.rsync
+    yaziPlugins.starship
+    yaziPlugins.git
+    yaziPlugins.jjui
+    python314Packages.aria2p
+    imagemagick
     lazyjj
     duf
     pwvucontrol
@@ -103,17 +123,16 @@
     fcitx5
     bibata-cursors
     adw-gtk3
-    ghostty
-    # niri-unstable
+    # ghostty
     xwayland-satellite-unstable
     libadwaita
     nirius
     ouch
     wl-clipboard
     (lib.hiPrio pkgs.wl-clipboard-rs)
-    (yazi.override {
-      _7zz = pkgs._7zz-rar;
-    })
+    # (yazi.override {
+    #   _7zz = pkgs._7zz-rar;
+    # })
     gtk4
     gtk3
     btop
@@ -134,7 +153,7 @@
     material-symbols
     material-icons
     vscode-json-languageserver
-    quickshell
+    # quickshell
     podman-compose
     (lib.hiPrio uutils-coreutils-noprefix)
   ];
