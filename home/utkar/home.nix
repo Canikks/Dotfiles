@@ -51,7 +51,7 @@
     ./cli/tealdeer.nix
     ./cli/zoxide.nix
     ./cli/lazygit.nix
-    # ./cli/jjui.nix
+    ./cli/jjui.nix
     ./cli/git.nix
     ./cli/jujutsu.nix
     # ./cli/navi.nix
@@ -59,6 +59,7 @@
     ./cli/opencode.nix
     ./cli/hyfetch.nix
     ./cli/fastfetch.nix
+    # ./cli/aichat.nix
 
     # GAMING
     ./gaming/lutris.nix
