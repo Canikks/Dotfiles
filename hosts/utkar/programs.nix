@@ -72,16 +72,6 @@
       enable = true;
     };
 
-    # nh = {
-    #   enable = true;
-    #   clean = {
-    #     enable = true;
-    #     extraArgs = "--keep 3";
-    #     dates = "daily";
-    #   };
-    #   flake = "~/dotfiles";
-    # };
-
     bat = {
       enable = true;
     };
@@ -184,6 +174,7 @@
 
     direnv = {
       enable = true;
+      enableFishIntegration = true;
       enableXonshIntegration = true;
     };
 
