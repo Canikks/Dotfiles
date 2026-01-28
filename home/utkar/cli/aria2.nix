@@ -8,7 +8,7 @@
       file-allocation = "falloc";
       console-log-level = "error";
       summary-interval = 0;
-      show-console-readout = true;
+      show-console-readout = false;
     };
   };
 }
