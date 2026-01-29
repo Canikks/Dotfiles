@@ -1,36 +1,36 @@
 {...}: {
-  programs.televisions.channels = {
-          procs = {
-        metadata = {
-          name = "procs";
-          description = "A channel to find and manage running processes";
-          requirements = [
-            "ps"
-            "awk"
-          ];
-        };
+  programs.television.channels = {
+    procs = {
+      metadata = {
+        name = "procs";
+        description = "A channel to find and manage running processes";
+        requirements = [
+          "ps"
+          "awk"
+        ];
+      };
 
-        source = {
-          command = "ps -e -o pid=,ucomm= | awk '{print $1, $2}'";
-          display = "{split: :1}";
-          output = "{split: :0}";
-        };
+      source = {
+        command = "ps -e -o pid=,ucomm= | awk '{print $1, $2}'";
+        display = "{split: :1}";
+        output = "{split: :0}";
+      };
 
-        preview = {
-          command = "ps -p '{split: :0}' -o user,pid,ppid,state,%cpu,%mem,command | fold";
-        };
+      preview = {
+        command = "ps -p '{split: :0}' -o user,pid,ppid,state,%cpu,%mem,command | fold";
+      };
 
-        keybindings = {
-          "ctrl-k" = "actions:kill";
-        };
+      keybindings = {
+        "ctrl-k" = "actions:kill";
+      };
 
-        actions = {
-          kill = {
-            description = "Kill the selected process (SIGKILL)";
-            command = "kill -9 {split: :0}";
-            mode = "execute";
-          };
+      actions = {
+        kill = {
+          description = "Kill the selected process (SIGKILL)";
+          command = "kill -9 {split: :0}";
+          mode = "execute";
         };
       };
+    };
   };
 }

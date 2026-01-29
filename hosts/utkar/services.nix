@@ -6,15 +6,19 @@
       enable = true;
     };
 
-    niri-session-manager = {
+    nirinit = {
       enable = true;
-      # settings = {
-      #   app_mapping = {
-      #     "com.mitchellh.ghostty" = ["ghostty"];
-      #     "zen-twilight" = ["zen"];
-      #   };
-      # };
+      settings = {
+        launch = {
+          "com.mitchellh.ghostty" = "ghostty";
+          "zen-twilight" = "zen";
+        };
+      };
     };
+
+    tumbler.enable = true;
+
+    fstrim.enable = true;
 
     nixos-cli = {
       enable = true;
@@ -140,17 +144,29 @@
 
     pipewire = {
       enable = true;
+      extraConfig.pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 256;
+          "default.clock.min-quantum" = 256;
+          "default.clock.max-quantum" = 256;
+        };
+      };
+      extraConfig.pipewire-pulse."92-low-latency" = {
+        context.modules = [
+          {
+            name = "libpipewire-module-protocol-pulse";
+            args = {
+              pulse.min.req = "256/48000";
+              pulse.default.req = "256/48000";
+              pulse.max.req = "256/48000";
+              pulse.min.quantum = "256/48000";
+              pulse.max.quantum = "256/48000";
+            };
+          }
+        ];
+      };
       wireplumber = {
-        # extraConfig."10-bluez" = {
-        #   "monitor.bluez.properties" = {
-        #     "bluez5.enable-sbc-xq" = true;
-        #     "bluez5.enable-msbc" = true;
-        #     "bluez5.enable-hw-volume" = true;
-        #     "bluez5.enable-ldac" = true;
-        #     "bluez5.enable-aac" = true;
-        #     "bluez5.enable-le-audio" = true;
-        #   };
-        # };
         enable = true;
         extraLv2Packages = with pkgs; [
           lsp-plugins

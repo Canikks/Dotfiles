@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./packages.nix
     ./programs.nix
@@ -57,13 +61,14 @@
     portal = {
       enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
+        xdg-desktop-portal
         xdg-desktop-portal-gtk
+        xdg-desktop-portal-termfilechooser
       ];
       config = {
         common = {
           defaults = [
-            "wlr"
+            "kitty"
             "gtk"
           ];
         };
@@ -75,9 +80,12 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/utkar/.config/sops/age/keys.txt";
+    age.generateKey = true;
 
     secrets.aria2_rpc_secret = {
       path = "/home/utkar/dotfiles/secrets/secret-rpc.txt.enc";
+      owner = config.users.users.utkar.name;
+      group = config.users.users.utkar.group;
     };
 
     secrets.netrc = {
@@ -97,9 +105,9 @@
     };
 
     secrets.ssh_id_ed25519 = {
-      path = "/run/secrets/ssh_id_ed25519";
-      owner = "utkar";
-      group = "users";
+      # path = "/run/secrets/ssh_id_ed25519";
+      owner = config.users.users.utkar.name;
+      group = config.users.users.utkar.group;
       mode = "0600";
     };
   };

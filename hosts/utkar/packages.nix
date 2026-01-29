@@ -14,6 +14,9 @@
         colmena
         ;
     })
+    # (final: prev: {
+    #   stdenv = prev.stdenvAdapters.useMoldLinker prev.stdenv;
+    # })
     inputs.niri.overlays.niri
     # inputs.nh.overlays.default
     # inputs.ghostty.overlays.default
@@ -32,6 +35,9 @@
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    pkg-config
+    nushell
+    conky
     rich-cli
     yaziPlugins.ouch
     yaziPlugins.vcs-files
@@ -147,13 +153,15 @@
     kdePackages.dolphin-plugins
     qt6Packages.qt6ct
     libsForQt5.qt5ct
+    qt6.qt5compat
+    qt6.qtbase
+    qt6.qtmultimedia
     wineWowPackages.waylandFull
     kdlfmt
     adwaita-icon-theme
     material-symbols
     material-icons
     vscode-json-languageserver
-    # quickshell
     podman-compose
     (lib.hiPrio uutils-coreutils-noprefix)
   ];

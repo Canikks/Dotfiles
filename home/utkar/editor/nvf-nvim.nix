@@ -1,6 +1,7 @@
-{...}: {
+{pkgs, ...}: {
   programs.nvf = {
     enable = true;
+    # defaultEditor = true;
     settings = {
       vim = {
         enableLuaLoader = true;
@@ -13,14 +14,79 @@
           logFile = "/tmp/nvim.log";
         };
 
-        keymaps = [
-          {
-            key = "<leader>-";
-            mode = "n";
-            silent = true;
-            action = "<CMD>Oil<CR>";
-          }
-        ];
+        # keymaps = [
+        #   {
+        #     key = "<leader>-";
+        #     mode = "n";
+        #     silent = true;
+        #     action = "<CMD>Oil<CR>";
+        #   }
+        # ];
+
+        startPlugins = [pkgs.vimPlugins.multicursor-nvim];
+
+        # lazy.plugins = {
+        #   "multicursor.nvim" = {
+        #     package = pkgs.vimPlugins.multicursor-nvim;
+        #     enabled = true;
+        #     keys = [
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<up>";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<down>";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<leader><up>";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<leader><down>";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<leader>n";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<leader>s";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<leader>N";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<leader>S";
+        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
+        #         lua = true;
+        #       }
+        #       {
+        #         mode = ["n" "x"];
+        #         key = "<c-q>";
+        #         action = "require('multicursor-nvim').toggleCursor";
+        #         lua = true;
+        #       }
+        #     ];
+        #   };
+        # };
 
         extraLuaFiles = [
           ./nixd.lua
@@ -219,8 +285,8 @@
         };
 
         utility = {
-          # yazi-nvim.enable = true;
-          # yazi-nvim.setupOpts.open_for_directories = true;
+          yazi-nvim.enable = true;
+          yazi-nvim.setupOpts.open_for_directories = true;
           oil-nvim = {
             enable = true;
             gitStatus = {
@@ -238,7 +304,7 @@
           multicursors.enable = true;
           smart-splits.enable = true;
           undotree.enable = true;
-          nvim-biscuits.enable = true;
+          nvim-biscuits.enable = false;
 
           motion = {
             hop.enable = true;

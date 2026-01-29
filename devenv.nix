@@ -26,6 +26,7 @@
     nixd
     alejandra
     deadnix
+    lua-language-server
   ];
 
   cachix = {

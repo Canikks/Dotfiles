@@ -12,10 +12,10 @@ nvim_lsp.nixd.setup({
 			},
 			options = {
 				nixos = {
-					expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.utkar.options',
+					expr = '(builtins.getFlake "/home/utkar/dotfiles").nixosConfigurations.utkar.options',
 				},
 				home_manager = {
-					expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.utkar.options.home-manager.users.utkar.type.getSubOptions []",
+					expr = '(builtins.getFlake "/home/utkar/dotfiles").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []',
 				},
 			},
 		},

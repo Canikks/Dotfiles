@@ -1,5 +1,5 @@
 {...}: {
-  programs.helix.settings.languages = {
+  programs.helix.languages = {
     language = [
       {
         name = "nix";

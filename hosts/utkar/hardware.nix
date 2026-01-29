@@ -1,11 +1,14 @@
 {pkgs, ...}: {
   hardware = {
     intelgpu.vaapiDriver = "intel-media-driver";
+    intel-gpu-tools = {
+      enable = true;
+    };
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [intel-media-driver intel-ocl intel-vaapi-driver mesa];
-      extraPackages32 = with pkgs.pkgsi686Linux; [intel-media-driver intel-vaapi-driver mesa];
+      extraPackages = with pkgs; [intel-media-driver mesa mesa_glu];
+      # extraPackages32 = with pkgs.pkgsi686Linux; [intel-media-driver intel-vaapi-driver mesa_i686];
     };
     bluetooth = {
       enable = true;

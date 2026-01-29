@@ -1,7 +1,9 @@
-{...}: {
+{pkgs, ...}: {
   environment = {
     pathsToLink = ["/share/zsh" "/share/fish"];
     variables = {
+      QML_IMPORT_PATH = "${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml:${pkgs.qt6.qtmultimedia}/lib/qt-6/qmt";
+      QML2_IMPORT_PATH = "${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml:${pkgs.qt6.qtmultimedia}/lib/qt-6/qmt";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";
       NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";
       NIXOS_OZONE_WL = "1";
@@ -10,6 +12,12 @@
       STEAM_RUNTIME_PREFER_HOST_LIBRARIES = "0";
       MOZ_ENABLE_WAYLAND = "1";
       GBM_BACKEND = "mesa";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QS_ICON_THEME = "Papirus-Dark";
+      RUSTFLAGS = "-C link-arg=-Wl,--no-keep-memory";
+      GTK_USE_PORTAL = "1";
+      QT_QPA_PLATFORMTHEME = "xdgdesktopportal;gtk3";
     };
     sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";

@@ -56,7 +56,7 @@
         enable = true;
         restartIfChanged = true;
       };
-      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default.withModules [pkgs.kdePackages.qtmultimedia];
       greeter = {
         enable = true;
         compositor.name = "niri";

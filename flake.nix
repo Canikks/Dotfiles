@@ -17,7 +17,7 @@
     dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-    niri-session-manager.url = "github:MTeaHead/niri-session-manager";
+    nirinit.url = "github:amaanq/nirinit";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -46,7 +46,7 @@
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     niri.inputs.nixpkgs.follows = "nixpkgs";
-    niri-session-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nirinit.inputs.nixpkgs.follows = "nixpkgs";
     dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
     dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
@@ -101,7 +101,7 @@
         nixos-hardware.nixosModules.common-pc-laptop-ssd
         sops-nix.nixosModules.sops
         nixos-cli.nixosModules.nixos-cli
-        niri-session-manager.nixosModules.niri-session-manager
+        nirinit.nixosModules.nirinit
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

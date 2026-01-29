@@ -2,6 +2,9 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
+    shellIntegration.enableFishIntegration = true;
+    enableGitIntegration = true;
+    font.name = "MesloLGS Nerd Font";
     shellIntegration.mode = "no-cursor";
     extraConfig = ''
       include dank-tabs.conf

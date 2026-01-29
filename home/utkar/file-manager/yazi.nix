@@ -2,9 +2,12 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  # theme = ./theme.nix;
+in {
   programs.yazi = {
     enable = true;
+    # theme = theme;
     package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
       _7zz = pkgs._7zz-rar;
     };
@@ -200,8 +203,8 @@
           desc = "Compress with ouch";
         }
         {
-          on   = [ "g" "j" ];
-          run  = "plugin jjui";
+          on = ["g" "j"];
+          run = "plugin jjui";
           desc = "run jjui";
         }
       ];

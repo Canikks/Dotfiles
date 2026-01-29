@@ -27,12 +27,16 @@
       builders-use-substitutes = true;
       auto-optimise-store = true;
 
+      keep-outputs = true;
+      keep-derivations = true;
+
       max-jobs = 2;
       cores = 2;
       build-cores = 2;
       compress-build-log = true;
 
       extra-substituters = [
+        "https://cache.nixos.org"
         "https://watersucks.cachix.org"
         "https://yazi.cachix.org"
         "https://helix.cachix.org"
@@ -40,6 +44,7 @@
         "https://devenv.cachix.org"
         "https://wezterm.cachix.org"
         "https://ghostty.cachix.org"
+        "https://nvf.cachix.org"
       ];
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
@@ -49,6 +54,7 @@
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
         "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
         "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+        "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
       ];
     };
   };

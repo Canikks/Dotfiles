@@ -9,17 +9,16 @@
     inputs.nvf.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
-    # inputs.nirinit.homeModules.nirinit
+    inputs.nirinit.homeModules.nirinit
     # SHELL CONFIG
     # ./shell/zsh.nix
     ./shell/fish.nix
-    ./shell/prompt/starship.nix
 
     # TERMINAL CONFIG
+    ./terminal/kitty.nix
+    # ./terminal/wezterm.nix
     ./terminal/ghostty.nix
-    # ./terminal/kitty.nix
     # ./terminal/rio.nix
-    ./terminal/wezterm.nix
 
     # EDITOR CONFIG
     ./editor/helix.nix
