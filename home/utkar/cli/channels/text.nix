@@ -1,0 +1,51 @@
+{...}: {
+  programs.television.channels = {
+          text = {
+        metadata = {
+          name = "text";
+          description = "A channel to find and select text from files";
+        };
+
+        requirements = [
+          "rg"
+          "bat"
+        ];
+
+        source = {
+          command = ''
+            rg . \
+              --no-heading \
+              --line-number \
+              --colors 'match:fg:white' \
+              --colors 'path:fg:blue' \
+              --color=always
+          '';
+          ansi = true;
+
+          output = "{strip_ansi|split:\\::..2}";
+        };
+
+        preview = {
+          command = "bat -n --color=always '{strip_ansi|split:\\::0}'";
+
+          offset = "{strip_ansi|split:\\::1}";
+        };
+
+        preview.env = {
+          BAT_THEME = "ansi";
+        };
+
+        ui.preview_panel = {
+          header = "{strip_ansi|split:\\::..2}";
+        };
+
+        actions = {
+          edit = {
+            description = "Open match in Helix";
+            command = "hx '{strip_ansi|split:\\::0}:{strip_ansi|split:\\::1}'";
+            mode = "execute";
+          };
+        };
+      };
+  };
+}
