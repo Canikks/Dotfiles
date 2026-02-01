@@ -33,6 +33,7 @@
         config_location = "/home/utkar/dotfiles";
         use_nvd = true;
         apply = {
+          reexec_as_root = true;
           use_git_commit_msg = true;
           imply_impure_with_tag = true;
           ignore_dirty_tree = true;
