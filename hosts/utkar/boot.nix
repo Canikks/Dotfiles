@@ -26,7 +26,7 @@
       "zswap.zpool=zsmalloc"
       "zswap.max_pool_percent=20"
     ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [
       "tcp_bbr"
     ];
