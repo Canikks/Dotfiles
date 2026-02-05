@@ -11,10 +11,10 @@
       STEAM_USE_NATIVE_LIBRARIES = "1";
       STEAM_RUNTIME_PREFER_HOST_LIBRARIES = "0";
       MOZ_ENABLE_WAYLAND = "1";
-      GBM_BACKEND = "mesa";
+      GBM_BACKEND = "dri";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      QS_ICON_THEME = "Papirus-Dark";
+      QS_ICON_THEME = "Tela-circle-dark";
       RUSTFLAGS = "-C link-arg=-Wl,--no-keep-memory";
       GTK_USE_PORTAL = "1";
       QT_QPA_PLATFORMTHEME = "xdgdesktopportal;gtk3";
