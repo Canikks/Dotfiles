@@ -10,6 +10,7 @@
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
     inputs.nirinit.homeModules.nirinit
+    inputs.zen-browser.homeModules.twilight
     # SHELL CONFIG
     # ./shell/zsh.nix
     ./shell/fish.nix
@@ -60,6 +61,9 @@
     ./cli/fastfetch.nix
     # ./cli/aichat.nix
 
+    # BROWSER
+    ./browser/zen-browser.nix
+
     # GAMING
     ./gaming/lutris.nix
 
@@ -75,7 +79,7 @@
   home.preferXdgDirectories = true;
 
   # Nixpkgs Configuration
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # Window Manager
   wayland.windowManager.mango.enable = true;
