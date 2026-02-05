@@ -213,20 +213,25 @@
       enable = false;
     };
 
+    # auto-cpufreq = {
+    #   enable = true;
+    # };
+
     tlp = {
       enable = true;
+      pd.enable = true;
       settings = {
         CPU_BOOST_ON_AC = 1;
-        CPU_BOOST_ON_BAT = 1;
+        # CPU_BOOST_ON_BAT = 1;
 
         # IMPORTANT: ensure TLP re-evaluates power source
-        RESTORE_DEVICE_STATE_ON_STARTUP = 1;
+        # RESTORE_DEVICE_STATE_ON_STARTUP = 1;
 
         # Optional but recommended
         ENERGY_PERF_POLICY_ON_AC = "performance";
         ENERGY_PERF_POLICY_ON_BAT = "balance_power";
         TLP_DEFAULT_MODE = "AC";
-        DEVICES_TO_DISABLE_ON_STARTUP = "";
+        # DEVICES_TO_DISABLE_ON_STARTUP = "";
       };
     };
 
