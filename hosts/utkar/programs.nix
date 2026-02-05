@@ -25,7 +25,7 @@
 
     nautilus-open-any-terminal = {
       enable = true;
-      terminal = "ghostty";
+      terminal = "kitty";
     };
 
     virt-manager.enable = true;
@@ -56,7 +56,7 @@
         enable = true;
         restartIfChanged = true;
       };
-      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default.withModules [pkgs.kdePackages.qtmultimedia];
+      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
       greeter = {
         enable = true;
         compositor.name = "niri";
