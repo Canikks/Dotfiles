@@ -1,6 +1,6 @@
 {...}: {
   networking = {
-    networkmanager .enable = true;
+    networkmanager.enable = true;
     hostName = "utkar";
     networkmanager.dns = "none";
     nameservers = ["127.0.0.1" "::1"];
