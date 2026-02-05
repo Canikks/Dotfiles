@@ -2,12 +2,9 @@
   pkgs,
   inputs,
   ...
-}: let
-  # theme = ./theme.nix;
-in {
+}: {
   programs.yazi = {
     enable = true;
-    # theme = theme;
     package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
       _7zz = pkgs._7zz-rar;
     };
@@ -48,6 +45,7 @@ in {
       starship = pkgs.yaziPlugins.starship;
       git = pkgs.yaziPlugins.git;
       jjui = pkgs.yaziPlugins.jjui;
+      ucp = pkgs.nur.repos.adam0.yaziPlugins.ucp;
     };
     settings = {
       mgr = {
@@ -207,6 +205,16 @@ in {
           run = "plugin jjui";
           desc = "run jjui";
         }
+        # {
+        #   on = "p";
+        #   run = "plugin ucp paste notify";
+        #   desc = "Paste";
+        # }
+        # {
+        #   on = "y";
+        #   run = "plugin ucp copy notify";
+        #   desc = "Copy";
+        # }
       ];
     };
   };
