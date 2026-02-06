@@ -12,6 +12,7 @@
     systemd.enable = true;
     settings = {
       font-family = "MesloLGS Nerd Font";
+      font-size = 11;
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;
@@ -21,6 +22,7 @@
         "alt+right=unbind"
         "alt+up=unbind"
         "alt+down=unbind"
+        "alt+t=toggle_quick_terminal"
       ];
       custom-shader = [
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
