@@ -10,7 +10,7 @@
       gpra = "git pull --rebase --autostash";
       cat = "bat";
       diff = "batdiff";
-      rg = "batgrep";
+      rg = "rg --hyperlink-format=kitty";
       man = "batman";
     };
     shellInit = ''
