@@ -1,7 +1,6 @@
 {...}: {
   programs.kitty = {
     enable = true;
-    shellIntegration.enableZshIntegration = true;
     shellIntegration.enableFishIntegration = true;
     enableGitIntegration = true;
     font.name = "MesloLGS Nerd Font";
@@ -17,6 +16,10 @@
       start_as_hidden = false;
       hide_on_focus_loss = false;
       background_opacity = 0.7;
+    };
+    keybindings = {
+      "ctrl+c" = "copy_and_clear_or_interrupt";
+      "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting less +G -R";
     };
     settings = {
       tab_bar_style = "powerline";
