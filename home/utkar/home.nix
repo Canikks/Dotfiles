@@ -78,9 +78,6 @@
   home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
 
-  # Nixpkgs Configuration
-  # nixpkgs.config.allowUnfree = true;
-
   # Window Manager
   wayland.windowManager.mango.enable = true;
 
