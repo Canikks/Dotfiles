@@ -10,7 +10,7 @@
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
     inputs.nirinit.homeModules.nirinit
-    inputs.zen-browser.homeModules.twilight
+    inputs.zen-browser.homeModules.beta
     inputs.stylix.homeModules.stylix
 
     # SHELL CONFIG
@@ -58,7 +58,6 @@
     ./cli/jjui.nix
     ./cli/git.nix
     ./cli/jujutsu.nix
-    # ./cli/navi.nix
     ./cli/bat.nix
     ./cli/opencode.nix
     ./cli/hyfetch.nix
@@ -95,10 +94,10 @@
 
   # XDG Configuration
   xdg = {
+    enable = true;
     userDirs.enable = true;
     terminal-exec.enable = true;
     portal.xdgOpenUsePortal = true;
-    enable = true;
     autostart.enable = true;
   };
 }
