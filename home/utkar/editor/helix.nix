@@ -12,7 +12,7 @@
       editor = {
         line-number = "relative";
         bufferline = "always";
-        completion-replace = true;
+        completion-replace = false;
         lsp.display-progress-messages = true;
         whitespace.render = "all";
         color-modes = true;
