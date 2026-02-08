@@ -25,6 +25,7 @@
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    nur.repos.lonerOrz.surge
     libnotify
     pkg-config
     nushell
