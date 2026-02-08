@@ -65,6 +65,7 @@
         enable = true;
         compositor.name = "niri";
         configHome = "/home/utkar";
+        quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
       };
     };
 
@@ -99,7 +100,7 @@
     };
 
     xonsh = {
-      enable = true;
+      enable = false;
 
       package = pkgs.xonsh;
       extraPackages = ps: [
