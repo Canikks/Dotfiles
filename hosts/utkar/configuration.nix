@@ -147,7 +147,7 @@
       "audio"
     ];
     packages = with pkgs; [
-      tre-command
+      hello
     ];
     shell = pkgs.fish;
   };
