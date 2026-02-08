@@ -50,6 +50,9 @@
     python314Packages.aria2p
     imagemagick
     duf
+    xcp
+    gping
+    curlie
     pwvucontrol
     mesa
     nautilus

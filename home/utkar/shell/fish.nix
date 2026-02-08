@@ -10,8 +10,12 @@
       gpra = "git pull --rebase --autostash";
       cat = "bat";
       diff = "batdiff";
-      rg = "rg --hyperlink-format=kitty";
+      rg = "rga --hyperlink-format=kitty";
       man = "batman";
+      df = "duf";
+      curl = "curlie";
+      cp = "xcp";
+      rm = "trash";
     };
     shellInit = ''
       set -g fish_greeting ""
