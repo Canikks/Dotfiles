@@ -44,13 +44,17 @@
   };
 
   fonts = {
+    enableGhostscriptFonts = true;
     enableDefaultPackages = true;
+    fontconfig = {
+      subpixel.rgba = "rgb";
+    };
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       nerd-fonts.meslo-lg
     ];
-
     fontDir.enable = true;
+    fontDir.decompressFonts = true;
   };
 
   xdg = {
