@@ -5,10 +5,32 @@
 }: {
   programs.zen-browser = {
     enable = true;
+    suppressXdgMigrationWarning = true;
     profiles = {
       "Dw3oaFqL.Profile 1" = {
+        id = 0;
+        isDefault = true;
         sine.enable = true;
+        sine.mods = [
+          "advanced-tab-groups"
+          "Arc-2.0"
+          "context-menu-icons"
+          "quick-search-zen-browser"
+          "zen-tidy-tabs"
+          "reopen-closed-tabs"
+          "zen-command-palette"
+          "new-icons"
+          "auto-pip-setting"
+          "settings-shortcuts-search"
+          "Custom Swipe Animation & Color"
+          "bubble-pop-deleting"
+          "quick-tabs"
+          "floating-findbar"
+          "compact-settings"
+          "unloaded-tabs"
+        ];
         extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+          darkreader
           ublock-origin
           keepassxc-browser
           zen-internet
