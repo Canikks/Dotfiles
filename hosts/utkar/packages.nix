@@ -3,7 +3,26 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  networkCheck = pkgs.writeShellScriptBin "network-check" ''
+    #!${pkgs.bash}/bin/bash
+
+    echo "Starting network monitor..."
+
+    while true; do
+      echo "Pinging 1.1.1.1..."
+
+      if ${pkgs.iputils}/bin/ping -c 5 -W 2 1.1.1.1 > /dev/null 2>&1; then
+        echo "Network available!"
+        ${pkgs.libnotify}/bin/notify-send "network available"
+        exit 0
+      else
+        echo "No network. Retrying in 7 seconds..."
+        sleep 7
+      fi
+    done
+  '';
+in {
   nixpkgs.overlays = [
     (final: prev: {
       inherit
@@ -25,7 +44,10 @@
     # gopass
     # gopass-hibp
     # gopass-jsonapi
-    nur.repos.lonerOrz.surge
+    # nur.repos.Vortriz.surge
+    unzip
+    jq
+    networkCheck
     libnotify
     pkg-config
     nushell
@@ -109,6 +131,7 @@
     kdePackages.qt5compat
     kdePackages.dolphin
     kdePackages.dolphin-plugins
+    kdePackages.kimageformats
     qt6Packages.qt6ct
     libsForQt5.qt5ct
     qt6.qt5compat
@@ -116,7 +139,7 @@
     qt6.qtmultimedia
     krita
     kdePackages.kdenlive
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     kdlfmt
     adwaita-icon-theme
     material-symbols
