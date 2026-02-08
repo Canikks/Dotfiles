@@ -63,6 +63,18 @@
     autostart = {
       enable = true;
     };
+    terminal-exec = {
+      enable = true;
+      settings = {
+        GNOME = [
+          "com.raggesilver.BlackBox.desktop"
+          "org.gnome.Terminal.desktop"
+        ];
+        default = [
+          "kitty.desktop"
+        ];
+      };
+    };
     portal = {
       enable = true;
       extraPortals = with pkgs; [
