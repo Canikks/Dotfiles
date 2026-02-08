@@ -6,7 +6,7 @@
     settings = {
       date = "relative";
       ignore-globs = [".git"];
-      hyperlinks = "always";
+      hyperlink = "always";
     };
   };
 }
