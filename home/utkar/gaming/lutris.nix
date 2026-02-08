@@ -8,7 +8,7 @@
       gamescope
       gamemode
       vulkan-tools
-      xorg.xrandr
+      xrandr
     ];
     protonPackages = [
       pkgs.proton-ge-bin
