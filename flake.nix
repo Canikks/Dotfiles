@@ -43,6 +43,7 @@
     devenv.url = "github:cachix/devenv";
     pay-respects.url = "github:iffse/pay-respects";
     jjui.url = "github:idursun/jjui";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -77,6 +78,7 @@
     devenv.inputs.nixpkgs.follows = "nixpkgs";
     pay-respects.inputs.nixpkgs.follows = "nixpkgs";
     jjui.inputs.nixpkgs.follows = "nixpkgs";
+    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
