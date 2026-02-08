@@ -104,6 +104,7 @@
         sops-nix.nixosModules.sops
         nixos-cli.nixosModules.nixos-cli
         nirinit.nixosModules.nirinit
+        stylix.nixosModules.stylix
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

@@ -11,6 +11,7 @@
     inputs.dms-plugin-registry.modules.default
     inputs.nirinit.homeModules.nirinit
     inputs.zen-browser.homeModules.twilight
+    inputs.stylix.homeModules.stylix
     # SHELL CONFIG
     # ./shell/zsh.nix
     ./shell/fish.nix
@@ -78,6 +79,14 @@
   home.stateVersion = "25.05";
   home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
+
+  # stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
+  # stylix.targets.helix.enable = true;
+  # stylix.targets.bat.enable = true;
+  # stylix.targets.nvf.enable = true;
+  # stylix.enable = true;
+  # stylix.autoEnable = false;
+  # stylix.polarity = "dark";
 
   # Window Manager
   wayland.windowManager.mango.enable = true;

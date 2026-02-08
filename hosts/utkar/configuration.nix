@@ -27,6 +27,8 @@
     algorithm = "zstd";
   };
 
+  stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
+
   time.timeZone = "Asia/Kolkata";
 
   i18n.defaultLocale = "en_GB.UTF-8";
