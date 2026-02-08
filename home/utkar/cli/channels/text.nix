@@ -7,13 +7,13 @@
       };
 
       requirements = [
-        "rg"
+        "rga"
         "bat"
       ];
 
       source = {
         command = ''
-          rg . \
+          rga . \
             --no-heading \
             --line-number \
             --colors 'match:fg:white' \

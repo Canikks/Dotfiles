@@ -12,6 +12,7 @@
     inputs.nirinit.homeModules.nirinit
     inputs.zen-browser.homeModules.twilight
     inputs.stylix.homeModules.stylix
+
     # SHELL CONFIG
     # ./shell/zsh.nix
     ./shell/fish.nix
