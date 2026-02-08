@@ -32,7 +32,7 @@
     ];
     kernel = {
       sysfs = {
-        devices.system.cpu.intel_pstate.no_turbo = false;
+        # devices.system.cpu.intel_pstate.no_turbo = false;
         devices.system.cpu.intel_pstate.hwp_dynamic_boost = true;
       };
       sysctl = {
