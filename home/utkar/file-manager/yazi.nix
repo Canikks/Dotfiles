@@ -28,6 +28,7 @@
     #   pkgs.yaziPlugins.starship
     #   pkgs.yaziPlugins.git
     # ];
+    shellWrapperName = "y";
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
       yatline-githead = pkgs.yaziPlugins.yatline-githead;
