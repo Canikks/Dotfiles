@@ -25,6 +25,7 @@
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    libnotify
     pkg-config
     nushell
     conky

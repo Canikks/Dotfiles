@@ -4,6 +4,10 @@
   ...
 }: {
   programs = {
+    kdeconnect = {
+      enable = true;
+    };
+
     mtr = {
       enable = true;
     };
