@@ -45,6 +45,7 @@
         "https://wezterm.cachix.org"
         "https://ghostty.cachix.org"
         "https://nvf.cachix.org"
+        "https://jjui.cachix.org"
       ];
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
@@ -55,6 +56,7 @@
         "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
         "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
         "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
+        "jjui.cachix.org-1:G3rK4ezMNPMSHIuuDZgliF7Q/n9vZ3RNqmnt49UYhIg="
       ];
     };
   };
