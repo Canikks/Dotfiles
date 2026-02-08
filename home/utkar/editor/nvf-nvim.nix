@@ -14,79 +14,7 @@
           logFile = "/tmp/nvim.log";
         };
 
-        # keymaps = [
-        #   {
-        #     key = "<leader>-";
-        #     mode = "n";
-        #     silent = true;
-        #     action = "<CMD>Oil<CR>";
-        #   }
-        # ];
-
         startPlugins = [pkgs.vimPlugins.multicursor-nvim];
-
-        # lazy.plugins = {
-        #   "multicursor.nvim" = {
-        #     package = pkgs.vimPlugins.multicursor-nvim;
-        #     enabled = true;
-        #     keys = [
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<up>";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<down>";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<leader><up>";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<leader><down>";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<leader>n";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<leader>s";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<leader>N";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<leader>S";
-        #         action = "function() require('multicursor-nvim').lineAddCursor(-1) end";
-        #         lua = true;
-        #       }
-        #       {
-        #         mode = ["n" "x"];
-        #         key = "<c-q>";
-        #         action = "require('multicursor-nvim').toggleCursor";
-        #         lua = true;
-        #       }
-        #     ];
-        #   };
-        # };
 
         extraLuaFiles = [
           ./nixd.lua
@@ -102,39 +30,34 @@
 
         spellcheck = {
           enable = true;
-          programmingWordlist.enable = false;
+          programmingWordlist.enable = true;
         };
 
         lsp = {
-          # This must be enabled for the language modules to hook into
-          # the LSP API.
           enable = true;
           null-ls.enable = true;
           formatOnSave = false;
           lspkind.enable = true;
           lightbulb.enable = true;
           lspsaga.enable = true;
-          trouble.enable = true;
-          lspSignature.enable = false; # conflicts with blink in maximal
+          trouble.enable = false;
+          lspSignature.enable = false;
           otter-nvim.enable = true;
           nvim-docs-view.enable = true;
         };
 
         debugger = {
           nvim-dap = {
-            enable = true;
-            ui.enable = true;
+            enable = false;
+            ui.enable = false;
           };
         };
 
-        # This section does not include a comprehensive list of available language modules.
-        # To list all available language module options, please visit the nvf manual.
         languages = {
           enableFormat = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
 
-          # Languages that will be supported in default and maximal configurations.
           nix = {
             enable = true;
             format.enable = true;
@@ -159,9 +82,9 @@
           lua.enable = true;
           zig.enable = false;
           python.enable = true;
-          typst.enable = true;
+          typst.enable = false;
           rust = {
-            enable = true;
+            enable = false;
             extensions.crates-nvim.enable = true;
           };
 
@@ -194,7 +117,7 @@
         };
 
         visuals = {
-          nvim-scrollbar.enable = true;
+          nvim-scrollbar.enable = false;
           nvim-web-devicons.enable = true;
           nvim-cursorline.enable = true;
           cinnamon-nvim.enable = true;
@@ -229,9 +152,6 @@
           registers = "unnamed,unnamedplus";
         };
 
-        # nvf provides various autocomplete options. The tried and tested nvim-cmp
-        # is enabled in default package, because it does not trigger a build. We
-        # enable blink-cmp in maximal because it needs to build its rust fuzzy
         # matcher library.
         autocomplete = {
           nvim-cmp.enable = false;
@@ -262,7 +182,7 @@
         git = {
           enable = true;
           gitsigns.enable = true;
-          gitsigns.codeActions.enable = false; # throws an annoying debug message
+          gitsigns.codeActions.enable = false;
           neogit.enable = true;
         };
 
@@ -281,7 +201,7 @@
         };
 
         projects = {
-          project-nvim.enable = true;
+          project-nvim.enable = false;
         };
 
         utility = {
@@ -333,9 +253,9 @@
         };
 
         ui = {
-          borders.enable = true;
+          borders.enable = false;
           noice.enable = true;
-          colorizer.enable = true;
+          colorizer.enable = false;
           modes-nvim.enable = true; # the theme looks terrible with catppuccin
           illuminate.enable = true;
           breadcrumbs = {
