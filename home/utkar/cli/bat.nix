@@ -11,7 +11,7 @@
     ];
     config = {
       pager = "less -FR";
-      theme = "ansi";
+      # theme = "ansi";
     };
   };
 }

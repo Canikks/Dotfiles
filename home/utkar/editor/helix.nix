@@ -8,7 +8,7 @@
     defaultEditor = true;
     package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
-      theme = "base16_transparent";
+      theme = "dank-theme";
       editor = {
         line-number = "relative";
         bufferline = "always";
