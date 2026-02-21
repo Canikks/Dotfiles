@@ -11,6 +11,9 @@
         dark = true;
         side-by-side = true;
       };
+      ui = {
+        diff-editor = "builtin";
+      };
     };
   };
 }
