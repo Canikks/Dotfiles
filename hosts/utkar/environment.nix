@@ -15,9 +15,8 @@
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       QS_ICON_THEME = "Papirus-Dark";
-      RUSTFLAGS = "-C link-arg=-Wl,--no-keep-memory";
       GTK_USE_PORTAL = 1;
-      QT_QPA_PLATFORMTHEME = "xdgdesktopportal;gtk3";
+      QT_QPA_PLATFORMTHEME = "gtk3";
       MOZ_LEGACY_PROFILES = 0;
     };
     sessionVariables = {

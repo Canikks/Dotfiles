@@ -13,7 +13,6 @@
       settings = {
         launch = {
           "com.mitchellh.ghostty" = "ghostty";
-          "zen-twilight" = "zen";
         };
       };
     };
@@ -24,8 +23,8 @@
 
     nixos-cli = {
       enable = true;
-      prebuildOptionCache = true;
-      useActivationInterface = true;
+      option-cache.enable = true;
+      activation-interface.enable = true;
       config = {
         aliases = {
           genlist = ["generation" "list"];

@@ -9,7 +9,6 @@
     inputs.nvf.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
-    inputs.nirinit.homeModules.nirinit
     inputs.zen-browser.homeModules.beta
     inputs.stylix.homeModules.stylix
 

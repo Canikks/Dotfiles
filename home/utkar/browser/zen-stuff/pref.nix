@@ -61,5 +61,6 @@
     "browser.cache.memory.enable" = true;
     "browser.ml.enable" = true;
     "browser.ml.chat.enabled" = false;
+    "sine.engine.auto-update" = false;
   };
 }
