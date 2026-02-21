@@ -41,11 +41,11 @@
     shellcheck.enable = true;
   };
 
-  scripts.rebuild-flake.exec = "nixos apply";
-  scripts.build-flake.exec = "nixos apply --no-boot --no-activate --output ./result";
-  scripts.test-flake.exec = "nixos apply --no-boot";
-  scripts.update-flake.exec = "nix flake update";
-  scripts.check-flake.exec = "nix flake check --impure";
+  # scripts.rebuild-flake.exec = "nixos apply";
+  # scripts.build-flake.exec = "nixos apply --no-boot --no-activate --output ./result";
+  # scripts.test-flake.exec = "nixos apply --no-boot";
+  # scripts.update-flake.exec = "nix flake update";
+  # scripts.check-flake.exec = "nix flake check --impure";
 
   enterShell = ''
     echo $GREETING

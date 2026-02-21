@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   services = {
+    clight = {
+      enable = true;
+    };
+
     btrfs.autoScrub.enable = true;
 
     openssh.enable = true;
@@ -44,6 +48,7 @@
 
         upstreams.groups.default = [
           "https://dns.quad9.net/dns-query"
+          "https://one.one.one.one/dns-query"
         ];
 
         caching = {
@@ -55,8 +60,8 @@
         };
 
         blocking = {
-          refreshPeriod = "4h";
-          blackLists = {
+          loading.refreshPeriod = "4h";
+          denylists = {
             ads = [
               "https://big.oisd.nl"
             ];
@@ -196,8 +201,18 @@
     #   enable = true;
     # };
 
-    tlp = {
+    tuned = {
       enable = true;
+      settings = {
+        dynamic_tuning = true;
+      };
+      ppdSettings = {
+        main.default = "performance";
+      };
+    };
+
+    tlp = {
+      enable = false;
       pd.enable = true;
       settings = {
         CPU_BOOST_ON_AC = 1;

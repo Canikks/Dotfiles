@@ -16,5 +16,6 @@
     nixMonitor.enable = true;
     dankClight.enable = true;
     dankNotepadModule.enable = true;
+    clight.enable = true;
   };
 }

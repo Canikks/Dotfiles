@@ -1,5 +1,5 @@
 {
-  # pkgs,
+  pkgs,
   # inputs,
   ...
 }: {
@@ -16,5 +16,6 @@
         sine.enable = true;
       };
     };
+    nativeMessagingHosts = [pkgs.firefoxpwa];
   };
 }

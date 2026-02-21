@@ -46,6 +46,7 @@
         "https://ghostty.cachix.org"
         "https://nvf.cachix.org"
         "https://jjui.cachix.org"
+        "https://hyprland.cachix.org"
       ];
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
@@ -57,6 +58,7 @@
         "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
         "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
         "jjui.cachix.org-1:G3rK4ezMNPMSHIuuDZgliF7Q/n9vZ3RNqmnt49UYhIg="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
     };
   };

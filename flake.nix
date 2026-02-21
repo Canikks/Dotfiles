@@ -13,6 +13,7 @@
     nixos-cli.url = "github:nix-community/nixos-cli";
 
     # Compositors and desktop shells
+    hyprland.url = "github:hyprwm/Hyprland";
     niri.url = "github:sodiboo/niri-flake";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
@@ -44,9 +45,11 @@
     pay-respects.url = "github:iffse/pay-respects";
     jjui.url = "github:idursun/jjui";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    television.url = "github:alexpasmantier/television";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
     niri.inputs.nixpkgs.follows = "nixpkgs";
     nirinit.inputs.nixpkgs.follows = "nixpkgs";
     dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
@@ -79,6 +82,7 @@
     pay-respects.inputs.nixpkgs.follows = "nixpkgs";
     jjui.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+    television.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
@@ -92,13 +96,14 @@
       modules = with inputs; [
         ./hosts/utkar/configuration.nix
         niri.nixosModules.niri
+        hyprland.nixosModules.default
         dank-material-shell.nixosModules.greeter
         dank-material-shell.nixosModules.dank-material-shell
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
         nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
         nix-index-database.nixosModules.nix-index
-        mango.nixosModules.mango
+        # mango.nixosModules.mango
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-gpu-intel
         nixos-hardware.nixosModules.common-pc-laptop-ssd

@@ -22,6 +22,13 @@
       fi
     done
   '';
+
+  ocrScreenshot = pkgs.writeShellScriptBin "ocr-screenshot" ''
+    #!${pkgs.bash}/bin/bash
+    set -euo pipefail
+
+    dms screenshot | tesseract stdin stdout | dms cl copy
+  '';
 in {
   nixpkgs.overlays = [
     (final: prev: {
@@ -33,7 +40,8 @@ in {
         colmena
         ;
     })
-    inputs.niri.overlays.niri
+    # inputs.niri.overlays.niri
+    inputs.hyprland.overlays.default
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
   ];
@@ -44,7 +52,12 @@ in {
     # gopass
     # gopass-hibp
     # gopass-jsonapi
-    # nur.repos.Vortriz.surge
+    app2unit
+    lxappearance
+    nur.repos.lonerOrz.surge
+    ocrScreenshot
+    tesseract
+    android-tools
     winboat
     unzip
     jq
@@ -109,14 +122,14 @@ in {
     virt-manager
     taplo
     papirus-icon-theme
-    tela-circle-icon-theme
+    # tela-circle-icon-theme
     onlyoffice-desktopeditors
     ollama
     satty
     fcitx5
     bibata-cursors
     adw-gtk3
-    xwayland-satellite-unstable
+    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
     libadwaita
     nirius
     ouch
@@ -138,8 +151,6 @@ in {
     qt6.qt5compat
     qt6.qtbase
     qt6.qtmultimedia
-    krita
-    kdePackages.kdenlive
     wineWow64Packages.waylandFull
     kdlfmt
     adwaita-icon-theme

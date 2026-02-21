@@ -12,7 +12,7 @@
         side-by-side = true;
       };
       ui = {
-        diff-editor = "builtin";
+        diff-editor = ":builtin";
       };
     };
   };

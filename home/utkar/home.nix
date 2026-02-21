@@ -73,7 +73,7 @@
     ./multiplexer/zellij.nix
 
     # AUDIO
-    ./audio/easyeffects.nix
+    # ./audio/easyeffects.nix
   ];
 
   home.stateVersion = "25.05";
@@ -89,7 +89,7 @@
   # stylix.polarity = "dark";
 
   # Window Manager
-  wayland.windowManager.mango.enable = true;
+  wayland.windowManager.mango.enable = false;
 
   # XDG Configuration
   xdg = {

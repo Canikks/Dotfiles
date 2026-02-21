@@ -91,9 +91,9 @@
       };
     };
 
-    mango = {
-      enable = true;
-    };
+    # mango = {
+    #   enable = true;
+    # };
 
     dconf = {
       enable = true;
@@ -116,9 +116,18 @@
       };
     };
 
+    iio-hyprland = {
+      enable = true;
+    };
+
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+
     niri = {
       enable = true;
-      package = pkgs.niri-unstable;
+      package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
     };
 
     xonsh = {
@@ -207,32 +216,27 @@
 
     uwsm = {
       enable = true;
-      waylandCompositors = {
-        mangowc = {
-          prettyName = "Mango";
-          comment = "Mango compositor managed by UWSM";
-          binPath = "/run/current-system/sw/bin/mango";
-        };
-      };
+      # waylandCompositors = {
+      #   mangowc = {
+      #     prettyName = "Mango";
+      #     comment = "Mango compositor managed by UWSM";
+      #     binPath = "/run/current-system/sw/bin/mango";
+      #   };
+      # };
     };
 
     steam = {
       enable = true;
       package = pkgs.steam.override {
         extraArgs = "-system-composer";
-        # extraEnv = {
-        #   MANGOHUD = true;
-        #   OBS_VKCAPTURE = true;
-        #   RADV_TEX_ANISO = 16;
-        # };
-        extraLibraries = p:
-          with p; [
-            atk
-          ];
       };
       extest.enable = true;
       extraCompatPackages = with pkgs; [
         proton-ge-bin
+      ];
+      extraPackages = with pkgs; [
+        gamescope
+        umu-launcher
       ];
     };
 
