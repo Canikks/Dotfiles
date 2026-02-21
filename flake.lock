@@ -154,7 +154,7 @@
         "type": "github"
       }
     },
-    "dankMaterialShell": {
+    "dank-material-shell": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -162,11 +162,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1771510930,
-        "narHash": "sha256-GqIrMf40AETtCYpbjU/I2+vnTnffP/V2vkK4eQbU2p0=",
+        "lastModified": 1771820800,
+        "narHash": "sha256-CU7nlKpelST2oDi00y746iIlBJMQvpDiMbjO77yH2qM=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "a9cc58fc2852978507eafca2fe054425f93662ec",
+        "rev": "912e3bdfce29147e280babcc831ccb93a1583ee8",
         "type": "github"
       },
       "original": {
@@ -208,11 +208,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769195925,
-        "narHash": "sha256-YMV4GHeD2eF1w8BcEBcNZyMAAVDllvqTUo5QeSNJmIs=",
+        "lastModified": 1771340270,
+        "narHash": "sha256-rzyqTCp+B4T6UW7mKkUtPA4dk+cwsuGxIkstqG9dIUo=",
         "owner": "AvengeMedia",
         "repo": "dgop",
-        "rev": "8aa47d0e75cd179a943865a906f28c4bdab90ccc",
+        "rev": "eae53d4cfd9da4e898d2c50dac645d0ef46b57c4",
         "type": "github"
       },
       "original": {
@@ -228,11 +228,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770722819,
-        "narHash": "sha256-9J8aW1DeRwVjTCK4QSRF7tIEIiAhHUWt29r/Y6Khnjs=",
+        "lastModified": 1771722994,
+        "narHash": "sha256-64sGYMh75cTvc0pXTtSx+2jmFqg4rFNDnhDGuoE4rWw=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "0bf41de4902982fc2859aaad1603fb21bcd58a87",
+        "rev": "f69e4b5a42ce5d7b86778f4d29d3addbd09cb079",
         "type": "github"
       },
       "original": {
@@ -1194,11 +1194,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768185580,
-        "narHash": "sha256-O7UqzyDPLBqtIIRTYaG/lsfyPx6Rb/Vp3AH/CQzf7y0=",
+        "lastModified": 1771086195,
+        "narHash": "sha256-jqeBpFTG++Aupy5VDmtEBO0NchXQZBsVLWOchWE7qWU=",
         "owner": "amaanq",
         "repo": "nirinit",
-        "rev": "9b6db3ec828694e233134e590be6cfd852c932c1",
+        "rev": "57fa05318b6371c887a857cc7697271758a8091f",
         "type": "github"
       },
       "original": {
@@ -1706,7 +1706,7 @@
     "quickshell": {
       "inputs": {
         "nixpkgs": [
-          "dankMaterialShell",
+          "dank-material-shell",
           "nixpkgs"
         ]
       },
@@ -1772,7 +1772,7 @@
     "root": {
       "inputs": {
         "alejandra": "alejandra",
-        "dankMaterialShell": "dankMaterialShell",
+        "dank-material-shell": "dank-material-shell",
         "devenv": "devenv",
         "dgop": "dgop",
         "dms-plugin-registry": "dms-plugin-registry",
@@ -2381,11 +2381,11 @@
         "rust-overlay": "rust-overlay_4"
       },
       "locked": {
-        "lastModified": 1769856205,
-        "narHash": "sha256-bV3Nz6ZxZSlo96wBtk4BaEdVOTaaHgFXMEtwX/55CnM=",
+        "lastModified": 1771727475,
+        "narHash": "sha256-E0el5C5a73rRoOe3A4WWi3zyatLKBpsHGj9lNDrhhOg=",
         "owner": "sxyazi",
         "repo": "yazi",
-        "rev": "339002ee48c989d3bd9284baf6f80a0b4bac7669",
+        "rev": "d84f0b1265ad6727b3ae9cf786575c40fe404ac0",
         "type": "github"
       },
       "original": {

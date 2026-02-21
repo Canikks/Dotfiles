@@ -14,7 +14,7 @@
 
     # Compositors and desktop shells
     niri.url = "github:sodiboo/niri-flake";
-    dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
+    dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     nirinit.url = "github:amaanq/nirinit";
@@ -49,7 +49,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     niri.inputs.nixpkgs.follows = "nixpkgs";
     nirinit.inputs.nixpkgs.follows = "nixpkgs";
-    dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
+    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
     dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -92,8 +92,8 @@
       modules = with inputs; [
         ./hosts/utkar/configuration.nix
         niri.nixosModules.niri
-        dankMaterialShell.nixosModules.greeter
-        dankMaterialShell.nixosModules.dank-material-shell
+        dank-material-shell.nixosModules.greeter
+        dank-material-shell.nixosModules.dank-material-shell
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
         nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
