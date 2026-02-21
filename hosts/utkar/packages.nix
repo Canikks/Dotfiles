@@ -45,6 +45,7 @@ in {
     # gopass-hibp
     # gopass-jsonapi
     # nur.repos.Vortriz.surge
+    winboat
     unzip
     jq
     networkCheck

@@ -148,6 +148,7 @@
     isNormalUser = true;
     description = "utkar";
     extraGroups = [
+      "docker"
       "pihole"
       "aria2"
       "internet"
