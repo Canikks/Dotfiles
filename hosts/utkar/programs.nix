@@ -4,9 +4,26 @@
   ...
 }: {
   programs = {
-    localsend = {
+    nixos-cli = {
       enable = true;
-      openFirewall = true;
+      option-cache.enable = true;
+      activation-interface.enable = true;
+      settings = {
+        aliases = {
+          genlist = ["generation" "list"];
+          switch = ["generation" "switch"];
+          rollback = ["generation" "rollback"];
+        };
+        config_location = "/home/utkar/dotfiles";
+        use_nvd = true;
+        apply = {
+          reexec_as_root = true;
+          use_git_commit_msg = true;
+          imply_impure_with_tag = true;
+          ignore_dirty_tree = true;
+          use_nom = true;
+        };
+      };
     };
 
     kdeconnect = {

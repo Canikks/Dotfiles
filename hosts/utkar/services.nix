@@ -21,28 +21,6 @@
 
     fstrim.enable = true;
 
-    nixos-cli = {
-      enable = true;
-      option-cache.enable = true;
-      activation-interface.enable = true;
-      config = {
-        aliases = {
-          genlist = ["generation" "list"];
-          switch = ["generation" "switch"];
-          rollback = ["generation" "rollback"];
-        };
-        config_location = "/home/utkar/dotfiles";
-        use_nvd = true;
-        apply = {
-          reexec_as_root = true;
-          use_git_commit_msg = true;
-          imply_impure_with_tag = true;
-          ignore_dirty_tree = true;
-          use_nom = true;
-        };
-      };
-    };
-
     avahi = {
       enable = true;
       reflector = true;
