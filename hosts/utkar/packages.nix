@@ -52,6 +52,8 @@ in {
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    colloid-gtk-theme
+    zsh-abbr
     app2unit
     lxappearance
     nur.repos.lonerOrz.surge
@@ -100,7 +102,9 @@ in {
     nur.repos.nakido.zellij-forgot
     alacritty
     nvd
-    trash-cli
+    fishPlugins.puffer
+    fishPlugins.fifc
+    fishPlugins.fish-bd
     fishPlugins.forgit
     fishPlugins.pisces
     fishPlugins.plugin-sudope
@@ -122,7 +126,6 @@ in {
     virt-manager
     taplo
     papirus-icon-theme
-    # tela-circle-icon-theme
     onlyoffice-desktopeditors
     ollama
     satty
@@ -141,13 +144,13 @@ in {
     wl-clip-persist
     greetd
     nur.repos.forkprince.helium-nightly
-    kdePackages.qt6ct
-    kdePackages.qt5compat
+    # kdePackages.qt6ct
+    # kdePackages.qt5compat
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     kdePackages.kimageformats
-    qt6Packages.qt6ct
     libsForQt5.qt5ct
+    qt6Packages.qt6ct
     qt6.qt5compat
     qt6.qtbase
     qt6.qtmultimedia
