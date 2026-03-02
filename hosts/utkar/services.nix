@@ -1,7 +1,32 @@
 {pkgs, ...}: {
   services = {
-    clight = {
+    aria2 = {
+      enable = false;
+      serviceUMask = "0002";
+      rpcSecretFile = "/home/utkar/aria2.txt";
+      settings = {
+        max-connection-per-server = 16;
+        split = 16;
+        min-split-size = "4M";
+        file-allocation = "falloc";
+        console-log-level = "error";
+        summary-interval = 0;
+        show-console-readout = false;
+        dir = "/home/utkar/Downloads";
+      };
+    };
+
+    envfs = {
       enable = true;
+      extraFallbackPathCommands = "ln -s $''{pkgs.bash}/bin/bash $out/bash";
+    };
+
+    userborn = {
+      enable = true;
+    };
+
+    clight = {
+      enable = false;
     };
 
     btrfs.autoScrub.enable = true;
@@ -16,6 +41,7 @@
       enable = true;
       settings = {
         launch = {
+          "zen" = "zen-beta";
           "com.mitchellh.ghostty" = "ghostty";
         };
       };
@@ -92,10 +118,10 @@
         enable = false;
       };
       fangfrisch = {
-        enable = true;
+        enable = false;
       };
       updater = {
-        enable = true;
+        enable = false;
       };
     };
 
@@ -197,18 +223,14 @@
       enable = false;
     };
 
-    # auto-cpufreq = {
-    #   enable = true;
-    # };
-
     tuned = {
       enable = true;
       settings = {
         dynamic_tuning = true;
       };
-      ppdSettings = {
-        main.default = "performance";
-      };
+      # ppdSettings = {
+      #   main.default = "performance";
+      # };
     };
 
     tlp = {
