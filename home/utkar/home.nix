@@ -13,7 +13,7 @@
     inputs.stylix.homeModules.stylix
 
     # SHELL CONFIG
-    # ./shell/zsh.nix
+    ./shell/zsh.nix
     ./shell/fish.nix
 
     # TERMINAL CONFIG
@@ -36,7 +36,7 @@
     ./file-manager/yazi.nix
 
     # CLI TOOLS
-    ./cli/aria2.nix
+    # ./cli/aria2.nix
     ./cli/dsearch.nix
     ./cli/delta.nix
     ./cli/pay-respects.nix
@@ -65,6 +65,7 @@
 
     # BROWSER
     ./browser/zen-browser.nix
+    # ./browser/floorp.nix
 
     # GAMING
     ./gaming/lutris.nix
@@ -79,6 +80,7 @@
   home.stateVersion = "25.05";
   home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
+  home.shell.enableZshIntegration = true;
 
   # stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
   # stylix.targets.helix.enable = true;
