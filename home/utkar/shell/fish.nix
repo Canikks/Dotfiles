@@ -33,6 +33,7 @@
       set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
       set -gx MANROFFOPT "-c"
       set -gx FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+      set -Ux fifc_editor hx
       set -g fish_cursor_default block
       set -g fish_cursor_insert block
       set -g fish_cursor_visual block

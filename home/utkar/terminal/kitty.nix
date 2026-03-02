@@ -2,6 +2,7 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableFishIntegration = true;
+    shellIntegration.enableZshIntegration = true;
     enableGitIntegration = true;
     font.name = "MesloLGS Nerd Font";
     shellIntegration.mode = "no-cursor";

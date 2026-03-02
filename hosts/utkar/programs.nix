@@ -65,7 +65,6 @@
         glibc
         libmd
         libz
-        gccNGPackages_15.libstdcxx
         icu
         libc
       ];
@@ -78,6 +77,7 @@
       enableDynamicTheming = true;
       enableAudioWavelength = true;
       enableCalendarEvents = false;
+      enableClipboardPaste = true;
       systemd = {
         enable = true;
         restartIfChanged = true;
@@ -100,7 +100,7 @@
     };
 
     bat = {
-      enable = true;
+      enable = false;
     };
 
     zoxide = {
