@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment = {
+    enableAllTerminfo = true;
     localBinInPath = true;
     pathsToLink = ["/share/zsh" "/share/fish"];
     variables = {
@@ -17,8 +18,8 @@
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       QS_ICON_THEME = "Papirus-Dark";
       GTK_USE_PORTAL = 1;
-      QT_QPA_PLATFORMTHEME = "gtk3";
-      QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
+      QT_QPA_PLATFORMTHEME = "qt6ct";
+      QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
       MOZ_LEGACY_PROFILES = 0;
       APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
     };
