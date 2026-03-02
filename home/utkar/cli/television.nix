@@ -6,7 +6,6 @@
   programs.television = {
     enable = true;
     # package = inputs.television.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    enableFishIntegration = true;
   };
   imports = [
     ./channels/files.nix

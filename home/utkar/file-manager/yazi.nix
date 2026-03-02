@@ -8,7 +8,6 @@
     package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
       _7zz = pkgs._7zz-rar;
     };
-    enableFishIntegration = true;
     # extraPackages = [
     #   pkgs.rich-cli
     #   pkgs.yaziPlugins.ouch

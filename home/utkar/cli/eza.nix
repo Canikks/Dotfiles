@@ -1,7 +1,6 @@
 {...}: {
   programs.eza = {
-    enable = true;
-    enableFishIntegration = true;
+    enable = false;
     git = true;
     icons = "always";
     colors = "always";
