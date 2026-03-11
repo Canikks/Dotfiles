@@ -1,9 +1,9 @@
 {...}: {
   programs.zellij = {
     enable = true;
-    # enableFishIntegration = true;
-    attachExistingSession = true;
-    exitShellOnExit = true;
+    enableFishIntegration = false;
+    attachExistingSession = false;
+    exitShellOnExit = false;
   };
   # xdg.configFile."zellij/layouts/conky.conf" = {
   #   source = ./conky.conf;
