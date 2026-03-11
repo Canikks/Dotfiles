@@ -19,6 +19,15 @@
     initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
+    kernelPatches = [
+      {
+        name = "Rust Support";
+        patch = null;
+        features = {
+          rust = true;
+        };
+      }
+    ];
     kernelParams = [
       "i915.enable_guc=3"
       "zswap.enabled=1"
