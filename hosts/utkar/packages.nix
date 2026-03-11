@@ -52,6 +52,9 @@ in {
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    handbrake
+    glfw3-minecraft
+    openal
     mangohud
     cbonsai
     virtio-win
@@ -130,7 +133,7 @@ in {
     virt-manager
     papirus-icon-theme
     onlyoffice-desktopeditors
-    ollama
+    ollama-cpu
     satty
     fcitx5
     bibata-cursors
@@ -157,6 +160,7 @@ in {
     qt6.qt5compat
     qt6.qtbase
     qt6.qtmultimedia
+    qt5.qtbase
     wineWow64Packages.waylandFull
     adwaita-icon-theme
     material-symbols
