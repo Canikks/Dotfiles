@@ -1,6 +1,6 @@
 {...}: {
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".settings = {
-    "browser.sessionstore.interval" = 100;
+    "browser.sessionstore.interval" = 15000;
     "browser.sessionstore.max_tabs_undo" = 5;
     "browser.sessionstore.max_windows_undo" = 3;
     "browser.sessionstore.restore_pinned_tabs_on_demand" = true;
@@ -9,7 +9,7 @@
     "browser.tabs.min_inactive_duration_before_unload" = 600000;
     "browser.tabs.warnOnClose" = false;
     "browser.tabs.warnOnCloseOtherTabs" = false;
-    "dom.ipc.processCount" = 6;
+    "dom.ipc.processCount" = 4;
     "dom.ipc.processCount.webIsolated" = 2;
     "dom.ipc.keepProcessesAlive.web" = 1;
     "dom.ipc.processCount.extension" = 1;
@@ -17,13 +17,12 @@
     "media.ffmpeg.vaapi.enabled" = true;
     "gfx.webrender.all" = true;
     "gfx.webrender.compositor" = true;
-    "gfx.webrender.max-partial-preset-rects" = 1;
     "layers.acceleration.force-enabled" = true;
     "media.av1.enabled" = true;
     "media.rdd-vpx.enabled" = true;
     "layout.frame-rate.precise" = true;
-    "network.http.max-connections" = 900;
-    "network.http.max-persistent-connections-per-server" = 10;
+    "network.http.max-connections" = 450;
+    "network.http.max-persistent-connections-per-server" = 6;
     "network.http.pacing.requests.enabled" = true;
     "network.dnsCacheExpiration" = 3600;
     "network.prefetch-next" = false;
@@ -48,7 +47,7 @@
     "privacy.partition.always_partition_third_party_non_cookie_storage" = true;
     "media.peerconnection.ice.default_address_only" = true;
     "media.peerconnection.ice.no_host" = true;
-    "dom.timeout.background_throttling_max_budget" = 10000;
+    "dom.timeout.background_throttling_max_budget" = 3000;
     "dom.min_background_timeout_value" = 1000;
     "dom.ipc.processPriorityManager.backgroundUsesEcoQoS" = true;
     "dom.events.asyncClipboard" = true;
