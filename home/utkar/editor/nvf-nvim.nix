@@ -1,4 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: let
+  base46 = pkgs.vimUtils.buildVimPlugin {
+    name = "base46";
+    src = inputs.base46-src;
+  };
+in {
   programs.nvf = {
     enable = true;
     # defaultEditor = true;
@@ -14,11 +23,17 @@
           logFile = "/tmp/nvim.log";
         };
 
-        startPlugins = [pkgs.vimPlugins.multicursor-nvim];
-
         extraLuaFiles = [
           ./nixd.lua
         ];
+
+        # extraPlugins = {
+        #   base46 = {
+        #     package = base46;
+        #   };
+        # };
+
+        additionalRuntimePaths = ["/home/utkar/.config/nvim"];
 
         options = {
           autoindent = false;
@@ -30,13 +45,12 @@
 
         spellcheck = {
           enable = true;
-          programmingWordlist.enable = true;
         };
 
         lsp = {
           enable = true;
           null-ls.enable = true;
-          formatOnSave = false;
+          formatOnSave = true;
           lspkind.enable = true;
           lightbulb.enable = true;
           lspsaga.enable = true;
@@ -75,7 +89,7 @@
           css.enable = true;
           html.enable = true;
           sql.enable = false;
-          java.enable = true;
+          java.enable = false;
           kotlin.enable = false;
           ts.enable = true;
           go.enable = true;

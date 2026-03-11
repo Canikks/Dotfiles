@@ -25,7 +25,7 @@
     # EDITOR CONFIG
     ./editor/helix.nix
     ./editor/zeditor.nix
-    # ./editor/nvf-nvim.nix
+    ./editor/nvf-nvim.nix
     # ./editor/neovide.nix
 
     # APPS
