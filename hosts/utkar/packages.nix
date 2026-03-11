@@ -52,6 +52,7 @@ in {
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    virtio-win
     python3
     colloid-gtk-theme
     zsh-abbr

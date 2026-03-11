@@ -1,5 +1,9 @@
 {...}: {
   networking = {
+    nat = {
+      enable = true;
+      internalInterfaces = ["virbr0"];
+    };
     networkmanager.enable = true;
     hostName = "utkar";
     networkmanager.dns = "none";
@@ -14,6 +18,7 @@
       ];
       allowedUDPPorts = [
         53
+        67
       ];
     };
   };

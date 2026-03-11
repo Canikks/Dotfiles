@@ -5,6 +5,8 @@
   ...
 }: {
   services = {
+    systemd-lock-handler.enable = true;
+
     homed = {
       enable = true;
     };
@@ -73,7 +75,7 @@
       enable = true;
       settings = {
         ports = {
-          dns = 53;
+          dns = ["192.168.1.10:53" "127.0.0.1:53"];
           http = 4000;
         };
 
