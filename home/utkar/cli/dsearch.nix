@@ -8,9 +8,11 @@
     package = inputs.dsearch.packages.${pkgs.stdenv.hostPlatform.system}.default;
     config = {
       index_all_files = true;
-      index_path = "/home/utkar/.cache/danksearch/index";
+      index_path = "~/.cache/danksearch/index";
       listen_addr = ":43654";
-      max_depth = 0;
+      auto_reindex = false;
+      reindex_interval_hours = 72;
+      # max_depth = 0;
       max_file_bytes = 2097152;
       text_extentions = [
         ".txt"
@@ -42,6 +44,7 @@
       index_paths = [
         {
           exclude_dirs = [
+            ".git"
             "node_modules"
             "bower_components"
             ".npm"
@@ -97,6 +100,11 @@
             "Hollow.Knight.v1.5.78"
             "Starsector"
             "Games"
+            ".steampath"
+            "secrets"
+            ".config"
+            "dotfiles-snowfall"
+            "dotfiles"
           ];
           exclude_hidden = true;
           extract_exif = true;
@@ -109,6 +117,10 @@
             "chromium-backup"
             "net.imput.helium"
             "zen"
+            "grammars"
+            "vesktop"
+            ".devenv"
+            "firefox"
           ];
           max_depth = 0;
           path = "/home/utkar/.config";
@@ -117,6 +129,13 @@
           exclude_hidden = false;
           max_depth = 0;
           path = "/home/utkar/dotfiles";
+          exclude_dirs = [
+            ".git"
+            ".jj"
+            ".direnv"
+            "secrets"
+            ".devenv"
+          ];
         }
       ];
     };
