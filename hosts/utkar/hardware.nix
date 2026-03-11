@@ -2,9 +2,11 @@
   hardware = {
     facter.reportPath = ./facter.json;
     intelgpu.vaapiDriver = "intel-media-driver";
-    # intelgpu.mediaRuntime = "intel-media-sdk";
     intelgpu.computeRuntime = "legacy";
     intelgpu.enableHybridCodec = true;
+    intelgpu = {
+      loadInInitrd = true;
+    };
     cpu.intel.sgx = {
       enableDcapCompat = true;
       provision.enable = true;
@@ -17,7 +19,7 @@
       enable32Bit = true;
       package = pkgs.mesa;
       package32 = pkgs.pkgsi686Linux.mesa;
-      extraPackages = with pkgs; [intel-media-driver mesa mesa_glu mesa-gl-headers mesa];
+      extraPackages = with pkgs; [intel-media-driver mesa mesa_glu mesa-gl-headers mesa vpl-gpu-rt];
     };
     bluetooth = {
       enable = true;
