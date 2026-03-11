@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   systemd = {
+    tpm2.enable = true;
     additionalUpstreamSystemUnits = [
       "soft-reboot.target"
       "systemd-soft-reboot.service"
