@@ -31,7 +31,7 @@
     algorithm = "zstd";
   };
 
-  stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
+  stylix.base16Scheme = "${config.users.users.utkar.home}/.config/DankMaterialShell/base16.yaml";
 
   time.timeZone = "Asia/Kolkata";
 
@@ -92,6 +92,7 @@
       config = {
         common = {
           defaults = [
+            "hyprland"
             "kitty"
             "gtk"
             "gnome"
@@ -104,7 +105,8 @@
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/utkar/.config/sops/age/keys.txt";
+    useTmpfs = true;
+    age.keyFile = "${config.users.users.utkar.home}/.config/sops/age/keys.txt";
     age.generateKey = true;
 
     # secrets.aria2_rpc_secret = {
@@ -122,6 +124,8 @@
 
     secrets.github_token = {
       key = "github_token";
+      owner = config.users.users.utkar.name;
+      group = config.users.users.utkar.group;
       # path = "/home/utkar/github";
     };
 
@@ -155,7 +159,9 @@
   };
 
   users.users.utkar = {
+    linger = true;
     isNormalUser = true;
+    name = "utkar";
     description = "utkar";
     extraGroups = [
       "docker"
