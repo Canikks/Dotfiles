@@ -5,6 +5,11 @@
   ...
 }: {
   programs = {
+    localsend = {
+      enable = true;
+      openFirewall = true;
+    };
+
     nixos-cli = {
       enable = true;
       option-cache.enable = true;
@@ -100,6 +105,7 @@
       systemd = {
         enable = true;
         restartIfChanged = true;
+        target = "niri.service";
       };
       quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
       greeter = {
