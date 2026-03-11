@@ -111,10 +111,11 @@
         nixos-cli.nixosModules.nixos-cli
         nirinit.nixosModules.nirinit
         stylix.nixosModules.stylix
+        dms-plugin-registry.modules.default
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
+          home-manager.backupFileExtension = "bak";
           home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.utkar = import ./home/utkar/home.nix;
           home-manager.startAsUserService = true;
