@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   hardware = {
+    facter.reportPath = ./facter.json;
     intelgpu.vaapiDriver = "intel-media-driver";
     # intelgpu.mediaRuntime = "intel-media-sdk";
     intelgpu.computeRuntime = "legacy";
