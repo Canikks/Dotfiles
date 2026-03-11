@@ -73,6 +73,8 @@
         libz
         icu
         libc
+        qt5.qtbase
+        qt5.qtwayland
       ];
     };
 
@@ -101,6 +103,8 @@
         catWidget.enable = true;
         wallpaperCarousel.enable = true;
         desktopCommand.enable = true;
+        dankSystemDoctor.enable = true;
+        aiAssistant.enable = true;
       };
       systemd = {
         enable = true;

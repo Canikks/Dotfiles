@@ -14,9 +14,9 @@
     winePackages = [
       pkgs.wineWow64Packages.full
     ];
-    protonPackages = [
-      pkgs.proton-ge-bin
-      pkgs.nur.repos.forkprince.proton-cachyos-v4-bin
+    protonPackages = with pkgs; [
+      proton-ge-bin
+      nur.repos.forkprince.proton-cachyos-v4-bin
     ];
   };
 }
