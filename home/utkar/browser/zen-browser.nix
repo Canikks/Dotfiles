@@ -10,7 +10,6 @@
   ];
   programs.zen-browser = {
     enable = true;
-    suppressXdgMigrationWarning = true;
     profiles = {
       "Dw3oaFqL.Profile 1" = {
         sine.enable = true;
