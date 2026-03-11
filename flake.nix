@@ -46,7 +46,10 @@
     jjui.url = "github:idursun/jjui";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     television.url = "github:alexpasmantier/television";
-
+    base46-src = {
+      url = "github:AvengeMedia/base46";
+      flake = false;
+    };
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
