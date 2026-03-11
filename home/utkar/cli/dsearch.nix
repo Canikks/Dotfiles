@@ -1,6 +1,11 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.dsearch = {
     enable = true;
+    package = inputs.dsearch.packages.${pkgs.stdenv.hostPlatform.system}.default;
     config = {
       index_all_files = true;
       index_path = "/home/utkar/.cache/danksearch/index";
@@ -33,7 +38,7 @@
         ".nix"
         ".conf"
       ];
-      worker_count = 2;
+      worker_count = 1;
       index_paths = [
         {
           exclude_dirs = [
@@ -91,6 +96,7 @@
             "Dead.Cells.v35.7"
             "Hollow.Knight.v1.5.78"
             "Starsector"
+            "Games"
           ];
           exclude_hidden = true;
           extract_exif = true;
