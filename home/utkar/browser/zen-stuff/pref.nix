@@ -1,6 +1,6 @@
 {...}: {
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".settings = {
-    "browser.sessionstore.interval" = 300000;
+    "browser.sessionstore.interval" = 100;
     "browser.sessionstore.max_tabs_undo" = 5;
     "browser.sessionstore.max_windows_undo" = 3;
     "browser.sessionstore.restore_pinned_tabs_on_demand" = true;
@@ -37,6 +37,7 @@
     "toolkit.telemetry.enabled" = false;
     "toolkit.telemetry.unified" = false;
     "toolkit.telemetry.server" = "";
+    "toolkit.startup.max_resumed_crashes" = -1;
     "app.shield.optoutstudies.enabled" = false;
     "browser.discovery.enabled" = false;
     "browser.aboutConfig.showWarning" = false;
