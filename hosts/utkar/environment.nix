@@ -21,7 +21,8 @@
       QT_QPA_PLATFORMTHEME = "qt6ct";
       QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
       MOZ_LEGACY_PROFILES = 0;
-      APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
+      # APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
+      APP2UNIT_SLICES = "a=app.slice b=background.slice s=session.slice";
     };
     sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";

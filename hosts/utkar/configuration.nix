@@ -20,6 +20,8 @@
   # system.etc.overlay.enable = true;
   # system.nixos-init.enable = true;
 
+  appstream.enable = true;
+
   swapDevices = [
     {
       device = "/dev/disk/by-label/nix-swap";
