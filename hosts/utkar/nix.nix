@@ -8,6 +8,7 @@
     registry = lib.mapAttrs (_: flake: {inherit flake;}) inputs;
     nixPath = lib.mapAttrsToList (n: v: "${n}=${v}") inputs;
     channel.enable = false;
+    nrBuildUsers = 0;
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
     settings = {
@@ -15,14 +16,18 @@
         "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
       ];
       # netrc-file = config.sops.secrets.netrc.path;
-      experimental-features = [
+      extra-experimental-features = [
         "nix-command"
         "flakes"
+        "auto-allocate-uids"
+        "cgroups"
       ];
       trusted-users = [
         "root"
         "utkar"
       ];
+      use-cgroups = true;
+      auto-allocate-uids = true;
       use-xdg-base-directories = true;
       builders-use-substitutes = true;
       auto-optimise-store = true;

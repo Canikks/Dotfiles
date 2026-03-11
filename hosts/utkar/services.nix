@@ -5,6 +5,10 @@
   ...
 }: {
   services = {
+    homed = {
+      enable = true;
+    };
+
     aria2 = {
       enable = false;
       serviceUMask = "0002";
@@ -146,12 +150,9 @@
       enable = false;
       settings.Resolve = {
         DNSOverTLS = true;
-        Domains = [ "~." ];
+        Domains = ["~."];
         FallbackDNS = ["1.1.1.1#cloudflare-dns.com"];
       };
-      # dnsovertls = "true";
-      # domains = ["~."];
-      # fallbackDns = ["1.1.1.1#cloudflare-dns.com"];
     };
 
     gvfs = {
