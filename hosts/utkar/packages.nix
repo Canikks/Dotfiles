@@ -52,6 +52,8 @@ in {
     # gopass
     # gopass-hibp
     # gopass-jsonapi
+    mangohud
+    cbonsai
     virtio-win
     python3
     colloid-gtk-theme
