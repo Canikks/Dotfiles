@@ -3,14 +3,6 @@
     preferAbbrs = true;
     enable = true;
     shellAliases = {
-      # ls = "eza";
-      # ll = "eza -l";
-      # la = "eza -la";
-      # ls = "lsd";
-      # l = "lsd -l";
-      # la = "lsd -a";
-      # lla = "lsd -la";
-      # lt = "lsd --tree";
       gs = "git status -u";
       gpra = "git pull --rebase --autostash";
       cat = "bat";

@@ -8,25 +8,6 @@
     package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
       _7zz = pkgs._7zz-rar;
     };
-    # extraPackages = [
-    #   pkgs.rich-cli
-    #   pkgs.yaziPlugins.ouch
-    #   pkgs.yaziPlugins.vcs-files
-    #   pkgs.yaziPlugins.no-status
-    #   pkgs.yaziPlugins.rich-preview
-    #   pkgs.yaziPlugins.lazygit
-    #   pkgs.yaziPlugins.yatline
-    #   pkgs.yaziPlugins.yatline-githead
-    #   pkgs.yaziPlugins.full-border
-    #   pkgs.yaziPlugins.mount
-    #   pkgs.yaziPlugins.recycle-bin
-    #   pkgs.trash-cli
-    #   pkgs.yaziPlugins.sudo
-    #   pkgs.yaziPlugins.diff
-    #   pkgs.yaziPlugins.rsync
-    #   pkgs.yaziPlugins.starship
-    #   pkgs.yaziPlugins.git
-    # ];
     shellWrapperName = "y";
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
