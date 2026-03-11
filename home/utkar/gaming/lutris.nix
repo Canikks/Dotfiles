@@ -9,12 +9,14 @@
       gamemode
       vulkan-tools
       xrandr
+      nur.repos.forkprince.proton-cachyos-v2-bin
     ];
     winePackages = [
       pkgs.wineWow64Packages.full
     ];
-    # protonPackages = [
-    #   pkgs.proton-ge-bin
-    # ];
+    protonPackages = [
+      pkgs.proton-ge-bin
+      pkgs.nur.repos.forkprince.proton-cachyos-v2-bin
+    ];
   };
 }
