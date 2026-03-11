@@ -85,6 +85,7 @@
     };
     portal = {
       enable = true;
+      xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal
         xdg-desktop-portal-gtk
@@ -92,13 +93,19 @@
         xdg-desktop-portal-termfilechooser
       ];
       config = {
+        # niri = {
+        #   default = [
+        #     "termfilechooser"
+        #   ];
+        # };
         common = {
-          defaults = [
-            "hyprland"
-            "kitty"
+          default = [
             "gtk"
             "gnome"
           ];
+          # "org.freedesktop.impl.portal.FileChooser" = [
+          #   "termfilechooser"
+          # ];
         };
       };
     };
@@ -149,6 +156,14 @@
       adminIdentities = ["unix-user:utkar" "unix-group:users"];
       extraConfig = "/* Log authorization checks. */\npolkit.addRule(function(action, subject) {\n  // Make sure to set { security.polkit.debug = true; } in configuration.nix\n  polkit.log(\"user \" +  subject.user + \" is attempting action \" + action.id + \" from PID \" + subject.pid);\n});\n\n/* Allow any local user to do anything (dangerous!). */\npolkit.addRule(function(action, subject) {\n  if (subject.local) return \"yes\";\n});\n";
     };
+    tpm2 = {
+      enable = true;
+      abrmd.enable = true;
+      pkcs11.enable = true;
+
+      tctiEnvironment.enable = true;
+      tctiEnvironment.interface = "tabrmd";
+    };
     rtkit = {
       enable = true;
     };
@@ -175,6 +190,7 @@
       "greeter"
       "pipewire"
       "libvirtd"
+      "qemu-libvirtd"
       "aria2"
       "flatpak"
       "networkmanager"
