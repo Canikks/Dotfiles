@@ -3,7 +3,7 @@
     # INPUT MODULES
     inputs.nix-index-database.homeModules.nix-index
     inputs.dank-material-shell.homeModules.dank-material-shell
-    inputs.dank-material-shell.homeModules.niri
+    # inputs.dank-material-shell.homeModules.niri
     inputs.mango.hmModules.mango
     inputs.dsearch.homeModules.default
     inputs.nvf.homeManagerModules.default
