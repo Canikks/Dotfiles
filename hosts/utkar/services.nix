@@ -5,6 +5,8 @@
   ...
 }: {
   services = {
+    zram-generator.enable = true;
+
     systemd-lock-handler.enable = true;
 
     homed = {
@@ -49,7 +51,7 @@
     };
 
     nirinit = {
-      enable = true;
+      enable = false;
       package = inputs.nirinit.packages.${pkgs.stdenv.hostPlatform.system}.default;
       settings = {
         launch = {
