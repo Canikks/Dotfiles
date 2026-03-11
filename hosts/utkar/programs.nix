@@ -79,6 +79,24 @@
       enableAudioWavelength = true;
       enableCalendarEvents = false;
       enableClipboardPaste = true;
+      plugins = {
+        dockerManager.enable = true;
+        mediaPlayer.enable = true;
+        commandRunner.enable = true;
+        dankLauncherKeys.enable = true;
+        easyEffects.enable = true;
+        niriWindows.enable = true;
+        webSearch.enable = true;
+        dankDesktopWeather.enable = true;
+        dankKDEConnect.enable = true;
+        nixMonitor.enable = true;
+        dankClight.enable = true;
+        dankNotepadModule.enable = true;
+        clight.enable = false;
+        catWidget.enable = true;
+        wallpaperCarousel.enable = true;
+        desktopCommand.enable = true;
+      };
       systemd = {
         enable = true;
         restartIfChanged = true;
@@ -87,7 +105,7 @@
       greeter = {
         enable = true;
         compositor.name = "niri";
-        configHome = "/home/utkar";
+        configHome = "${config.users.users.utkar.home}";
         quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
       };
     };
