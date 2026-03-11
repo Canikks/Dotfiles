@@ -102,6 +102,7 @@
             "chromium"
             "chromium-backup"
             "net.imput.helium"
+            "zen"
           ];
           max_depth = 0;
           path = "/home/utkar/.config";

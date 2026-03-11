@@ -124,7 +124,6 @@ in {
     qemu
     libvirt
     virt-manager
-    taplo
     papirus-icon-theme
     onlyoffice-desktopeditors
     ollama
@@ -155,7 +154,6 @@ in {
     qt6.qtbase
     qt6.qtmultimedia
     wineWow64Packages.waylandFull
-    kdlfmt
     adwaita-icon-theme
     material-symbols
     material-icons

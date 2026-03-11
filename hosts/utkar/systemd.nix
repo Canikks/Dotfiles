@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   systemd = {
+    additionalUpstreamSystemUnits = [
+      "soft-reboot.target"
+      "systemd-soft-reboot.service"
+    ];
     user.services.niri-flake-polkit.enable = false;
     user.targets = {
       mango-session.description = "MangoWC Session Target";

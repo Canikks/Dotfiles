@@ -1,6 +1,6 @@
 {...}: {
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd.enable = false;
     libvirtd.dbus.enable = true;
     libvirtd.qemu = {
       runAsRoot = true;

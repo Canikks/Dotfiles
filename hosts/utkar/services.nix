@@ -1,9 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}: {
   services = {
     aria2 = {
       enable = false;
       serviceUMask = "0002";
-      rpcSecretFile = "/home/utkar/aria2.txt";
+      rpcSecretFile = "${config.users.users.utkar.home}/aria2.txt";
       settings = {
         max-connection-per-server = 16;
         split = 16;
@@ -12,7 +17,7 @@
         console-log-level = "error";
         summary-interval = 0;
         show-console-readout = false;
-        dir = "/home/utkar/Downloads";
+        dir = "${config.users.users.utkar.home}/Downloads";
       };
     };
 
@@ -39,6 +44,7 @@
 
     nirinit = {
       enable = true;
+      package = inputs.nirinit.packages.${pkgs.stdenv.hostPlatform.system}.default;
       settings = {
         launch = {
           "zen" = "zen-beta";
@@ -89,7 +95,7 @@
           loading.refreshPeriod = "4h";
           denylists = {
             ads = [
-              "https://big.oisd.nl"
+              "https://oisd.nl"
             ];
             security = [
               "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt"
@@ -108,7 +114,7 @@
       scanner = {
         enable = false;
         scanDirectories = [
-          "/home/utkar/Downloads"
+          "${config.users.users.utkar.home}/Downloads"
           "/tmp"
           "/var/lib"
           "/var/tmp"
@@ -136,12 +142,17 @@
       ];
     };
 
-    # resolved = {
-    #   enable = false;
-    #   dnsovertls = "true";
-    #   domains = ["~."];
-    #   fallbackDns = ["1.1.1.1#cloudflare-dns.com"];
-    # };
+    resolved = {
+      enable = false;
+      settings.Resolve = {
+        DNSOverTLS = true;
+        Domains = [ "~." ];
+        FallbackDNS = ["1.1.1.1#cloudflare-dns.com"];
+      };
+      # dnsovertls = "true";
+      # domains = ["~."];
+      # fallbackDns = ["1.1.1.1#cloudflare-dns.com"];
+    };
 
     gvfs = {
       enable = true;

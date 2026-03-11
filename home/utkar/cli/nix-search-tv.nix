@@ -9,7 +9,7 @@
     enableTelevisionIntegration = true;
     settings = {
       indexes = ["nixpkgs" "home-manager" "nixos" "nur" "noogle"];
-      update_interval = "1h";
+      update_interval = "6h";
       experimental.options_file = {
         # render_docs_indexes = {
         nvf = "https://nvf.notashelf.dev/options.html";

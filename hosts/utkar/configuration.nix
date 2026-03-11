@@ -144,7 +144,7 @@
   security = {
     polkit = {
       enable = true;
-      adminIdentities = ["unix-user:utkar" "unix-group:admin"];
+      adminIdentities = ["unix-user:utkar" "unix-group:users"];
       extraConfig = "/* Log authorization checks. */\npolkit.addRule(function(action, subject) {\n  // Make sure to set { security.polkit.debug = true; } in configuration.nix\n  polkit.log(\"user \" +  subject.user + \" is attempting action \" + action.id + \" from PID \" + subject.pid);\n});\n\n/* Allow any local user to do anything (dangerous!). */\npolkit.addRule(function(action, subject) {\n  if (subject.local) return \"yes\";\n});\n";
     };
     rtkit = {
@@ -156,12 +156,14 @@
     pki = {
       certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"];
     };
+    unprivilegedUsernsClone = true;
   };
 
   users.users.utkar = {
     linger = true;
     isNormalUser = true;
     name = "utkar";
+    autoSubUidGidRange = true;
     description = "utkar";
     extraGroups = [
       "docker"

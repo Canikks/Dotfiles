@@ -1,6 +1,13 @@
 {pkgs, ...}: {
   hardware = {
     intelgpu.vaapiDriver = "intel-media-driver";
+    # intelgpu.mediaRuntime = "intel-media-sdk";
+    intelgpu.computeRuntime = "legacy";
+    intelgpu.enableHybridCodec = true;
+    cpu.intel.sgx = {
+      enableDcapCompat = true;
+      provision.enable = true;
+    };
     intel-gpu-tools = {
       enable = true;
     };

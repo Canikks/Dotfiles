@@ -6,7 +6,7 @@
         efiSupport = true;
         efiInstallAsRemovable = true;
         style = {
-          wallpapers = [../../Pictures/stars-1654074_1280.jpg];
+          wallpapers = [../../Pictures/singularity.png];
         };
       };
       efi = {

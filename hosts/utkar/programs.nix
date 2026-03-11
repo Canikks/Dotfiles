@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   programs = {
@@ -14,7 +15,7 @@
           switch = ["generation" "switch"];
           rollback = ["generation" "rollback"];
         };
-        config_location = "/home/utkar/dotfiles";
+        config_location = "${config.users.users.utkar.home}/dotfiles";
         use_nvd = true;
         apply = {
           reexec_as_root = true;
@@ -212,6 +213,9 @@
       enable = true;
       enableFishIntegration = true;
       enableXonshIntegration = true;
+      nix-direnv = {
+        enable = true;
+      };
     };
 
     uwsm = {
@@ -233,6 +237,7 @@
       extest.enable = true;
       extraCompatPackages = with pkgs; [
         proton-ge-bin
+        nur.repos.forkprince.proton-cachyos-v2-bin
       ];
       extraPackages = with pkgs; [
         gamescope

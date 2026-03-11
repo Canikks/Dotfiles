@@ -11,10 +11,10 @@
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
     settings = {
-      # access-tokens = [
-      #   "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
-      # ];
-      netrc-file = config.sops.secrets.netrc.path;
+      access-tokens = [
+        "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
+      ];
+      # netrc-file = config.sops.secrets.netrc.path;
       experimental-features = [
         "nix-command"
         "flakes"
