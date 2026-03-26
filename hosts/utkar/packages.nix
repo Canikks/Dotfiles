@@ -67,7 +67,7 @@ in {
     ocrScreenshot
     tesseract
     android-tools
-    winboat
+    # winboat
     unzip
     jq
     networkCheck
