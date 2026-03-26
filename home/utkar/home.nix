@@ -97,6 +97,7 @@
   xdg = {
     enable = true;
     userDirs.enable = true;
+    userDirs.setSessionVariables = true;
     terminal-exec.enable = true;
     portal.xdgOpenUsePortal = true;
     autostart.enable = true;
