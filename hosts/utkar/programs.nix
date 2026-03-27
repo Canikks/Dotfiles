@@ -5,6 +5,10 @@
   ...
 }: {
   programs = {
+    gpu-screen-recorder = {
+      enable = true;
+    };
+
     localsend = {
       enable = true;
       openFirewall = true;
@@ -21,7 +25,11 @@
           rollback = ["generation" "rollback"];
         };
         config_location = "${config.users.users.utkar.home}/dotfiles";
-        use_nvd = true;
+        differ = {
+          tool = "command";
+          # command = ["nvd" "diff"];
+          command = ["dix"];
+        };
         apply = {
           reexec_as_root = true;
           use_git_commit_msg = true;
@@ -105,6 +113,7 @@
         desktopCommand.enable = true;
         dankSystemDoctor.enable = true;
         aiAssistant.enable = true;
+        screenRecorder.enable = true;
       };
       systemd = {
         enable = true;

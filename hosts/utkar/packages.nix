@@ -109,6 +109,7 @@ in {
     nur.repos.nakido.zellij-forgot
     alacritty
     nvd
+    dix
     fishPlugins.puffer
     fishPlugins.fifc
     fishPlugins.fish-bd
