@@ -151,8 +151,6 @@ in {
     wl-clip-persist
     greetd
     nur.repos.forkprince.helium-nightly
-    # kdePackages.qt6ct
-    # kdePackages.qt5compat
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     kdePackages.kimageformats
