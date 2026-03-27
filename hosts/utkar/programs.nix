@@ -114,6 +114,7 @@
         dankSystemDoctor.enable = true;
         aiAssistant.enable = true;
         screenRecorder.enable = true;
+        usbManager.enable = true;
       };
       systemd = {
         enable = true;

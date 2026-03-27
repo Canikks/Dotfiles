@@ -20,6 +20,8 @@
   # system.etc.overlay.enable = true;
   # system.nixos-init.enable = true;
 
+  qt.enable = true;
+
   appstream.enable = true;
 
   swapDevices = [
@@ -151,6 +153,22 @@
   };
 
   security = {
+    pam = {
+      loginLimits = [
+        {
+          domain = "*";
+          type = "soft";
+          item = "memlock";
+          value = "unlimited";
+        }
+        {
+          domain = "*";
+          type = "hard";
+          item = "memlock";
+          value = "unlimited";
+        }
+      ];
+    };
     polkit = {
       enable = true;
       adminIdentities = ["unix-user:utkar" "unix-group:users"];
@@ -183,6 +201,7 @@
     autoSubUidGidRange = true;
     description = "utkar";
     extraGroups = [
+      "input"
       "docker"
       "pihole"
       "aria2"

@@ -35,7 +35,7 @@
       keep-outputs = true;
       keep-derivations = true;
 
-      max-jobs = 2;
+      max-jobs = "auto";
       cores = 2;
       build-cores = 2;
       compress-build-log = true;

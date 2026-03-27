@@ -31,7 +31,7 @@
 
   cachix = {
     enable = true;
-    pull = ["nix-community" "nixos" "devenv"];
+    pull = ["nix-community" "nixos" "devenv" "yazi" "jjui" "helix" "niri"];
   };
 
   git-hooks.hooks = {

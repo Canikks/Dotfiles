@@ -6,7 +6,7 @@
         efiSupport = true;
         efiInstallAsRemovable = true;
         style = {
-          wallpapers = ["/home/utkar/Pictures/Wallpapers/Fractal-Maze/46.jpg"];
+          wallpapers = ["/home/utkar/Pictures/Wallpapers/Dark-Waves/P13.png"];
         };
       };
       efi = {
@@ -41,7 +41,6 @@
     ];
     kernel = {
       sysfs = {
-        # devices.system.cpu.intel_pstate.no_turbo = false;
         devices.system.cpu.intel_pstate.hwp_dynamic_boost = true;
       };
       sysctl = {

@@ -5,6 +5,17 @@
       "soft-reboot.target"
       "systemd-soft-reboot.service"
     ];
+    # user.services.dms = {
+    #   serviceConfig = {
+    #     restartIfChanged = true;
+    #   };
+    # };
+    services.scx = {
+      serviceConfig = {
+        LimitMEMLOCK = "infinity";
+        # RLIMIT_MEMLOCK = "infinity";
+      };
+    };
     user.services.niri-flake-polkit.enable = false;
     user.targets = {
       mango-session.description = "MangoWC Session Target";
