@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     # INPUT MODULES
     inputs.nix-index-database.homeModules.nix-index
@@ -78,6 +82,8 @@
   ];
 
   home.stateVersion = "25.05";
+  home.homeDirectory = "/home/utkar";
+  home.username = "utkar";
   home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
   home.shell.enableZshIntegration = true;
