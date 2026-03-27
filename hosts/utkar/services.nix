@@ -165,6 +165,7 @@
 
     udisks2 = {
       enable = true;
+      mountOnMedia = true;
     };
 
     dbus = {
@@ -213,9 +214,9 @@
 
     scx = {
       enable = true;
-      scheduler = "scx_lavd";
+      scheduler = "scx_cake";
       extraArgs = [
-        "--autopilot"
+        "-p gaming"
       ];
     };
 
