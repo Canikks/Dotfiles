@@ -100,8 +100,8 @@
         # };
         common = {
           default = [
-            "gtk"
             "gnome"
+            "gtk"
           ];
           # "org.freedesktop.impl.portal.FileChooser" = [
           #   "termfilechooser"
