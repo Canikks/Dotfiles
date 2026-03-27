@@ -6,7 +6,7 @@
         efiSupport = true;
         efiInstallAsRemovable = true;
         style = {
-          wallpapers = [../../Pictures/singularity.png];
+          wallpapers = ["/home/utkar/Pictures/Wallpapers/Fractal-Maze/46.jpg"];
         };
       };
       efi = {
@@ -35,7 +35,7 @@
       "zswap.zpool=zsmalloc"
       "zswap.max_pool_percent=20"
     ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = [
       "tcp_bbr"
     ];
