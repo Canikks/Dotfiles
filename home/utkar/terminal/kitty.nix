@@ -23,6 +23,9 @@
       "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting less +G -R";
     };
     settings = {
+      input_delay = 0;
+      repaint_delay = 2;
+      wayland_enable_ime = "no";
       tab_bar_style = "powerline";
       cursor_trail = 1;
       wayland_titlebar_color = "system";
