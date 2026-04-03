@@ -9,8 +9,8 @@
     nixPath = lib.mapAttrsToList (n: v: "${n}=${v}") inputs;
     channel.enable = false;
     nrBuildUsers = 0;
-    daemonCPUSchedPolicy = "idle";
-    daemonIOSchedClass = "idle";
+    daemonCPUSchedPolicy = "other";
+    daemonIOSchedClass = "best-effort";
     settings = {
       access-tokens = [
         "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
@@ -31,13 +31,14 @@
       use-xdg-base-directories = true;
       builders-use-substitutes = true;
       auto-optimise-store = true;
+      extra-sandbox-paths = [ "/dev" "/proc" ];
 
       keep-outputs = true;
       keep-derivations = true;
 
       max-jobs = "auto";
-      cores = 2;
-      build-cores = 2;
+      cores = 4;
+      # build-cores = 2;
       compress-build-log = true;
 
       extra-substituters = [
@@ -52,6 +53,7 @@
         "https://nvf.cachix.org"
         "https://jjui.cachix.org"
         "https://hyprland.cachix.org"
+        "https://cachix.cachix.org"
       ];
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
@@ -64,6 +66,7 @@
         "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
         "jjui.cachix.org-1:G3rK4ezMNPMSHIuuDZgliF7Q/n9vZ3RNqmnt49UYhIg="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
       ];
     };
   };
