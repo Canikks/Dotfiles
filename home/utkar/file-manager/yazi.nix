@@ -26,7 +26,6 @@
       starship = pkgs.yaziPlugins.starship;
       git = pkgs.yaziPlugins.git;
       jjui = pkgs.yaziPlugins.jjui;
-      ucp = pkgs.nur.repos.adam0.yaziPlugins.ucp;
     };
     settings = {
       mgr = {
