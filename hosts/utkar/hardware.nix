@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   hardware = {
+    enableRedistributableFirmware = true;
     facter.reportPath = ./facter.json;
     intelgpu.vaapiDriver = "intel-media-driver";
     intelgpu.computeRuntime = "legacy";

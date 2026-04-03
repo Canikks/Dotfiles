@@ -34,8 +34,9 @@
       "zswap.compressor=zstd"
       "zswap.zpool=zsmalloc"
       "zswap.max_pool_percent=20"
+      "cfg80211.ieee80211_regdom=IN"
     ];
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_stable;
     kernelModules = [
       "tcp_bbr"
     ];

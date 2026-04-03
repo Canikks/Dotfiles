@@ -4,9 +4,10 @@
       enable = true;
       internalInterfaces = ["virbr0"];
     };
+    usePredictableInterfaceNames = true;
     networkmanager.enable = true;
     # networkmanager.dhcp = "dhcpcd";
-    # networkmanager.wifi.backend = "iwd";
+    networkmanager.wifi.backend = "iwd";
     networkmanager.plugins = with pkgs; [
       networkmanager-fortisslvpn
       networkmanager-iodine
