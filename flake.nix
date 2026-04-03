@@ -28,7 +28,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-output-monitor.url = "github:maralorn/nix-output-monitor";
     nix-your-shell.url = "github:MercuryTechnologies/nix-your-shell";
-    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
     dgop.url = "github:AvengeMedia/dgop";
     dsearch.url = "github:AvengeMedia/danksearch";
     rio.url = "github:raphamorim/rio/main";
@@ -50,6 +50,8 @@
       url = "github:AvengeMedia/base46";
       flake = false;
     };
+    hermes-agent.url = "github:NousResearch/hermes-agent";
+
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
@@ -115,6 +117,7 @@
         nirinit.nixosModules.nirinit
         stylix.nixosModules.stylix
         dms-plugin-registry.modules.default
+        hermes-agent.nixosModules.default
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

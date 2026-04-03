@@ -133,6 +133,15 @@
       mode = "0400";
     };
 
+    secrets.hermes_env = {
+      key = "hermes_env";
+      format = "yaml";
+    };
+
+    secrets.searx_key = {
+      key = "searx_key";
+    };
+
     secrets.github_token = {
       key = "github_token";
       owner = config.users.users.utkar.name;
@@ -201,6 +210,7 @@
     autoSubUidGidRange = true;
     description = "utkar";
     extraGroups = [
+      "searx"
       "input"
       "docker"
       "pihole"
