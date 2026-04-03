@@ -5,6 +5,45 @@
   ...
 }: {
   services = {
+    searx = {
+      enable = false;
+      domain = "utkar.local";
+      configureNginx = true;
+      configureUwsgi = true;
+      redisCreateLocally = true;
+      # openFirewall = true;
+      settings = {
+        # server.port = 8080;
+        server.bind_address = "0.0.0.0";
+        #   server.secret_key = "$SEARX_SECRET_KEY";
+      };
+    };
+
+    hermes-agent = {
+      enable = false;
+      settings = {
+        model.base_url = "https://openrouter.ai/api/v1";
+        model.default = "minimax/minimax-m2.5:free";
+        terminal.backend = "local";
+        compression = {
+          enabled = true;
+          threshold = 0.85;
+        };
+        toolsets = ["all"];
+      };
+    };
+
+    open-webui = {
+      enable = false;
+      # stateDir = "/home/utkar";
+      openFirewall = true;
+      port = 11111;
+      environment = {
+        OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
+        WEBUI_AUTH = "False";
+      };
+    };
+
     zram-generator.enable = true;
 
     systemd-lock-handler.enable = true;
@@ -67,6 +106,7 @@
 
     avahi = {
       enable = true;
+      nssmdns4 = true;
       reflector = true;
       publish = {
         enable = true;
