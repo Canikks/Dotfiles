@@ -94,9 +94,11 @@
       config = {
         common = {
           default = [
+            "termfilechooser"
             "gnome"
             "gtk"
           ];
+          "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
           "org.freedesktop.portal.ScreenCast" = [
             "gnome"
           ];
@@ -151,6 +153,9 @@
       owner = config.users.users.utkar.name;
       group = config.users.users.utkar.group;
     };
+    secrets.Airtel_pass = {
+      key = "Airtel_pass";
+    };
     secrets.gitlab_token = {
       key = "gitlab_token";
     };
@@ -195,6 +200,7 @@
     autoSubUidGidRange = true;
     description = "utkar";
     extraGroups = [
+      "btrfs"
       "nix"
       "hermes"
       "searx"

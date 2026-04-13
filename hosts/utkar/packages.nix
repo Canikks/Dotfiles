@@ -32,6 +32,12 @@ in {
 
   environment.systemPackages = with pkgs; [
     # --- Core System & Utilities ---
+    wtype
+    btrfs-progs
+    btrfs-assistant
+    brightnessctl
+    ddcutil
+    ddcutil-service
     evtest
     btop
     duf
