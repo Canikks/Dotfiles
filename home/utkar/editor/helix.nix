@@ -15,7 +15,7 @@
       rumdl
     ];
     settings = {
-      theme = "dank-theme";
+      theme = "noctalia";
       editor = {
         line-number = "relative";
         bufferline = "always";

@@ -85,13 +85,13 @@
       package = pkgs.niri-unstable;
     };
     hyprland = {
-      enable = true;
+      enable = false;
       # plugins = with pkgs; [
       #   hyprlandPlugins.hyprexpo
       # ];
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-      withUWSM = true;
+      withUWSM = false;
     };
     uwsm = {
       enable = true;

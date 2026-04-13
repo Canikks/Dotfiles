@@ -11,6 +11,7 @@
       NIXOS_OZONE_WL = 1;
       OZONE_PLATFORM = "wayland";
       GBM_BACKEND = "dri";
+      GDK_BACKEND = "wayland";
       GTK_USE_PORTAL = 1;
 
       # --- Qt & GTK Configuration ---

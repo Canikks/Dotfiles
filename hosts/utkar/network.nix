@@ -15,6 +15,7 @@
       enable = true;
       dns = "none";
       wifi.backend = "iwd";
+      wifi.powersave = false;
       plugins = with pkgs; [
         networkmanager-fortisslvpn
         networkmanager-iodine

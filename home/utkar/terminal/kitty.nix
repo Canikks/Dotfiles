@@ -5,10 +5,10 @@
     shellIntegration.enableZshIntegration = true;
     enableGitIntegration = true;
     font.name = "MesloLGS Nerd Font";
+    # themeFile = "Noctalia";
     shellIntegration.mode = "no-cursor";
     extraConfig = ''
-      include dank-tabs.conf
-      include dank-theme.conf
+      include ./themes/noctalia.conf
     '';
     quickAccessTerminalConfig = {
       lines = 35;

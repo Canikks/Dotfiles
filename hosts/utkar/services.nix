@@ -183,6 +183,8 @@
       };
       alsa.enable = true;
       alsa.support32Bit = true;
+      audio.enable = true;
+      raopOpenFirewall = true;
       pulse.enable = true;
       jack.enable = true;
     };

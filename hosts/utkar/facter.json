@@ -622,6 +622,7 @@
           "split_lock_detect",
           "user_shstk",
           "dtherm",
+          "ida",
           "arat",
           "pln",
           "pts",
@@ -649,8 +650,7 @@
           "avx512_vp2intersect",
           "md_clear",
           "ibt",
-          "flush_l1d",
-          "ar"
+          "flush_l1"
         ],
         "bugs": [
           "spectre_v1",
@@ -678,7 +678,7 @@
         "fpu_exception": false,
         "cpuid_level": 27,
         "write_protect": false,
-        "tlb_size": 32654,
+        "tlb_size": 32739,
         "clflush_size": 64,
         "cache_alignment": 64,
         "address_sizes": {
@@ -881,7 +881,7 @@
         "sysfs_id": "/class/block/zram0",
         "unix_device_names": [
           "/dev/disk/by-label/zram0",
-          "/dev/disk/by-uuid/add01e6f-fd11-48d8-b54c-9da36474e982",
+          "/dev/disk/by-uuid/2a1c198d-6982-43a5-915e-37019db349cf",
           "/dev/zram0"
         ],
         "resources": [
@@ -1981,48 +1981,7 @@
     ],
     "network_interface": [
       {
-        "index": 52,
-        "attached_to": 15,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "000a",
-          "name": "WLAN",
-          "value": 10
-        },
-        "model": "WLAN network interface",
-        "sysfs_id": "/class/net/wlan0",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:14.3",
-        "unix_device_names": [
-          "wlan0"
-        ],
-        "resources": [
-          {
-            "type": "hwaddr",
-            "address": 97
-          },
-          {
-            "type": "phwaddr",
-            "address": 97
-          }
-        ],
-        "driver": "iwlwifi",
-        "driver_module": "iwlwifi",
-        "drivers": [
-          "iwlwifi"
-        ],
-        "driver_modules": [
-          "iwlwifi"
-        ]
-      },
-      {
-        "index": 53,
+        "index": 54,
         "attached_to": 21,
         "class_list": [
           "network_interface"
@@ -2082,6 +2041,47 @@
         "sysfs_id": "/class/net/lo",
         "unix_device_names": [
           "lo"
+        ]
+      },
+      {
+        "index": 56,
+        "attached_to": 15,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "000a",
+          "name": "WLAN",
+          "value": 10
+        },
+        "model": "WLAN network interface",
+        "sysfs_id": "/class/net/wlan0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:14.3",
+        "unix_device_names": [
+          "wlan0"
+        ],
+        "resources": [
+          {
+            "type": "hwaddr",
+            "address": 97
+          },
+          {
+            "type": "phwaddr",
+            "address": 97
+          }
+        ],
+        "driver": "iwlwifi",
+        "driver_module": "iwlwifi",
+        "drivers": [
+          "iwlwifi"
+        ],
+        "driver_modules": [
+          "iwlwifi"
         ]
       }
     ],

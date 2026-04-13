@@ -9,6 +9,12 @@
       _7zz = pkgs._7zz-rar;
     };
     shellWrapperName = "y";
+    theme = {
+      flavor = {
+        dark = "noctalia";
+        light = "noctalia";
+      };
+    };
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
       yatline-githead = pkgs.yaziPlugins.yatline-githead;

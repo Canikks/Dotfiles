@@ -90,11 +90,36 @@
         xdg-desktop-portal-gnome
         xdg-desktop-portal-termfilechooser
       ];
+      configPackages = [pkgs.niri-unstable];
       config = {
         common = {
           default = [
             "gnome"
             "gtk"
+          ];
+          "org.freedesktop.portal.ScreenCast" = [
+            "gnome"
+          ];
+          "org.freedesktop.impl.portal.ScreenCast" = [
+            "gnome"
+          ];
+        };
+        niri = {
+          default = [
+            "gnome"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.Access" = [
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.Notification" = [
+            "gtk"
+          ];
+          "org.freedesktop.portal.ScreenCast" = [
+            "gnome"
+          ];
+          "org.freedesktop.impl.portal.ScreenCast" = [
+            "gnome"
           ];
         };
       };
@@ -170,6 +195,7 @@
     autoSubUidGidRange = true;
     description = "utkar";
     extraGroups = [
+      "nix"
       "hermes"
       "searx"
       "input"
