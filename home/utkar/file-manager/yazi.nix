@@ -28,6 +28,15 @@
       jjui = pkgs.yaziPlugins.jjui;
     };
     settings = {
+      opener = {
+        extract = [
+          {
+            run = ''ouch d -y "$@"'';
+            desc = "Extract here with ouch";
+            for = "unix";
+          }
+        ];
+      };
       mgr = {
         linemode = "permissions";
         sort_by = "alphabetical";
@@ -60,7 +69,7 @@
           }
           {
             mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}";
-            run = "ouch";
+            run = "ouch --show-file-icons";
           }
         ];
       };
