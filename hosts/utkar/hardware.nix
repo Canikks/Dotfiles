@@ -22,7 +22,6 @@
         mesa
         mesa_glu
         mesa-gl-headers
-        mesa
         vpl-gpu-rt
       ];
     };
@@ -38,8 +37,9 @@
       enable = true;
       settings = {
         General = {
-          Experimental = false;
+          Experimental = true;
           FastConnectable = true;
+          KernelExperimental = true;
         };
         Policy = {
           AutoEnable = false;
