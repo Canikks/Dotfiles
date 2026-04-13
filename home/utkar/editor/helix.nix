@@ -7,10 +7,12 @@
     enable = true;
     defaultEditor = true;
     package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    extraPackages = [
-      pkgs.marksman
-      pkgs.hyprls
-      pkgs.taplo
+    extraPackages = with pkgs; [
+      marksman
+      hyprls
+      taplo
+      markdown-oxide
+      rumdl
     ];
     settings = {
       theme = "dank-theme";
