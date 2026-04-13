@@ -125,6 +125,9 @@
           home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.utkar = import ./home/utkar/home.nix;
           home-manager.startAsUserService = true;
+          home-manager.verbose = true;
+          home-manager.backupCommand = "${pkgs.trash-cli}/bin/trash";
+          home-manager.overwriteBackup = true;
         }
       ];
     };
