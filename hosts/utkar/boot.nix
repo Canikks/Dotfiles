@@ -16,6 +16,8 @@
     };
 
     # --- Kernel & Initrd ---
+    tmp.tmpfsHugeMemoryPages = "within_size";
+    tmp.useTmpfs = true;
     initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
