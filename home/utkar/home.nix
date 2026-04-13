@@ -48,6 +48,7 @@
     # ./cli/eza.nix
     ./cli/lsd.nix
     ./cli/ripgrep-all.nix
+    ./cli/ripgrep.nix
     ./cli/fd.nix
     ./cli/dank-material-shell.nix
     ./cli/television.nix

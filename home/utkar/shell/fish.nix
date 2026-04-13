@@ -7,7 +7,7 @@
       gpra = "git pull --rebase --autostash";
       cat = "bat";
       diff = "batdiff";
-      rg = "rga --hyperlink-format=kitty";
+      # rg = "rga --hyperlink-format=kitty";
       man = "batman";
       df = "duf";
       curl = "curlie";
