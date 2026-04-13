@@ -86,6 +86,9 @@
     };
     hyprland = {
       enable = true;
+      # plugins = with pkgs; [
+      #   hyprlandPlugins.hyprexpo
+      # ];
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       withUWSM = true;
@@ -111,7 +114,7 @@
         config_location = "${config.users.users.utkar.home}/dotfiles";
         differ = {
           tool = "command";
-          command = ["dix"];
+          command = ["dix" "-v"];
         };
         apply = {
           reexec_as_root = true;
@@ -150,6 +153,7 @@
         libc
         qt5.qtbase
         qt5.qtwayland
+        openal
       ];
     };
     dconf = {
@@ -184,7 +188,7 @@
 
     # --- Desktop & UI Enhancements ---
     dank-material-shell = {
-      enable = true;
+      enable = false;
       enableSystemMonitoring = true;
       enableVPN = true;
       enableDynamicTheming = true;
@@ -218,12 +222,14 @@
         restartIfChanged = true;
         target = "niri.service";
       };
-      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+      # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+      quickshell.package = pkgs.quickshell;
       greeter = {
         enable = true;
         compositor.name = "niri";
         configHome = "${config.users.users.utkar.home}";
-        quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+        quickshell.package = pkgs.quickshell;
+        # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       };
     };
     kdeconnect = {
