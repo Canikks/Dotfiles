@@ -21,7 +21,7 @@ in {
         colmena
         ;
     })
-    # inputs.niri.overlays.niri
+    inputs.niri.overlays.niri
     inputs.hyprland.overlays.default
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
@@ -44,7 +44,7 @@ in {
     wl-clipboard
     wl-clip-persist
     trash-cli
-    ouch
+    ouch-rar
     cacert
     greetd
     gnome.gvfs
@@ -118,7 +118,8 @@ in {
     qt6.qtbase
     qt6.qtmultimedia
     qt5.qtbase
-    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+    # inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+    xwayland-satellite-unstable
     nirius
     alacritty
 
