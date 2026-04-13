@@ -6,6 +6,10 @@
 result
 result-*
 
+# Ignore any convo files hermes creates
+hermes_conversation_*
+plan*
+
 # Ignore automatically generated direnv output
 .direnv
 .devenv
