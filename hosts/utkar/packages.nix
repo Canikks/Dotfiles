@@ -21,6 +21,7 @@ in {
         colmena
         ;
     })
+    inputs.quickshell.overlays.default
     inputs.niri.overlays.niri
     inputs.hyprland.overlays.default
     inputs.alejandra.overlays.default
@@ -31,6 +32,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     # --- Core System & Utilities ---
+    evtest
     btop
     duf
     gping
@@ -57,6 +59,9 @@ in {
     devenv
     android-tools
     tesseract
+    translate-shell
+    slurp
+    grim
     ocrScreenshot
     rich-cli
     nvd
@@ -112,6 +117,7 @@ in {
     qt6Packages.qt6ct
 
     # --- Desktop Environment / Wayland / Qt6 ---
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     gtk4
     gtk3
     qt6.qt5compat
@@ -162,6 +168,7 @@ in {
     # --- Others & Custom Repos ---
     agent-browser
     app2unit
+    runapp
     nur.repos.lonerOrz.surge
     nur.repos.lonerOrz.helium
     nur.repos.nakido.zellij-forgot
