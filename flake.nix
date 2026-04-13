@@ -50,7 +50,7 @@
       url = "github:AvengeMedia/base46";
       flake = false;
     };
-    hermes-agent.url = "github:NousResearch/hermes-agent";
+    hermes-agent.url = "github:NousResearch/hermes-agent/1dd6b5d5fb94cac59e93388f9aeee6bc365b8f42";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
