@@ -11,36 +11,39 @@
     nrBuildUsers = 0;
     daemonCPUSchedPolicy = "other";
     daemonIOSchedClass = "best-effort";
+
     settings = {
-      access-tokens = [
-        "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
-      ];
-      # netrc-file = config.sops.secrets.netrc.path;
+      # --- General & Performance ---
+      max-jobs = "auto";
+      cores = 4;
+      compress-build-log = true;
+      auto-optimise-store = true;
+      use-xdg-base-directories = true;
+      builders-use-substitutes = true;
+      keep-outputs = true;
+      keep-derivations = true;
+
+      # --- Experimental Features ---
       extra-experimental-features = [
         "nix-command"
         "flakes"
         "auto-allocate-uids"
         "cgroups"
       ];
+      use-cgroups = true;
+      auto-allocate-uids = true;
+
+      # --- Security & Tokens ---
+      access-tokens = [
+        "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
+      ];
       trusted-users = [
         "root"
         "utkar"
       ];
-      use-cgroups = true;
-      auto-allocate-uids = true;
-      use-xdg-base-directories = true;
-      builders-use-substitutes = true;
-      auto-optimise-store = true;
-      extra-sandbox-paths = [ "/dev" "/proc" ];
+      extra-sandbox-paths = ["/dev" "/proc"];
 
-      keep-outputs = true;
-      keep-derivations = true;
-
-      max-jobs = "auto";
-      cores = 4;
-      # build-cores = 2;
-      compress-build-log = true;
-
+      # --- Binary Caches (Substituters) ---
       extra-substituters = [
         "https://cache.nixos.org"
         "https://watersucks.cachix.org"

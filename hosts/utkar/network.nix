@@ -1,26 +1,33 @@
 {pkgs, ...}: {
   networking = {
+    # --- General Settings ---
+    hostName = "utkar";
+    usePredictableInterfaceNames = true;
+    nameservers = ["127.0.0.1" "::1"];
+
     nat = {
       enable = true;
       internalInterfaces = ["virbr0"];
     };
-    usePredictableInterfaceNames = true;
-    networkmanager.enable = true;
-    # networkmanager.dhcp = "dhcpcd";
-    networkmanager.wifi.backend = "iwd";
-    networkmanager.plugins = with pkgs; [
-      networkmanager-fortisslvpn
-      networkmanager-iodine
-      networkmanager-l2tp
-      networkmanager-openconnect
-      networkmanager-openvpn
-      networkmanager-sstp
-      networkmanager-strongswan
-      networkmanager-vpnc
-    ];
-    hostName = "utkar";
-    networkmanager.dns = "none";
-    nameservers = ["127.0.0.1" "::1"];
+
+    # --- NetworkManager ---
+    networkmanager = {
+      enable = true;
+      dns = "none";
+      wifi.backend = "iwd";
+      plugins = with pkgs; [
+        networkmanager-fortisslvpn
+        networkmanager-iodine
+        networkmanager-l2tp
+        networkmanager-openconnect
+        networkmanager-openvpn
+        networkmanager-sstp
+        networkmanager-strongswan
+        networkmanager-vpnc
+      ];
+    };
+
+    # --- Firewall ---
     firewall = {
       enable = true;
       allowedTCPPorts = [

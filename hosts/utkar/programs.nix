@@ -5,15 +5,96 @@
   ...
 }: {
   programs = {
-    gpu-screen-recorder = {
+    # --- Shells & Terminal ---
+    fish = {
+      enable = true;
+      useBabelfish = true;
+    };
+    zsh = {
+      enable = true;
+    };
+    xonsh = {
+      enable = false;
+      package = pkgs.xonsh;
+      extraPackages = ps: [
+        pkgs.nur.repos.xonsh-xontribs.xontrib-fish-completer
+        pkgs.nur.repos.xonsh-xontribs.xontrib-whole-word-jumping
+        pkgs.nur.repos.xonsh-xontribs.xontrib-abbrevs
+        pkgs.python313Packages.prompt-toolkit
+      ];
+      config = ''
+        # --- Core Init ---
+        $XONSH_SHOW_TRACEBACK = False
+        $SUPPRESS_ACTIVATE_MESSAGE = True
+        execx($(starship init xonsh))
+        execx($(zoxide init xonsh), 'exec')
+
+        # --- Load Xontribs ---
+        xontrib load fish_completer whole_word_jumping abbrevs
+
+        # --- QoL Configuration ---
+        $XONSH_HISTORY_BACKEND = 'json'
+        $HISTCONTROL = 'ignoredups'
+        $XONSH_AUTOPAIR = True
+        $CASE_SENSITIVE_COMPLETIONS = False
+        $FZF_WIDGETS_OPTS = {'height': '40%', 'layout': 'reverse', 'border': 'rounded'}
+
+        # --- Aliases ---
+        if $(which eza):
+            aliases['ls'] = 'eza --icons --git --group-directories-first'
+            aliases['ll'] = 'eza -l --icons --git --group-directories-first'
+            aliases['la'] = 'eza -la --icons --git --group-directories-first'
+            aliases['tree'] = 'eza --tree --icons'
+
+        if $(which bat):
+            aliases['cat'] = 'bat --style=plain'
+
+        aliases['grep'] = 'grep --color=auto'
+        aliases['..'] = 'cd ..'
+        aliases['...'] = 'cd ../..'
+        aliases['nrs'] = 'sudo nixos-rebuild switch'
+        aliases['nfu'] = 'nix flake update'
+        aliases['ncg'] = 'sudo nix-collect-garbage -d'
+
+        # --- Abbreviations ---
+        abbrevs['gco'] = 'git checkout'
+        abbrevs['gst'] = 'git status'
+        abbrevs['gp'] = 'git push'
+      '';
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      enableXonshIntegration = true;
+      nix-direnv.enable = true;
+    };
+    git = {
+      enable = true;
+      lfs.enable = true;
+    };
+
+    # --- Window Managers & Compositors ---
+    niri = {
+      enable = true;
+      package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+    };
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+    uwsm = {
+      enable = true;
+    };
+    iio-hyprland = {
       enable = true;
     };
 
-    localsend = {
-      enable = true;
-      openFirewall = true;
-    };
-
+    # --- System & Utility Tools ---
     nixos-cli = {
       enable = true;
       option-cache.enable = true;
@@ -27,7 +108,6 @@
         config_location = "${config.users.users.utkar.home}/dotfiles";
         differ = {
           tool = "command";
-          # command = ["nvd" "diff"];
           command = ["dix"];
         };
         apply = {
@@ -39,15 +119,6 @@
         };
       };
     };
-
-    kdeconnect = {
-      enable = true;
-    };
-
-    mtr = {
-      enable = true;
-    };
-
     gnupg = {
       dirmngr.enable = true;
       agent = {
@@ -57,21 +128,14 @@
         enableExtraSocket = true;
       };
     };
-
     java = {
       enable = true;
       binfmt = true;
     };
-
-    nautilus-open-any-terminal = {
+    mtr = {
       enable = true;
-      terminal = "kitty";
     };
-
-    virt-manager.enable = true;
-
     nix-index-database.comma.enable = true;
-
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -85,7 +149,37 @@
         qt5.qtwayland
       ];
     };
+    dconf = {
+      enable = true;
+    };
+    bat = {
+      enable = false;
+    };
 
+    # --- Gaming ---
+    steam = {
+      enable = true;
+      package = pkgs.steam.override {
+        extraArgs = "-system-composer";
+      };
+      extest.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+        nur.repos.forkprince.proton-cachyos-v4-bin
+      ];
+      extraPackages = with pkgs; [
+        gamescope
+        umu-launcher
+      ];
+    };
+    gamescope = {
+      enable = true;
+    };
+    gamemode = {
+      enable = true;
+    };
+
+    # --- Desktop & UI Enhancements ---
     dank-material-shell = {
       enable = true;
       enableSystemMonitoring = true;
@@ -121,174 +215,28 @@
         restartIfChanged = true;
         target = "niri.service";
       };
-      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       greeter = {
         enable = true;
         compositor.name = "niri";
         configHome = "${config.users.users.utkar.home}";
-        quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       };
     };
-
-    # mango = {
-    #   enable = true;
-    # };
-
-    dconf = {
+    kdeconnect = {
       enable = true;
     };
-
-    bat = {
-      enable = false;
-    };
-
-    zoxide = {
+    nautilus-open-any-terminal = {
       enable = true;
-      enableZshIntegration = true;
-      enableFishIntegration = true;
+      terminal = "kitty";
     };
-
-    git = {
-      enable = true;
-      lfs = {
-        enable = true;
-      };
-    };
-
-    iio-hyprland = {
+    gpu-screen-recorder = {
       enable = true;
     };
-
-    hyprland = {
+    localsend = {
       enable = true;
-      withUWSM = true;
+      openFirewall = true;
     };
-
-    niri = {
-      enable = true;
-      package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
-    };
-
-    xonsh = {
-      enable = false;
-
-      package = pkgs.xonsh;
-      extraPackages = ps: [
-        pkgs.nur.repos.xonsh-xontribs.xontrib-fish-completer # Best-in-class completions
-        pkgs.nur.repos.xonsh-xontribs.xontrib-whole-word-jumping # Natural text navigation
-        pkgs.nur.repos.xonsh-xontribs.xontrib-abbrevs # Expand-as-you-type abbreviations
-        pkgs.python313Packages.prompt-toolkit
-      ];
-
-      config = ''
-        # --- Core Init ---
-        # Suppress the welcome message
-        $XONSH_SHOW_TRACEBACK = False
-        $SUPPRESS_ACTIVATE_MESSAGE = True
-
-        # Initialize Starship Prompt
-        execx($(starship init xonsh))
-
-        # Initialize Zoxide (Smarter cd)
-        execx($(zoxide init xonsh), 'exec')
-
-        # --- Load Xontribs ---
-        # Note: 'fish_completer' needs fish installed in systemPackages
-        xontrib load fish_completer whole_word_jumping abbrevs
-
-        # --- QoL Configuration ---
-        # Better history management
-        $XONSH_HISTORY_BACKEND = 'json'
-        $HISTCONTROL = 'ignoredups'
-
-        # Auto-pair brackets/quotes
-        $XONSH_AUTOPAIR = True
-
-        # Case-insensitive tab completion
-        $CASE_SENSITIVE_COMPLETIONS = False
-
-        # FZF Widgets Configuration (optional tweaks)
-        $FZF_WIDGETS_OPTS = {'height': '40%', 'layout': 'reverse', 'border': 'rounded'}
-
-        # --- Aliases ---
-        # Use common modern replacements if they exist
-        if $(which eza):
-            aliases['ls'] = 'eza --icons --git --group-directories-first'
-            aliases['ll'] = 'eza -l --icons --git --group-directories-first'
-            aliases['la'] = 'eza -la --icons --git --group-directories-first'
-            aliases['tree'] = 'eza --tree --icons'
-
-        if $(which bat):
-            aliases['cat'] = 'bat --style=plain'
-
-        aliases['grep'] = 'grep --color=auto'
-        aliases['..'] = 'cd ..'
-        aliases['...'] = 'cd ../..'
-
-        # NixOS Specific Aliases
-        aliases['nrs'] = 'sudo nixos-rebuild switch'
-        aliases['nfu'] = 'nix flake update'
-        aliases['ncg'] = 'sudo nix-collect-garbage -d'
-
-        # --- Abbreviations (expands space) ---
-        # Requires xontrib-abbrevs
-        abbrevs['gco'] = 'git checkout'
-        abbrevs['gst'] = 'git status'
-        abbrevs['gp'] = 'git push'
-      '';
-    };
-
-    fish = {
-      enable = true;
-      useBabelfish = true;
-    };
-
-    zsh = {
-      enable = true;
-    };
-
-    direnv = {
-      enable = true;
-      enableFishIntegration = true;
-      enableXonshIntegration = true;
-      nix-direnv = {
-        enable = true;
-      };
-    };
-
-    uwsm = {
-      enable = true;
-      # waylandCompositors = {
-      #   mangowc = {
-      #     prettyName = "Mango";
-      #     comment = "Mango compositor managed by UWSM";
-      #     binPath = "/run/current-system/sw/bin/mango";
-      #   };
-      # };
-    };
-
-    steam = {
-      enable = true;
-      package = pkgs.steam.override {
-        extraArgs = "-system-composer";
-      };
-      extest.enable = true;
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-        nur.repos.forkprince.proton-cachyos-v4-bin
-      ];
-      extraPackages = with pkgs; [
-        gamescope
-        umu-launcher
-      ];
-    };
-
-    gamescope = {
-      enable = true;
-    };
-
-    gamemode = {
-      enable = true;
-    };
+    virt-manager.enable = true;
   };
 }

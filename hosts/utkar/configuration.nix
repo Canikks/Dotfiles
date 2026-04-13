@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: {
   imports = [
@@ -17,32 +18,9 @@
     ./systemd.nix
   ];
 
-  # system.etc.overlay.enable = true;
-  # system.nixos-init.enable = true;
-
-  qt.enable = true;
-
-  appstream.enable = true;
-
-  swapDevices = [
-    {
-      device = "/dev/disk/by-label/nix-swap";
-    }
-  ];
-
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-  };
-
-  stylix.base16Scheme = "${config.users.users.utkar.home}/.config/DankMaterialShell/base16.yaml";
-
+  # --- System & Localization ---
   time.timeZone = "Asia/Kolkata";
-
-  location.provider = "geoclue2";
-
   i18n.defaultLocale = "en_GB.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
     LC_IDENTIFICATION = "en_IN";
@@ -54,6 +32,23 @@
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
   };
+  location.provider = "geoclue2";
+
+  # --- Hardware & Resources ---
+  swapDevices = [
+    {
+      device = "/dev/disk/by-label/nix-swap";
+    }
+  ];
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
+
+  # --- Appearance & Fonts ---
+  stylix.base16Scheme = "${config.users.users.utkar.home}/.config/DankMaterialShell/base16.yaml";
+  qt.enable = true;
+  appstream.enable = true;
 
   fonts = {
     enableGhostscriptFonts = true;
@@ -69,6 +64,7 @@
     fontDir.decompressFonts = true;
   };
 
+  # --- Desktop & XDG ---
   xdg = {
     autostart = {
       enable = true;
@@ -95,24 +91,17 @@
         xdg-desktop-portal-termfilechooser
       ];
       config = {
-        # niri = {
-        #   default = [
-        #     "termfilechooser"
-        #   ];
-        # };
         common = {
           default = [
             "gnome"
             "gtk"
           ];
-          # "org.freedesktop.impl.portal.FileChooser" = [
-          #   "termfilechooser"
-          # ];
         };
       };
     };
   };
 
+  # --- Secrets (SOPS) ---
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
@@ -120,64 +109,35 @@
     age.keyFile = "${config.users.users.utkar.home}/.config/sops/age/keys.txt";
     age.generateKey = true;
 
-    # secrets.aria2_rpc_secret = {
-    # path = "/home/utkar/dotfiles/secrets/secret-rpc.txt.enc";
-    # owner = "aria2";
-    # group = config.users.users.utkar.group;
-    # };
-
     secrets.netrc = {
       key = "netrc";
       owner = "root";
       group = "root";
       mode = "0400";
     };
-
     secrets.hermes_env = {
       key = "hermes_env";
-      format = "yaml";
     };
-
     secrets.searx_key = {
       key = "searx_key";
     };
-
     secrets.github_token = {
       key = "github_token";
       owner = config.users.users.utkar.name;
       group = config.users.users.utkar.group;
-      # path = "/home/utkar/github";
     };
-
     secrets.gitlab_token = {
       key = "gitlab_token";
     };
-
     secrets.ssh_id_ed25519 = {
-      # path = "/run/secrets/ssh_id_ed25519";
       owner = config.users.users.utkar.name;
       group = config.users.users.utkar.group;
       mode = "0600";
     };
   };
 
+  # --- Security ---
   security = {
-    pam = {
-      loginLimits = [
-        {
-          domain = "*";
-          type = "soft";
-          item = "memlock";
-          value = "unlimited";
-        }
-        {
-          domain = "*";
-          type = "hard";
-          item = "memlock";
-          value = "unlimited";
-        }
-      ];
-    };
     polkit = {
       enable = true;
       adminIdentities = ["unix-user:utkar" "unix-group:users"];
@@ -187,7 +147,6 @@
       enable = true;
       abrmd.enable = true;
       pkcs11.enable = true;
-
       tctiEnvironment.enable = true;
       tctiEnvironment.interface = "tabrmd";
     };
@@ -203,6 +162,7 @@
     unprivilegedUsernsClone = true;
   };
 
+  # --- Users ---
   users.users.utkar = {
     linger = true;
     isNormalUser = true;
@@ -210,6 +170,7 @@
     autoSubUidGidRange = true;
     description = "utkar";
     extraGroups = [
+      "hermes"
       "searx"
       "input"
       "docker"
@@ -225,7 +186,6 @@
       "networkmanager"
       "wheel"
       "podman"
-      "libvirtd"
       "kvm"
       "video"
       "audio"
@@ -233,10 +193,10 @@
     packages = with pkgs; [
       hello
     ];
-    shell = pkgs.fish;
+    shell = lib.mkForce pkgs.fish;
   };
 
+  # --- Nix & System ---
   nixpkgs.config.allowUnfree = true;
-
   system.stateVersion = "25.05";
 }

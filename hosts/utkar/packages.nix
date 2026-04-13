@@ -28,70 +28,107 @@ in {
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
+
   environment.systemPackages = with pkgs; [
-    # passExtensions.pass-import
-    # gopass
-    # gopass-hibp
-    # gopass-jsonapi
-    nwg-look
-    vivaldi
-    handbrake
-    glfw3-minecraft
-    openal
-    mangohud
-    cbonsai
-    virtio-win
-    python3
-    colloid-gtk-theme
-    zsh-abbr
-    app2unit
-    lxappearance
-    nur.repos.lonerOrz.surge
-    ocrScreenshot
-    tesseract
-    android-tools
-    # winboat
+    # --- Core System & Utilities ---
+    btop
+    duf
+    gping
+    curlie
+    conky
+    xcp
     unzip
     jq
     libnotify
     pkg-config
-    nushell
-    conky
-    rich-cli
-    yaziPlugins.ouch
-    yaziPlugins.vcs-files
-    yaziPlugins.no-status
-    yaziPlugins.rich-preview
-    yaziPlugins.lazygit
-    yaziPlugins.yatline
-    yaziPlugins.yatline-githead
-    yaziPlugins.full-border
-    yaziPlugins.mount
-    yaziPlugins.recycle-bin
+    wl-clipboard
+    wl-clip-persist
     trash-cli
-    yaziPlugins.sudo
-    yaziPlugins.diff
-    yaziPlugins.rsync
-    yaziPlugins.starship
-    yaziPlugins.git
-    yaziPlugins.jjui
-    nur.repos.adam0.yaziPlugins.ucp
-    python314Packages.aria2p
-    imagemagick
-    duf
-    xcp
-    gping
-    curlie
-    pwvucontrol
-    mesa
-    nautilus
-    macchina
-    lmstudio
+    ouch
+    cacert
+    greetd
+    gnome.gvfs
+    (lib.hiPrio uutils-coreutils-noprefix)
+
+    # --- Development & CLI Tools ---
+    python3
     uv
-    nur.repos.nakido.zellij-forgot
-    alacritty
+    nushell
+    devenv
+    android-tools
+    tesseract
+    ocrScreenshot
+    rich-cli
     nvd
     dix
+    vscode-json-languageserver
+    podman-compose
+
+    # --- GUI Applications ---
+    vivaldi
+    firefox
+    handbrake
+    onlyoffice-desktopeditors
+    lmstudio
+    gparted
+    nautilus
+    macchina
+    satty
+    virt-manager
+
+    # --- Gaming & Emulation ---
+    glfw3-minecraft
+    openal
+    mangohud
+    srb2
+    mindustry
+    wineWow64Packages.waylandFull
+
+    # --- Multimedia & Graphics ---
+    ffmpeg-full
+    imagemagick
+    pwvucontrol
+    cbonsai
+
+    # --- Virtualization & Containers ---
+    qemu_kvm
+    qemu
+    libvirt
+    virtio-win
+    ollama-cpu
+
+    # --- Themes, Icons & Appearance ---
+    colloid-gtk-theme
+    lxappearance
+    nwg-look
+    papirus-icon-theme
+    adwaita-icon-theme
+    bibata-cursors
+    adw-gtk3
+    libadwaita
+    material-symbols
+    material-icons
+    libsForQt5.qt5ct
+    qt6Packages.qt6ct
+
+    # --- Desktop Environment / Wayland / Qt6 ---
+    gtk4
+    gtk3
+    qt6.qt5compat
+    qt6.qtbase
+    qt6.qtmultimedia
+    qt5.qtbase
+    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
+    nirius
+    alacritty
+
+    # --- KDE Applications ---
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.kimageformats
+
+    # --- Shell Plugins (Fish) ---
+    zsh-abbr
     fishPlugins.puffer
     fishPlugins.fifc
     fishPlugins.fish-bd
@@ -102,52 +139,33 @@ in {
     fishPlugins.done
     fishPlugins.humantime-fish
     babelfish
-    nur.repos.xddxdd.magiskboot
-    gparted
-    firefox
-    ffmpeg-full
-    srb2
-    mindustry
-    cacert
-    devenv
-    qemu_kvm
-    qemu
-    libvirt
-    virt-manager
-    papirus-icon-theme
-    onlyoffice-desktopeditors
-    ollama-cpu
-    satty
-    fcitx5
-    bibata-cursors
-    adw-gtk3
-    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
-    libadwaita
-    nirius
-    ouch
-    wl-clipboard
-    gtk4
-    gtk3
-    btop
-    gnome.gvfs
-    wl-clip-persist
-    greetd
+
+    # --- Yazi Plugins ---
+    yaziPlugins.ouch
+    yaziPlugins.vcs-files
+    yaziPlugins.no-status
+    yaziPlugins.rich-preview
+    yaziPlugins.lazygit
+    yaziPlugins.yatline
+    yaziPlugins.yatline-githead
+    yaziPlugins.full-border
+    yaziPlugins.mount
+    yaziPlugins.recycle-bin
+    yaziPlugins.sudo
+    yaziPlugins.diff
+    yaziPlugins.rsync
+    yaziPlugins.starship
+    yaziPlugins.git
+    yaziPlugins.jjui
+
+    # --- Others & Custom Repos ---
+    agent-browser
+    app2unit
+    nur.repos.lonerOrz.surge
     nur.repos.lonerOrz.helium
-    kdePackages.dolphin
-    kdePackages.dolphin-plugins
-    kdePackages.kimageformats
-    libsForQt5.qt5ct
-    qt6Packages.qt6ct
-    qt6.qt5compat
-    qt6.qtbase
-    qt6.qtmultimedia
-    qt5.qtbase
-    wineWow64Packages.waylandFull
-    adwaita-icon-theme
-    material-symbols
-    material-icons
-    vscode-json-languageserver
-    podman-compose
-    (lib.hiPrio uutils-coreutils-noprefix)
+    nur.repos.nakido.zellij-forgot
+    nur.repos.xddxdd.magiskboot
+    python314Packages.aria2p
+    fcitx5
   ];
 }

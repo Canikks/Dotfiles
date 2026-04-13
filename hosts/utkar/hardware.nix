@@ -1,27 +1,39 @@
 {pkgs, ...}: {
   hardware = {
+    # --- General ---
     enableRedistributableFirmware = true;
     facter.reportPath = ./facter.json;
-    intelgpu.vaapiDriver = "intel-media-driver";
-    intelgpu.computeRuntime = "legacy";
-    intelgpu.enableHybridCodec = true;
+
+    # --- GPU & Graphics ---
     intelgpu = {
+      vaapiDriver = "intel-media-driver";
+      computeRuntime = "legacy";
+      enableHybridCodec = true;
       loadInInitrd = true;
     };
-    cpu.intel.sgx = {
-      enableDcapCompat = true;
-      provision.enable = true;
-    };
-    intel-gpu-tools = {
-      enable = true;
-    };
+    intel-gpu-tools.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;
       package = pkgs.mesa;
       package32 = pkgs.pkgsi686Linux.mesa;
-      extraPackages = with pkgs; [intel-media-driver mesa mesa_glu mesa-gl-headers mesa vpl-gpu-rt];
+      extraPackages = with pkgs; [
+        intel-media-driver
+        mesa
+        mesa_glu
+        mesa-gl-headers
+        mesa
+        vpl-gpu-rt
+      ];
     };
+
+    # --- CPU ---
+    cpu.intel.sgx = {
+      enableDcapCompat = true;
+      provision.enable = true;
+    };
+
+    # --- Bluetooth ---
     bluetooth = {
       enable = true;
       settings = {

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   boot = {
+    # --- Boot Loader Configuration ---
     loader = {
       limine = {
         enable = true;
@@ -13,12 +14,15 @@
         canTouchEfiVariables = true;
       };
     };
-    supportedFilesystems = {
-      bcachefs = true;
-    };
+
+    # --- Kernel & Initrd ---
     initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
+    kernelPackages = pkgs.linuxPackages_xanmod_stable;
+    kernelModules = [
+      "tcp_bbr"
+    ];
     kernelPatches = [
       {
         name = "Rust Support";
@@ -36,10 +40,8 @@
       "zswap.max_pool_percent=20"
       "cfg80211.ieee80211_regdom=IN"
     ];
-    kernelPackages = pkgs.linuxPackages_xanmod_stable;
-    kernelModules = [
-      "tcp_bbr"
-    ];
+
+    # --- Kernel Tuning & Sysctl ---
     kernel = {
       sysfs = {
         devices.system.cpu.intel_pstate.hwp_dynamic_boost = true;
@@ -56,6 +58,7 @@
         "vm.vfs_cache_pressure" = 50;
         "vm.watermark_scale_factor" = 125;
         "vm.dirty_ratio" = 10;
+        "net.ipv4.ip_unprivileged_port_start" = 80;
         "vm.dirty_background_ratio" = 5;
       };
     };
