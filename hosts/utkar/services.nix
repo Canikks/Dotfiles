@@ -34,7 +34,7 @@
         };
         model.provider = "openrouter";
         model.base_url = "https://openrouter.ai/api/v1";
-        model.default = "google/gemma-4-26b-a4b-it:free";
+        model.default = "google/gemma-4-31b-it:free";
         terminal.backend = "local";
         toolsets = ["all"];
       };
@@ -124,6 +124,10 @@
     thermald.enable = false;
 
     # --- User & Desktop Services ---
+    noctalia-shell = {
+      enable = true;
+      target = "niri.service";
+    };
     homed.enable = true;
     gvfs.enable = true;
     udisks2 = {

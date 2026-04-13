@@ -14,6 +14,7 @@
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
     inputs.zen-browser.homeModules.beta
+    inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
 
     # SHELL CONFIG
@@ -35,6 +36,7 @@
     # APPS
     ./apps/keepassxc.nix
     ./apps/vesktop.nix
+    ./apps/noctalia.nix
 
     # FILE MANAGER CONFIG
     ./file-manager/yazi.nix

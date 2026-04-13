@@ -57,6 +57,7 @@
         "https://jjui.cachix.org"
         "https://hyprland.cachix.org"
         "https://cachix.cachix.org"
+        "https://noctalia.cachix.org"
       ];
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
@@ -70,6 +71,7 @@
         "jjui.cachix.org-1:G3rK4ezMNPMSHIuuDZgliF7Q/n9vZ3RNqmnt49UYhIg="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       ];
     };
   };
