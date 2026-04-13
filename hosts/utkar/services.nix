@@ -12,8 +12,8 @@
       user = "utkar";
       group = "users";
       createUser = false;
-      stateDir = "/home/utkar/hermes";
-      workingDirectory = "/home/utkar/dotfiles";
+      stateDir = "${config.users.users.utkar.home}/hermes";
+      workingDirectory = "${config.users.users.utkar.home}/dotfiles";
       addToSystemPackages = true;
       extraPackages = with pkgs; [
         agent-browser
@@ -34,7 +34,7 @@
         };
         model.provider = "openrouter";
         model.base_url = "https://openrouter.ai/api/v1";
-        model.default = "google/gemma-4-31b-it:free";
+        model.default = "google/gemma-4-26b-a4b-it:free";
         terminal.backend = "local";
         toolsets = ["all"];
       };
@@ -72,8 +72,10 @@
           ips = ["1.1.1.1" "1.0.0.1"];
         };
         upstreams.groups.default = [
-          "https://dns.quad9.net/dns-query"
+          "tcp-tls:dns.quad9.net:853"
           "https://one.one.one.one/dns-query"
+          "2620:fe::fe"
+          "2606:4700:4700::1111"
         ];
         caching = {
           minTime = "10m";
