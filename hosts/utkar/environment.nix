@@ -33,6 +33,7 @@
       STEAM_RUNTIME_PREFER_HOST_LIBRARIES = 1;
       MOZ_ENABLE_WAYLAND = 1;
       MOZ_LEGACY_PROFILES = 0;
+      HERMES_TUI = 1;
       APP2UNIT_SLICES = "a=app.slice b=background.slice s=session.slice";
     };
   };
