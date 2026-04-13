@@ -172,7 +172,7 @@
       extest.enable = true;
       extraCompatPackages = with pkgs; [
         proton-ge-bin
-        nur.repos.forkprince.proton-cachyos-v4-bin
+        nur.repos.vladexa.proton-cachyos-v3
       ];
       extraPackages = with pkgs; [
         gamescope
