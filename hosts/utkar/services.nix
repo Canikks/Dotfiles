@@ -18,15 +18,26 @@
       extraPackages = with pkgs; [
         agent-browser
         curl
+        google-chrome
+        chromium
       ];
       restartSec = 5;
       container = {
         backend = "podman";
+        hostUsers = ["utkar"];
+        extraVolumes = [
+          "/home/user/dotfiles:/dotfiles:rw"
+        ];
       };
       settings = {
         display = {
           compact = false;
           personality = "kawaii";
+        };
+        compression = {
+          enabled = true;
+          threshold = 0.75;
+          sommary_model = "google/gemma-4-26b-a4b-it:free";
         };
         memory = {
           memory_enabled = true;
@@ -124,8 +135,27 @@
     thermald.enable = false;
 
     # --- User & Desktop Services ---
+    xserver.enable = false;
+    displayManager.sddm = {
+      enable = false;
+      wayland.enable = true;
+      wayland.compositor = "kwin";
+      theme = "sddm";
+      extraPackages = with pkgs; [
+        qt6.qtdeclarative
+        qt6.qt5compat
+        qt6.qtbase
+        qt6.qtmultimedia
+        # qt5.qtbase
+      ];
+      settings = {
+        General = {
+          GreeterEnvironment = "XCURSOR_THEME=DMZ-White,XCURSOR_SIZE=24";
+        };
+      };
+    };
     noctalia-shell = {
-      enable = true;
+      enable = false;
       target = "niri.service";
     };
     homed.enable = true;
