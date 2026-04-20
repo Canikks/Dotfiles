@@ -1,4 +1,8 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.fish = {
     preferAbbrs = true;
     enable = true;
@@ -14,18 +18,50 @@
       cp = "xcp";
       rm = "trash";
     };
+    # fishPlugins.puffer
+    # fishPlugins.fifc
+    # fishPlugins.fish-bd
+    # fishPlugins.forgit
+    # fishPlugins.pisces
+    # fishPlugins.plugin-sudope
+    # fishPlugins.colored-man-pages
+    # fishPlugins.done
+    # fishPlugins.humantime-fish
+
+    plugins = [
+      {
+        name = "puffer";
+        src = pkgs.fishPlugins.puffer;
+      }
+      {
+        name = "fzfish";
+        src = pkgs.nur.repos.adam0.fishPlugins.fzfish;
+      }
+      {
+        name = "fish-bd";
+        src = pkgs.fishPlugins.fish-bd;
+      }
+      {
+        name = "pisces";
+        src = pkgs.fishPlugins.pisces;
+      }
+      {
+        name = "done";
+        src = pkgs.fishPlugins.done;
+      }
+    ];
     shellInit = ''
       set -g fish_greeting ""
     '';
     interactiveShellInit = ''
       set -g fish_color_autosuggestion brblack
+      set -Ux fzfish_editor hx
       set -g fish_color_command blue
       set -g fish_color_param cyan
       set -g fish_color_error red
       set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
       set -gx MANROFFOPT "-c"
       set -gx FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range :500 {}'"
-      set -Ux fifc_editor hx
       set -g fish_cursor_default block
       set -g fish_cursor_insert block
       set -g fish_cursor_visual block
