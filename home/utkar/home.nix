@@ -1,10 +1,13 @@
 {
+  lib,
+  pkgs,
   config,
   inputs,
   ...
 }: {
   imports = [
     # INPUT MODULES
+    inputs.nur.repos.moredhel.modules.homeManager
     inputs.nix-index-database.homeModules.nix-index
     inputs.dank-material-shell.homeModules.dank-material-shell
     # inputs.dank-material-shell.homeModules.niri
@@ -16,6 +19,7 @@
     inputs.zen-browser.homeModules.beta
     inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
+    inputs.optnix.homeModules.optnix
 
     # SHELL CONFIG
     ./shell/zsh.nix
@@ -25,7 +29,7 @@
     ./terminal/kitty.nix
     # ./terminal/wezterm.nix
     ./terminal/ghostty.nix
-    # ./terminal/rio.nix
+    ./terminal/rio.nix
 
     # EDITOR CONFIG
     ./editor/helix.nix
@@ -65,10 +69,10 @@
     ./cli/git.nix
     ./cli/jujutsu.nix
     ./cli/bat.nix
-    ./cli/opencode.nix
     ./cli/hyfetch.nix
     ./cli/fastfetch.nix
     # ./cli/aichat.nix
+    ./cli/optnix.nix
 
     # BROWSER
     ./browser/zen-browser.nix

@@ -12,7 +12,7 @@
     systemd.enable = true;
     settings = {
       font-family = "MesloLGS Nerd Font";
-      font-size = 11;
+      font-size = 12;
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;
@@ -28,11 +28,13 @@
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
         "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"
       ];
-      theme = "dankcolors";
+      theme = "noctalia";
       cursor-style = "block";
       unfocused-split-opacity = 0.7;
       unfocused-split-fill = "#44464f";
-      gtk-titlebar = true;
+      gtk-titlebar = false;
+      gtk-toolbar-style = "flat";
+      gtk-tabs-location = "hidden";
       shell-integration = "detect";
       shell-integration-features = "sudo,title,no-cursor";
     };
