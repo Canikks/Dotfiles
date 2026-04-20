@@ -14,18 +14,20 @@
       enable = true;
     };
     xonsh = {
-      enable = false;
+      enable = true;
       package = pkgs.xonsh;
       extraPackages = ps: [
         pkgs.nur.repos.xonsh-xontribs.xontrib-fish-completer
         pkgs.nur.repos.xonsh-xontribs.xontrib-whole-word-jumping
         pkgs.nur.repos.xonsh-xontribs.xontrib-abbrevs
-        pkgs.python313Packages.prompt-toolkit
+        pkgs.nur.repos.xonsh-xontribs.xontrib-term-integrations
       ];
       config = ''
         # --- Core Init ---
         $XONSH_SHOW_TRACEBACK = False
         $SUPPRESS_ACTIVATE_MESSAGE = True
+
+        # Initialize tools efficiently
         execx($(starship init xonsh))
         execx($(zoxide init xonsh), 'exec')
 
@@ -39,33 +41,38 @@
         $CASE_SENSITIVE_COMPLETIONS = False
         $FZF_WIDGETS_OPTS = {'height': '40%', 'layout': 'reverse', 'border': 'rounded'}
 
-        # --- Aliases ---
-        if $(which eza):
-            aliases['ls'] = 'eza --icons --git --group-directories-first'
-            aliases['ll'] = 'eza -l --icons --git --group-directories-first'
-            aliases['la'] = 'eza -la --icons --git --group-directories-first'
-            aliases['tree'] = 'eza --tree --icons'
+        # --- Aliases (Optimized) ---
+        # Using a dictionary for batch updates is cleaner in Python/Xonsh!
+        if $(which lsd):
+            aliases.update({
+                'tree': 'lsd --tree',
+            })
 
         if $(which bat):
             aliases['cat'] = 'bat --style=plain'
 
-        aliases['grep'] = 'grep --color=auto'
-        aliases['..'] = 'cd ..'
-        aliases['...'] = 'cd ../..'
-        aliases['nrs'] = 'sudo nixos-rebuild switch'
-        aliases['nfu'] = 'nix flake update'
-        aliases['ncg'] = 'sudo nix-collect-garbage -d'
+        aliases.update({
+            'grep': 'grep --color=auto',
+            '..': 'cd ..',
+            '...': 'cd ../..',
+            'nls': 'nixos-cli generation list', # Added for your nixos-cli!
+        })
 
         # --- Abbreviations ---
-        abbrevs['gco'] = 'git checkout'
-        abbrevs['gst'] = 'git status'
-        abbrevs['gp'] = 'git push'
+        abbrevs.update({
+            'gco': 'git checkout',
+            'gst': 'git status',
+            'gp': 'git push',
+            'gcm': 'git commit -m', # Extra sparkle!
+            'gl': 'git log --oneline --graph --all', # Extra sparkle!
+        })
       '';
     };
     zoxide = {
       enable = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
+      enableXonshIntegration = true;
     };
     direnv = {
       enable = true;
@@ -160,7 +167,7 @@
       enable = true;
     };
     bat = {
-      enable = false;
+      enable = true;
     };
 
     # --- Gaming ---
