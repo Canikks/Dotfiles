@@ -23,6 +23,7 @@
       "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting less +G -R";
     };
     settings = {
+      cursor_shape = "block";
       input_delay = 0;
       repaint_delay = 2;
       wayland_enable_ime = "no";

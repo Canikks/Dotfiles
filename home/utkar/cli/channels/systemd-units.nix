@@ -1,10 +1,10 @@
-{ ... }: {
+{...}: {
   programs.television.channels = {
     systemd-units = {
       metadata = {
         name = "systemd-units";
         description = "List and manage systemd services";
-        requirements = [ "systemctl" ];
+        requirements = ["systemctl"];
       };
       source = {
         command = [

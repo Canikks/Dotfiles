@@ -22,5 +22,6 @@
     ./channels/tldr.nix
     ./channels/podman-volumes.nix
     ./channels/zoxide.nix
+    ./channels/systemd-units.nix
   ];
 }

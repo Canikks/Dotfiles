@@ -1,5 +1,5 @@
 {...}: {
   programs.optnix = {
-    enable = true;
+    enable = false;
   };
 }
