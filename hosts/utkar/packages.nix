@@ -76,7 +76,6 @@ in {
     uv
     nushell
     devenv
-    android-tools
     tesseract
     translate-shell
     slurp
@@ -89,8 +88,6 @@ in {
     podman-compose
 
     # --- GUI Applications ---
-    google-chrome
-    chromium
     vivaldi
     firefox
     handbrake
@@ -138,8 +135,6 @@ in {
     qt6Packages.qt6ct
 
     # --- Desktop Environment / Wayland / Qt6 ---
-    noctaliaTheme
-    vanilla-dmz
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     gtk4
     gtk3
@@ -189,7 +184,6 @@ in {
     yaziPlugins.jjui
 
     # --- Others & Custom Repos ---
-    agent-browser
     app2unit
     runapp
     nur.repos.lonerOrz.surge
