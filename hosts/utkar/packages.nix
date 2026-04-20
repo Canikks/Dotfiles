@@ -10,6 +10,19 @@
 
     dms screenshot | tesseract stdin stdout | dms cl copy
   '';
+  noctaliaTheme = pkgs.stdenvNoCC.mkDerivation {
+    pname = "sddm-noctalia-theme";
+    version = "unstable";
+    src = inputs.sddm-noctalia;
+    dontBuild = true;
+
+    installPhase = ''
+      runHook preInstall
+      mkdir -p $out/share/sddm/themes/sddm
+      cp -r . $out/share/sddm/themes/sddm/
+      runHook postInstall
+    '';
+  };
 in {
   nixpkgs.overlays = [
     (final: prev: {
@@ -76,6 +89,8 @@ in {
     podman-compose
 
     # --- GUI Applications ---
+    google-chrome
+    chromium
     vivaldi
     firefox
     handbrake
@@ -123,6 +138,8 @@ in {
     qt6Packages.qt6ct
 
     # --- Desktop Environment / Wayland / Qt6 ---
+    noctaliaTheme
+    vanilla-dmz
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     gtk4
     gtk3
@@ -141,7 +158,6 @@ in {
     kdePackages.kimageformats
 
     # --- Shell Plugins (Fish) ---
-    zsh-abbr
     fishPlugins.puffer
     fishPlugins.fifc
     fishPlugins.fish-bd
@@ -151,6 +167,7 @@ in {
     fishPlugins.colored-man-pages
     fishPlugins.done
     fishPlugins.humantime-fish
+    zsh-abbr
     babelfish
 
     # --- Yazi Plugins ---

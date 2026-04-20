@@ -50,6 +50,10 @@
       url = "github:AvengeMedia/base46";
       flake = false;
     };
+    sddm-noctalia = {
+      url = "github:mahaveergurjar/sddm/noctalia";
+      flake = false;
+    };
     hermes-agent.url = "github:NousResearch/hermes-agent";
 
     # Setting inputs to follow my shit
