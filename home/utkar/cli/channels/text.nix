@@ -5,7 +5,7 @@
         name = "text";
         description = "A channel to find and select text from files";
         requirements = [
-          "rga"
+          "rg"
           "bat"
         ];
       };
