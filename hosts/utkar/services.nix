@@ -51,13 +51,16 @@
       };
     };
     searx = {
-      enable = false;
-      domain = "utkar.local";
-      configureNginx = true;
-      configureUwsgi = true;
+      enable = true;
+      # domain = "utkar.local";
+      configureNginx = false;
+      configureUwsgi = false;
       redisCreateLocally = true;
+      # openFirewall = true;
       settings = {
         server.bind_address = "0.0.0.0";
+        server.port = "8080";
+        server.secret_key = "${builtins.readFile config.sops.secrets.searx_key.path}";
       };
     };
     open-webui = {
