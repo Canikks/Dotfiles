@@ -240,6 +240,7 @@
     power-profiles-daemon.enable = false;
 
     # --- Others ---
+    niri-autoselect-portal.enable = true;
     aria2 = {
       enable = false;
       serviceUMask = "0002";
@@ -280,14 +281,14 @@
         "modesetting"
       ];
     };
-    nirinit = {
-      enable = false;
-      package = inputs.nirinit.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      settings.launch = {
-        "zen" = "zen-beta";
-        "com.mitchellh.ghostty" = "ghostty";
-      };
-    };
+    # nirinit = {
+    #   enable = false;
+    #   package = inputs.nirinit.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    #   settings.launch = {
+    #     "zen" = "zen-beta";
+    #     "com.mitchellh.ghostty" = "ghostty";
+    #   };
+    # };
     scx = {
       enable = true;
       scheduler = "scx_cake";
