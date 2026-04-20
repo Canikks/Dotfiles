@@ -1,9 +1,12 @@
 {
   pkgs,
+  options,
   inputs,
   config,
   ...
-}: {
+}: let
+  optnixLib = inputs.optnix.mkLib pkgs;
+in {
   programs = {
     # --- Shells & Terminal ---
     fish = {
@@ -67,6 +70,42 @@
             'gl': 'git log --oneline --graph --all', # Extra sparkle!
         })
       '';
+    };
+    optnix = {
+      enable = true;
+      settings = {
+        scopes = {
+          utkar = {
+            description = "NixOS configuration for CharlesWoodson";
+            options-list-file = optnixLib.mkOptionsList {inherit options;};
+            # For flake systems
+            evaluator = "nix eval /home/utkar/dotfiles#nixosConfigurations.utkar.config.{{ .Option }}";
+            # For legacy systems
+            # evaluator = "nix-instantiate --eval '<nixpkgs/nixos>' -A config.{{ .Option }}";
+          };
+          home-manager = {
+            description = "home-manager options for all systems";
+            options-list-file = optnixLib.hm.mkOptionsListFromHMSource {
+              home-manager = inputs.home-manager;
+              modules = with inputs; [
+                nur.repos.moredhel.modules.homeManager
+                nix-index-database.homeModules.nix-index
+                dank-material-shell.homeModules.dank-material-shell
+                dank-material-shell.homeModules.niri
+                mango.hmModules.mango
+                dsearch.homeModules.default
+                nvf.homeManagerModules.default
+                sops-nix.homeManagerModules.sops
+                dms-plugin-registry.modules.default
+                zen-browser.homeModules.beta
+                noctalia.homeModules.default
+                stylix.homeModules.stylix
+                optnix.homeModules.optnix
+              ];
+            };
+          };
+        };
+      };
     };
     zoxide = {
       enable = true;
@@ -167,7 +206,7 @@
       enable = true;
     };
     bat = {
-      enable = true;
+      enable = false;
     };
 
     # --- Gaming ---
