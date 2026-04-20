@@ -10,6 +10,10 @@
         }
       ];
       states = {
+        network-indicator = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
         catwalk = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
