@@ -14,6 +14,7 @@
     setOptions = [
       "HIST_IGNORE_ALL_DUPS"
       "HIST_IGNORE_SPACE"
+      "NOMATCH"
     ];
 
     # sessionVariables = {
@@ -28,7 +29,7 @@
       man = "batman";
       bg = "batgrep";
       diff = "batdiff";
-      rg = "rga --hyperlink-format=kitty";
+      rg = "rg --hyperlink-format=kitty";
       df = "duf";
       curl = "curlie";
       cp = "xcp";
@@ -36,6 +37,17 @@
     };
 
     initContent = lib.mkOrder 500 ''
+      # Fish-like speed optimizations ⚡
+      ZSH_AUTOSUGGEST_USE_ASYNC=1
+      ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+      # Completion Enhancements 🌈
+      # Cursor Shape: Block 📦
+      echo -ne '\e[1 q'
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case-insensitive completion
+      zstyle ':completion:*' group-name              # Group completions
+      zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f' # Cute descriptions
+
       alias -s {md,txt,json,yaml,toml,xml,conf,ini,log}=bat
       zstyle ':zephyr:plugin:editor' dot-expansion yes
       zstyle ':zephyr:plugin:editor' magic-enter yes
@@ -57,15 +69,17 @@
         # Load compstyle before completion
         "mattmc3/zephyr path:plugins/compstyle"
         "mattmc3/zephyr path:plugins/completion"
+        "zsh-users/zsh-completions"
+        "Aloxaf/fzf-tab"
 
         # --- Deferred / Heavy Plugins ---
         # kind:defer delays loading until the prompt is ready
-        "zsh-users/zsh-autosuggestions"
-        "zsh-users/zsh-history-substring-search"
+        "zsh-users/zsh-autosuggestions kind:defer"
+        "zsh-users/zsh-history-substring-search kind:defer"
 
         # --- Syntax Highlighting ---
         # MUST be last. deferred for speed.
-        "zdharma-continuum/fast-syntax-highlighting"
+        "zdharma-continuum/fast-syntax-highlighting kind:defer"
       ];
     };
   };
