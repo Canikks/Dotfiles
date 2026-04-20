@@ -18,7 +18,6 @@
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-    nirinit.url = "github:amaanq/nirinit";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -46,6 +45,8 @@
     jjui.url = "github:idursun/jjui";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     television.url = "github:alexpasmantier/television";
+    niri-autoselect-portal.url = "git+https://codeberg.org/debugloop/niri-autoselect-portal.git";
+    optnix.url = "github:water-sucks/optnix";
     base46-src = {
       url = "github:AvengeMedia/base46";
       flake = false;
@@ -60,7 +61,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     niri.inputs.nixpkgs.follows = "nixpkgs";
-    nirinit.inputs.nixpkgs.follows = "nixpkgs";
+    # nirinit.inputs.nixpkgs.follows = "nixpkgs";
     dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
     dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
@@ -104,6 +105,7 @@
       specialArgs = {inherit inputs;};
       modules = with inputs; [
         ./hosts/utkar/configuration.nix
+        niri-autoselect-portal.nixosModules.default
         niri.nixosModules.niri
         hyprland.nixosModules.default
         dank-material-shell.nixosModules.greeter
@@ -118,11 +120,12 @@
         nixos-hardware.nixosModules.common-pc-laptop-ssd
         sops-nix.nixosModules.sops
         nixos-cli.nixosModules.nixos-cli
-        nirinit.nixosModules.nirinit
+        # nirinit.nixosModules.nirinit
         stylix.nixosModules.stylix
         dms-plugin-registry.modules.default
         hermes-agent.nixosModules.default
         noctalia.nixosModules.default
+        optnix.nixosModules.optnix
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
