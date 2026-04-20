@@ -107,10 +107,10 @@
           ];
         };
         niri = {
-          default = [
-            "gnome"
-            "gtk"
-          ];
+          # default = [
+          #   "gnome"
+          #   "gtk"
+          # ];
           "org.freedesktop.impl.portal.Access" = [
             "gtk"
           ];
@@ -120,9 +120,9 @@
           "org.freedesktop.portal.ScreenCast" = [
             "gnome"
           ];
-          "org.freedesktop.impl.portal.ScreenCast" = [
-            "gnome"
-          ];
+          # "org.freedesktop.impl.portal.ScreenCast" = [
+          #   "gnome"
+          # ];
         };
       };
     };
@@ -171,7 +171,8 @@
     polkit = {
       enable = true;
       adminIdentities = ["unix-user:utkar" "unix-group:users"];
-      extraConfig = "/* Log authorization checks. */\npolkit.addRule(function(action, subject) {\n  // Make sure to set { security.polkit.debug = true; } in configuration.nix\n  polkit.log(\"user \" +  subject.user + \" is attempting action \" + action.id + \" from PID \" + subject.pid);\n});\n\n/* Allow any local user to do anything (dangerous!). */\npolkit.addRule(function(action, subject) {\n  if (subject.local) return \"yes\";\n});\n";
+      extraConfig = "/* Log authorization checks. */\npolkit.addRule(function(action, subject) {\n  // Make sure to set { security.polkit.debug = true; } in configuration.nix\n  polkit.log(\"user \" +  subject.user + \" is attempting action \" + action.id + \" from PID \" + subject.pid);\n});\n";
+      debug = true;
     };
     tpm2 = {
       enable = true;
@@ -200,6 +201,7 @@
     autoSubUidGidRange = true;
     description = "utkar";
     extraGroups = [
+      "sddm"
       "btrfs"
       "nix"
       "hermes"
@@ -225,7 +227,7 @@
     packages = with pkgs; [
       hello
     ];
-    shell = lib.mkForce pkgs.fish;
+    shell = lib.mkForce pkgs.zsh;
   };
 
   # --- Nix & System ---
