@@ -55,7 +55,7 @@ in {
           bash.enable = true;
           css.enable = true;
           html.enable = true;
-          ts.enable = true;
+          typescript.enable = true;
           go.enable = true;
           lua.enable = true;
           python.enable = true;
