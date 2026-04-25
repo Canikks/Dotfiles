@@ -29,10 +29,10 @@
     lua-language-server
   ];
 
-  cachix = {
-    enable = true;
-    pull = ["nix-community" "nixos" "devenv" "yazi" "jjui" "helix" "niri" "cachix"];
-  };
+  # cachix = {
+  #   enable = true;
+  #   pull = ["nix-community" "nixos" "devenv" "yazi" "jjui" "helix" "niri" "cachix"];
+  # };
 
   git-hooks.hooks = {
     treefmt.enable = true;
