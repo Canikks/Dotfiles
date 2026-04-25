@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.lutris = {
     enable = true;
     extraPackages = with pkgs; [
