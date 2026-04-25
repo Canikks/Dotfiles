@@ -34,11 +34,17 @@ in {
         colmena
         ;
     })
+    (_: prev: {
+      openldap = prev.openldap.overrideAttrs {
+        doCheck = !prev.stdenv.hostPlatform.isi686;
+      };
+    })
     inputs.quickshell.overlays.default
     inputs.niri.overlays.niri
     inputs.hyprland.overlays.default
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
+    inputs.nix-cachyos-kernel.overlays.pinned
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
@@ -135,6 +141,7 @@ in {
     qt6Packages.qt6ct
 
     # --- Desktop Environment / Wayland / Qt6 ---
+    xdg-desktop-portal-termfilechooser
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     gtk4
     gtk3
@@ -188,7 +195,7 @@ in {
     runapp
     nur.repos.lonerOrz.surge
     nur.repos.lonerOrz.helium
-    nur.repos.nakido.zellij-forgot
+    # nur.repos.nakido.zellij-forgot
     nur.repos.xddxdd.magiskboot
     python314Packages.aria2p
     fcitx5

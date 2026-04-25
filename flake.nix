@@ -11,6 +11,7 @@
     nixd.url = "github:nix-community/nixd";
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-cli.url = "github:nix-community/nixos-cli";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
@@ -112,6 +113,7 @@
         dank-material-shell.nixosModules.dank-material-shell
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
+        nur.repos.iopq.modules.nixos.xraya
         nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
         nix-index-database.nixosModules.nix-index
         # mango.nixosModules.mango
@@ -127,10 +129,10 @@
         noctalia.nixosModules.default
         optnix.nixosModules.optnix
         {
-          home-manager.useGlobalPkgs = true;
+          home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
-          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.extraSpecialArgs = {inherit inputs self;};
           home-manager.users.utkar = import ./home/utkar/home.nix;
           home-manager.startAsUserService = true;
           home-manager.verbose = true;
