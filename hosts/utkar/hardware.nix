@@ -2,7 +2,7 @@
   hardware = {
     # --- General ---
     enableRedistributableFirmware = true;
-    facter.reportPath = ./facter.json;
+    # facter.reportPath = ./facter.json;
 
     # --- GPU & Graphics ---
     intelgpu = {
