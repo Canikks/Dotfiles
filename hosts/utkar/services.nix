@@ -45,7 +45,7 @@
         };
         model.provider = "openrouter";
         model.base_url = "https://openrouter.ai/api/v1";
-        model.default = "google/gemma-4-31b-it:free";
+        model.default = "deepseek/deepseek-v4-flash";
         terminal.backend = "local";
         toolsets = ["all"];
       };
