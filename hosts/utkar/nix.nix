@@ -44,6 +44,16 @@
       extra-sandbox-paths = ["/dev" "/proc"];
 
       # --- Binary Caches (Substituters) ---
+      substituters = [
+        "https://attic.xuyh0120.win/lantian"
+      ];
+      trusted-substituters = [
+        "https://hydra.nixos.org/"
+      ];
+      trusted-public-keys = [
+        "hydra.nixos.org-1:CNHJZBh9K4tP3EKF6FkkgeVYsS3ohTl+oS0Qa8bezVs="
+        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      ];
       extra-substituters = [
         "https://cache.nixos.org"
         "https://watersucks.cachix.org"
@@ -59,6 +69,7 @@
         "https://cachix.cachix.org"
         "https://noctalia.cachix.org"
         "https://attic.xuyh0120.win/lantian"
+        "https://cache.garnix.io"
       ];
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
@@ -74,6 +85,7 @@
         "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       ];
     };
   };

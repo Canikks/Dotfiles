@@ -22,18 +22,19 @@
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    # kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "tcp_bbr"
     ];
-    kernelPatches = [
-      {
-        name = "Rust Support";
-        patch = null;
-        features = {
-          rust = true;
-        };
-      }
-    ];
+    # kernelPatches = [
+    #   {
+    #     name = "Rust Support";
+    #     patch = null;
+    #     features = {
+    #       rust = true;
+    #     };
+    #   }
+    # ];
     kernelParams = [
       "i915.enable_guc=3"
       "zswap.enabled=1"
