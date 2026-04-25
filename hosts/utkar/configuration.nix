@@ -98,7 +98,15 @@
             "gnome"
             "gtk"
           ];
-          "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+          # "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+          "org.freedesktop.impl.portal.Settings" = [
+            "kitty"
+            "*"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = [
+            "kitty"
+            "*"
+          ];
           "org.freedesktop.portal.ScreenCast" = [
             "gnome"
           ];
@@ -111,6 +119,15 @@
           #   "gnome"
           #   "gtk"
           # ];
+          "org.freedesktop.impl.portal.Settings" = [
+            "kitty"
+            "*"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = [
+            "kitty"
+            "*"
+          ];
+          # "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
           "org.freedesktop.impl.portal.Access" = [
             "gtk"
           ];
