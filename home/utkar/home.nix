@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   config,
@@ -7,7 +8,6 @@
 }: {
   imports = [
     # INPUT MODULES
-    inputs.nur.repos.moredhel.modules.homeManager
     inputs.nix-index-database.homeModules.nix-index
     inputs.dank-material-shell.homeModules.dank-material-shell
     # inputs.dank-material-shell.homeModules.niri
@@ -94,6 +94,16 @@
   home.shell.enableFishIntegration = true;
   home.preferXdgDirectories = true;
   home.shell.enableZshIntegration = true;
+
+  nixpkgs.overlays = [
+    inputs.nur.overlays.default
+    inputs.quickshell.overlays.default
+    inputs.niri.overlays.niri
+    inputs.hyprland.overlays.default
+    inputs.alejandra.overlays.default
+    inputs.nixd.overlays.default
+    # lib.attrValues self.nixosConfigurations.utkar.config.nixpkgs.overlays
+  ];
 
   # stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
   # stylix.targets.helix.enable = true;
