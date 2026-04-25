@@ -16,7 +16,7 @@
     inputs.nvf.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight
     inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
     inputs.optnix.homeModules.optnix
@@ -29,7 +29,7 @@
     ./terminal/kitty.nix
     # ./terminal/wezterm.nix
     ./terminal/ghostty.nix
-    ./terminal/rio.nix
+    # ./terminal/rio.nix
 
     # EDITOR CONFIG
     ./editor/helix.nix
@@ -96,6 +96,11 @@
   home.shell.enableZshIntegration = true;
 
   nixpkgs.overlays = [
+    (_: prev: {
+      openldap = prev.openldap.overrideAttrs {
+        doCheck = !prev.stdenv.hostPlatform.isi686;
+      };
+    })
     inputs.nur.overlays.default
     inputs.quickshell.overlays.default
     inputs.niri.overlays.niri
