@@ -70,6 +70,9 @@
           zsh-users/zsh-completions
           Aloxaf/fzf-tab
 
+          QuarticCat/zsh-smartcache
+
+          nix-community/nix-zsh-completions
           zsh-users/zsh-autosuggestions kind:defer
           zsh-users/zsh-history-substring-search kind:defer
 
