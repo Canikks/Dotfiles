@@ -17,7 +17,7 @@ in {
       enable = true;
     };
     xonsh = {
-      enable = true;
+      enable = false;
       package = pkgs.xonsh;
       extraPackages = ps: [
         pkgs.nur.repos.xonsh-xontribs.xontrib-fish-completer
@@ -76,10 +76,10 @@ in {
       settings = {
         scopes = {
           utkar = {
-            description = "NixOS configuration for CharlesWoodson";
+            description = "nixos configuration for me";
             options-list-file = optnixLib.mkOptionsList {inherit options;};
             # For flake systems
-            evaluator = "nix eval /home/utkar/dotfiles#nixosConfigurations.utkar.config.{{ .Option }}";
+            evaluator = "nix eval ${config.users.users.utkar.home}/dotfiles#nixosConfigurations.utkar.config.{{ .Option }}";
             # For legacy systems
             # evaluator = "nix-instantiate --eval '<nixpkgs/nixos>' -A config.{{ .Option }}";
           };
