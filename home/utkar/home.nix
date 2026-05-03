@@ -95,20 +95,22 @@
   home.preferXdgDirectories = true;
   home.shell.enableZshIntegration = true;
 
-  nixpkgs.overlays = [
-    (_: prev: {
-      openldap = prev.openldap.overrideAttrs {
-        doCheck = !prev.stdenv.hostPlatform.isi686;
-      };
-    })
-    inputs.nur.overlays.default
-    inputs.quickshell.overlays.default
-    inputs.niri.overlays.niri
-    inputs.hyprland.overlays.default
-    inputs.alejandra.overlays.default
-    inputs.nixd.overlays.default
-    # lib.attrValues self.nixosConfigurations.utkar.config.nixpkgs.overlays
-  ];
+  nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
+
+  # nixpkgs.overlays = [
+  #   (_: prev: {
+  #     openldap = prev.openldap.overrideAttrs {
+  #       doCheck = !prev.stdenv.hostPlatform.isi686;
+  #     };
+  #   })
+  #   inputs.nur.overlays.default
+  #   inputs.quickshell.overlays.default
+  #   inputs.niri.overlays.niri
+  #   inputs.hyprland.overlays.default
+  #   inputs.alejandra.overlays.default
+  #   inputs.nixd.overlays.default
+  #   # lib.attrValues self.nixosConfigurations.utkar.config.nixpkgs.overlays
+  # ];
 
   # stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
   # stylix.targets.helix.enable = true;
