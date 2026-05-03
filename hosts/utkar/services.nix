@@ -157,10 +157,6 @@
         };
       };
     };
-    noctalia-shell = {
-      enable = false;
-      target = "niri.service";
-    };
     homed.enable = true;
     gvfs.enable = true;
     udisks2 = {
