@@ -57,6 +57,7 @@
       flake = false;
     };
     hermes-agent.url = "github:NousResearch/hermes-agent";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -69,7 +70,7 @@
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     mango.inputs.nixpkgs.follows = "nixpkgs";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
-    helix.inputs.nixpkgs.follows = "nixpkgs";
+    # helix.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-output-monitor.inputs.nixpkgs.follows = "nixpkgs";
     nix-your-shell.inputs.nixpkgs.follows = "nixpkgs";
@@ -94,6 +95,7 @@
     jjui.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     television.inputs.nixpkgs.follows = "nixpkgs";
+    millennium.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
@@ -126,7 +128,7 @@
         stylix.nixosModules.stylix
         dms-plugin-registry.modules.default
         hermes-agent.nixosModules.default
-        noctalia.nixosModules.default
+        # noctalia.nixosModules.default
         optnix.nixosModules.optnix
         {
           home-manager.useGlobalPkgs = false;

@@ -147,6 +147,9 @@ in {
     };
 
     # --- System & Utility Tools ---
+    nh = {
+      enable = false;
+    };
     nixos-cli = {
       enable = true;
       option-cache.enable = true;
@@ -212,7 +215,7 @@ in {
     # --- Gaming ---
     steam = {
       enable = true;
-      package = pkgs.steam.override {
+      package = pkgs.millennium-steam.override {
         extraArgs = "-system-composer";
       };
       extest.enable = true;

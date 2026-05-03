@@ -45,6 +45,8 @@ in {
     inputs.alejandra.overlays.default
     inputs.nixd.overlays.default
     inputs.nix-cachyos-kernel.overlays.pinned
+    inputs.millennium.overlays.default
+    inputs.nh.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;

@@ -70,6 +70,7 @@
         "https://noctalia.cachix.org"
         "https://attic.xuyh0120.win/lantian"
         "https://cache.garnix.io"
+        "https://millennium.cachix.org"
       ];
       extra-trusted-public-keys = [
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
@@ -86,6 +87,7 @@
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+        "millennium.cachix.org-1:oA14n26+32iES+5wBwfPAGR0y4ixRSG4rLMHzFxDwqc="
       ];
     };
   };
