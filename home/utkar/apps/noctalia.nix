@@ -1,6 +1,7 @@
 {...}: {
   programs.noctalia-shell = {
     enable = true;
+    settings = builtins.fromJSON (builtins.readFile ./config.json);
     plugins = {
       sources = [
         {

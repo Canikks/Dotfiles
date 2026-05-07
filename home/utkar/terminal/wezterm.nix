@@ -4,7 +4,7 @@
   ...
 }: {
   programs.wezterm = {
-    enable = true;
+    enable = false;
     package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
   xdg.configFile."wezterm/wezterm.lua" = {

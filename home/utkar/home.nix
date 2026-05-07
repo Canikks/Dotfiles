@@ -27,15 +27,15 @@
 
     # TERMINAL CONFIG
     ./terminal/kitty.nix
-    # ./terminal/wezterm.nix
+    ./terminal/wezterm.nix
     ./terminal/ghostty.nix
-    # ./terminal/rio.nix
+    ./terminal/rio.nix
 
     # EDITOR CONFIG
     ./editor/helix.nix
     ./editor/zeditor.nix
     ./editor/nvf-nvim.nix
-    # ./editor/neovide.nix
+    ./editor/neovide.nix
 
     # APPS
     ./apps/keepassxc.nix
@@ -71,12 +71,12 @@
     ./cli/bat.nix
     ./cli/hyfetch.nix
     ./cli/fastfetch.nix
-    # ./cli/aichat.nix
+    ./cli/aichat.nix
     ./cli/optnix.nix
 
     # BROWSER
     ./browser/zen-browser.nix
-    # ./browser/floorp.nix
+    ./browser/floorp.nix
 
     # GAMING
     ./gaming/lutris.nix
@@ -85,7 +85,7 @@
     ./multiplexer/zellij.nix
 
     # AUDIO
-    # ./audio/easyeffects.nix
+    ./audio/easyeffects.nix
   ];
 
   home.stateVersion = "25.05";

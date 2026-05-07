@@ -4,7 +4,7 @@
   ...
 }: {
   programs.floorp = {
-    enable = true;
+    enable = false;
     package = pkgs.floorp-bin.override {
       extraPrefsFiles = [
         (builtins.fetchurl {

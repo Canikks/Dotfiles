@@ -1,6 +1,6 @@
 {...}: {
   services.easyeffects = {
-    enable = true;
+    enable = false;
     preset = "GentleDynamics Feather Loudness";
   };
 }

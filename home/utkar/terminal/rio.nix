@@ -4,7 +4,7 @@
   ...
 }: {
   programs.rio = {
-    enable = true;
+    enable = false;
     package = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.default;
     # settings = {
     #   confirm-before-quit = false;

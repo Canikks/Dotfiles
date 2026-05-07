@@ -58,6 +58,7 @@
     };
     hermes-agent.url = "github:NousResearch/hermes-agent";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    jj-starship.url = "github:dmmulroy/jj-starship";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

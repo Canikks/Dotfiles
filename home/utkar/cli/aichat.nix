@@ -1,6 +1,6 @@
 {...}: {
   programs.aichat = {
-    enable = true;
+    enable = false;
     settings = {
       model = "mistral:mistral-small3.1:latest";
       clients = [
