@@ -122,6 +122,7 @@ in {
     git = {
       enable = true;
       lfs.enable = true;
+      prompt.enable = true;
     };
 
     # --- Window Managers & Compositors ---
