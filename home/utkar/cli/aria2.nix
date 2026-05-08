@@ -1,6 +1,6 @@
 {...}: {
   programs.aria2 = {
-    enable = true;
+    enable = false;
     settings = {
       max-connection-per-server = 16;
       split = 16;

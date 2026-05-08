@@ -28,6 +28,7 @@
       repaint_delay = 2;
       wayland_enable_ime = "no";
       tab_bar_style = "powerline";
+      tab_powerline_style = "slanted";
       cursor_trail = 1;
       wayland_titlebar_color = "system";
       background_opacity = 0.7;

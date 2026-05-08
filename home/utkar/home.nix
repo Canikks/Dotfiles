@@ -22,70 +22,37 @@
     inputs.optnix.homeModules.optnix
 
     # SHELL CONFIG
-    ./shell/zsh.nix
-    ./shell/fish.nix
+    ./shell
 
     # TERMINAL CONFIG
-    ./terminal/kitty.nix
-    ./terminal/wezterm.nix
-    ./terminal/ghostty.nix
-    ./terminal/rio.nix
+    ./terminal
 
     # EDITOR CONFIG
-    ./editor/helix.nix
-    ./editor/zeditor.nix
-    ./editor/nvf-nvim.nix
-    ./editor/neovide.nix
+    ./editor
 
     # APPS
-    ./apps/keepassxc.nix
-    ./apps/vesktop.nix
-    ./apps/noctalia.nix
+    ./apps
 
     # FILE MANAGER CONFIG
-    ./file-manager/yazi.nix
+    ./file-manager
 
     # CLI TOOLS
-    # ./cli/aria2.nix
-    ./cli/dsearch.nix
-    ./cli/delta.nix
-    ./cli/pay-respects.nix
-    ./cli/fzf.nix
-    # ./cli/eza.nix
-    ./cli/lsd.nix
-    ./cli/ripgrep-all.nix
-    ./cli/ripgrep.nix
-    ./cli/fd.nix
-    ./cli/dank-material-shell.nix
-    ./cli/television.nix
-    ./cli/nix-search-tv.nix
-    ./cli/nix-your-shell.nix
-    ./cli/home-manager.nix
-    ./cli/nix-index.nix
-    ./cli/tealdeer.nix
-    ./cli/zoxide.nix
-    ./cli/lazygit.nix
-    ./cli/jjui.nix
-    ./cli/git.nix
-    ./cli/jujutsu.nix
-    ./cli/bat.nix
-    ./cli/hyfetch.nix
-    ./cli/fastfetch.nix
-    ./cli/aichat.nix
-    ./cli/optnix.nix
+    ./cli
 
     # BROWSER
-    ./browser/zen-browser.nix
-    ./browser/floorp.nix
+    ./browser
 
     # GAMING
-    ./gaming/lutris.nix
+    ./gaming
 
     # MULTIPLEXER
-    ./multiplexer/zellij.nix
+    ./multiplexer
 
     # AUDIO
-    ./audio/easyeffects.nix
+    ./audio
+
+    # DESKTOP-SHELL
+    ./desktop-shell
   ];
 
   home.stateVersion = "25.05";
@@ -96,21 +63,6 @@
   home.shell.enableZshIntegration = true;
 
   nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
-
-  # nixpkgs.overlays = [
-  #   (_: prev: {
-  #     openldap = prev.openldap.overrideAttrs {
-  #       doCheck = !prev.stdenv.hostPlatform.isi686;
-  #     };
-  #   })
-  #   inputs.nur.overlays.default
-  #   inputs.quickshell.overlays.default
-  #   inputs.niri.overlays.niri
-  #   inputs.hyprland.overlays.default
-  #   inputs.alejandra.overlays.default
-  #   inputs.nixd.overlays.default
-  #   # lib.attrValues self.nixosConfigurations.utkar.config.nixpkgs.overlays
-  # ];
 
   # stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
   # stylix.targets.helix.enable = true;
