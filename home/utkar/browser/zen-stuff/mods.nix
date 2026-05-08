@@ -16,5 +16,8 @@
     "floating-findbar"
     "compact-settings"
     "unloaded-tabs"
+    "wireframe-2.0"
+    "zen-library"
+    "bubble-pop-deleting"
   ];
 }

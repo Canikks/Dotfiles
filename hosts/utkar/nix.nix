@@ -36,6 +36,7 @@
       # --- Security & Tokens ---
       access-tokens = [
         "github.com=${builtins.readFile config.sops.secrets.github_token.path}"
+        "codeberg.org=${builtins.readFile config.sops.secrets.forgejo_token.path}"
       ];
       trusted-users = [
         "root"

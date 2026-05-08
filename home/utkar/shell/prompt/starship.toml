@@ -186,7 +186,7 @@ format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
 added_style = 'italic dimmed green'
 deleted_style = 'italic dimmed red'
 ignore_submodules = true
-disabled = false
+disabled = true
 
 [git_status]
 style = "bold italic bright-blue"
@@ -201,6 +201,7 @@ modified = "[●◦](italic yellow)"
 staged = "[▪┤[$count](bold white)│](italic bright-cyan)"
 renamed = "[◎◦](italic bright-blue)"
 deleted = "[✕](italic red)"
+disabled = true
 
 [env_var.yazi_level]
 description = "Indicate the shell was launched by `yazi`"
@@ -334,3 +335,8 @@ unknown_msg = '[◌](bold dimmed yellow)'
 [spack]
 symbol = "◇ "
 format = " spack [$symbol$environment]($style)"
+
+[custom.jj]
+when = "jj-starship detect"
+shell = ["jj-starship"]
+format = "$output "
