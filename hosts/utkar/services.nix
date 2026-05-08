@@ -15,12 +15,12 @@
       stateDir = "${config.users.users.utkar.home}/hermes";
       workingDirectory = "${config.users.users.utkar.home}/dotfiles";
       addToSystemPackages = true;
-      extraPackages = with pkgs; [
-        agent-browser
-        curl
-        google-chrome
-        chromium
-      ];
+      # extraPackages = with pkgs; [
+      #   agent-browser
+      #   curl
+      #   google-chrome
+      #   chromium
+      # ];
       restartSec = 5;
       container = {
         backend = "podman";

@@ -53,6 +53,7 @@
       zstyle ':zephyr:plugin:editor' dot-expansion yes
       zstyle ':zephyr:plugin:editor' magic-enter yes
       zstyle ':zephyr:plugin:editor' automatic-glob-alias yes
+      source <(COMPLETE=zsh jj)
     '';
 
     antidote = {
