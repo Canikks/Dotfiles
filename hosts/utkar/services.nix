@@ -37,7 +37,7 @@
         compression = {
           enabled = true;
           threshold = 0.75;
-          sommary_model = "google/gemma-4-26b-a4b-it:free";
+          summary_model = "google/gemma-4-26b-a4b-it:free";
         };
         memory = {
           memory_enabled = true;

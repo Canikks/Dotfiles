@@ -101,9 +101,9 @@
 
   outputs = inputs: let
     system = "x86_64-linux";
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
   in {
-    formatter.${system} = inputs.nixpkgs.${pkgs}.alejandra;
+    formatter.${system} = pkgs.alejandra;
     nixosConfigurations.utkar = inputs.nixpkgs.lib.nixosSystem {
       system = "${system}";
       specialArgs = {inherit inputs;};
@@ -129,7 +129,6 @@
         stylix.nixosModules.stylix
         dms-plugin-registry.modules.default
         hermes-agent.nixosModules.default
-        # noctalia.nixosModules.default
         optnix.nixosModules.optnix
         {
           home-manager.useGlobalPkgs = false;

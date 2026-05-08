@@ -84,7 +84,7 @@ in {
     python3
     uv
     nushell
-    devenv
+    # devenv
     tesseract
     translate-shell
     slurp

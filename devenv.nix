@@ -22,11 +22,9 @@
     sops
     age
     ssh-to-age
-    treefmt
     nixd
     alejandra
     deadnix
-    lua-language-server
   ];
 
   # cachix = {
