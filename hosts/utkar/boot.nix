@@ -16,6 +16,9 @@
     };
 
     # --- Kernel & Initrd ---
+    plymouth = {
+      enable = true;
+    };
     tmp.tmpfsHugeMemoryPages = "within_size";
     tmp.useTmpfs = true;
     initrd.systemd.enable = true;
