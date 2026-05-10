@@ -8,6 +8,7 @@
     ./zen-stuff/mods.nix
     ./zen-stuff/pref.nix
     ./zen-stuff/search-engine.nix
+    ./zen-stuff/containers.nix
   ];
   programs.zen-browser = {
     enable = true;
