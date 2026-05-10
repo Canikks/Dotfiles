@@ -2,7 +2,10 @@
   environment = {
     enableAllTerminfo = true;
     localBinInPath = true;
-    pathsToLink = ["/share/zsh" "/share/fish"];
+    pathsToLink = [
+      "/share/zsh"
+      "/share/fish"
+    ];
 
     sessionVariables = {
       # --- Graphics & Wayland ---
