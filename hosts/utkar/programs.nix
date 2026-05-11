@@ -16,61 +16,6 @@ in {
     zsh = {
       enable = true;
     };
-    xonsh = {
-      enable = false;
-      package = pkgs.xonsh;
-      extraPackages = ps: [
-        pkgs.nur.repos.xonsh-xontribs.xontrib-fish-completer
-        pkgs.nur.repos.xonsh-xontribs.xontrib-whole-word-jumping
-        pkgs.nur.repos.xonsh-xontribs.xontrib-abbrevs
-        pkgs.nur.repos.xonsh-xontribs.xontrib-term-integrations
-      ];
-      config = ''
-        # --- Core Init ---
-        $XONSH_SHOW_TRACEBACK = False
-        $SUPPRESS_ACTIVATE_MESSAGE = True
-
-        # Initialize tools efficiently
-        execx($(starship init xonsh))
-        execx($(zoxide init xonsh), 'exec')
-
-        # --- Load Xontribs ---
-        xontrib load fish_completer whole_word_jumping abbrevs
-
-        # --- QoL Configuration ---
-        $XONSH_HISTORY_BACKEND = 'json'
-        $HISTCONTROL = 'ignoredups'
-        $XONSH_AUTOPAIR = True
-        $CASE_SENSITIVE_COMPLETIONS = False
-        $FZF_WIDGETS_OPTS = {'height': '40%', 'layout': 'reverse', 'border': 'rounded'}
-
-        # --- Aliases (Optimized) ---
-        # Using a dictionary for batch updates is cleaner in Python/Xonsh!
-        if $(which lsd):
-            aliases.update({
-                'tree': 'lsd --tree',
-            })
-
-        if $(which bat):
-            aliases['cat'] = 'bat --style=plain'
-
-        aliases.update({
-            'grep': 'grep --color=auto',
-            '..': 'cd ..',
-            '...': 'cd ../..',
-            'nls': 'nixos-cli generation list', # Added for your nixos-cli!
-        })
-
-        # --- Abbreviations ---
-        abbrevs.update({
-            'gco': 'git checkout',
-            'gst': 'git status',
-            'gp': 'git push',
-            'gcm': 'git commit -m', # Extra sparkle!
-            'gl': 'git log --oneline --graph --all', # Extra sparkle!
-        })
-      '';
-    };
     optnix = {
       enable = true;
       settings = {
@@ -97,7 +42,7 @@ in {
                 nvf.homeManagerModules.default
                 sops-nix.homeManagerModules.sops
                 dms-plugin-registry.modules.default
-                zen-browser.homeModules.beta
+                zen-browser.homeModules.twilight
                 noctalia.homeModules.default
                 stylix.homeModules.stylix
                 optnix.homeModules.optnix
