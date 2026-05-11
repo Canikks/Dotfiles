@@ -1,13 +1,14 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   networking = {
     # --- General Settings ---
     useDHCP = false;
     hostName = "utkar";
-    usePredictableInterfaceNames = true;
+    usePredictableInterfaceNames = lib.mkDefault true;
     nameservers = ["127.0.0.1" "::1"];
 
     nat = {

@@ -134,7 +134,7 @@
           home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
-          home-manager.extraSpecialArgs = {inherit inputs self;};
+          home-manager.extraSpecialArgs = {inherit inputs self system;};
           home-manager.users.utkar = import ./home/utkar/home.nix;
           home-manager.startAsUserService = true;
           home-manager.verbose = true;

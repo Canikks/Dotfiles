@@ -79,6 +79,7 @@ in {
     greetd
     gnome.gvfs
     (lib.hiPrio uutils-coreutils-noprefix)
+    gdu
 
     # --- Development & CLI Tools ---
     python3
@@ -193,6 +194,7 @@ in {
     yaziPlugins.starship
     yaziPlugins.git
     yaziPlugins.jjui
+    yaziPlugins.chmod
 
     # --- Others & Custom Repos ---
     app2unit

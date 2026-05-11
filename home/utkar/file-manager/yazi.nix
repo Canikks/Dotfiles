@@ -32,6 +32,7 @@
       starship = pkgs.yaziPlugins.starship;
       git = pkgs.yaziPlugins.git;
       jjui = pkgs.yaziPlugins.jjui;
+      chmod = pkgs.yaziPlugins.chmod;
     };
     settings = {
       opener = {

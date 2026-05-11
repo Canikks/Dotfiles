@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   hardware = {
     # --- General ---
+    ksm.enable = true;
     enableRedistributableFirmware = true;
 
     # --- GPU & Graphics ---

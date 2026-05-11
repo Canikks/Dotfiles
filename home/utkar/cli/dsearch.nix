@@ -1,11 +1,12 @@
 {
   pkgs,
   inputs,
+  system,
   ...
 }: {
   programs.dsearch = {
     enable = true;
-    package = inputs.dsearch.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.dsearch.packages.${system}.default;
     config = {
       index_all_files = true;
       index_path = "~/.cache/danksearch/index";

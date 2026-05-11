@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   environment = {
-    enableAllTerminfo = true;
+    enableAllTerminfo = false;
     localBinInPath = true;
     pathsToLink = [
       "/share/zsh"

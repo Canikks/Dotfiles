@@ -26,5 +26,6 @@
     ./fastfetch.nix
     ./aichat.nix
     ./optnix.nix
+    ./broot.nix
   ];
 }
