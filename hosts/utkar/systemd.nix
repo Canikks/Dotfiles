@@ -20,7 +20,7 @@
 
     # --- Tmpfiles ---
     tmpfiles.rules = [
-      "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware}"
+      "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware"
     ];
   };
 }
