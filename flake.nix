@@ -59,6 +59,8 @@
     hermes-agent.url = "github:NousResearch/hermes-agent";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     jj-starship.url = "github:dmmulroy/jj-starship";
+    multios-usb.url = "github:Mexit/MultiOS-USB";
+    quickemu.url = "github:quickemu-project/quickemu";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

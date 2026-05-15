@@ -48,6 +48,7 @@ in {
     inputs.millennium.overlays.default
     inputs.nh.overlays.default
     inputs.jj-starship.overlays.default
+    inputs.quickemu.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
@@ -80,6 +81,7 @@ in {
     gnome.gvfs
     (lib.hiPrio uutils-coreutils-noprefix)
     gdu
+    quickemu
 
     # --- Development & CLI Tools ---
     python3
@@ -202,8 +204,8 @@ in {
     nur.repos.lonerOrz.surge
     nur.repos.lonerOrz.helium
     # nur.repos.nakido.zellij-forgot
-    nur.repos.xddxdd.magiskboot
-    python314Packages.aria2p
+    # nur.repos.xddxdd.magiskboot
+    # python314Packages.aria2p
     fcitx5
   ];
 }
