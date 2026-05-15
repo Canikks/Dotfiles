@@ -1,5 +1,4 @@
 {...}: {
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1".containersForce = true;
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".containers = {
     Personal = {
       color = "blue";

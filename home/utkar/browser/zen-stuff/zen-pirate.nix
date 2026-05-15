@@ -4,14 +4,18 @@
       id = "f73cc43e-86fd-4bea-b956-7f95f3602f61";
       isGroup = true;
       editedTitle = true;
+      isFolderCollapsed = true;
       position = 501;
       workspace = "42628f8d-0ff9-4d47-adf7-d5322fde01fb";
+      container = 5;
     };
     "Island" = {
       id = "9c4b8ac3-d8d4-4f36-bb4d-3f29ed53e8c9";
       url = "https://www.reddit.com/r/Piracy/wiki/megathread/";
       folderParentId = "f73cc43e-86fd-4bea-b956-7f95f3602f61";
+      editedTitle = true;
       position = 502;
+      container = 5;
     };
   };
 }
