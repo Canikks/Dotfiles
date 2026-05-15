@@ -9,6 +9,7 @@
     enableCompletion = false;
     syntaxHighlighting.enable = false;
     autosuggestion.enable = false;
+    zprof.enable = false;
 
     history.size = 10000;
     setOptions = [
@@ -28,7 +29,7 @@
       man = "batman";
       bg = "batgrep";
       diff = "batdiff";
-      rg = "rg --hyperlink-format=kitty";
+      # rg = "rg --hyperlink-format=kitty";
       gpra = "git pull --rebase --autostash";
       df = "duf";
       curl = "curlie";
@@ -46,8 +47,11 @@
 
       # Completion Enhancements 🌈
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case-insensitive completion
+      zstyle ':completion:*:descriptions' format '[%d]'
       zstyle ':completion:*' group-name              # Group completions
-      zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f' # Cute descriptions
+      zstyle ':completion:*' menu no
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath'
+      zstyle ':fzf-tab:*' switch-group '<' '>'
 
       alias -s {md,txt,json,yaml,toml,xml,conf,ini,log}=bat
       zstyle ':zephyr:plugin:editor' dot-expansion yes
@@ -65,13 +69,10 @@
           mattmc3/zephyr path:plugins/utility
           mattmc3/zephyr path:plugins/directory
           mattmc3/zephyr path:plugins/zfunctions
-
-          # "mattmc3/zephyr path:plugins/compstyle"
           mattmc3/zephyr path:plugins/completion
+
           zsh-users/zsh-completions
           Aloxaf/fzf-tab
-
-          QuarticCat/zsh-smartcache
 
           nix-community/nix-zsh-completions
           zsh-users/zsh-autosuggestions kind:defer
