@@ -56,7 +56,7 @@
       url = "github:mahaveergurjar/sddm/noctalia";
       flake = false;
     };
-    hermes-agent.url = "github:NousResearch/hermes-agent";
+    hermes-agent.url = "github:NousResearch/hermes-agent/a91a57fa5a13d516c38b07a141a9ce8a3daabeb0";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
