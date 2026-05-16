@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./floorp.nix
     ./qutebrowser.nix

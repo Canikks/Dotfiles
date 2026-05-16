@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./ghostty.nix
     ./rio.nix
