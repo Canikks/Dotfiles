@@ -5,14 +5,15 @@
 }: {
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.ghostty-releasefast;
     enableFishIntegration = true;
+    enableZshIntegration = true;
     installBatSyntax = true;
     installVimSyntax = true;
     systemd.enable = true;
     settings = {
       font-family = "MesloLGS Nerd Font";
-      font-size = 12;
+      font-size = 11;
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;

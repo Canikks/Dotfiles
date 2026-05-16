@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.neovide = {
     enable = false;
     settings = {

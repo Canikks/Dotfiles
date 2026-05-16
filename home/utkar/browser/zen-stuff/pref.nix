@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".settings = {
     "browser.sessionstore.interval" = 15000;
     "browser.sessionstore.max_tabs_undo" = 5;
@@ -62,5 +62,6 @@
     "browser.ml.enable" = true;
     "browser.ml.chat.enabled" = false;
     "sine.engine.auto-update" = false;
+    "zen.welcome-screen.seen" = true;
   };
 }

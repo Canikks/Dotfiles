@@ -15,6 +15,7 @@
       createUser = false;
       stateDir = "${config.users.users.utkar.home}/hermes";
       workingDirectory = "${config.users.users.utkar.home}/dotfiles";
+      extraDependencyGroups = ["hindsight" "messaging"];
       addToSystemPackages = true;
       # extraPackages = with pkgs; [
       #   agent-browser
@@ -46,7 +47,7 @@
         };
         model.provider = "openrouter";
         model.base_url = "https://openrouter.ai/api/v1";
-        model.default = "deepseek/deepseek-v4-flash";
+        model.default = "inclusionai/ring-2.6-1t";
         terminal.backend = "local";
         toolsets = ["all"];
       };

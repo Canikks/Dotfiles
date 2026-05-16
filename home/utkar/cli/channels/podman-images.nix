@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.television.channels = {
     "podman-images" = {
       metadata = {

@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.helix.languages = {
     language = [
       {

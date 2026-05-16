@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.optnix = {
     enable = false;
   };

@@ -34,7 +34,7 @@
     rio.url = "github:raphamorim/rio/main";
     ghostty.url = "github:ghostty-org/ghostty";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake/feat/modern-sine-support";
     nur.url = "github:nix-community/NUR";
     nh.url = "github:nix-community/nh";
     nix-search-tv.url = "github:3timeslazy/nix-search-tv";
@@ -61,7 +61,7 @@
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
     quickemu.url = "github:quickemu-project/quickemu";
-    surge.url = "github:SurgeDM/Surge";
+    surge.url = "github:SurgeDM/Surge/eebbc055baccff30de013e28d7de3ec4927a5ce6";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

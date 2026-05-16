@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.eza = {
     enable = false;
     git = true;

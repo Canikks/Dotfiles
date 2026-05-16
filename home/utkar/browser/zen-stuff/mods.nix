@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".sine.mods = [
     "advanced-tab-groups"
     "Arc-2.0"
@@ -16,7 +16,6 @@
     "floating-findbar"
     "compact-settings"
     "unloaded-tabs"
-    "wireframe-2.0"
     "zen-library"
     "bubble-pop-deleting"
   ];

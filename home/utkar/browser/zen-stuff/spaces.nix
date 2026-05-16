@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1" = {
     spaces = {
       "Home" = {

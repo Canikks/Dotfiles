@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.television.channels = {
     tldr = {
       metadata = {

@@ -75,7 +75,7 @@ in {
       package = pkgs.niri-unstable;
     };
     hyprland = {
-      enable = false;
+      enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       withUWSM = false;
@@ -181,7 +181,7 @@ in {
 
     # --- Desktop & UI Enhancements ---
     dank-material-shell = {
-      enable = false;
+      enable = true;
       enableSystemMonitoring = true;
       enableVPN = true;
       enableDynamicTheming = true;
@@ -209,6 +209,19 @@ in {
         aiAssistant.enable = true;
         screenRecorder.enable = true;
         usbManager.enable = true;
+        ocrScanner.enable = true;
+        bongoCat.enable = true;
+        nixPackageRunner.enable = true;
+        mediaControlPlus.enable = true;
+        dms-common = {
+          src = pkgs.fetchFromGitHub {
+            owner = "hthienloc";
+            repo = "dms-common";
+            rev = "ae66a020129e6226d28dc6e581a21bf68087efc6";
+            sha256 = "sha256-nLY1oeSOocma2dOWMfU9Yz+wAFHYSg4MyZpjSi4I+pg=";
+          };
+        };
+        lutrisLauncher.enable = true;
       };
       systemd = {
         enable = true;

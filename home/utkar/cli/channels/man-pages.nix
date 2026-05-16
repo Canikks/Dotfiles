@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.television.channels = {
     man-pages = {
       metadata = {
