@@ -3,12 +3,6 @@
     # --- Hardware & TPM ---
     tpm2.enable = true;
 
-    # --- System Units ---
-    additionalUpstreamSystemUnits = [
-      "soft-reboot.target"
-      "systemd-soft-reboot.service"
-    ];
-
     # --- User Services & Targets ---
     user.services.niri-flake-polkit.enable = false;
     user.targets = {
