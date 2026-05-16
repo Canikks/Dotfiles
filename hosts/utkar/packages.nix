@@ -23,6 +23,14 @@
       runHook postInstall
     '';
   };
+  ns = pkgs.writeShellApplication {
+    name = "ns";
+    runtimeInputs = with pkgs; [
+      fzf
+      nix-search-tv
+    ];
+    text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
+  };
 in {
   nixpkgs.overlays = [
     (final: prev: {
@@ -83,6 +91,7 @@ in {
     (lib.hiPrio uutils-coreutils-noprefix)
     gdu
     quickemu
+    ns
 
     # --- Development & CLI Tools ---
     python3
