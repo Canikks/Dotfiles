@@ -25,8 +25,6 @@ in {
             options-list-file = optnixLib.mkOptionsList {inherit options;};
             # For flake systems
             evaluator = "nix eval ${config.users.users.utkar.home}/dotfiles#nixosConfigurations.utkar.config.{{ .Option }}";
-            # For legacy systems
-            # evaluator = "nix-instantiate --eval '<nixpkgs/nixos>' -A config.{{ .Option }}";
           };
           home-manager = {
             description = "home-manager options for all systems";
