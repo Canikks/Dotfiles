@@ -18,6 +18,8 @@
 
   env.SOPS_AGE_KEY_FILE = "/home/utkar/.config/sops/age/keys.txt";
 
+  delta.enable = true;
+
   packages = with pkgs; [
     sops
     age
@@ -44,6 +46,6 @@
 
   enterShell = ''
     echo $GREETING
-    echo "Run 'rebuild-flake' to apply system changes."
+    echo "Run 'nixos apply' to apply system changes."
   '';
 }

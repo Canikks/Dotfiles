@@ -59,7 +59,7 @@ in {
       enableXonshIntegration = true;
     };
     direnv = {
-      enable = true;
+      enable = false;
       enableFishIntegration = true;
       enableXonshIntegration = true;
       nix-direnv.enable = true;

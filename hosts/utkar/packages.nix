@@ -49,6 +49,7 @@ in {
     inputs.nh.overlays.default
     inputs.jj-starship.overlays.default
     inputs.quickemu.overlays.default
+    inputs.devenv.overlays.default
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
@@ -87,7 +88,7 @@ in {
     python3
     uv
     nushell
-    # devenv
+    devenv
     tesseract
     translate-shell
     slurp
@@ -201,7 +202,6 @@ in {
     # --- Others & Custom Repos ---
     app2unit
     runapp
-    # nur.repos.lonerOrz.surge
     nur.repos.lonerOrz.helium
     # nur.repos.nakido.zellij-forgot
     # nur.repos.xddxdd.magiskboot

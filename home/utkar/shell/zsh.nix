@@ -58,6 +58,7 @@
       zstyle ':zephyr:plugin:editor' magic-enter yes
       zstyle ':zephyr:plugin:editor' automatic-glob-alias yes
       source <(COMPLETE=zsh jj)
+      eval "$(devenv hook zsh)"
     '';
 
     antidote = {
