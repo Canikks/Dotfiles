@@ -3808,6 +3808,7 @@
         "sops-nix": "sops-nix",
         "stable-nixpkgs": "stable-nixpkgs",
         "stylix": "stylix",
+        "surge": "surge",
         "television": "television",
         "treefmt-nix": "treefmt-nix_4",
         "wezterm": "wezterm",
@@ -4060,6 +4061,26 @@
       "original": {
         "owner": "nix-community",
         "repo": "stylix",
+        "type": "github"
+      }
+    },
+    "surge": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778823636,
+        "narHash": "sha256-EyZIDq2mSHRxaF7iJhFfkuokeWRkbGfYl0s0cryN/R0=",
+        "owner": "SurgeDM",
+        "repo": "Surge",
+        "rev": "eebbc055baccff30de013e28d7de3ec4927a5ce6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SurgeDM",
+        "repo": "Surge",
         "type": "github"
       }
     },

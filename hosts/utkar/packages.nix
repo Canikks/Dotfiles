@@ -201,7 +201,7 @@ in {
     # --- Others & Custom Repos ---
     app2unit
     runapp
-    nur.repos.lonerOrz.surge
+    # nur.repos.lonerOrz.surge
     nur.repos.lonerOrz.helium
     # nur.repos.nakido.zellij-forgot
     # nur.repos.xddxdd.magiskboot

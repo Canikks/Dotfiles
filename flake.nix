@@ -61,6 +61,7 @@
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
     quickemu.url = "github:quickemu-project/quickemu";
+    surge.url = "github:SurgeDM/Surge";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -99,6 +100,7 @@
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     television.inputs.nixpkgs.follows = "nixpkgs";
     millennium.inputs.nixpkgs.follows = "nixpkgs";
+    surge.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
@@ -132,6 +134,7 @@
         dms-plugin-registry.modules.default
         hermes-agent.nixosModules.default
         optnix.nixosModules.optnix
+        surge.nixosModules.default
         {
           home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;

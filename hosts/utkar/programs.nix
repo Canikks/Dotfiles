@@ -154,6 +154,9 @@ in {
     bat = {
       enable = false;
     };
+    surge = {
+      enable = true;
+    };
 
     # --- Gaming ---
     steam = {
