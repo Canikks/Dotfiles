@@ -1,4 +1,6 @@
-{...}: {
+{config, ...}: let
+  zen-work = config.programs.zen-browser.profiles."Dw3oaFqL.Profile 1".spaces."AI";
+in {
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".pins = {
     "Ai" = {
       id = "0e04d166-0338-4971-862e-d4d924ed0e86";
@@ -6,7 +8,7 @@
       editedTitle = true;
       isFolderCollapsed = true;
       position = 401;
-      workspace = "03383203-eacc-41dd-ad7c-3db0597c4bf7";
+      workspace = zen-work.id;
       container = 4;
     };
     "Mistral" = {

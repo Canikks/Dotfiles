@@ -1,4 +1,6 @@
-{...}: {
+{config, ...}: let
+  zen-work = config.programs.zen-browser.profiles."Dw3oaFqL.Profile 1".spaces."Pirate";
+in {
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".pins = {
     "Pirate" = {
       id = "f73cc43e-86fd-4bea-b956-7f95f3602f61";
@@ -6,7 +8,7 @@
       editedTitle = true;
       isFolderCollapsed = true;
       position = 501;
-      workspace = "42628f8d-0ff9-4d47-adf7-d5322fde01fb";
+      workspace = zen-work.id;
       container = 5;
     };
     "Island" = {

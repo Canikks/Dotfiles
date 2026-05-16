@@ -1,4 +1,6 @@
-{...}: {
+{config, ...}: let
+  zen-work = config.programs.zen-browser.profiles."Dw3oaFqL.Profile 1".spaces."Reddit";
+in {
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".pins = {
     "Reddit" = {
       id = "80d4e296-2e9c-43fb-bf98-341347f36e7c";
@@ -6,7 +8,7 @@
       editedTitle = true;
       isFolderCollapsed = true;
       position = 201;
-      workspace = "fffc3cab-54b3-4d28-a1fd-e194c29b7564";
+      workspace = zen-work.id;
       container = 3;
     };
     "Niri" = {

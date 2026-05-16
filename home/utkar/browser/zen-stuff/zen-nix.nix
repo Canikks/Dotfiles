@@ -1,4 +1,6 @@
-{...}: {
+{config, ...}: let
+  zen-work = config.programs.zen-browser.profiles."Dw3oaFqL.Profile 1".spaces."Nix";
+in {
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".pins = {
     "Nix" = {
       id = "ad0e571c-9d2c-4775-8813-c3094e32e3b6";
@@ -6,7 +8,7 @@
       isFolderCollapsed = true;
       editedTitle = true;
       position = 301;
-      workspace = "c5aa96a0-3d36-4f66-9c1a-80d8988b1b42";
+      workspace = zen-work.id;
     };
     "Awesome-nix" = {
       id = "e2d50146-4942-420e-8cb3-6204a2fc87ed";
@@ -42,7 +44,7 @@
       editedTitle = true;
       position = 306;
       isFolderCollapsed = true;
-      workspace = "c5aa96a0-3d36-4f66-9c1a-80d8988b1b42";
+      workspace = zen-work.id;
     };
     "Nix-Cachyos-Kernel" = {
       id = "80e44634-e116-445b-816b-db2a4de12a04";

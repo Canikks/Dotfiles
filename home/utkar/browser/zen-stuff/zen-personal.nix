@@ -1,4 +1,6 @@
-{...}: {
+{config, ...}: let
+  zen-work = config.programs.zen-browser.profiles."Dw3oaFqL.Profile 1".spaces."Home";
+in {
   programs.zen-browser.profiles."Dw3oaFqL.Profile 1".pins = {
     "Personal" = {
       id = "5aa9b844-0efc-4462-8c1d-054f77abebab";
@@ -6,7 +8,7 @@
       editedTitle = true;
       isFolderCollapsed = true;
       position = 102;
-      workspace = "7b455a24-8438-46da-8682-631ce274b2fc";
+      workspace = zen-work.id;
       container = 1;
     };
     "Youtube" = {
