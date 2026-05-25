@@ -34,7 +34,7 @@
     rio.url = "github:raphamorim/rio/main";
     ghostty.url = "github:ghostty-org/ghostty";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake/feat/modern-sine-support";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nur.url = "github:nix-community/NUR";
     nh.url = "github:nix-community/nh";
     nix-search-tv.url = "github:3timeslazy/nix-search-tv";
@@ -57,11 +57,13 @@
       flake = false;
     };
     hermes-agent.url = "github:NousResearch/hermes-agent/a91a57fa5a13d516c38b07a141a9ce8a3daabeb0";
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    millennium.url = "github:SteamClientHomebrew/Millennium/11bebe4e5d2dea6246721241dc31c70d57d05129?dir=packages/nix";
+    # millennium.url = "git+file:///home/utkar/Millennium/packages/nix/flake.nix";
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
     quickemu.url = "github:quickemu-project/quickemu";
     surge.url = "github:SurgeDM/Surge/eebbc055baccff30de013e28d7de3ec4927a5ce6";
+    yazelix-hm.url = "github:luccahuguet/yazelix";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -99,8 +101,9 @@
     jjui.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     television.inputs.nixpkgs.follows = "nixpkgs";
-    millennium.inputs.nixpkgs.follows = "nixpkgs";
+    # millennium.inputs.nixpkgs.follows = "nixpkgs";
     surge.inputs.nixpkgs.follows = "nixpkgs";
+    yazelix-hm.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
