@@ -5,9 +5,9 @@
 }: {
   programs.yazi = {
     enable = true;
-    # package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-    #   _7zz = pkgs._7zz-rar;
-    # };
+    package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      _7zz = pkgs._7zz-rar;
+    };
     shellWrapperName = "y";
     theme = {
       flavor = {
@@ -51,27 +51,27 @@
       plugin = {
         prepend_fetchers = [
           {
-            id = "git";
+            group = "git";
             url = "*";
             run = "git";
           }
           {
-            id = "git";
+            group = "git";
             url = "*/";
             run = "git";
           }
         ];
         prepend_previewers = [
           {
-            name = "*.csv";
+            mime = "*.csv";
             run = "bat --color=always --style=plain --paging=never --wrap=never \"$1\"";
           }
           {
-            name = "*.md";
+            mime = "*.md";
             run = "bat --color=always --style=plain --paging=never \"$1\"";
           }
           {
-            name = "*.nix";
+            mime = "*.nix";
             run = "bat --color=always --style=plain --paging=never \"$1\"";
           }
           {

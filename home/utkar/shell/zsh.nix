@@ -61,7 +61,6 @@
         zstyle ':zephyr:plugin:editor' glob-alias no
         zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
         source <(COMPLETE=zsh jj)
-        eval "$(devenv hook zsh)"
 
         # Start tmux automatically
         export ZSH_TMUX_AUTOSTART=true

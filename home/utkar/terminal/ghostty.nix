@@ -17,19 +17,18 @@
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;
-      background-opacity = 0.90;
+      background-opacity = 0.85;
       keybind = [
         "alt+left=unbind"
         "alt+right=unbind"
         "alt+up=unbind"
         "alt+down=unbind"
-        "alt+t=toggle_quick_terminal"
       ];
       custom-shader = [
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
         "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"
       ];
-      theme = "noctalia";
+      theme = "dankcolors";
       cursor-style = "block";
       unfocused-split-opacity = 0.7;
       unfocused-split-fill = "#44464f";
@@ -37,7 +36,7 @@
       gtk-toolbar-style = "flat";
       gtk-tabs-location = "hidden";
       shell-integration = "detect";
-      shell-integration-features = "sudo,title,no-cursor";
+      shell-integration-features = "no-cursor";
     };
   };
   xdg.configFile."ghostty/shaders" = {

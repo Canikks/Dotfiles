@@ -68,7 +68,7 @@
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
+    # niri.inputs.nixpkgs.follows = "nixpkgs";
     # nirinit.inputs.nixpkgs.follows = "nixpkgs";
     dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
     dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";

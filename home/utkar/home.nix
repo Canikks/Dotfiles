@@ -17,6 +17,7 @@
     inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
     inputs.optnix.homeModules.optnix
+    inputs.yazelix-hm.homeManagerModules.default
 
     # SHELL CONFIG
     ./shell
@@ -60,6 +61,7 @@
   home.shell.enableZshIntegration = true;
 
   nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
+  nixpkgs.config = self.nixosConfigurations.utkar.config.nixpkgs.config;
 
   # stylix.base16Scheme = "/home/utkar/.config/DankMaterialShell/base16.yaml";
   # stylix.targets.helix.enable = true;

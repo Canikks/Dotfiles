@@ -92,6 +92,9 @@ in {
     gdu
     quickemu
     ns
+    acpi
+    acpid
+    acpic
 
     # --- Development & CLI Tools ---
     python3
@@ -131,7 +134,7 @@ in {
     wineWow64Packages.waylandFull
 
     # --- Multimedia & Graphics ---
-    ffmpeg-full
+    # ffmpeg-full
     imagemagick
     pwvucontrol
     cbonsai

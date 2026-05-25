@@ -39,7 +39,7 @@
         compression = {
           enabled = true;
           threshold = 0.75;
-          summary_model = "google/gemma-4-26b-a4b-it:free";
+          summary_model = "deepseek/deepseek-v4-flash";
         };
         memory = {
           memory_enabled = true;
@@ -47,7 +47,7 @@
         };
         model.provider = "openrouter";
         model.base_url = "https://openrouter.ai/api/v1";
-        model.default = "inclusionai/ring-2.6-1t";
+        model.default = "deepseek/deepseek-v4-flash";
         terminal.backend = "local";
         toolsets = ["all"];
       };
