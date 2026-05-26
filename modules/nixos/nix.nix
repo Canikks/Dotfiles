@@ -94,4 +94,6 @@
       ];
     };
   };
+
+  nixpkgs.config.allowUnfree = true;
 }

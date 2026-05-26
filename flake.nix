@@ -8,6 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     nixd.url = "github:nix-community/nixd";
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-cli.url = "github:nix-community/nixos-cli";
@@ -109,59 +110,20 @@
     yazelix-hm.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs: let
-    system = "x86_64-linux";
-    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-  in {
-    formatter.${system} = pkgs.alejandra;
-    nixosConfigurations.utkar = inputs.nixpkgs.lib.nixosSystem {
-      system = "${system}";
-      specialArgs = {inherit inputs;};
-      modules = with inputs; [
-        ./hosts/utkar/configuration.nix
-        niri-autoselect-portal.nixosModules.default
-        niri.nixosModules.niri
-        hyprland.nixosModules.default
-        dank-material-shell.nixosModules.greeter
-        dank-material-shell.nixosModules.dank-material-shell
-        home-manager.nixosModules.home-manager
-        nur.modules.nixos.default
-        nur.repos.iopq.modules.nixos.xraya
-        nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
-        nix-index-database.nixosModules.nix-index
-        # mango.nixosModules.mango
-        nixos-hardware.nixosModules.common-cpu-intel
-        nixos-hardware.nixosModules.common-gpu-intel
-        nixos-hardware.nixosModules.common-pc-laptop-ssd
-        sops-nix.nixosModules.sops
-        nixos-cli.nixosModules.nixos-cli
-        # nirinit.nixosModules.nirinit
-        stylix.nixosModules.stylix
-        dms-plugin-registry.modules.default
-        hermes-agent.nixosModules.default
-        optnix.nixosModules.optnix
-        surge.nixosModules.default
-        # nyx-loner.nixosModules.default
-        tlp-power-profile.nixosModules.default
-        chaotic.nixosModules.default
-        {
-          home-manager.useGlobalPkgs = false;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "bak";
-          home-manager.extraSpecialArgs = {inherit inputs self system;};
-          home-manager.users.utkar = import ./home/utkar/home.nix;
-          home-manager.startAsUserService = true;
-          home-manager.verbose = true;
-          home-manager.backupCommand = "${pkgs.trash-cli}/bin/trash";
-          home-manager.overwriteBackup = true;
-        }
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+
+      perSystem = { pkgs, ... }: {
+        formatter = pkgs.alejandra;
+        devShells.default = inputs.devenv.lib.mkShell {
+          inherit inputs pkgs;
+          modules = [ ./devenv.nix ];
+        };
+      };
+
+      imports = [
+        ./flake-module.nix
       ];
     };
-    devShells.${system}.default = inputs.devenv.lib.mkShell {
-      inherit inputs pkgs;
-      modules = [
-        ./devenv.nix
-      ];
-    };
-  };
 }
