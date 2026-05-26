@@ -1,31 +1,11 @@
 {
   imports = [
-    ./aria2.nix
-    ./dsearch.nix
-    ./delta.nix
-    ./pay-respects.nix
-    ./fzf.nix
-    ./eza.nix
-    ./lsd.nix
-    ./ripgrep-all.nix
-    ./ripgrep.nix
-    ./fd.nix
+    ./search
+    ./nav
+    ./git
+    ./nix
+    ./system
+    ./tools
     ./television.nix
-    ./nix-search-tv.nix
-    ./nix-your-shell.nix
-    ./home-manager.nix
-    ./nix-index.nix
-    ./tealdeer.nix
-    ./zoxide.nix
-    ./lazygit.nix
-    ./jjui.nix
-    ./git.nix
-    ./jujutsu.nix
-    ./bat.nix
-    ./hyfetch.nix
-    ./fastfetch.nix
-    ./aichat.nix
-    ./optnix.nix
-    ./broot.nix
   ];
 }
