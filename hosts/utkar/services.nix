@@ -17,12 +17,12 @@
       workingDirectory = "${config.users.users.utkar.home}/dotfiles";
       extraDependencyGroups = ["hindsight" "messaging"];
       addToSystemPackages = true;
-      # extraPackages = with pkgs; [
-      #   agent-browser
-      #   curl
-      #   google-chrome
-      #   chromium
-      # ];
+      extraPackages = with pkgs; [
+        agent-browser
+        #   curl
+        #   google-chrome
+        #   chromium
+      ];
       restartSec = 5;
       container = {
         backend = "podman";
@@ -138,6 +138,7 @@
     geoclue2.enable = true;
     upower.enable = true;
     thermald.enable = false;
+    tlpPowerProfile.enable = true;
 
     # --- User & Desktop Services ---
     xserver.enable = false;
@@ -222,11 +223,11 @@
 
     # --- Power & Thermal Management ---
     tuned = {
-      enable = true;
+      enable = false;
       settings.dynamic_tuning = true;
     };
     tlp = {
-      enable = false;
+      enable = true;
       pd.enable = true;
       settings = {
         CPU_BOOST_ON_AC = 1;

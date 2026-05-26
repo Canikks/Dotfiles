@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixos related inputs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -35,7 +35,7 @@
     rio.url = "github:raphamorim/rio/main";
     ghostty.url = "github:ghostty-org/ghostty";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
     nur.url = "github:nix-community/NUR";
     nh.url = "github:nix-community/nh";
     nix-search-tv.url = "github:3timeslazy/nix-search-tv";
@@ -57,7 +57,7 @@
       url = "github:mahaveergurjar/sddm/noctalia";
       flake = false;
     };
-    hermes-agent.url = "github:NousResearch/hermes-agent/a91a57fa5a13d516c38b07a141a9ce8a3daabeb0";
+    hermes-agent.url = "github:NousResearch/hermes-agent";
     millennium.url = "github:SteamClientHomebrew/Millennium/11bebe4e5d2dea6246721241dc31c70d57d05129?dir=packages/nix";
     # millennium.url = "git+file:///home/utkar/Millennium/packages/nix/flake.nix";
     jj-starship.url = "github:dmmulroy/jj-starship";
@@ -65,6 +65,7 @@
     quickemu.url = "github:quickemu-project/quickemu";
     surge.url = "github:SurgeDM/Surge/eebbc055baccff30de013e28d7de3ec4927a5ce6";
     yazelix-hm.url = "github:luccahuguet/yazelix";
+    tlp-power-profile.url = "github:peturh/tlp-power-profile";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -97,7 +98,7 @@
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
     yazi.inputs.nixpkgs.follows = "nixpkgs";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    devenv.inputs.nixpkgs.follows = "nixpkgs";
+    # devenv.inputs.nixpkgs.follows = "nixpkgs";
     pay-respects.inputs.nixpkgs.follows = "nixpkgs";
     jjui.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
@@ -140,6 +141,7 @@
         optnix.nixosModules.optnix
         surge.nixosModules.default
         nyx-loner.nixosModules.default
+        tlp-power-profile.nixosModules.default
         {
           home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;
