@@ -7,7 +7,7 @@
         efiSupport = true;
         efiInstallAsRemovable = true;
         style = {
-          wallpapers = ["/home/utkar/Pictures/Wallpapers/Dark-Waves/P13.png"];
+          wallpapers = ["/home/utkar/Pictures/Wallpapers/asuras-wrath-28382-1920x1080.jpg"];
         };
       };
       efi = {
@@ -24,7 +24,7 @@
     initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "tcp_bbr"

@@ -1,23 +1,29 @@
-local nvim_lsp = require("lspconfig")
-nvim_lsp.nixd.setup({
-	root_dir = nvim_lsp.util.root_pattern("flake.nix", ".git"),
-	cmd = { "nixd" },
+local flake = '(builtins.getFlake "/home/utkar/dotfiles")'
+
+vim.lsp.config("nixd", {
+	root_dir = vim.fs.dirname(vim.fs.find({ "flake.nix", ".git" }, { upward = true })[1]),
+
 	settings = {
 		nixd = {
-			nixpkgs = {
-				expr = 'import (builtins.getFlake "/home/utkar/dotfiles").inputs.nixpkgs { }   ',
-			},
 			formatting = {
 				command = { "alejandra" },
 			},
+
+			nixpkgs = {
+				expr = "import " .. flake .. ".inputs.nixpkgs { }",
+			},
+
 			options = {
 				nixos = {
-					expr = '(builtins.getFlake "/home/utkar/dotfiles").nixosConfigurations.utkar.options',
+					expr = flake .. ".nixosConfigurations.utkar.options",
 				},
+
 				home_manager = {
-					expr = '(builtins.getFlake "/home/utkar/dotfiles").nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []',
+					expr = flake .. ".nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []",
 				},
 			},
 		},
 	},
 })
+
+vim.lsp.enable("nixd")

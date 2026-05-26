@@ -112,6 +112,7 @@ in {
     vscode-json-languageserver
     podman-compose
     jj-starship
+    tree
 
     # --- GUI Applications ---
     vivaldi
@@ -138,6 +139,7 @@ in {
     imagemagick
     pwvucontrol
     cbonsai
+    ueberzugpp
 
     # --- Virtualization & Containers ---
     qemu_kvm

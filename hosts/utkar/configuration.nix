@@ -44,6 +44,11 @@
     enable = true;
     algorithm = "zstd";
   };
+  chaotic = {
+    mesa-git.enable = false;
+    mesa-git.extraPackages = with pkgs; [mesa_git.opencl intel-media-driver intel-ocl intel-vaapi-driver];
+    mesa-git.extraPackages32 = with pkgs.pkgsi686Linux; [pkgs.mesa32_git.opencl intel-media-driver intel-vaapi-driver];
+  };
 
   # --- Appearance & Fonts ---
   stylix.base16Scheme = "${config.users.users.utkar.home}/.config/DankMaterialShell/base16.yaml";
@@ -98,15 +103,15 @@
             "gnome"
             "gtk"
           ];
-          # "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+          "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
           "org.freedesktop.impl.portal.Settings" = [
             "kitty"
             "*"
           ];
-          "org.freedesktop.impl.portal.FileChooser" = [
-            "kitty"
-            "*"
-          ];
+          # "org.freedesktop.impl.portal.FileChooser" = [
+          #   "kitty"
+          #   "*"
+          # ];
           "org.freedesktop.portal.ScreenCast" = [
             "gnome"
           ];
@@ -119,11 +124,11 @@
             "kitty"
             "*"
           ];
-          "org.freedesktop.impl.portal.FileChooser" = [
-            "kitty"
-            "*"
-          ];
-          # "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+          # "org.freedesktop.impl.portal.FileChooser" = [
+          #   "kitty"
+          #   "*"
+          # ];
+          "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
           "org.freedesktop.impl.portal.Access" = [
             "gtk"
           ];

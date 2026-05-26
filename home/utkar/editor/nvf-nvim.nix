@@ -2,16 +2,32 @@
   pkgs,
   inputs,
   ...
-}: let
-  base46 = pkgs.vimUtils.buildVimPlugin {
-    name = "base46";
-    src = inputs.base46-src;
-  };
-in {
+}: {
   programs.nvf = {
-    enable = false;
+    enable = true;
     settings = {
       vim = {
+        lazy.plugins = {
+          base46 = {
+            package = pkgs.vimUtils.buildVimPlugin {
+              pname = "base46";
+              version = "unstable";
+
+              src = inputs.base46-src;
+              doCheck = false;
+            };
+
+            lazy = false;
+            priority = 1000;
+
+            after = ''
+              vim.g.base46_theme = "dms"
+
+              -- Optional integrations config
+              vim.g.base46_transparency = true
+            '';
+          };
+        };
         enableLuaLoader = true;
         syntaxHighlighting = true;
         viAlias = true;
@@ -34,8 +50,8 @@ in {
           formatOnSave = true;
           lspkind.enable = true;
           lightbulb.enable = true;
-          lspsaga.enable = true;
-          otter-nvim.enable = true;
+          lspsaga.enable = false;
+          otter-nvim.enable = false;
           nvim-docs-view.enable = true;
         };
         languages = {
@@ -111,6 +127,7 @@ in {
             gitStatus.enable = true;
           };
           diffview-nvim.enable = true;
+          nix-develop.enable = true;
           yanky-nvim.enable = true;
           yanky-nvim.setupOpts.ring.storage = "sqlite";
           icon-picker.enable = true;
@@ -120,9 +137,9 @@ in {
           smart-splits.enable = true;
           undotree.enable = true;
           motion = {
-            hop.enable = true;
-            leap.enable = true;
-            precognition.enable = true;
+            hop.enable = false;
+            leap.enable = false;
+            precognition.enable = false;
           };
           images.img-clip.enable = true;
         };
@@ -133,10 +150,10 @@ in {
         ui = {
           noice.enable = true;
           modes-nvim.enable = true;
-          illuminate.enable = true;
+          illuminate.enable = false;
           breadcrumbs = {
-            enable = true;
-            navbuddy.enable = true;
+            enable = false;
+            navbuddy.enable = false;
           };
           smartcolumn = {
             enable = true;

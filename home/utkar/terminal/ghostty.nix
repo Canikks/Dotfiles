@@ -35,6 +35,8 @@
       gtk-titlebar = false;
       gtk-toolbar-style = "flat";
       gtk-tabs-location = "hidden";
+      gtk-single-instance = true;
+      linux-cgroup = "single-instance";
       shell-integration = "detect";
       shell-integration-features = "no-cursor";
     };

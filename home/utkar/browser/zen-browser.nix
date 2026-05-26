@@ -3,7 +3,7 @@
   # inputs,
   ...
 }: let
-  profileName = "Dw3oaFqL.Profile 1";
+  profileName = "default";
 in {
   imports = [
     ./zen-stuff
@@ -18,6 +18,7 @@ in {
         sine.enable = true;
         containersForce = true;
         spacesForce = true;
+        pinsForce = true;
       };
     };
     nativeMessagingHosts = [pkgs.firefoxpwa];

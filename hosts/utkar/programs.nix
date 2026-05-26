@@ -16,6 +16,9 @@ in {
     zsh = {
       enable = true;
     };
+    tmux = {
+      enable = true;
+    };
     optnix = {
       enable = true;
       settings = {
@@ -57,8 +60,9 @@ in {
       enableXonshIntegration = true;
     };
     direnv = {
-      enable = false;
+      enable = true;
       enableFishIntegration = true;
+      enableZshIntegration = true;
       enableXonshIntegration = true;
       nix-direnv.enable = true;
     };
@@ -217,7 +221,7 @@ in {
           src = pkgs.fetchFromGitHub {
             owner = "hthienloc";
             repo = "dms-common";
-            rev = "ae66a020129e6226d28dc6e581a21bf68087efc6";
+            rev = "daf201f3d22584ba01931a763d7dbf05811349f7";
             sha256 = "sha256-nLY1oeSOocma2dOWMfU9Yz+wAFHYSg4MyZpjSi4I+pg=";
           };
         };
@@ -225,7 +229,7 @@ in {
       };
       systemd = {
         enable = true;
-        restartIfChanged = true;
+        # restartIfChanged = true;
         target = "niri.service";
       };
       # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;

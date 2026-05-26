@@ -63,7 +63,7 @@
         source <(COMPLETE=zsh jj)
 
         # Start tmux automatically
-        export ZSH_TMUX_AUTOSTART=true
+        export ZSH_TMUX_AUTOSTART=false
 
         # Reattach to existing session
         export ZSH_TMUX_AUTOCONNECT=true

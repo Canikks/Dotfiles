@@ -12,6 +12,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-cli.url = "github:nix-community/nixos-cli";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    nyx-loner.url = "github:lonerOrz/nyx-loner";
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
@@ -96,7 +97,7 @@
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
     yazi.inputs.nixpkgs.follows = "nixpkgs";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    # devenv.inputs.nixpkgs.follows = "nixpkgs";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
     pay-respects.inputs.nixpkgs.follows = "nixpkgs";
     jjui.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
@@ -138,6 +139,7 @@
         hermes-agent.nixosModules.default
         optnix.nixosModules.optnix
         surge.nixosModules.default
+        nyx-loner.nixosModules.default
         {
           home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;
