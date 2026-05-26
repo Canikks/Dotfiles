@@ -4,7 +4,7 @@
   ...
 }: let
   profileName = "Dw3oaFqL.Profile 1";
-in{
+in {
   imports = [
     ./zen-stuff
   ];

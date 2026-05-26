@@ -1,7 +1,10 @@
-{config, profileName, ...}: let
+{
+  config,
+  profileName,
+  ...
+}: let
   zen-work = config.programs.zen-browser.profiles.${profileName}.spaces."Pirate";
   Pirateid = "f73cc43e-86fd-4bea-b956-7f95f3602f61";
-
 in {
   programs.zen-browser.profiles.${profileName}.pins = {
     "Pirate" = {

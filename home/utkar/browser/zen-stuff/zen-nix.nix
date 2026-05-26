@@ -1,6 +1,8 @@
-{ config, profileName, ... }:
-
-let
+{
+  config,
+  profileName,
+  ...
+}: let
   zenWork =
     config.programs.zen-browser.profiles.${profileName}.spaces."Nix";
 
@@ -8,40 +10,38 @@ let
 
   nixProjectsFolderId = "3f8d95dc-0ea3-4f7a-83b6-fae7ee59a651";
 
-  mkFolder =
-    {
-      id,
-      position,
-    }:
-    {
-      inherit id position;
+  mkFolder = {
+    id,
+    position,
+  }: {
+    inherit id position;
 
-      isGroup = true;
-      isFolderCollapsed = true;
-      editedTitle = true;
+    isGroup = true;
+    isFolderCollapsed = true;
+    editedTitle = true;
 
-      workspace = zenWork.id;
-    };
+    workspace = zenWork.id;
+  };
 
-  mkPinnedTab =
-    {
-      url,
-      id,
-      position,
-      folderId ? null,
-    }:
+  mkPinnedTab = {
+    url,
+    id,
+    position,
+    folderId ? null,
+  }:
     {
       inherit url id position;
 
       editedTitle = true;
     }
     // (
-      if folderId != null then {
+      if folderId != null
+      then {
         folderParentId = folderId;
-      } else {
+      }
+      else {
       }
     );
-
 in {
   programs.zen-browser.profiles.${profileName}.pins = {
     Nix = mkFolder {

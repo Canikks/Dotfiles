@@ -1,4 +1,4 @@
-{profileName, ...}:{
+{profileName, ...}: {
   programs.zen-browser.profiles.${profileName}.search = {
     force = true;
     default = "Myxng";

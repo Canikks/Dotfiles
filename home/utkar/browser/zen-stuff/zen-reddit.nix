@@ -1,28 +1,27 @@
-{ config, profileName, ... }:
-
-let
+{
+  config,
+  profileName,
+  ...
+}: let
   zenWork =
     config.programs.zen-browser.profiles.${profileName}.spaces."Reddit";
 
   redditFolderId = "80d4e296-2e9c-43fb-bf98-341347f36e7c";
 
-  mkRedditPin =
-    {
-      subreddit,
-      id,
-      position,
-    }:
-    {
-      inherit id position;
+  mkRedditPin = {
+    subreddit,
+    id,
+    position,
+  }: {
+    inherit id position;
 
-      url = "https://reddit.com/r/${subreddit}/";
+    url = "https://reddit.com/r/${subreddit}/";
 
-      folderParentId = redditFolderId;
+    folderParentId = redditFolderId;
 
-      editedTitle = true;
-      container = 3;
-    };
-
+    editedTitle = true;
+    container = 3;
+  };
 in {
   programs.zen-browser.profiles.${profileName}.pins =
     {

@@ -1,4 +1,8 @@
-{config, profileName, ...}: let
+{
+  config,
+  profileName,
+  ...
+}: let
   zen-work = config.programs.zen-browser.profiles.${profileName}.spaces."AI";
 in {
   programs.zen-browser.profiles.${profileName}.pins = {

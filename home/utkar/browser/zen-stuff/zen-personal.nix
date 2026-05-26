@@ -1,26 +1,25 @@
-{ config, profileName, ... }:
-
-let
+{
+  config,
+  profileName,
+  ...
+}: let
   zenWork =
     config.programs.zen-browser.profiles.${profileName}.spaces."Home";
 
   personalFolderId = "5aa9b844-0efc-4462-8c1d-054f77abebab";
 
-  mkPersonalPin =
-    {
-      url,
-      id,
-      position,
-    }:
-    {
-      inherit url id position;
+  mkPersonalPin = {
+    url,
+    id,
+    position,
+  }: {
+    inherit url id position;
 
-      folderParentId = personalFolderId;
+    folderParentId = personalFolderId;
 
-      editedTitle = true;
-      container = 1;
-    };
-
+    editedTitle = true;
+    container = 1;
+  };
 in {
   programs.zen-browser.profiles.${profileName}.pins =
     {

@@ -1,4 +1,4 @@
-{profileName, ...}:{
+{profileName, ...}: {
   programs.zen-browser.profiles.${profileName}.sine.mods = [
     "advanced-tab-groups"
     "Arc-2.0"
