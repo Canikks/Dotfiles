@@ -21,6 +21,6 @@ in {
         pinsForce = true;
       };
     };
-    nativeMessagingHosts = [pkgs.firefoxpwa];
+    # nativeMessagingHosts = [pkgs.firefoxpwa];
   };
 }

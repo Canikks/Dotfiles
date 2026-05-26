@@ -15,7 +15,6 @@
     setOptions = [
       "HIST_IGNORE_ALL_DUPS"
       "HIST_IGNORE_SPACE"
-      "NOMATCH"
     ];
 
     # sessionVariables = {
@@ -29,12 +28,14 @@
       man = "batman";
       bg = "batgrep";
       diff = "batdiff";
-      # rg = "rg --hyperlink-format=kitty";
+      nix = "noglob nix";
       gpra = "git pull --rebase --autostash";
       df = "duf";
       curl = "curlie";
       cp = "xcp";
       rm = "trash";
+      pass-push = "git -C ~/.local/share/gopass/stores/root push";
+      pass-pull = "git -C ~/.local/share/gopass/stores/root pull --rebase";
     };
 
     initContent = let

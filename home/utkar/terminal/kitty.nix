@@ -32,6 +32,7 @@
       cursor_trail = 1;
       wayland_titlebar_color = "system";
       background_opacity = 0.7;
+      pixel_scroll = "yes";
     };
   };
 }

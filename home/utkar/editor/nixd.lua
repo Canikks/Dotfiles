@@ -26,4 +26,6 @@ vim.lsp.config("nixd", {
 	},
 })
 
+vim.cmd.colorscheme("dms")
+
 vim.lsp.enable("nixd")

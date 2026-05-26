@@ -13,5 +13,6 @@
     localcdn
     enhanced-h264ify
     sponsorblock
+    gopass-bridge
   ];
 }

@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixos related inputs
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -11,8 +11,9 @@
     nixd.url = "github:nix-community/nixd";
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-cli.url = "github:nix-community/nixos-cli";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
-    nyx-loner.url = "github:lonerOrz/nyx-loner";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    # nyx-loner.url = "github:lonerOrz/nyx-loner";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
@@ -140,8 +141,9 @@
         hermes-agent.nixosModules.default
         optnix.nixosModules.optnix
         surge.nixosModules.default
-        nyx-loner.nixosModules.default
+        # nyx-loner.nixosModules.default
         tlp-power-profile.nixosModules.default
+        chaotic.nixosModules.default
         {
           home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;

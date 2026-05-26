@@ -47,6 +47,8 @@ in {
                 noctalia.homeModules.default
                 stylix.homeModules.stylix
                 optnix.homeModules.optnix
+                yazelix-hm.homeManagerModules.default
+                chaotic.homeManagerModules.default
               ];
             };
           };
@@ -93,10 +95,14 @@ in {
 
     # --- System & Utility Tools ---
     nh = {
-      enable = false;
+      enable = true;
+      flake = "${config.users.users.utkar.home}/dotfiles";
+    };
+    less = {
+      enable = true;
     };
     nixos-cli = {
-      enable = true;
+      enable = false;
       option-cache.enable = true;
       activation-interface.enable = true;
       settings = {
@@ -226,6 +232,10 @@ in {
           };
         };
         lutrisLauncher.enable = true;
+        tlpPowerProfile.enable = true;
+        clipboardPlus.enable = true;
+        systemMonitorPlus.enable = true;
+        dankVault.enable = true;
       };
       systemd = {
         enable = true;

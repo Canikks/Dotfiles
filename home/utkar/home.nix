@@ -14,12 +14,12 @@
     inputs.nvf.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.dms-plugin-registry.modules.default
-    inputs.zen-browser.homeModules.twilight
+    inputs.zen-browser.homeModules.beta
     inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
     inputs.optnix.homeModules.optnix
     inputs.yazelix-hm.homeManagerModules.default
-    inputs.nyx-loner.homeManagerModules.default
+    inputs.chaotic.homeManagerModules.default
 
     # SHELL CONFIG
     ./shell

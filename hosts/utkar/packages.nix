@@ -95,6 +95,7 @@ in {
     acpi
     acpid
     acpic
+    hydra-check
 
     # --- Development & CLI Tools ---
     python3
@@ -113,6 +114,8 @@ in {
     podman-compose
     jj-starship
     tree
+    gopass
+    gopass-jsonapi
 
     # --- GUI Applications ---
     vivaldi
@@ -125,6 +128,7 @@ in {
     macchina
     satty
     virt-manager
+    gimp
 
     # --- Gaming & Emulation ---
     glfw3-minecraft

@@ -70,7 +70,7 @@
         "https://cachix.cachix.org"
         "https://noctalia.cachix.org"
         "https://attic.xuyh0120.win/lantian"
-        "https://cache.garnix.io"
+        # "https://cache.garnix.io"
         "https://millennium.cachix.org"
         "https://yazelix.cachix.org"
       ];
@@ -88,7 +88,7 @@
         "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+        # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "millennium.cachix.org-1:oA14n26+32iES+5wBwfPAGR0y4ixRSG4rLMHzFxDwqc="
         "yazelix.cachix.org-1:ZgxIjQvaP0VTWL8Racx27mpUNzDJ97xC2y7QWYjmGNM="
       ];

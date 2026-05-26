@@ -45,9 +45,9 @@
     algorithm = "zstd";
   };
   chaotic = {
-    mesa-git.enable = false;
-    mesa-git.extraPackages = with pkgs; [mesa_git.opencl intel-media-driver intel-ocl intel-vaapi-driver];
-    mesa-git.extraPackages32 = with pkgs.pkgsi686Linux; [pkgs.mesa32_git.opencl intel-media-driver intel-vaapi-driver];
+    mesa-git.enable = true;
+    mesa-git.extraPackages = with pkgs; [mesa_git.opencl libdrm_git intel-media-driver intel-ocl intel-vaapi-driver];
+    mesa-git.extraPackages32 = with pkgs.pkgsi686Linux; [pkgs.mesa32_git.opencl libdrm32_git intel-media-driver intel-vaapi-driver];
   };
 
   # --- Appearance & Fonts ---
@@ -82,6 +82,7 @@
           "org.gnome.Terminal.desktop"
         ];
         default = [
+          "com.mitchellh.ghostty.desktop"
           "kitty.desktop"
         ];
       };
@@ -251,6 +252,7 @@
       "kvm"
       "video"
       "audio"
+      "power"
     ];
     packages = with pkgs; [
       hello

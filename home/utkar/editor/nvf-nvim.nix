@@ -5,6 +5,7 @@
 }: {
   programs.nvf = {
     enable = true;
+    defaultEditor = false;
     settings = {
       vim = {
         lazy.plugins = {
@@ -49,8 +50,8 @@
           null-ls.enable = true;
           formatOnSave = true;
           lspkind.enable = true;
-          lightbulb.enable = true;
-          lspsaga.enable = false;
+          lightbulb.enable = false;
+          lspsaga.enable = true;
           otter-nvim.enable = false;
           nvim-docs-view.enable = true;
         };
@@ -148,6 +149,7 @@
           lazygit.enable = true;
         };
         ui = {
+          ui2.enable = true;
           noice.enable = true;
           modes-nvim.enable = true;
           illuminate.enable = false;
