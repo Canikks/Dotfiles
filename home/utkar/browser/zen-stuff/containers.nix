@@ -1,5 +1,5 @@
-{
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1".containers = {
+{profileName, ...}: {
+  programs.zen-browser.profiles.${profileName}.containers = {
     Personal = {
       color = "blue";
       icon = "fingerprint";

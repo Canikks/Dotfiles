@@ -1,5 +1,5 @@
-{
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1".search = {
+{profileName, ...}:{
+  programs.zen-browser.profiles.${profileName}.search = {
     force = true;
     default = "Myxng";
     engines = {

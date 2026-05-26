@@ -1,5 +1,5 @@
-{
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1".sine.mods = [
+{profileName, ...}:{
+  programs.zen-browser.profiles.${profileName}.sine.mods = [
     "advanced-tab-groups"
     "Arc-2.0"
     "context-menu-icons"

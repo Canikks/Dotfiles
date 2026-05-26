@@ -1,5 +1,5 @@
-{
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1" = {
+{profileName, ...}:{
+  programs.zen-browser.profiles.${profileName} = {
     spaces = {
       "Home" = {
         id = "7b455a24-8438-46da-8682-631ce274b2fc";

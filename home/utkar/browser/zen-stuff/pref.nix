@@ -1,5 +1,5 @@
-{
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1".settings = {
+{profileName, ...}:{
+  programs.zen-browser.profiles.${profileName}.settings = {
     "browser.sessionstore.interval" = 15000;
     "browser.sessionstore.max_tabs_undo" = 5;
     "browser.sessionstore.max_windows_undo" = 3;

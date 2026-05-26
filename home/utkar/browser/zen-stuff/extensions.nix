@@ -1,9 +1,10 @@
 {
   inputs,
   pkgs,
+  profileName,
   ...
 }: {
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1".extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+  programs.zen-browser.profiles.${profileName}.extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
     adnauseam
     darkreader
     ublock-origin

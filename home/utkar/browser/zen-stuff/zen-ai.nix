@@ -1,7 +1,7 @@
-{config, ...}: let
-  zen-work = config.programs.zen-browser.profiles."Dw3oaFqL.Profile 1".spaces."AI";
+{config, profileName, ...}: let
+  zen-work = config.programs.zen-browser.profiles.${profileName}.spaces."AI";
 in {
-  programs.zen-browser.profiles."Dw3oaFqL.Profile 1".pins = {
+  programs.zen-browser.profiles.${profileName}.pins = {
     "Ai" = {
       id = "0e04d166-0338-4971-862e-d4d924ed0e86";
       isGroup = true;
@@ -30,7 +30,7 @@ in {
     };
     "Claude" = {
       id = "d5646d76-4c71-4625-9832-2e71e6a5404e";
-      url = "https://claude.ai/new";
+      url = "https://claude.ai/";
       folderParentId = "0e04d166-0338-4971-862e-d4d924ed0e86";
       editedTitle = true;
       position = 404;
