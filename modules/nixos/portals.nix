@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # --- Desktop & XDG ---
   xdg = {
     autostart = {

@@ -60,8 +60,11 @@
         zstyle ':zephyr:plugin:editor' magic-enter yes
         zstyle ':zephyr:plugin:editor' automatic-glob-alias no
         zstyle ':zephyr:plugin:editor' glob-alias no
-        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+        # zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+        # zstyle ':fzf-tab:*' use-fzf-default-opts no
+        zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept --popup
         source <(COMPLETE=zsh jj)
+        # export FZF_DEFAULT_OPTS='--popup'
 
         # Start tmux automatically
         export ZSH_TMUX_AUTOSTART=false

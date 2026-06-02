@@ -68,6 +68,7 @@
               types = ["statix" "deadnix"];
             };
           };
+          haskell.enable = false;
           markdown.enable = true;
           bash.enable = true;
           css.enable = true;

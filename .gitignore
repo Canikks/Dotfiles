@@ -9,6 +9,8 @@ result-*
 # Ignore any convo files hermes creates
 hermes_conversation_*
 plan*
+PLAN*
+*.md
 
 # Ignore automatically generated direnv output
 .direnv

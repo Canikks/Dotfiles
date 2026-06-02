@@ -111,18 +111,19 @@
   };
 
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-      perSystem = { pkgs, ... }: {
+      perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
         devShells.default = inputs.devenv.lib.mkShell {
           inherit inputs pkgs;
-          modules = [ ./devenv.nix ];
+          modules = [./devenv.nix];
         };
       };
 
       imports = [
+        inputs.home-manager.flakeModules.home-manager
         ./flake-module.nix
       ];
     };

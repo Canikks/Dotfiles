@@ -14,7 +14,7 @@
 
     settings = {
       # --- General & Performance ---
-      max-jobs = "auto";
+      max-jobs = 2;
       cores = 4;
       compress-build-log = true;
       auto-optimise-store = true;
