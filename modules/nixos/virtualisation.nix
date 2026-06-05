@@ -13,8 +13,14 @@
     };
 
     # --- Guest Support ---
-    vmware.host.enable = false;
-    vmware.guest.enable = false;
+    vmware = {
+      guest = {
+        enable = false;
+      };
+      host = {
+        enable = false;
+      };
+    };
     hypervGuest.enable = true;
     spiceUSBRedirection.enable = true;
 

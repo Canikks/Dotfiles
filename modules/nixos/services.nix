@@ -45,9 +45,11 @@
           memory_enabled = true;
           user_profile_enabled = true;
         };
-        model.provider = "openrouter";
-        model.base_url = "https://openrouter.ai/api/v1";
-        model.default = "deepseek/deepseek-v4-flash";
+        model = {
+          base_url = "https://openrouter.ai/api/v1";
+          default = "nex-agi/nex-n2-pro:free";
+          provider = "openrouter";
+        };
         terminal.backend = "local";
         toolsets = ["all"];
       };
@@ -195,11 +197,17 @@
           {
             name = "libpipewire-module-protocol-pulse";
             args = {
-              pulse.min.req = "256/48000";
-              pulse.default.req = "256/48000";
-              pulse.max.req = "256/48000";
-              pulse.min.quantum = "256/48000";
-              pulse.max.quantum = "256/48000";
+              pulse = {
+                default = {req = "256/48000";};
+                max = {
+                  quantum = "256/48000";
+                  req = "256/48000";
+                };
+                min = {
+                  quantum = "256/48000";
+                  req = "256/48000";
+                };
+              };
             };
           }
         ];

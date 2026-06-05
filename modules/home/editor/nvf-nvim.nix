@@ -27,22 +27,22 @@
               vim.g.base46_transparency = true
             '';
           };
-          kitty-scrollback = {
-            package = pkgs.vimUtils.buildVimPlugin {
-              pname = "kitty-scrollback";
-              version = "^9.2.0";
-              src = inputs.kitty-scrollback;
-              doCheck = false;
-            };
-            enabled = true;
-            lazy = true;
-            cmd = [
-              "KittyScrollbackGenerateKittens"
-              "KittyScrollbackCheckHealth"
-              "KittyScrollbackGenerateCommandLineEditing"
-            ];
-            event = "User KittyScrollbackLaunch";
-          };
+          # kitty-scrollback = {
+          #   package = pkgs.vimUtils.buildVimPlugin {
+          #     pname = "kitty-scrollback";
+          #     version = "^9.2.0";
+          #     src = inputs.kitty-scrollback;
+          #     doCheck = false;
+          #   };
+          #   enabled = true;
+          #   lazy = true;
+          #   cmd = [
+          #     "KittyScrollbackGenerateKittens"
+          #     "KittyScrollbackCheckHealth"
+          #     "KittyScrollbackGenerateCommandLineEditing"
+          #   ];
+          #   event = "User KittyScrollbackLaunch";
+          # };
         };
         keymaps = [
           {
@@ -50,6 +50,16 @@
             mode = "n";
             action = "<CMD>Oil<CR>";
           }
+          # {
+          #   key = "K";
+          #   mode = "n";
+          #   action = "<CMD>Lspsaga hover_doc<CR>";
+          # }
+        ];
+        extraPackages = with pkgs; [
+          fzf
+          ripgrep
+          nixd
         ];
         enableLuaLoader = true;
         syntaxHighlighting = true;
@@ -60,7 +70,7 @@
         ];
         additionalRuntimePaths = ["/home/utkar/.config/nvim"];
         options = {
-          autoindent = false;
+          autoindent = true;
           shiftwidth = 2;
           tabstop = 2;
           softtabstop = 2;
@@ -74,7 +84,7 @@
           lspkind.enable = true;
           lightbulb.enable = false;
           lspsaga.enable = true;
-          otter-nvim.enable = false;
+          otter-nvim.enable = true;
           nvim-docs-view.enable = true;
         };
         languages = {
@@ -114,7 +124,7 @@
         };
         statusline.lualine = {
           enable = true;
-          # theme = "base16";
+          theme = "base16";
         };
         # theme = {
         #   enable = true;
@@ -129,8 +139,6 @@
           registers = "unnamed,unnamedplus";
         };
         autocomplete.blink-cmp.enable = true;
-        # autocomplete.enableSharedCmpSources = true;
-        # autocomplete.nvim-cmp.enable = true;
         snippets.luasnip.enable = true;
         tabline.nvimBufferline.enable = true;
         treesitter.context.enable = true;
@@ -148,7 +156,7 @@
           neogit.enable = true;
         };
         # filetree.neo-tree.enable = true;
-        dashboard.alpha.enable = true;
+        dashboard.alpha.enable = false;
         notify.nvim-notify.enable = true;
         utility = {
           # yazi-nvim.enable = true;
@@ -156,7 +164,22 @@
           oil-nvim = {
             enable = true;
             gitStatus.enable = true;
-            setupOpts.open_for_directories = true;
+            setupOpts = {
+              open_for_directories = true;
+              columns = [
+                "icon"
+                "permissions"
+                "size"
+                "mtime"
+              ];
+              buf_options = {
+                buflisted = true;
+              };
+              win_options = {
+                spell = false;
+                list = true;
+              };
+            };
           };
           diffview-nvim.enable = true;
           nix-develop.enable = true;
@@ -178,7 +201,7 @@
         terminal.toggleterm = {
           enable = true;
           setupOpts = {
-            direction = "tab";
+            direction = "float";
             enable_winbar = true;
           };
           lazygit.enable = false;

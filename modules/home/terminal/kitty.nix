@@ -23,6 +23,7 @@
       "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting less +G -R";
     };
     settings = {
+      auto_reload_config = "-1";
       allow_remote_control = "yes";
       listen_on = "unix:/tmp/kitty";
       cursor_shape = "block";

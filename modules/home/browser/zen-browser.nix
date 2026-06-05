@@ -1,8 +1,4 @@
-{
-  pkgs,
-  # inputs,
-  ...
-}: let
+{...}: let
   profileName = "default";
 in {
   imports = [

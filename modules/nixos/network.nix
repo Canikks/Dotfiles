@@ -9,7 +9,7 @@
     useDHCP = false;
     hostName = "utkar";
     usePredictableInterfaceNames = lib.mkDefault true;
-    nameservers = ["127.0.0.1" "::1"];
+    nameservers = ["127.0.0.1"];
 
     nat = {
       enable = true;

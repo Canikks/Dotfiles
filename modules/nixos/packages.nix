@@ -117,6 +117,8 @@ in {
     tree
     gopass
     gopass-jsonapi
+    tree-sitter
+    alejandra
 
     # --- GUI Applications ---
     vivaldi
@@ -223,6 +225,7 @@ in {
     app2unit
     runapp
     nur.repos.lonerOrz.helium
+    nur.repos.dmfrpro.spflashtool6
     # nur.repos.nakido.zellij-forgot
     # nur.repos.xddxdd.magiskboot
     # python314Packages.aria2p
