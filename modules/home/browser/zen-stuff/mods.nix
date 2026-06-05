@@ -14,9 +14,10 @@
     "bubble-pop-deleting"
     "quick-tabs"
     "floating-findbar"
-    "compact-settings"
     "unloaded-tabs"
     "zen-library"
     "bubble-pop-deleting"
+    "Zenslop"
+    "dialog-fix"
   ];
 }

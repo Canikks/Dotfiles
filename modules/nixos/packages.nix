@@ -102,6 +102,7 @@ in {
     uv
     nushell
     devenv
+    # nixd
     tesseract
     translate-shell
     slurp
@@ -224,6 +225,6 @@ in {
     # nur.repos.nakido.zellij-forgot
     # nur.repos.xddxdd.magiskboot
     # python314Packages.aria2p
-    fcitx5
+    # fcitx5
   ];
 }

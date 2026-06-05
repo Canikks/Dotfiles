@@ -9,13 +9,13 @@
     nixPath = lib.mapAttrsToList (n: v: "${n}=${v}") inputs;
     channel.enable = false;
     nrBuildUsers = 0;
-    daemonCPUSchedPolicy = "other";
-    daemonIOSchedClass = "best-effort";
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
 
     settings = {
       # --- General & Performance ---
       max-jobs = 2;
-      cores = 4;
+      cores = 2;
       compress-build-log = true;
       auto-optimise-store = true;
       use-xdg-base-directories = true;

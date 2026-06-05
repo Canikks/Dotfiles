@@ -5,7 +5,7 @@
 }: {
   programs.nvf = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     settings = {
       vim = {
         lazy.plugins = {
@@ -17,18 +17,40 @@
               src = inputs.base46-src;
               doCheck = false;
             };
-
             lazy = false;
             priority = 1000;
-
             after = ''
               vim.g.base46_theme = "dms"
+              vim.cmd.colorscheme("dms")
 
               -- Optional integrations config
               vim.g.base46_transparency = true
             '';
           };
+          kitty-scrollback = {
+            package = pkgs.vimUtils.buildVimPlugin {
+              pname = "kitty-scrollback";
+              version = "^9.2.0";
+              src = inputs.kitty-scrollback;
+              doCheck = false;
+            };
+            enabled = true;
+            lazy = true;
+            cmd = [
+              "KittyScrollbackGenerateKittens"
+              "KittyScrollbackCheckHealth"
+              "KittyScrollbackGenerateCommandLineEditing"
+            ];
+            event = "User KittyScrollbackLaunch";
+          };
         };
+        keymaps = [
+          {
+            key = "_";
+            mode = "n";
+            action = "<CMD>Oil<CR>";
+          }
+        ];
         enableLuaLoader = true;
         syntaxHighlighting = true;
         viAlias = true;
@@ -68,22 +90,23 @@
               types = ["statix" "deadnix"];
             };
           };
+          yaml.enable = true;
           haskell.enable = false;
           markdown.enable = true;
           bash.enable = true;
-          css.enable = true;
+          css.enable = false;
           html.enable = true;
-          typescript.enable = true;
-          go.enable = true;
+          typescript.enable = false;
+          go.enable = false;
           lua.enable = true;
           python.enable = true;
-          rust.extensions.crates-nvim.enable = true;
+          rust.extensions.crates-nvim.enable = false;
         };
         visuals = {
           nvim-web-devicons.enable = true;
           nvim-cursorline.enable = true;
           cinnamon-nvim.enable = true;
-          fidget-nvim.enable = true;
+          fidget-nvim.enable = false;
           highlight-undo.enable = true;
           indent-blankline.enable = true;
           indent-blankline.setupOpts.indent.smart_indent_cap = true;
@@ -91,14 +114,14 @@
         };
         statusline.lualine = {
           enable = true;
-          theme = "base16";
+          # theme = "base16";
         };
-        theme = {
-          enable = true;
-          name = "tokyonight";
-          style = "storm";
-          transparent = true;
-        };
+        # theme = {
+        #   enable = true;
+        #   name = "tokyonight";
+        #   style = "storm";
+        #   transparent = true;
+        # };
         autopairs.nvim-autopairs.enable = true;
         clipboard = {
           enable = true;
@@ -106,11 +129,16 @@
           registers = "unnamed,unnamedplus";
         };
         autocomplete.blink-cmp.enable = true;
+        # autocomplete.enableSharedCmpSources = true;
+        # autocomplete.nvim-cmp.enable = true;
         snippets.luasnip.enable = true;
         tabline.nvimBufferline.enable = true;
         treesitter.context.enable = true;
         binds = {
           whichKey.enable = true;
+          whichKey.setupOpts = {
+            preset = "modern";
+          };
           cheatsheet.enable = true;
         };
         telescope.enable = true;
@@ -119,14 +147,16 @@
           gitsigns.enable = true;
           neogit.enable = true;
         };
+        # filetree.neo-tree.enable = true;
         dashboard.alpha.enable = true;
         notify.nvim-notify.enable = true;
         utility = {
-          yazi-nvim.enable = true;
-          yazi-nvim.setupOpts.open_for_directories = true;
+          # yazi-nvim.enable = true;
+          # yazi-nvim.setupOpts.open_for_directories = true;
           oil-nvim = {
             enable = true;
             gitStatus.enable = true;
+            setupOpts.open_for_directories = true;
           };
           diffview-nvim.enable = true;
           nix-develop.enable = true;
@@ -147,10 +177,14 @@
         };
         terminal.toggleterm = {
           enable = true;
-          lazygit.enable = true;
+          setupOpts = {
+            direction = "tab";
+            enable_winbar = true;
+          };
+          lazygit.enable = false;
         };
         ui = {
-          ui2.enable = true;
+          ui2.enable = false;
           noice.enable = true;
           modes-nvim.enable = true;
           illuminate.enable = false;

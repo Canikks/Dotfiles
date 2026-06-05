@@ -5,7 +5,11 @@
     defaultSopsFormat = "yaml";
     useTmpfs = true;
     age.keyFile = "${config.users.users.utkar.home}/.config/sops/age/keys.txt";
-    age.generateKey = true;
+    age.sshKeyPaths = [
+      "/etc/ssh/ssh_host_ed25519_key"
+    ];
+    # age.generateKey = true;
+    useSystemdActivation = true;
 
     secrets.netrc = {
       key = "netrc";

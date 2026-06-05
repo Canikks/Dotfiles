@@ -3,13 +3,13 @@
     enable = true;
     enableFishIntegration = false;
     tmux.enableShellIntegration = true;
-    defaultOptions = ["--popup"];
+    # defaultOptions = ["--popup"];
     fileWidgetOptions = [
-      "--preview --popup 'bat --color=always --style=numbers --line-range=:500 {}'"
+      "--popup --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
     ];
-    fileWidgetCommand = "fd --type f";
+    # fileWidgetCommand = "fd --type f";
     changeDirWidgetOptions = [
-      "--preview --popup 'tree -C {} | head -200'"
+      "--popup --preview 'tree -C {} | head -200'"
     ];
     changeDirWidgetCommand = "fd --type d";
     historyWidgetOptions = ["--sort" "--exact" "--popup"];

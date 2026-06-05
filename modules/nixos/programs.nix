@@ -217,7 +217,7 @@ in {
         desktopCommand.enable = true;
         dankSystemDoctor.enable = true;
         aiAssistant.enable = true;
-        screenRecorder.enable = true;
+        screenCaptureToolbar.enable = true;
         usbManager.enable = true;
         ocrScanner.enable = true;
         bongoCat.enable = true;
@@ -254,6 +254,7 @@ in {
     };
     kdeconnect = {
       enable = true;
+      package = pkgs.valent;
     };
     nautilus-open-any-terminal = {
       enable = true;

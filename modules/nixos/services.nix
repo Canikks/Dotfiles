@@ -233,7 +233,7 @@
         CPU_BOOST_ON_AC = 1;
         ENERGY_PERF_POLICY_ON_AC = "performance";
         ENERGY_PERF_POLICY_ON_BAT = "balance_power";
-        TLP_DEFAULT_MODE = "AC";
+        # TLP_DEFAULT_MODE = "AC";
       };
     };
     power-profiles-daemon.enable = false;

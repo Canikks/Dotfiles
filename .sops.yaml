@@ -2,15 +2,13 @@
 creation_rules:
   - path_regex: secrets/.*\.yaml
     key_groups:
+    # - pgp: 
+    #     - "2084A95D9E538EAFFE5EA365A5FFCA82509D7661"
     - age:
-        # 1. Your User Public Key (from Step 1.1)
         - "age108dn6kgez7zf208lhap8rrgs9yq37hd4p7rwq9jk92e727ql84ls59z9sp"
-        # 2. Your Machine's Public Key (from Step 1.2)
         - "age1x9jzp4xhpxd3puwnnvkxehj477u25tuj8gcr58hdeq8symr234asn07lm0"
   - path_regex: secrets/secret-rpc.txt$
     key_groups:
     - age:
-        # 1. Your User Public Key (from Step 1.1)
         - "age108dn6kgez7zf208lhap8rrgs9yq37hd4p7rwq9jk92e727ql84ls59z9sp"
-        # 2. Your Machine's Public Key (from Step 1.2)
         - "age1x9jzp4xhpxd3puwnnvkxehj477u25tuj8gcr58hdeq8symr234asn07lm0"

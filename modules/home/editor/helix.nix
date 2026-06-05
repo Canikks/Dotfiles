@@ -5,7 +5,7 @@
 }: {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
     package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
     extraPackages = with pkgs; [
       marksman

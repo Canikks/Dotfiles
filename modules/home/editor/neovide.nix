@@ -1,6 +1,6 @@
 {
   programs.neovide = {
-    enable = false;
+    enable = true;
     settings = {
       fork = false;
       frame = "full";

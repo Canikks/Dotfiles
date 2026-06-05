@@ -5,10 +5,10 @@
     shellIntegration.enableZshIntegration = true;
     enableGitIntegration = true;
     font.name = "MesloLGS Nerd Font";
-    # themeFile = "Noctalia";
     shellIntegration.mode = "no-cursor";
     extraConfig = ''
-      include ./themes/noctalia.conf
+      include dank-tabs.conf
+      include dank-theme.conf
     '';
     quickAccessTerminalConfig = {
       lines = 35;
@@ -23,6 +23,8 @@
       "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting less +G -R";
     };
     settings = {
+      allow_remote_control = "yes";
+      listen_on = "unix:/tmp/kitty";
       cursor_shape = "block";
       input_delay = 0;
       repaint_delay = 2;

@@ -4,7 +4,7 @@
   inputs = {
     # Nixos related inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-utils.url = "github:numtide/flake-utils";
@@ -12,7 +12,7 @@
     nixd.url = "github:nix-community/nixd";
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-cli.url = "github:nix-community/nixos-cli";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     # nyx-loner.url = "github:lonerOrz/nyx-loner";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
@@ -37,7 +37,7 @@
     rio.url = "github:raphamorim/rio/main";
     ghostty.url = "github:ghostty-org/ghostty";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nur.url = "github:nix-community/NUR";
     nh.url = "github:nix-community/nh";
     nix-search-tv.url = "github:3timeslazy/nix-search-tv";
@@ -57,6 +57,10 @@
     };
     sddm-noctalia = {
       url = "github:mahaveergurjar/sddm/noctalia";
+      flake = false;
+    };
+    kitty-scrollback = {
+      url = "github:mikesmithgh/kitty-scrollback.nvim";
       flake = false;
     };
     hermes-agent.url = "github:NousResearch/hermes-agent";

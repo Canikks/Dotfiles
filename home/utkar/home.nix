@@ -14,7 +14,7 @@
       nvf.homeManagerModules.default
       sops-nix.homeManagerModules.sops
       dms-plugin-registry.modules.default
-      zen-browser.homeModules.beta
+      zen-browser.homeModules.twilight
       noctalia.homeModules.default
       stylix.homeModules.stylix
       optnix.homeModules.optnix
