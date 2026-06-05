@@ -22,6 +22,7 @@
       builders-use-substitutes = true;
       keep-outputs = true;
       keep-derivations = true;
+      system-features = ["nixos-test" "benchmark" "big-parallel" "kvm" "gccarch-x86-64" "gccarch-x86-64-v4"];
 
       # --- Experimental Features ---
       extra-experimental-features = [

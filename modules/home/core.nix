@@ -1,19 +1,24 @@
 {pkgs, ...}: {
-  home.stateVersion = "25.05";
-  home.homeDirectory = "/home/utkar";
-  home.username = "utkar";
-  home.shell.enableFishIntegration = true;
-  home.preferXdgDirectories = true;
-  home.shell.enableZshIntegration = true;
+  home = {
+    stateVersion = "25.05";
+    homeDirectory = "/home/utkar";
+    username = "utkar";
+    shell.enableFishIntegration = true;
+    preferXdgDirectories = true;
+    shell.enableZshIntegration = true;
+  };
 
   # Window Manager
   wayland.windowManager.mango.enable = false;
+  wayland.windowManager.hyprland.enable = false;
 
   # XDG Configuration
   xdg = {
     enable = true;
-    userDirs.enable = true;
-    userDirs.setSessionVariables = true;
+    userDirs = {
+      enable = true;
+      setSessionVariables = true;
+    };
     terminal-exec.enable = true;
     portal.xdgOpenUsePortal = true;
     autostart.enable = true;

@@ -34,7 +34,7 @@
       settings = {
         display = {
           compact = false;
-          personality = "kawaii";
+          # personality = "kawaii";
         };
         compression = {
           enabled = true;
@@ -47,7 +47,7 @@
         };
         model = {
           base_url = "https://openrouter.ai/api/v1";
-          default = "nex-agi/nex-n2-pro:free";
+          default = "deepseek/deepseek-v4-flash";
           provider = "openrouter";
         };
         terminal.backend = "local";
@@ -179,7 +179,7 @@
       extraFallbackPathCommands = "ln -s $''{pkgs.bash}/bin/bash $out/bash";
     };
     userborn.enable = true;
-    clight.enable = false;
+    clight.enable = true;
 
     # --- Audio & Multimedia ---
     pipewire = {

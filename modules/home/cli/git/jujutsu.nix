@@ -1,19 +1,17 @@
 {
   programs.jujutsu = {
     enable = true;
-    settings = {
-      user = {
-        email = "canicks@proton.me";
-        name = "Canikks";
-      };
-      delta = {
-        navigate = true;
-        dark = true;
-        side-by-side = true;
-      };
-      ui = {
-        diff-editor = ":builtin";
-      };
+    settings.user = {
+      email = "canicks@proton.me";
+      name = "Canikks";
+    };
+    settings.delta = {
+      navigate = true;
+      dark = true;
+      side-by-side = true;
+    };
+    settings.ui = {
+      diff-editor = ":builtin";
     };
   };
 }
