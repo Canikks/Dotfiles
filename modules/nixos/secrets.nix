@@ -21,11 +21,13 @@
       key = "hermes_env";
       owner = config.users.users.utkar.name;
       group = config.users.users.utkar.group;
+      restartUnits = ["hermes-agent.service"];
     };
     secrets.searx_key = {
       key = "searx_key";
       owner = config.users.users.utkar.name;
       group = config.users.users.utkar.group;
+      restartUnits = ["searx.service"];
     };
     secrets.github_token = {
       key = "github_token";

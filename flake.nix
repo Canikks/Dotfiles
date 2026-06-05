@@ -21,7 +21,7 @@
     niri.url = "github:sodiboo/niri-flake";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";

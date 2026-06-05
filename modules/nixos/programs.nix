@@ -125,6 +125,9 @@ in {
         };
       };
     };
+    partition-manager = {
+      enable = true;
+    };
     gnupg = {
       dirmngr.enable = true;
       agent = {
