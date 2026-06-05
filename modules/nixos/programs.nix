@@ -169,7 +169,7 @@ in {
       enable = false;
     };
     surge = {
-      enable = true;
+      enable = false;
     };
 
     # --- Gaming ---
