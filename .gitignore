@@ -11,6 +11,7 @@ hermes_conversation_*
 plan*
 PLAN*
 *.md
+PLAN.md
 
 # Ignore automatically generated direnv output
 .direnv
