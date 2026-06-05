@@ -34,6 +34,12 @@
     options = ["subvol=@nix" "compress=zstd" "noatime"];
   };
 
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
+    fsType = "btrfs";
+    options = ["subvol=tmp" "compress=zstd" "noatime"];
+  };
+
   fileSystems."/var/log" = {
     device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
     fsType = "btrfs";
@@ -50,6 +56,12 @@
     device = "/dev/disk/by-uuid/A343-FFF6";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
+  };
+
+  fileSystems."/var/cache" = {
+    device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
+    fsType = "btrfs";
+    options = ["subvol=@cache" "compress=zstd" "noatime"];
   };
 
   swapDevices = [];
