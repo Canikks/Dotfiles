@@ -33,10 +33,10 @@
         name = "puffer";
         src = pkgs.fishPlugins.puffer;
       }
-      {
-        name = "fzfish";
-        src = pkgs.nur.repos.adam0.fishPlugins.fzfish;
-      }
+      # {
+      #   name = "fzfish";
+      #   src = pkgs.nur.repos.adam0.fishPlugins.fzfish;
+      # }
       {
         name = "fish-bd";
         src = pkgs.fishPlugins.fish-bd;
