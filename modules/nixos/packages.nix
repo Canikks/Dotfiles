@@ -119,6 +119,7 @@ in {
     gopass-jsonapi
     tree-sitter
     alejandra
+    nur.repos.lonerOrz.surge
 
     # --- GUI Applications ---
     vivaldi
@@ -147,6 +148,7 @@ in {
     pwvucontrol
     cbonsai
     ueberzugpp
+    blender
 
     # --- Virtualization & Containers ---
     qemu_kvm
@@ -201,25 +203,6 @@ in {
     fishPlugins.humantime-fish
     zsh-abbr
     babelfish
-
-    # --- Yazi Plugins ---
-    yaziPlugins.ouch
-    yaziPlugins.vcs-files
-    yaziPlugins.no-status
-    yaziPlugins.rich-preview
-    yaziPlugins.lazygit
-    yaziPlugins.yatline
-    yaziPlugins.yatline-githead
-    yaziPlugins.full-border
-    yaziPlugins.mount
-    yaziPlugins.recycle-bin
-    yaziPlugins.sudo
-    yaziPlugins.diff
-    yaziPlugins.rsync
-    yaziPlugins.starship
-    yaziPlugins.git
-    yaziPlugins.jjui
-    yaziPlugins.chmod
 
     # --- Others & Custom Repos ---
     app2unit
