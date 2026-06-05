@@ -33,6 +33,7 @@
       git = pkgs.yaziPlugins.git;
       jjui = pkgs.yaziPlugins.jjui;
       chmod = pkgs.yaziPlugins.chmod;
+      kdeconnect-send = pkgs.yaziPlugins.kdeconnect-send;
     };
     settings = {
       opener = {
@@ -273,6 +274,11 @@
           on = ["g" "j"];
           run = "plugin jjui";
           desc = "run jjui";
+        }
+        {
+          on = ["<C-s>"];
+          run = "plugin kdeconnect-send";
+          desc = "Send selected files via KDE Connect";
         }
         # {
         #   on = "p";
