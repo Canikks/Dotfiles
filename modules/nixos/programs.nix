@@ -42,7 +42,7 @@ in {
                 dsearch.homeModules.default
                 nvf.homeManagerModules.default
                 sops-nix.homeManagerModules.sops
-                dms-plugin-registry.modules.default
+                dms-plugin-registry.homeModules.default
                 zen-browser.homeModules.twilight
                 noctalia.homeModules.default
                 stylix.homeModules.stylix
@@ -80,11 +80,14 @@ in {
       # package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
       package = pkgs.niri-unstable;
     };
+    mango = {
+      enable = true;
+    };
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-      withUWSM = false;
+      withUWSM = true;
     };
     uwsm = {
       enable = true;
@@ -187,6 +190,7 @@ in {
     };
     gamescope = {
       enable = true;
+      package = pkgs.gamescope_git;
     };
     gamemode = {
       enable = true;
@@ -214,7 +218,6 @@ in {
         nixMonitor.enable = true;
         dankClight.enable = true;
         dankNotepadModule.enable = true;
-        clight.enable = false;
         catWidget.enable = true;
         wallpaperCarousel.enable = true;
         desktopCommand.enable = true;

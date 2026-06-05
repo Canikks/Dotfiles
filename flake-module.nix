@@ -57,7 +57,7 @@ in {
       nur.repos.iopq.modules.nixos.xraya
       nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
       nix-index-database.nixosModules.nix-index
-      # mango.nixosModules.mango
+      mango.nixosModules.mango
       nixos-hardware.nixosModules.common-cpu-intel
       nixos-hardware.nixosModules.common-gpu-intel
       nixos-hardware.nixosModules.common-pc-laptop-ssd
@@ -65,7 +65,7 @@ in {
       nixos-cli.nixosModules.nixos-cli
       # nirinit.nixosModules.nirinit
       stylix.nixosModules.stylix
-      dms-plugin-registry.modules.default
+      dms-plugin-registry.nixosModules.default
       hermes-agent.nixosModules.default
       optnix.nixosModules.optnix
       surge.nixosModules.default

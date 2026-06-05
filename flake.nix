@@ -21,11 +21,11 @@
     niri.url = "github:sodiboo/niri-flake";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
-    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    mango.url = "github:DreamMaoMao/mangowc";
+    mango.url = "github:mangowm/mango";
     nvf.url = "github:notashelf/nvf";
     helix.url = "github:helix-editor/helix";
     nix-index-database.url = "github:nix-community/nix-index-database";

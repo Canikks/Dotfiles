@@ -13,7 +13,7 @@
       dsearch.homeModules.default
       nvf.homeManagerModules.default
       sops-nix.homeManagerModules.sops
-      dms-plugin-registry.modules.default
+      dms-plugin-registry.homeModules.default
       zen-browser.homeModules.twilight
       noctalia.homeModules.default
       stylix.homeModules.stylix
