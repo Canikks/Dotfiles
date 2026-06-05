@@ -124,7 +124,6 @@
         };
         statusline.lualine = {
           enable = true;
-          theme = "base16";
         };
         # theme = {
         #   enable = true;
