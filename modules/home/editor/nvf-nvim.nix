@@ -8,6 +8,7 @@
     defaultEditor = true;
     settings = {
       vim = {
+        searchCase = "smart";
         lazy.plugins = {
           base46 = {
             package = pkgs.vimUtils.buildVimPlugin {
@@ -68,6 +69,11 @@
         extraLuaFiles = [
           ./nixd.lua
         ];
+        fzf-lua = {
+          enable = true;
+        };
+        formatter.conform-nvim.enable = true;
+        runner.run-nvim.enable = true;
         additionalRuntimePaths = ["/home/utkar/.config/nvim"];
         options = {
           autoindent = true;
@@ -75,6 +81,7 @@
           tabstop = 2;
           softtabstop = 2;
           wrap = true;
+          guicursor = "n-v-i-c:block-Cursor";
         };
         spellcheck.enable = true;
         lsp = {
@@ -113,6 +120,7 @@
           rust.extensions.crates-nvim.enable = false;
         };
         visuals = {
+          blink-indent.enable = true;
           nvim-web-devicons.enable = true;
           nvim-cursorline.enable = true;
           cinnamon-nvim.enable = true;
@@ -139,8 +147,16 @@
         };
         autocomplete.blink-cmp.enable = true;
         snippets.luasnip.enable = true;
+        snippets.luasnip.setupOpts.enable_autosnippets = true;
+        undoFile.enable = true;
         tabline.nvimBufferline.enable = true;
-        treesitter.context.enable = true;
+        treesitter = {
+          grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+          enable = true;
+          fold = false;
+          context.enable = true;
+          textobjects.enable = true;
+        };
         binds = {
           whichKey.enable = true;
           whichKey.setupOpts = {

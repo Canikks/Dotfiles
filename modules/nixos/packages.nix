@@ -143,7 +143,7 @@ in {
     wineWow64Packages.waylandFull
 
     # --- Multimedia & Graphics ---
-    # ffmpeg-full
+    ffmpeg-full
     imagemagick
     pwvucontrol
     cbonsai
@@ -208,7 +208,7 @@ in {
     app2unit
     runapp
     nur.repos.lonerOrz.helium
-    nur.repos.dmfrpro.spflashtool6
+    # nur.repos.dmfrpro.spflashtool6
     # nur.repos.nakido.zellij-forgot
     # nur.repos.xddxdd.magiskboot
     # python314Packages.aria2p

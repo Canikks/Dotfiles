@@ -78,6 +78,9 @@
     };
 
     # --- Network & DNS ---
+    tailscale = {
+      enable = false;
+    };
     blocky = {
       enable = true;
       settings = {
@@ -89,11 +92,12 @@
           upstream = "https://one.one.one.one/dns-query";
           ips = ["1.1.1.1" "1.0.0.1"];
         };
+        upstreams.strategy = "parallel_best";
         upstreams.groups.default = [
           "tcp-tls:dns.quad9.net:853"
+          "https://dns.quad9.net/dns-query"
           "https://one.one.one.one/dns-query"
-          "2620:fe::fe"
-          "2606:4700:4700::1111"
+          "tcp-tls:cloudflare-dns.com:853"
         ];
         caching = {
           minTime = "10m";

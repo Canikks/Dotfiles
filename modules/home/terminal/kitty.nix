@@ -34,8 +34,9 @@
       tab_powerline_style = "slanted";
       cursor_trail = 1;
       wayland_titlebar_color = "system";
-      background_opacity = 0.7;
+      background_opacity = 0.85;
       pixel_scroll = "yes";
+      momentum_scroll = 0.96;
     };
   };
 }
