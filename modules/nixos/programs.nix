@@ -258,6 +258,13 @@ in {
         # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       };
     };
+    dank-calendar = {
+      enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+    };
     kdeconnect = {
       enable = true;
       package = pkgs.valent;

@@ -72,6 +72,7 @@ in {
       # nyx-loner.nixosModules.default
       tlp-power-profile.nixosModules.default
       chaotic.nixosModules.default
+      dankCalendar.nixosModules.default
       (import ./hosts/utkar/home-manager.nix {inherit inputs self system pkgs;})
     ];
   };

@@ -22,6 +22,7 @@
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
+    dankCalendar.url = "github:AvengeMedia/dankcalendar";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
