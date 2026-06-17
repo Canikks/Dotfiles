@@ -113,6 +113,8 @@
     # millennium.inputs.nixpkgs.follows = "nixpkgs";
     surge.inputs.nixpkgs.follows = "nixpkgs";
     yazelix-hm.inputs.nixpkgs.follows = "nixpkgs";
+    dankCalendar.inputs.nixpkgs.follows = "nixpkgs";
+    chaotic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

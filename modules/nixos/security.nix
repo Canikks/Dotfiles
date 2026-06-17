@@ -9,7 +9,6 @@
       enable = true;
       adminIdentities = ["unix-user:utkar" "unix-group:users"];
       extraConfig = "/* Log authorization checks. */\npolkit.addRule(function(action, subject) {\n  // Make sure to set { security.polkit.debug = true; } in configuration.nix\n  polkit.log(\"user \" +  subject.user + \" is attempting action \" + action.id + \" from PID \" + subject.pid);\n});\n";
-      debug = true;
     };
     tpm2 = {
       enable = true;

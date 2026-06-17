@@ -71,6 +71,8 @@ in {
     ddcutil
     ddcutil-service
     evtest
+    libinput
+    libinput-gestures
     btop
     duf
     gping
@@ -172,8 +174,8 @@ in {
     qt6Packages.qt6ct
 
     # --- Desktop Environment / Wayland / Qt6 ---
-    # xdg-desktop-portal-termfilechooser
-    nur.repos.Vortriz.xdg-desktop-portal-termfilechooser
+    xdg-desktop-portal-termfilechooser
+    # nur.repos.Vortriz.xdg-desktop-portal-termfilechooser
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     gtk4
     gtk3

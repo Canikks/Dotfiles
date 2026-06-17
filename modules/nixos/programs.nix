@@ -147,7 +147,11 @@ in {
     mtr = {
       enable = true;
     };
-    nix-index-database.comma.enable = true;
+    nix-index-database = {
+      comma.enable = true;
+      enable = true;
+    };
+    nix-index.enable = true;
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -267,7 +271,7 @@ in {
     };
     kdeconnect = {
       enable = true;
-      package = pkgs.valent;
+      # package = pkgs.valent;
     };
     nautilus-open-any-terminal = {
       enable = true;

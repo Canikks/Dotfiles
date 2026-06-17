@@ -28,7 +28,7 @@
         executable = true;
         text = ''
           [filechooser]
-          cmd=${pkgs.nur.repos.Vortriz.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+          cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
           default_dir=$HOME/downloads
           create_help_file=1
           env=TERMCMD='kitty --title filechooser'

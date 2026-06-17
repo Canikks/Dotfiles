@@ -8,7 +8,7 @@
     enable = true;
     package = inputs.dsearch.packages.${system}.default;
     config = {
-      index_all_files = true;
+      index_all_files = false;
       # index_path = ".cache/danksearch/index";
       listen_addr = ":43654";
       auto_reindex = false;
