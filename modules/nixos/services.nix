@@ -107,13 +107,18 @@
           prefetchThreshold = 10;
         };
         blocking = {
+          # allowlists = {
+          #   nix-caches = [
+          #     "us-central-1.telnyxstorage.com"
+          #   ];
+          # };
           loading.refreshPeriod = "4h";
           denylists = {
             ads = ["https://oisd.nl"];
             security = ["https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt"];
           };
           clientGroupsBlock = {
-            default = ["ads" "security"];
+            default = ["ads"];
           };
         };
       };

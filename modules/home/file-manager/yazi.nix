@@ -20,7 +20,7 @@
       yatline-githead = pkgs.yaziPlugins.yatline-githead;
       full-border = pkgs.yaziPlugins.full-border;
       mount = pkgs.yaziPlugins.mount;
-      recycle-bin = pkgs.yaziPlugins.recycle-bin;
+      omni-trash = pkgs.yaziPlugins.omni-trash;
       sudo = pkgs.yaziPlugins.sudo;
       diff = pkgs.yaziPlugins.diff;
       rsync = pkgs.yaziPlugins.rsync;
@@ -34,6 +34,7 @@
       jjui = pkgs.yaziPlugins.jjui;
       chmod = pkgs.yaziPlugins.chmod;
       kdeconnect-send = pkgs.yaziPlugins.kdeconnect-send;
+      yafg = pkgs.yaziPlugins.yafg;
     };
     settings = {
       opener = {
@@ -174,7 +175,12 @@
       		},
       	},
       })
-      require("recycle-bin"):setup()
+      require("yafg"):setup({
+        toggle_mode_key = "alt-t",          -- fzf key to switch ripgrep/fzf mode (default: "ctrl-t")
+        editor = "nvim",                    -- Editor command (default: "hx")
+        args = { "--noplugin" },            -- Additional editor arguments (default: {})
+        file_arg_format = "+{row} {file}",  -- File argument format (default: "{file}:{row}:{col}")
+      })
       require("git"):setup()
     '';
     keymap = {
@@ -191,8 +197,8 @@
         }
         {
           on = ["R" "b"];
-          run = "plugin recycle-bin";
-          desc = "Open Recycle Bin menu";
+          run = "plugin omni-trash";
+          desc = "Open Omni Trash";
         }
         {
           on = ["R" "p" "p"];
@@ -279,6 +285,11 @@
           on = ["<C-s>"];
           run = "plugin kdeconnect-send";
           desc = "Send selected files via KDE Connect";
+        }
+        {
+          on = ["F" "G"];
+          run = "plugin yafg";
+          desc = "Fuzzy find and grep in Yazi with yafg";
         }
         # {
         #   on = "p";

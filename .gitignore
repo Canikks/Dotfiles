@@ -12,6 +12,7 @@ plan*
 PLAN*
 *.md
 PLAN.md
+.hermes
 
 # Ignore automatically generated direnv output
 .direnv

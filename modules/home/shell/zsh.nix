@@ -106,10 +106,10 @@
 
           nix-community/nix-zsh-completions
           zsh-users/zsh-autosuggestions kind:defer
-          zsh-users/zsh-history-substring-search kind:defer
+          zsh-users/zsh-history-substring-search
           ohmyzsh/ohmyzsh path:plugins/tmux
 
-          zdharma-continuum/fast-syntax-highlighting kind:defer
+          zdharma-continuum/fast-syntax-highlighting
         ''
       ];
     };

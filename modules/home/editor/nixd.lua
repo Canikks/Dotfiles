@@ -16,7 +16,7 @@ nvim_lsp.config("nixd", {
 					expr = "(builtins.getFlake (toString ./.)).nixosConfigurations.utkar.options",
 				},
 				home_manager = {
-					expr = '(builtins.getFlake (toString ./.)).homeConfigurations."utkar@utkar".options',
+					expr = "(builtins.getFlake (toString ./.)).nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []",
 				},
 			},
 		},

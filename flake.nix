@@ -64,6 +64,10 @@
       url = "github:mikesmithgh/kitty-scrollback.nvim";
       flake = false;
     };
+    jj-nvim = {
+      url = "github:NicolasGB/jj.nvim";
+      flake = false;
+    };
     hermes-agent.url = "github:NousResearch/hermes-agent";
     millennium.url = "github:SteamClientHomebrew/Millennium/11bebe4e5d2dea6246721241dc31c70d57d05129?dir=packages/nix";
     # millennium.url = "git+file:///home/utkar/Millennium/packages/nix/flake.nix";
