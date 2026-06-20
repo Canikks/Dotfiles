@@ -200,6 +200,10 @@
           precognition.enable = false;
         };
         images.img-clip.enable = true;
+        images.image-nvim.enable = true;
+        images.image-nvim.setupOpts = {
+          backend = "kitty";
+        };
       };
       vim.terminal.toggleterm = {
         enable = true;
@@ -209,6 +213,10 @@
           enable_winbar = true;
         };
         lazygit.enable = false;
+      };
+      vim.notes.neorg = {
+        enable = true;
+        treesitter.enable = true;
       };
       vim.ui = {
         ui2.enable = true;
