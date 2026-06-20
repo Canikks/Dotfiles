@@ -215,7 +215,12 @@
         lazygit.enable = false;
       };
       vim.notes.neorg = {
-        enable = true;
+        enable = false;
+        setupOpts = {
+          load = {
+            core.defaults = {};
+          };
+        };
         treesitter.enable = true;
       };
       vim.ui = {
