@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   profileName = "default";
 in {
   imports = [
@@ -17,6 +17,6 @@ in {
         pinsForce = true;
       };
     };
-    # nativeMessagingHosts = [pkgs.firefoxpwa];
+    nativeMessagingHosts = [pkgs.firefoxpwa];
   };
 }
