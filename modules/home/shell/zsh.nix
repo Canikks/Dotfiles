@@ -64,6 +64,7 @@
         # zstyle ':fzf-tab:*' use-fzf-default-opts no
         zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept --popup
         source <(COMPLETE=zsh jj)
+        export MOOR='--statusbar=bold --no-linenumbers'
         # export FZF_DEFAULT_OPTS='--popup'
 
         # Start tmux automatically
@@ -79,6 +80,7 @@
         export ZSH_TMUX_FIXTERM=true
 
         export ZSH_TMUX_AUTOQUIT=false
+        export PAGER=moor
       '';
       zshLate = lib.mkOrder 1000 ''
         _fix_cursor() { echo -ne '\e[2 q'; }

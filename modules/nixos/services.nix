@@ -57,8 +57,8 @@
     searx = {
       enable = true;
       # domain = "utkar.local";
-      configureNginx = false;
-      configureUwsgi = false;
+      # configureNginx = true;
+      # configureUwsgi = true;
       redisCreateLocally = true;
       # openFirewall = true;
       settings = {
@@ -306,7 +306,7 @@
     #   };
     # };
     scx = {
-      enable = true;
+      enable = false;
       scheduler = "scx_cake";
       extraArgs = ["-p gaming"];
     };

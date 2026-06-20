@@ -98,6 +98,8 @@ in {
     acpid
     acpic
     hydra-check
+    moor
+    intel-cmt-cat
 
     # --- Development & CLI Tools ---
     python3
@@ -122,6 +124,7 @@ in {
     tree-sitter
     alejandra
     nur.repos.lonerOrz.surge
+    sops
 
     # --- GUI Applications ---
     vivaldi
@@ -210,6 +213,7 @@ in {
     app2unit
     runapp
     nur.repos.lonerOrz.helium
+    azahar
     # nur.repos.dmfrpro.spflashtool6
     # nur.repos.nakido.zellij-forgot
     # nur.repos.xddxdd.magiskboot

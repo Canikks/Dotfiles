@@ -20,7 +20,7 @@
     };
     keybindings = {
       "ctrl+c" = "copy_and_clear_or_interrupt";
-      "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting moor";
+      "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting moor --statusbar=bold --no-linenumbers";
     };
     settings = {
       auto_reload_config = "-1";
@@ -34,10 +34,10 @@
       tab_powerline_style = "slanted";
       cursor_trail = 1;
       wayland_titlebar_color = "system";
-      background_opacity = 0.85;
+      background_opacity = 0.5;
       pixel_scroll = "yes";
       momentum_scroll = 0.96;
-      scrollback_pager = "less -R --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER";
+      # scrollback_pager = "less -R --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER";
     };
   };
 }
