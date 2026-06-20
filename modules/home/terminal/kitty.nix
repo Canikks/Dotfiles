@@ -20,7 +20,7 @@
     };
     keybindings = {
       "ctrl+c" = "copy_and_clear_or_interrupt";
-      "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting less +G -R";
+      "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting moor";
     };
     settings = {
       auto_reload_config = "-1";
@@ -37,6 +37,7 @@
       background_opacity = 0.85;
       pixel_scroll = "yes";
       momentum_scroll = 0.96;
+      scrollback_pager = "less -R --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER";
     };
   };
 }

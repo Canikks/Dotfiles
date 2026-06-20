@@ -69,7 +69,7 @@
       flake = false;
     };
     hermes-agent.url = "github:NousResearch/hermes-agent";
-    millennium.url = "github:SteamClientHomebrew/Millennium/11bebe4e5d2dea6246721241dc31c70d57d05129?dir=packages/nix";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     # millennium.url = "git+file:///home/utkar/Millennium/packages/nix/flake.nix";
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
@@ -107,14 +107,14 @@
     nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     nix-search-tv.inputs.nixpkgs.follows = "nixpkgs";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
-    yazi.inputs.nixpkgs.follows = "nixpkgs";
+    # yazi.inputs.nixpkgs.follows = "nixpkgs";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     # devenv.inputs.nixpkgs.follows = "nixpkgs";
     pay-respects.inputs.nixpkgs.follows = "nixpkgs";
     jjui.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     television.inputs.nixpkgs.follows = "nixpkgs";
-    # millennium.inputs.nixpkgs.follows = "nixpkgs";
+    millennium.inputs.nixpkgs.follows = "nixpkgs";
     surge.inputs.nixpkgs.follows = "nixpkgs";
     yazelix-hm.inputs.nixpkgs.follows = "nixpkgs";
     dankCalendar.inputs.nixpkgs.follows = "nixpkgs";
