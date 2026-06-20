@@ -6,8 +6,9 @@
 
     # --- GPU & Graphics ---
     intelgpu = {
+      driver = "xe";
       vaapiDriver = "intel-media-driver";
-      computeRuntime = "legacy";
+      computeRuntime = "default";
       enableHybridCodec = true;
       loadInInitrd = true;
     };
@@ -23,7 +24,6 @@
         mesa_glu
         mesa-gl-headers
         vpl-gpu-rt
-        intel-compute-runtime-legacy1
       ];
     };
 
@@ -56,15 +56,15 @@
       mesa_git.opencl
       libdrm_git
       intel-media-driver
-      intel-ocl
-      intel-vaapi-driver
-      intel-compute-runtime-legacy1
+      vpl-gpu-rt
+      # intel-vaapi-driver
+      intel-compute-runtime
     ];
     mesa-git.extraPackages32 = with pkgs.pkgsi686Linux; [
       pkgs.mesa32_git.opencl
       libdrm32_git
       intel-media-driver
-      intel-vaapi-driver
+      # intel-vaapi-driver
     ];
   };
 }
