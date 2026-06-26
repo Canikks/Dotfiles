@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home = {
-    stateVersion = "25.05";
+    stateVersion = "26.11";
     homeDirectory = "/home/utkar";
     username = "utkar";
     shell.enableFishIntegration = true;
@@ -10,7 +10,11 @@
 
   # Window Manager
   wayland.windowManager.mango.enable = false;
-  wayland.windowManager.hyprland.enable = false;
+  wayland.windowManager.hyprland.systemd.enable = true;
+  # wayland.windowManager.hyprland = {
+  #   enable = false;
+  #   systemd.enableXdgAutostart = false;
+  # };
 
   # XDG Configuration
   xdg = {

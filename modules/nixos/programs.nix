@@ -81,12 +81,12 @@ in {
       package = pkgs.niri-unstable;
     };
     mango = {
-      enable = true;
+      enable = false;
     };
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       withUWSM = true;
     };
     uwsm = {
@@ -246,11 +246,14 @@ in {
         clipboardPlus.enable = true;
         systemMonitorPlus.enable = true;
         dankVault.enable = true;
+        dmsfilemanager.enable = true;
+        dmsconky.enable = true;
+        hyprlandSubmapIndicator.enable = true;
       };
       systemd = {
         enable = true;
-        # restartIfChanged = true;
-        target = "niri.service";
+        restartIfChanged = true;
+        # target = "niri.service";
       };
       # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       quickshell.package = pkgs.quickshell;

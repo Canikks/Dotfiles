@@ -21,20 +21,7 @@
       yazelix-hm.homeManagerModules.default
       chaotic.homeManagerModules.default
     ])
-    ++ (with self.homeModules; [
-      shell
-      terminal
-      editor
-      apps
-      file-manager
-      cli
-      browser
-      gaming
-      multiplexer
-      audio
-      desktop-shell
-      core
-    ]);
+    ++ [ (inputs.import-tree ../../modules/home) ];
 
   nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
   nixpkgs.config = self.nixosConfigurations.utkar.config.nixpkgs.config;

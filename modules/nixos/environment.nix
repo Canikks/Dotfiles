@@ -26,6 +26,7 @@
       QT_QPA_PLATFORMTHEME = "qt6ct";
       QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
       QS_ICON_THEME = "Papirus-Dark";
+      # QT_STYLE_OVERRIDE = "Oxygen";
 
       # --- Security & Certificates ---
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt";

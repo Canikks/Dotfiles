@@ -224,7 +224,7 @@
         treesitter.enable = true;
       };
       vim.ui = {
-        ui2.enable = true;
+        ui2.enable = false;
         noice.enable = true;
         modes-nvim.enable = true;
         illuminate.enable = false;

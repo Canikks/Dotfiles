@@ -15,6 +15,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     # nyx-loner.url = "github:lonerOrz/nyx-loner";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    import-tree.url = "github:denful/import-tree";
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";

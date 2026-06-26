@@ -45,6 +45,7 @@
       index_paths = [
         {
           exclude_dirs = [
+            "mindustry-linux-64-bit"
             ".git"
             "node_modules"
             "bower_components"
@@ -106,6 +107,7 @@
             ".config"
             "dotfiles-snowfall"
             "dotfiles"
+            "Enter-the-Gungeon"
           ];
           exclude_hidden = true;
           extract_exif = true;

@@ -42,11 +42,11 @@ in {
         colmena
         ;
     })
-    (_: prev: {
-      openldap = prev.openldap.overrideAttrs {
-        doCheck = !prev.stdenv.hostPlatform.isi686;
-      };
-    })
+    # (_: prev: {
+    #   openldap = prev.openldap.overrideAttrs {
+    #     doCheck = !prev.stdenv.hostPlatform.isi686;
+    #   };
+    # })
     inputs.quickshell.overlays.default
     inputs.niri.overlays.niri
     inputs.hyprland.overlays.default
@@ -173,8 +173,9 @@ in {
     libadwaita
     material-symbols
     material-icons
-    libsForQt5.qt5ct
-    qt6Packages.qt6ct
+    # libsForQt5.qt5ct
+    kdePackages.qt5compat
+    kdePackages.qt6ct
 
     # --- Desktop Environment / Wayland / Qt6 ---
     xdg-desktop-portal-termfilechooser
@@ -195,6 +196,8 @@ in {
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     kdePackages.kimageformats
+    kdePackages.oxygen
+    kdePackages.oxygen-icons
 
     # --- Shell Plugins (Fish) ---
     fishPlugins.puffer

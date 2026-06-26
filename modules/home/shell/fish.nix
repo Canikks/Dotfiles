@@ -18,16 +18,6 @@
       cp = "xcp";
       rm = "trash";
     };
-    # fishPlugins.puffer
-    # fishPlugins.fifc
-    # fishPlugins.fish-bd
-    # fishPlugins.forgit
-    # fishPlugins.pisces
-    # fishPlugins.plugin-sudope
-    # fishPlugins.colored-man-pages
-    # fishPlugins.done
-    # fishPlugins.humantime-fish
-
     plugins = [
       {
         name = "puffer";

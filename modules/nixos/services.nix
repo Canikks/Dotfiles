@@ -32,6 +32,18 @@
         ];
       };
       settings = {
+        auxiliary = {
+          vision = {
+            provider = "openrouter";
+            base_url = "https://openrouter.ai/api/v1";
+            model = "google/gemma-4-26b-a4b-it";
+          };
+          web_extract = {
+            provider = "openrouter";
+            base_url = "https://openrouter.ai/api/v1";
+            model = "inclusionai/ling-2.6-flash";
+          };
+        };
         display = {
           compact = false;
           # personality = "kawaii";
@@ -152,7 +164,7 @@
     tlpPowerProfile.enable = true;
 
     # --- User & Desktop Services ---
-    xserver.enable = false;
+    xserver.enable = true;
     displayManager.sddm = {
       enable = false;
       wayland.enable = true;

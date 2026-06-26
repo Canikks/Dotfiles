@@ -1,21 +1,6 @@
-{self, ...}: {
-  imports = with self.nixosModules; [
-    locale
-    appearance
-    portals
-    secrets
-    security
-    users
-    packages
-    programs
-    services
-    environment
-    network
-    hardware
-    boot
-    virtualisation
-    nix
-    systemd
+{self, inputs, ...}: {
+  imports = [
+    (inputs.import-tree ../../modules/nixos)
     (import ./hardware-configuration.nix)
   ];
 }
