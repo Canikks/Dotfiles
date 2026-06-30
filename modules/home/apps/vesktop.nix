@@ -1,6 +1,6 @@
 {
   programs.vesktop = {
-    enable = true;
+    enable = false;
     vencord.useSystem = true;
     vencord.settings = {
       autoUpdate = false;

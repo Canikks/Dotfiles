@@ -109,7 +109,7 @@
           nix-community/nix-zsh-completions
           zsh-users/zsh-autosuggestions kind:defer
           zsh-users/zsh-history-substring-search
-          ohmyzsh/ohmyzsh path:plugins/tmux
+          jeffreytse/zsh-vi-mode
 
           zdharma-continuum/fast-syntax-highlighting
         ''

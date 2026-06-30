@@ -259,7 +259,7 @@ in {
       quickshell.package = pkgs.quickshell;
       greeter = {
         enable = true;
-        compositor.name = "niri";
+        compositor.name = "hyprland";
         configHome = "${config.users.users.utkar.home}";
         quickshell.package = pkgs.quickshell;
         # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;

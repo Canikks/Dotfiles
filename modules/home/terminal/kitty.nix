@@ -20,12 +20,14 @@
     };
     keybindings = {
       "ctrl+c" = "copy_and_clear_or_interrupt";
-      "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting moor --statusbar=bold --no-linenumbers";
+      "f1" = "launch --stdin-source=@screen_scrollback --stdin-add-formatting --type=overlay moor --statusbar=bold --no-linenumbers";
+      "f2" = "launch --stdin-source=@last_cmd_output --stdin-add-formatting --type=overlay moor --statusbar=bold --no-linenumbers";
     };
     settings = {
+      scrollback_pager = "moor --statusbar=bold --no-linenumbers";
       auto_reload_config = "-1";
-      allow_remote_control = "yes";
-      listen_on = "unix:/tmp/kitty";
+      allow_remote_control = "socket-only";
+      # listen_on = "unix:/tmp/kitty";
       cursor_shape = "block";
       input_delay = 0;
       repaint_delay = 2;

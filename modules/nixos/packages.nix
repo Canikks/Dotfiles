@@ -125,6 +125,7 @@ in {
     alejandra
     nur.repos.lonerOrz.surge
     sops
+    cloudflare-warp
 
     # --- GUI Applications ---
     vivaldi
@@ -132,7 +133,6 @@ in {
     handbrake
     onlyoffice-desktopeditors
     lmstudio
-    gparted
     nautilus
     macchina
     satty
@@ -173,8 +173,8 @@ in {
     libadwaita
     material-symbols
     material-icons
-    # libsForQt5.qt5ct
-    kdePackages.qt5compat
+    libsForQt5.qt5ct
+    # kdePackages.qt5compat
     kdePackages.qt6ct
 
     # --- Desktop Environment / Wayland / Qt6 ---
@@ -183,10 +183,10 @@ in {
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     gtk4
     gtk3
-    qt6.qt5compat
-    qt6.qtbase
-    qt6.qtmultimedia
-    qt5.qtbase
+    # qt6.qt5compat
+    # qt6.qtbase
+    # qt6.qtmultimedia
+    # qt5.qtbase
     # inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable
     xwayland-satellite-unstable
     nirius
@@ -197,6 +197,7 @@ in {
     kdePackages.dolphin-plugins
     kdePackages.kimageformats
     kdePackages.oxygen
+    kdePackages.oxygen.qt5
     kdePackages.oxygen-icons
 
     # --- Shell Plugins (Fish) ---

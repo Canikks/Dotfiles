@@ -3,8 +3,10 @@
     hyprland-session = {
       Unit = {
         Description = "Hyprland Session Target";
-        Requires = "graphical-session.target";
-        After = "graphical-session.target";
+        BindsTo = "graphical-session.target";
+        Wants = "graphical-session-pre.target";
+        After = "graphical-session-pre.target";
+        PropagatesStopTo = "graphical-session.target";
       };
     };
   };

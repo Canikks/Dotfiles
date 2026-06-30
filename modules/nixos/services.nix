@@ -90,6 +90,9 @@
     };
 
     # --- Network & DNS ---
+    cloudflare-warp = {
+      enable = true;
+    };
     tailscale = {
       enable = false;
     };
@@ -110,6 +113,8 @@
           "https://dns.quad9.net/dns-query"
           "https://one.one.one.one/dns-query"
           "tcp-tls:cloudflare-dns.com:853"
+          "https://freedns.controld.com/p0"
+          "p0.freedns.controld.com"
         ];
         caching = {
           minTime = "10m";
@@ -262,6 +267,11 @@
         CPU_BOOST_ON_AC = 1;
         ENERGY_PERF_POLICY_ON_AC = "performance";
         ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+        INTEL_GPU_MIN_FREQ_ON_AC = 500;
+        INTEL_GPU_MIN_FREQ_ON_BAT = 400;
+        INTEL_GPU_MAX_FREQ_ON_AC = 1250;
+        INTEL_GPU_MAX_FREQ_ON_BAT = 1250;
+        INTEL_GPU_BOOST_FREQ_ON_AC = 1250;
         # TLP_DEFAULT_MODE = "AC";
       };
     };

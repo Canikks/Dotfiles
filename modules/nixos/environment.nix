@@ -39,6 +39,7 @@
       MOZ_LEGACY_PROFILES = 0;
       HERMES_TUI = 1;
       APP2UNIT_SLICES = "a=app.slice b=background.slice s=session.slice";
+      KITTY_LISTEN_ON = "unix:$XDG_RUNTIME_DIR/kitty.sock";
     };
   };
 }
