@@ -159,7 +159,7 @@
     # --- System Maintenance & Hardware ---
     zram-generator.enable = true;
     systemd-lock-handler.enable = true;
-    btrfs.autoScrub.enable = true;
+    btrfs.autoScrub.enable = false;
     fstrim.enable = true;
     fwupd.enable = true;
     psd.enable = true;
@@ -205,7 +205,7 @@
       extraFallbackPathCommands = "ln -s $''{pkgs.bash}/bin/bash $out/bash";
     };
     userborn.enable = true;
-    clight.enable = true;
+    clight.enable = false;
 
     # --- Audio & Multimedia ---
     pipewire = {

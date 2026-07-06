@@ -5,7 +5,7 @@
 }: {
   programs.helix = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
     extraPackages = with pkgs; [
       marksman
@@ -13,6 +13,7 @@
       taplo
       markdown-oxide
       rumdl
+      nixd
     ];
     settings = {
       theme = "noctalia";

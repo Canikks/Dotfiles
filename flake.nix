@@ -22,7 +22,8 @@
     niri.url = "github:sodiboo/niri-flake";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     dankCalendar.url = "github:AvengeMedia/dankcalendar";
 
     # Helpers & Utils
@@ -119,7 +120,7 @@
     surge.inputs.nixpkgs.follows = "nixpkgs";
     yazelix-hm.inputs.nixpkgs.follows = "nixpkgs";
     dankCalendar.inputs.nixpkgs.follows = "nixpkgs";
-    chaotic.inputs.nixpkgs.follows = "nixpkgs";
+    # chaotic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

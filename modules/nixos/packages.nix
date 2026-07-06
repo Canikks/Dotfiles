@@ -92,7 +92,7 @@ in {
     gnome.gvfs
     (lib.hiPrio uutils-coreutils-noprefix)
     gdu
-    quickemu
+    # quickemu
     ns
     acpi
     acpid
@@ -100,6 +100,8 @@ in {
     hydra-check
     moor
     intel-cmt-cat
+    hyprtoolkit
+    freetype
 
     # --- Development & CLI Tools ---
     python3
@@ -130,7 +132,7 @@ in {
     # --- GUI Applications ---
     vivaldi
     firefox
-    handbrake
+    # handbrake
     onlyoffice-desktopeditors
     lmstudio
     nautilus
@@ -174,8 +176,10 @@ in {
     material-symbols
     material-icons
     libsForQt5.qt5ct
+    libsForQt5.qtwayland
     # kdePackages.qt5compat
     kdePackages.qt6ct
+    kdePackages.qtwayland
 
     # --- Desktop Environment / Wayland / Qt6 ---
     xdg-desktop-portal-termfilechooser
@@ -220,7 +224,7 @@ in {
     azahar
     # nur.repos.dmfrpro.spflashtool6
     # nur.repos.nakido.zellij-forgot
-    # nur.repos.xddxdd.magiskboot
+    nur.repos.xddxdd.magiskboot
     # python314Packages.aria2p
     # fcitx5
   ];

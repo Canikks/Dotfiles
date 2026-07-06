@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   virtualisation = {
-    # --- Libvirtd & QEMU ---
+    # --- Libvirtd & QEMU & Waydroid ---
     libvirtd = {
       enable = true;
       dbus.enable = true;
@@ -11,6 +11,7 @@
         vhostUserPackages = [pkgs.virtiofsd];
       };
     };
+    waydroid.enable = true;
 
     # --- Guest Support ---
     vmware = {

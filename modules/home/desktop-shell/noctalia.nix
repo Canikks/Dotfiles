@@ -1,6 +1,10 @@
 {
   programs.noctalia = {
     enable = true;
+    # systemd = {
+    #   enable = true;
+    #   target = "hyprland-session.target";
+    # };
     # settings = builtins.fromJSON (builtins.readFile ./config.json);
     # plugins = {
     #   sources = [

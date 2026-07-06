@@ -11,8 +11,8 @@
     shellWrapperName = "y";
     theme = {
       flavor = {
-        dark = "noctalia";
-        light = "noctalia";
+        dark = "dank";
+        light = "dank";
       };
     };
     plugins = {

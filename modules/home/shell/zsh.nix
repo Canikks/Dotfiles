@@ -6,9 +6,10 @@
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
-    enableCompletion = false;
-    syntaxHighlighting.enable = false;
-    autosuggestion.enable = false;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+    autosuggestion.strategy = ["history"  "completion"];
     zprof.enable = false;
 
     history.size = 10000;
@@ -45,15 +46,22 @@
         zstyle ':zephyr:plugin:completion' 'use-xdg-basedirs' 'yes'
         zstyle ':zephyr:plugin:completion' 'compstyle' 'zephyr'
         ZSH_AUTOSUGGEST_USE_ASYNC=1
-        ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+        ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
 
         # Completion Enhancements 🌈
-        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case-insensitive completion
+        zstyle ':completion:*' matcher-list \
+            'm:{a-z}={A-Z}' \
+            'r:|=*' \
+            'l:|=* r:|=*'
         zstyle ':completion:*:descriptions' format '[%d]'
         zstyle ':completion:*' group-name              # Group completions
         zstyle ':completion:*' menu no
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath'
         zstyle ':fzf-tab:*' switch-group '<' '>'
+        zstyle ':fzf-tab:*' show-group quiet
+        zstyle ':fzf-tab:*' fzf-pad 4
+        zstyle ':fzf-tab:*' query-string input
+        zstyle ':fzf-tab:*' accept-line enter
 
         alias -s {md,txt,json,yaml,toml,xml,conf,ini,log}=bat
         zstyle ':zephyr:plugin:editor' dot-expansion yes
@@ -95,23 +103,20 @@
       enable = true;
       plugins = [
         ''
-          romkatv/zsh-defer
           mattmc3/zephyr path:plugins/editor
           mattmc3/zephyr path:plugins/utility
           mattmc3/zephyr path:plugins/directory
           mattmc3/zephyr path:plugins/zfunctions
-          mattmc3/zephyr path:plugins/completion
+          mattmc3/ez-compinit
+          zsh-users/zsh-completions kind:fpath path:src
 
-          zsh-users/zsh-completions
-          Aloxaf/fzf-tab
-          getantidote/use-omz
-
-          nix-community/nix-zsh-completions
-          zsh-users/zsh-autosuggestions kind:defer
-          zsh-users/zsh-history-substring-search
           jeffreytse/zsh-vi-mode
 
-          zdharma-continuum/fast-syntax-highlighting
+          zsh-users/zsh-history-substring-search
+
+          hlissner/zsh-autopair
+
+          Aloxaf/fzf-tab
         ''
       ];
     };

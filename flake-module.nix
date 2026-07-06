@@ -38,6 +38,8 @@ in {
       chaotic.nixosModules.default
       dankCalendar.nixosModules.default
       nvf.nixosModules.default
+      noctalia.nixosModules.default
+      noctalia-greeter.nixosModules.default
       (import ./hosts/utkar/home-manager.nix {inherit inputs self system pkgs;})
     ];
   };

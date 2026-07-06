@@ -31,6 +31,7 @@
         common = {
           default = [
             "termfilechooser"
+            "hyprland"
             "gnome"
             "gtk"
           ];
@@ -39,12 +40,12 @@
             "kitty"
             "*"
           ];
-          "org.freedesktop.portal.ScreenCast" = [
-            "gnome"
-          ];
-          "org.freedesktop.impl.portal.ScreenCast" = [
-            "gnome"
-          ];
+          # "org.freedesktop.portal.ScreenCast" = [
+          #   "gnome"
+          # ];
+          # "org.freedesktop.impl.portal.ScreenCast" = [
+          #   "gnome"
+          # ];
         };
         niri = {
           "org.freedesktop.impl.portal.Settings" = [

@@ -4,14 +4,18 @@
     enableFishIntegration = false;
     tmux.enableShellIntegration = true;
     # defaultOptions = ["--popup"];
-    fileWidgetOptions = [
-      "--popup --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-    ];
-    # fileWidgetCommand = "fd --type f";
-    changeDirWidgetOptions = [
-      "--popup --preview 'tree -C {} | head -200'"
-    ];
-    changeDirWidgetCommand = "fd --type d";
-    historyWidgetOptions = ["--sort" "--exact" "--popup"];
+    fileWidget = {
+      options = [
+        "--popup --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+      ];
+      command = "fd --type f";
+    };
+    changeDirWidget = {
+      options = [
+        "--popup --preview 'tree -C {} | head -200'"
+      ];
+      command = "fd --type d";
+    };
+    historyWidget.options = ["--sort" "--exact" "--popup"];
   };
 }

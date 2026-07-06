@@ -19,7 +19,7 @@
       '';
 
       Restart = "on-failure";
-      RestartSec = 2;
+      RestartSec = 6;
     };
 
     Install = {

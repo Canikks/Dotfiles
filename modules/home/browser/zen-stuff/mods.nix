@@ -17,7 +17,6 @@
     "unloaded-tabs"
     "zen-library"
     "bubble-pop-deleting"
-    "Zenslop"
     "dialog-fix"
   ];
 }

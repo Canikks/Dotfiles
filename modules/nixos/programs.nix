@@ -201,6 +201,18 @@ in {
     };
 
     # --- Desktop & UI Enhancements ---
+    noctalia = {
+      enable = true;
+      package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      systemd = {
+        enable = true;
+        target = "hyprland-session.target";
+      };
+    };
+    noctalia-greeter = {
+      enable = false;
+      package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    };
     dank-material-shell = {
       enable = true;
       enableSystemMonitoring = true;
@@ -253,13 +265,13 @@ in {
       systemd = {
         enable = true;
         restartIfChanged = true;
-        # target = "niri.service";
+        target = "niri.service";
       };
       # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       quickshell.package = pkgs.quickshell;
       greeter = {
         enable = true;
-        compositor.name = "hyprland";
+        compositor.name = "niri";
         configHome = "${config.users.users.utkar.home}";
         quickshell.package = pkgs.quickshell;
         # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;

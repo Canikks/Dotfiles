@@ -5,7 +5,7 @@
 }: {
   programs.nvf = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
     settings = {
       vim.searchCase = "smart";
       vim.lazy.plugins = {
@@ -54,6 +54,7 @@
         ripgrep
         nixd
       ];
+      vim.optPlugins = [pkgs.vimPlugins.base16-nvim];
       vim.debugger.nvim-dap = {
         enable = true;
       };
