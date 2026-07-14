@@ -19,6 +19,7 @@
   swapDevices = [
     {
       device = "/dev/disk/by-label/nix-swap";
+      discardPolicy = "both";
     }
   ];
   zramSwap = {

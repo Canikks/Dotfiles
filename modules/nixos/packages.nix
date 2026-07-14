@@ -128,6 +128,9 @@ in {
     nur.repos.lonerOrz.surge
     sops
     cloudflare-warp
+    nix-zsh-completions
+    lua-language-server
+    stylua
 
     # --- GUI Applications ---
     vivaldi

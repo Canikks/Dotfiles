@@ -2,7 +2,7 @@
   imports = [
     ./extensions.nix
     ./mods.nix
-    ./pref.nix
+    # ./pref.nix
     ./search-engine.nix
     ./spaces.nix
     ./containers.nix

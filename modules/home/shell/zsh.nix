@@ -6,7 +6,7 @@
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
-    enableCompletion = true;
+    enableCompletion = false;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     autosuggestion.strategy = ["history" "completion"];
@@ -15,6 +15,12 @@
     history.size = 10000;
     setOptions = [
       "HIST_IGNORE_ALL_DUPS"
+      "SHARE_HISTORY"
+      "EXTENDED_HISTORY"
+      "HIST_VERIFY"
+      "INC_APPEND_HISTORY"
+      "HIST_EXPIRE_DUPS_FIRST"
+      "HIST_FIND_NO_DUPS"
       "HIST_IGNORE_SPACE"
     ];
 
@@ -43,6 +49,12 @@
       zshEarly = lib.mkOrder 500 ''
         # Fish-like speed optimizations ⚡
         zstyle ':zephyr:plugin:completion' 'use-cache' 'yes'
+        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh"
+        zstyle ':completion:*' rehash true
+        zstyle ':completion:*' use-cache true
+        zstyle ':completion:*' use-xdg-basedirs true
+        zstyle ':plugin:ez-compinit' use-cache yes
+        zstyle ':plugin:ez-compinit' use-xdg-basedirs yes
         zstyle ':zephyr:plugin:completion' 'use-xdg-basedirs' 'yes'
         zstyle ':zephyr:plugin:completion' 'compstyle' 'zephyr'
         ZSH_AUTOSUGGEST_USE_ASYNC=1
@@ -89,15 +101,20 @@
 
         export ZSH_TMUX_AUTOQUIT=false
         export PAGER=moor
+
+        ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK      
+        ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+        ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+        ZVM_INIT_MODE=sourcing
       '';
-      zshLate = lib.mkOrder 1000 ''
+      zshLate = lib.mkOrder 1500 ''
         _fix_cursor() { echo -ne '\e[2 q'; }
         precmd_functions+=(_fix_cursor)
         zle-line-init() { echo -ne '\e[2 q'; }
         zle -N zle-line-init
       '';
     in
-      lib.mkMerge [zshEarly zshLate];
+      lib.mkMerge [zshEarly];
 
     antidote = {
       enable = true;
@@ -107,8 +124,8 @@
           mattmc3/zephyr path:plugins/utility
           mattmc3/zephyr path:plugins/directory
           mattmc3/zephyr path:plugins/zfunctions
-          mattmc3/ez-compinit
           zsh-users/zsh-completions kind:fpath path:src
+          mattmc3/ez-compinit
 
           jeffreytse/zsh-vi-mode
 

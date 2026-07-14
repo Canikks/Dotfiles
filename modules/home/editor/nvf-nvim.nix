@@ -5,10 +5,16 @@
 }: {
   programs.nvf = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     settings = {
       vim.searchCase = "smart";
       vim.lazy.plugins = {
+        "multiple-cursors.nvim" = {
+          package = pkgs.vimPlugins.multiple-cursors-nvim;
+          lazy = false;
+          priority = 1000;
+          setupModule = "multiple-cursors";
+        };
         base46 = {
           package = pkgs.vimUtils.buildVimPlugin {
             pname = "base46";
@@ -39,14 +45,88 @@
       };
       vim.keymaps = [
         {
+          key = "<C-j>";
+          mode = ["n" "x"];
+          action = "<CMD>MultipleCursorsAddDown<CR>";
+          desc = "Add cursor and move down";
+        }
+        {
+          key = "<C-k>";
+          mode = ["n" "x"];
+          action = "<CMD>MultipleCursorsAddUp<CR>";
+          desc = "Add cursor and move up";
+        }
+        {
+          key = "<C-Down>";
+          mode = ["n" "x" "i"];
+          action = "<CMD>MultipleCursorsAddDown<CR>";
+          desc = "Add cursor and move down";
+        }
+        {
+          key = "<C-Up>";
+          mode = ["n" "x" "i"];
+          action = "<CMD>MultipleCursorsAddUp<CR>";
+          desc = "Add cursor and move up";
+        }
+        {
+          key = "<C-LeftMouse>";
+          mode = ["n" "i"];
+          action = "<CMD>MultipleCursorsMouseAddDelete<CR>";
+          desc = "Add or remove cursor on mouse click";
+        }
+        {
+          key = "<C-Return>";
+          mode = ["n"];
+          action = "<CMD>MultipleCursorsMouseAddDelete<CR>";
+          desc = "Add a locked cursor or remove an existing cursor";
+        }
+        {
+          key = "<Leader>m";
+          mode = ["x"];
+          action = "<CMD>MultipleCursorsAddVisualArea<CR>";
+          desc = "Add cursors to the lines of the visual area";
+        }
+        {
+          key = "<Leader>a";
+          mode = ["n" "x"];
+          action = "<CMD>MultipleCursorsAddMatches<CR>";
+          desc = "Add cursors to cword";
+        }
+        {
+          key = "<Leader>A";
+          mode = ["n" "x"];
+          action = "<CMD>MultipleCursorsAddMatchesV<CR>";
+          desc = "Add cursors to cword in previous area";
+        }
+        {
+          key = "<Leader>d";
+          mode = ["n" "x"];
+          action = "<CMD>MultipleCursorsAddJumpNextMatch<CR>";
+          desc = "Add cursor and jump to next cword";
+        }
+        {
+          key = "<Leader>D";
+          mode = ["n" "x"];
+          action = "<CMD>MultipleCursorsJumpNextMatch<CR>";
+          desc = "Jump to next cword";
+        }
+        {
+          key = "<Leader>L";
+          mode = ["n" "x"];
+          action = "<CMD>MultipleCursorsLock<CR>";
+          desc = "Lock virtual cursors";
+        }
+        {
           key = "_";
           mode = "n";
           action = "<CMD>Oil<CR>";
+          desc = "Open Oil";
         }
         {
           key = "K";
           mode = "n";
           action = "<CMD>Lspsaga hover_doc<CR>";
+          desc = "Open hover doc";
         }
       ];
       vim.extraPackages = with pkgs; [
@@ -64,6 +144,7 @@
       vim.vimAlias = true;
       vim.extraLuaFiles = [
         ./nixd.lua
+        # ./multi.lua
       ];
       vim.fzf-lua = {
         enable = true;
@@ -192,7 +273,7 @@
         icon-picker.enable = true;
         surround.enable = true;
         leetcode-nvim.enable = true;
-        multicursors.enable = true;
+        multicursors.enable = false;
         smart-splits.enable = true;
         undotree.enable = true;
         motion = {

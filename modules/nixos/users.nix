@@ -10,6 +10,7 @@
     name = "utkar";
     autoSubUidGidRange = true;
     description = "utkar";
+    initialHashedPassword = "$y$j9T$5tJVCvNQ/W6zacrpox1WX/$6tUI9ywJSFw1W9PGBpr3Ex3K44AOICwpfRrobVRhaF6";
     extraGroups = [
       "sddm"
       "btrfs"

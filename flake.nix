@@ -23,7 +23,7 @@
     niri.url = "github:sodiboo/niri-flake";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
-    noctalia.url = "github:noctalia-dev/noctalia";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     dankCalendar.url = "github:AvengeMedia/dankcalendar";
 
@@ -54,7 +54,7 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     television.url = "github:alexpasmantier/television";
     niri-autoselect-portal.url = "git+https://codeberg.org/debugloop/niri-autoselect-portal.git";
-    optnix.url = "github:water-sucks/optnix";
+    optnix.url = "sourcehut:~watersucks/optnix";
     base46-src = {
       url = "github:AvengeMedia/base46";
       flake = false;
@@ -73,7 +73,6 @@
     };
     hermes-agent.url = "github:NousResearch/hermes-agent";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    # millennium.url = "git+file:///home/utkar/Millennium/packages/nix/flake.nix";
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
     quickemu.url = "github:quickemu-project/quickemu";
@@ -88,7 +87,7 @@
     # nirinit.inputs.nixpkgs.follows = "nixpkgs";
     dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
     dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    # noctalia.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     mango.inputs.nixpkgs.follows = "nixpkgs";
     nvf.inputs.nixpkgs.follows = "nixpkgs";

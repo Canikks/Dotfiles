@@ -15,6 +15,7 @@ in {
         containersForce = true;
         spacesForce = true;
         pinsForce = true;
+        presets.betterfox.enable = true;
       };
     };
     nativeMessagingHosts = [pkgs.firefoxpwa];

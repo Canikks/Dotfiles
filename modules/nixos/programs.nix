@@ -261,6 +261,14 @@ in {
         dmsfilemanager.enable = true;
         dmsconky.enable = true;
         hyprlandSubmapIndicator.enable = true;
+        theGrove.enable = true;
+        intelGpuMonitor.enable = true;
+        # intelGpuMonitor.src = pkgs.fetchFromGitHub {
+        #   owner = "rdannenbring";
+        #   repo = "dms-intel-gpu-plugin";
+        #   rev = "3a37dfe51aa43abf08df9f5bf481d10f1691d1a2";
+        #   sha256 = "sha256-BIwmn8vYccPuZteOEbZNQlLCtm5sol2C15j319c4pPk=";
+        # };
       };
       systemd = {
         enable = true;

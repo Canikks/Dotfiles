@@ -143,8 +143,11 @@
     avahi = {
       enable = true;
       nssmdns4 = true;
+      nssmdns6 = true;
       reflector = true;
       publish.enable = true;
+      publish.addresses = true;
+      openFirewall = true;
     };
     resolved = {
       enable = false;
