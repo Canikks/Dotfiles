@@ -9,7 +9,7 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-    autosuggestion.strategy = ["history"  "completion"];
+    autosuggestion.strategy = ["history" "completion"];
     zprof.enable = false;
 
     history.size = 10000;

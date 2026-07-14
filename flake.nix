@@ -16,6 +16,7 @@
     # nyx-loner.url = "github:lonerOrz/nyx-loner";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     import-tree.url = "github:denful/import-tree";
+    nixos-plymouth-theme.url = "github:ed7ed/nixos-plymouth-theme/main";
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
@@ -121,6 +122,7 @@
     yazelix-hm.inputs.nixpkgs.follows = "nixpkgs";
     dankCalendar.inputs.nixpkgs.follows = "nixpkgs";
     # chaotic.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-plymouth-theme.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

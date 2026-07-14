@@ -21,7 +21,7 @@
       yazelix-hm.homeManagerModules.default
       chaotic.homeManagerModules.default
     ])
-    ++ [ (inputs.import-tree ../../modules/home) ];
+    ++ [(inputs.import-tree ../../modules/home)];
 
   nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
   nixpkgs.config = self.nixosConfigurations.utkar.config.nixpkgs.config;

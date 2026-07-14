@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   boot = {
     # --- Boot Loader Configuration ---
     loader = {
@@ -18,6 +22,8 @@
     # --- Kernel & Initrd ---
     plymouth = {
       enable = true;
+      theme = "nixos";
+      themePackages = [inputs.nixos-plymouth-theme.packages.${pkgs.stdenv.hostPlatform.system}.default];
     };
     tmp.tmpfsHugeMemoryPages = "within_size";
     tmp.useTmpfs = true;
