@@ -28,7 +28,7 @@
         backend = "podman";
         hostUsers = ["utkar"];
         extraVolumes = [
-          "/home/user/dotfiles:/dotfiles:rw"
+          "/home/utkar/dotfiles:/dotfiles:rw"
         ];
       };
       settings = {
@@ -51,7 +51,7 @@
         compression = {
           enabled = true;
           threshold = 0.75;
-          summary_model = "deepseek/deepseek-v4-flash";
+          summary_model = "deepseek/deepseek-v4-flash-0731";
         };
         memory = {
           memory_enabled = true;
@@ -59,7 +59,7 @@
         };
         model = {
           base_url = "https://openrouter.ai/api/v1";
-          default = "deepseek/deepseek-v4-flash";
+          default = "deepseek/deepseek-v4-flash-0731";
           provider = "openrouter";
         };
         terminal.backend = "local";
@@ -94,13 +94,18 @@
       enable = true;
     };
     tailscale = {
-      enable = false;
+      enable = true;
+      extraSetFlags = ["--advertise-exit-node"];
     };
     blocky = {
       enable = true;
       settings = {
         ports = {
-          dns = ["127.0.0.1:53"];
+          freeBind = true;
+          dns = [
+            "127.0.0.1:53"
+            "100.95.103.84:53"
+          ];
           http = 4000;
         };
         bootstrapDns = {
@@ -172,6 +177,15 @@
     tlpPowerProfile.enable = true;
 
     # --- User & Desktop Services ---
+    logind = {
+      enable = true;
+      settings.Login = {
+        HandleLidSwitch = "ignore";
+        KillUserProcesses = false;
+        HandleLidSwitchExternalPower = "ignore";
+        HandleLidSwitchDocked = "ignore";
+      };
+    };
     xserver.enable = true;
     displayManager.sddm = {
       enable = false;
@@ -281,6 +295,38 @@
     power-profiles-daemon.enable = false;
 
     # --- Others ---
+    minecraft-server = {
+      enable = true;
+      package = with pkgs;
+        nur.repos.toyvo.fabricServers.fabric-1_21_1.overrideAttrs (old: {
+          installPhase = ''
+            mkdir -p $out/bin $out/lib/minecraft
+            cp -v $src $out/lib/minecraft/server.jar
+
+            cat > $out/bin/minecraft-server <<EOF
+            #!${pkgs.bash}/bin/bash
+            exec ${pkgs.temurin-jre-bin}/bin/java "\$@" \
+              -jar $out/lib/minecraft/server.jar \
+              nogui
+            EOF
+
+            chmod +x $out/bin/minecraft-server
+          '';
+        });
+      eula = true;
+      openFirewall = true;
+      jvmOpts = "-Xms4092M -Xmx4092M -XX:+UseG1GC -XX:ParallelGCThreads=2 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10";
+      # jvmOpts = "";
+      serverProperties = {
+        server-port = 25565;
+        # difficulty = "normal";
+        max-players = 20;
+        motd = "NixOS Minecraft server!";
+        white-list = false;
+        enable-rcon = false;
+        online-mode = false;
+      };
+    };
     niri-autoselect-portal.enable = true;
     aria2 = {
       enable = false;

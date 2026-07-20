@@ -26,7 +26,6 @@
       "pipewire"
       "libvirtd"
       "qemu-libvirtd"
-      "aria2"
       "flatpak"
       "networkmanager"
       "wheel"

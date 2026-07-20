@@ -19,9 +19,11 @@
       optnix.homeModules.optnix
       yazelix-hm.homeManagerModules.default
       chaotic.homeManagerModules.default
+      fetch.homeManagerModules.default
     ])
     ++ [(inputs.import-tree ../../modules/home)];
 
   nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
   nixpkgs.config = self.nixosConfigurations.utkar.config.nixpkgs.config;
+  # nixpkgs.config.allowUnfree = true;
 }

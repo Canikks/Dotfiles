@@ -3,5 +3,6 @@
     ./fastfetch.nix
     ./hyfetch.nix
     ./pay-respects.nix
+    ./fetch.nix
   ];
 }

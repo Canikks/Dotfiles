@@ -73,6 +73,7 @@
     # --- Firewall ---
     firewall = {
       enable = true;
+      trustedInterfaces = ["tailscale0"];
       allowedTCPPorts = [
         8888
         8080

@@ -17,11 +17,12 @@
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       nerd-fonts.meslo-lg
+      maple-mono.NF
     ];
     fontDir.enable = true;
     fontDir.decompressFonts = true;
   };
 
   # --- System state ---
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.11";
 }

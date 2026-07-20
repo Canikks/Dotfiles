@@ -102,6 +102,7 @@ in {
     intel-cmt-cat
     hyprtoolkit
     freetype
+    udev
 
     # --- Development & CLI Tools ---
     python3
@@ -149,8 +150,10 @@ in {
     openal
     mangohud
     srb2
-    mindustry
+    # mindustry
     wineWow64Packages.waylandFull
+    nur.repos.toyvo.fabricServers.fabric-1_21_1
+    # nur.repos.dima.playit-agent
 
     # --- Multimedia & Graphics ---
     ffmpeg-full
@@ -221,7 +224,7 @@ in {
     babelfish
 
     # --- Others & Custom Repos ---
-    app2unit
+    # app2unit
     runapp
     nur.repos.lonerOrz.helium
     azahar

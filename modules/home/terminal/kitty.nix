@@ -4,11 +4,15 @@
     shellIntegration.enableFishIntegration = true;
     shellIntegration.enableZshIntegration = true;
     enableGitIntegration = true;
-    font.name = "MesloLGS Nerd Font";
+    font.name = "Maple Mono NF SemiBold";
     shellIntegration.mode = "no-cursor";
     extraConfig = ''
-      include themes/noctalia.conf
+      include dank-tabs.conf
+      include dank-theme.conf
     '';
+    # extraConfig = ''
+    #   include themes/noctalia.conf
+    # '';
     quickAccessTerminalConfig = {
       lines = 35;
       edge = "center-sized";
@@ -31,6 +35,7 @@
       input_delay = 0;
       repaint_delay = 2;
       wayland_enable_ime = "no";
+      tab_bar_edge = "left";
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
       cursor_trail = 1;

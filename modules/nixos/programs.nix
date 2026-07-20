@@ -49,6 +49,7 @@ in {
                 optnix.homeModules.optnix
                 yazelix-hm.homeManagerModules.default
                 chaotic.homeManagerModules.default
+                fetch.homeManagerModules.default
               ];
             };
           };
@@ -141,6 +142,7 @@ in {
       };
     };
     java = {
+      # package = pkgs.jdk17;
       enable = true;
       binfmt = true;
     };
@@ -277,13 +279,13 @@ in {
       };
       # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       quickshell.package = pkgs.quickshell;
-      greeter = {
-        enable = true;
-        compositor.name = "niri";
-        configHome = "${config.users.users.utkar.home}";
-        quickshell.package = pkgs.quickshell;
-        # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
-      };
+    };
+    dms-greeter = {
+      enable = true;
+      compositor.name = "niri";
+      configHome = "${config.users.users.utkar.home}";
+      quickshell.package = pkgs.quickshell;
+      # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
     };
     dank-calendar = {
       enable = true;

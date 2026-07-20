@@ -4,10 +4,8 @@
   inputs = {
     # Nixos related inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixd.url = "github:nix-community/nixd";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -26,6 +24,7 @@
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     dankCalendar.url = "github:AvengeMedia/dankcalendar";
+    dank-greeter.url = "github:AvengeMedia/dank-greeter";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -63,10 +62,6 @@
       url = "github:mahaveergurjar/sddm/noctalia";
       flake = false;
     };
-    kitty-scrollback = {
-      url = "github:mikesmithgh/kitty-scrollback.nvim";
-      flake = false;
-    };
     jj-nvim = {
       url = "github:NicolasGB/jj.nvim";
       flake = false;
@@ -79,6 +74,7 @@
     surge.url = "github:SurgeDM/Surge/eebbc055baccff30de013e28d7de3ec4927a5ce6";
     yazelix-hm.url = "github:luccahuguet/yazelix";
     tlp-power-profile.url = "github:peturh/tlp-power-profile";
+    fetch.url = "github:areofyl/fetch";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -87,6 +83,7 @@
     # nirinit.inputs.nixpkgs.follows = "nixpkgs";
     dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
     dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
+    dank-greeter.inputs.nixpkgs.follows = "nixpkgs";
     # noctalia.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     mango.inputs.nixpkgs.follows = "nixpkgs";
@@ -122,6 +119,7 @@
     dankCalendar.inputs.nixpkgs.follows = "nixpkgs";
     # chaotic.inputs.nixpkgs.follows = "nixpkgs";
     nixos-plymouth-theme.inputs.nixpkgs.follows = "nixpkgs";
+    fetch.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

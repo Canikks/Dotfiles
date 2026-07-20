@@ -18,8 +18,8 @@
       GTK_USE_PORTAL = 1;
 
       # --- Qt & GTK Configuration ---
-      QML_IMPORT_PATH = "${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml:${pkgs.qt6.qtmultimedia}/lib/qt-6/qmt";
-      QML2_IMPORT_PATH = "${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml:${pkgs.qt6.qtmultimedia}/lib/qt-6/qmt";
+      QML_IMPORT_PATH = "${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml:${pkgs.qt6.qtmultimedia}/lib/qt-6/qml";
+      QML2_IMPORT_PATH = "${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml:${pkgs.qt6.qtmultimedia}/lib/qt-6/qml";
       QT_PLUGIN_PATH = "${pkgs.qt5.qtbase}/lib/qt-5.${pkgs.qt5.qtbase.version}/plugins";
       QT_QPA_PLATFORM = "wayland:xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;

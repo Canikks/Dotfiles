@@ -8,7 +8,7 @@
       Description = "Kitty daemon";
       PartOf = ["graphical-session.target"];
       After = ["graphical-session.target"];
-      X-SwitchMethod = "restart";
+      # X-SwitchMethod = "restart";
     };
 
     Service = {
@@ -18,8 +18,8 @@
           --listen-on unix:%t/kitty.sock
       '';
 
-      Restart = "on-failure";
-      RestartSec = 6;
+      # Restart = "on-failure";
+      # RestartSec = 6;
     };
 
     Install = {

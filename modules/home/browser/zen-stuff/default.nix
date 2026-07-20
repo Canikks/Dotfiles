@@ -11,5 +11,6 @@
     ./zen-personal.nix
     ./zen-pirate.nix
     ./zen-reddit.nix
+    ./routes.nix
   ];
 }
