@@ -1,0 +1,5 @@
+{
+  programs.fetch = {
+    enable = true;
+  };
+}
