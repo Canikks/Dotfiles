@@ -58,6 +58,7 @@ in {
     inputs.jj-starship.overlays.default
     inputs.quickemu.overlays.default
     inputs.devenv.overlays.default
+    inputs.nix-minecraft.overlay
   ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
@@ -126,7 +127,7 @@ in {
     gopass-jsonapi
     tree-sitter
     alejandra
-    nur.repos.lonerOrz.surge
+    # nur.repos.lonerOrz.surge
     sops
     cloudflare-warp
     nix-zsh-completions
@@ -152,7 +153,8 @@ in {
     srb2
     # mindustry
     wineWow64Packages.waylandFull
-    nur.repos.toyvo.fabricServers.fabric-1_21_1
+    # nur.repos.toyvo.fabricServers.fabric-1_21_1
+    fabricServers.fabric-1_21_1
     # nur.repos.dima.playit-agent
 
     # --- Multimedia & Graphics ---
@@ -227,7 +229,7 @@ in {
     # app2unit
     runapp
     nur.repos.lonerOrz.helium
-    azahar
+    # azahar
     # nur.repos.dmfrpro.spflashtool6
     # nur.repos.nakido.zellij-forgot
     nur.repos.xddxdd.magiskboot

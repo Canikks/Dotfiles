@@ -6,7 +6,8 @@
   programs.helix = {
     enable = true;
     defaultEditor = false;
-    package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    # package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = pkgs.steelix;
     extraPackages = with pkgs; [
       marksman
       hyprls

@@ -40,6 +40,7 @@ in {
       nvf.nixosModules.default
       # noctalia.nixosModules.default
       noctalia-greeter.nixosModules.default
+      nix-minecraft.nixosModules.minecraft-servers
       (import ./hosts/utkar/home-manager.nix {inherit inputs self system pkgs;})
     ];
   };

@@ -74,6 +74,9 @@ in {
       lfs.enable = true;
       prompt.enable = true;
     };
+    nvf = {
+      enable = true;
+    };
 
     # --- Window Managers & Compositors ---
     niri = {
@@ -175,7 +178,8 @@ in {
       enable = false;
     };
     surge = {
-      enable = false;
+      enable = true;
+      systemd.enable = true;
     };
 
     # --- Gaming ---

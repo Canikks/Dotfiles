@@ -16,6 +16,9 @@ in {
         spacesForce = true;
         pinsForce = true;
         presets.betterfox.enable = true;
+        # nativeMessagingHosts = [
+        #   pkgs.nur.repos.colinsane.gopass-native-messaging-host
+        # ];
       };
     };
     nativeMessagingHosts = [pkgs.firefoxpwa];

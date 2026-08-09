@@ -52,6 +52,10 @@
           key = "󱄅 OS";
         }
         {
+          type = "host";
+          key = "⌂ Host";
+        }
+        {
           type = "kernel";
           key = "󰌢 Kernel";
         }

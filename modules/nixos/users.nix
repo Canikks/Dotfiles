@@ -14,7 +14,7 @@
     extraGroups = [
       "sddm"
       "btrfs"
-      "nix"
+      "nixbld"
       "hermes"
       "searx"
       "input"
@@ -34,6 +34,7 @@
       "video"
       "audio"
       "power"
+      "minecraft"
     ];
     packages = with pkgs; [
       hello

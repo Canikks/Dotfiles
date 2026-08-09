@@ -4,6 +4,7 @@
   inputs = {
     # Nixos related inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -18,13 +19,14 @@
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:epireyn/niri-flake";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     dankCalendar.url = "github:AvengeMedia/dankcalendar";
     dank-greeter.url = "github:AvengeMedia/dank-greeter";
+    # dank-greeter.url = "/home/utkar/workspace/dank-greeter/";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -71,10 +73,12 @@
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
     quickemu.url = "github:quickemu-project/quickemu";
-    surge.url = "github:SurgeDM/Surge/eebbc055baccff30de013e28d7de3ec4927a5ce6";
+    # surge.url = "github:SurgeDM/Surge/eebbc055baccff30de013e28d7de3ec4927a5ce6";
+    surge.url = "/home/utkar/workspace/Surge/";
     yazelix-hm.url = "github:luccahuguet/yazelix";
     tlp-power-profile.url = "github:peturh/tlp-power-profile";
     fetch.url = "github:areofyl/fetch";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

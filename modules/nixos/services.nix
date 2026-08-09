@@ -295,38 +295,65 @@
     power-profiles-daemon.enable = false;
 
     # --- Others ---
-    minecraft-server = {
+    minecraft-servers = {
       enable = true;
-      package = with pkgs;
-        nur.repos.toyvo.fabricServers.fabric-1_21_1.overrideAttrs (old: {
-          installPhase = ''
-            mkdir -p $out/bin $out/lib/minecraft
-            cp -v $src $out/lib/minecraft/server.jar
-
-            cat > $out/bin/minecraft-server <<EOF
-            #!${pkgs.bash}/bin/bash
-            exec ${pkgs.temurin-jre-bin}/bin/java "\$@" \
-              -jar $out/lib/minecraft/server.jar \
-              nogui
-            EOF
-
-            chmod +x $out/bin/minecraft-server
-          '';
-        });
       eula = true;
       openFirewall = true;
-      jvmOpts = "-Xms4092M -Xmx4092M -XX:+UseG1GC -XX:ParallelGCThreads=2 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10";
-      # jvmOpts = "";
-      serverProperties = {
-        server-port = 25565;
-        # difficulty = "normal";
-        max-players = 20;
-        motd = "NixOS Minecraft server!";
-        white-list = false;
-        enable-rcon = false;
-        online-mode = false;
+      managementSystem = {
+        tmux.enable = true;
+      };
+      servers = {
+        "Nixos" = {
+          enable = true;
+          autoStart = false;
+          jvmOpts = "-Xms4092M -Xmx4092M -XX:+UseG1GC -XX:ParallelGCThreads=2 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10";
+          enableReload = true;
+          package = pkgs.fabricServers.fabric-1_21_1;
+          serverProperties = {
+            server-port = 25565;
+            difficulty = "normal";
+            max-players = 20;
+            motd = "NixOS Minecraft server!";
+            white-list = false;
+            enable-rcon = false;
+            online-mode = false;
+          };
+        };
       };
     };
+    # minecraft-server = {
+    #   enable = true;
+    #   package = pkgs.fabricServers.fabric-1_21_1;
+    #   # package = with pkgs;
+    #   #   nur.repos.toyvo.fabricServers.fabric-1_21_1.overrideAttrs (old: {
+    #   #     installPhase = ''
+    #   #       mkdir -p $out/bin $out/lib/minecraft
+    #   #       cp -v $src $out/lib/minecraft/server.jar
+    #   #
+    #   #       cat > $out/bin/minecraft-server <<EOF
+    #   #       #!${pkgs.bash}/bin/bash
+    #   #       exec ${pkgs.temurin-jre-bin}/bin/java "\$@" \
+    #   #         -jar $out/lib/minecraft/server.jar \
+    #   #         nogui
+    #   #       EOF
+    #   #
+    #   #       chmod +x $out/bin/minecraft-server
+    #   #     '';
+    #   #   });
+    #   eula = true;
+    #   openFirewall = true;
+    #   jvmOpts = "-Xms4092M -Xmx4092M -XX:+UseG1GC -XX:ParallelGCThreads=2 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10";
+    #   # jvmOpts = "";
+    #   serverProperties = {
+    #     server-port = 25565;
+    #     # difficulty = "normal";
+    #     max-players = 20;
+    #     motd = "NixOS Minecraft server!";
+    #     white-list = false;
+    #     enable-rcon = false;
+    #     online-mode = false;
+    #   };
+    # };
     niri-autoselect-portal.enable = true;
     aria2 = {
       enable = false;

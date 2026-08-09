@@ -6,6 +6,14 @@
         icon = "🏡";
         position = 1000;
         container = 1;
+        liveFolders."Issues" = {
+          id = "c155248f-cdbd-44d5-bfda-db29fa350c95";
+          kind = "github:issues";
+          collapsed = true;
+          github = {
+            authorMe = true;
+          };
+        };
       };
       "Reddit" = {
         id = "fffc3cab-54b3-4d28-a1fd-e194c29b7564";
