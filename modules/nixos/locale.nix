@@ -2,6 +2,9 @@
   # --- System & Localization ---
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_GB.UTF-8";
+  # i18n.inputMethod.fcitx5 = {
+  #   waylandFrontend = true;
+  # };
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
     LC_IDENTIFICATION = "en_IN";

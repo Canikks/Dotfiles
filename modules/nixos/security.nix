@@ -26,6 +26,6 @@
     pki = {
       certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"];
     };
-    unprivilegedUsernsClone = true;
+    # unprivilegedUsernsClone = true;
   };
 }

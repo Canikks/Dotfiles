@@ -3,6 +3,7 @@
   inputs,
   ...
 }: {
+  # disabledModules = ["programs/noctalia.nix"];
   imports =
     (with inputs; [
       nix-index-database.homeModules.nix-index
@@ -20,6 +21,7 @@
       yazelix-hm.homeManagerModules.default
       chaotic.homeManagerModules.default
       fetch.homeManagerModules.default
+      umbriel.homeModules.default
     ])
     ++ [(inputs.import-tree ../../modules/home)];
 

@@ -66,12 +66,15 @@
         "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
         "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
         "dev.tty.ldisc_autoload" = 0;
-        "vm.swappiness" = 60;
+        "vm.swappiness" = 150;
         "vm.vfs_cache_pressure" = 50;
         "vm.watermark_scale_factor" = 125;
         "vm.dirty_ratio" = 10;
         "net.ipv4.ip_unprivileged_port_start" = 80;
         "vm.dirty_background_ratio" = 5;
+        "vm.defrag_mode" = 1;
+        "vm.compaction_proactiveness" = 20;
+        "vm.page-cluster" = 0;
       };
     };
   };

@@ -36,12 +36,12 @@
           vision = {
             provider = "openrouter";
             base_url = "https://openrouter.ai/api/v1";
-            model = "google/gemma-4-26b-a4b-it";
+            model = "z-ai/glm-5.3-flash";
           };
           web_extract = {
             provider = "openrouter";
             base_url = "https://openrouter.ai/api/v1";
-            model = "inclusionai/ling-2.6-flash";
+            model = "z-ai/glm-5.3-flash";
           };
         };
         display = {
@@ -51,7 +51,7 @@
         compression = {
           enabled = true;
           threshold = 0.75;
-          summary_model = "deepseek/deepseek-v4-flash-0731";
+          summary_model = "z-ai/glm-5.3-flash";
         };
         memory = {
           memory_enabled = true;
@@ -59,7 +59,7 @@
         };
         model = {
           base_url = "https://openrouter.ai/api/v1";
-          default = "deepseek/deepseek-v4-flash-0731";
+          default = "z-ai/glm-5.3-flash";
           provider = "openrouter";
         };
         terminal.backend = "local";

@@ -14,7 +14,6 @@
     extraGroups = [
       "sddm"
       "btrfs"
-      "nixbld"
       "hermes"
       "searx"
       "input"

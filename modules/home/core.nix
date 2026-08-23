@@ -8,6 +8,10 @@
     shell.enableZshIntegration = true;
   };
 
+  i18n.inputMethod.fcitx5 = {
+    waylandFrontend = true;
+  };
+
   # Window Manager
   wayland.windowManager.mango.enable = false;
   wayland.windowManager.hyprland.systemd.enable = true;

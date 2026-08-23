@@ -104,6 +104,9 @@ in {
     hyprtoolkit
     freetype
     udev
+    android-tools
+    sshfs
+    scrcpy
 
     # --- Development & CLI Tools ---
     python3
@@ -183,11 +186,13 @@ in {
     libadwaita
     material-symbols
     material-icons
-    libsForQt5.qt5ct
-    libsForQt5.qtwayland
+    # libsForQt5.qt5ct
+    # libsForQt5.qtwayland
     # kdePackages.qt5compat
     kdePackages.qt6ct
+    kdePackages.qt5compat
     kdePackages.qtwayland
+    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # --- Desktop Environment / Wayland / Qt6 ---
     xdg-desktop-portal-termfilechooser
@@ -230,7 +235,7 @@ in {
     runapp
     nur.repos.lonerOrz.helium
     # azahar
-    # nur.repos.dmfrpro.spflashtool6
+    nur.repos.dmfrpro.spflashtool5
     # nur.repos.nakido.zellij-forgot
     nur.repos.xddxdd.magiskboot
     # python314Packages.aria2p

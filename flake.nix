@@ -22,11 +22,15 @@
     niri.url = "github:epireyn/niri-flake";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
-    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     dankCalendar.url = "github:AvengeMedia/dankcalendar";
     dank-greeter.url = "github:AvengeMedia/dank-greeter";
+    qtengine.url = "github:kossLAN/qtengine";
     # dank-greeter.url = "/home/utkar/workspace/dank-greeter/";
+
+    # Noctalia Stack
+    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
 
     # Helpers & Utils
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -124,6 +128,7 @@
     # chaotic.inputs.nixpkgs.follows = "nixpkgs";
     nixos-plymouth-theme.inputs.nixpkgs.follows = "nixpkgs";
     fetch.inputs.nixpkgs.follows = "nixpkgs";
+    qtengine.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

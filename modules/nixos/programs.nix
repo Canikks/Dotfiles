@@ -44,12 +44,13 @@ in {
                 sops-nix.homeManagerModules.sops
                 dms-plugin-registry.homeModules.default
                 zen-browser.homeModules.twilight
-                noctalia.homeModules.default
+                # noctalia.homeModules.default
                 stylix.homeModules.stylix
                 optnix.homeModules.optnix
                 yazelix-hm.homeManagerModules.default
                 chaotic.homeManagerModules.default
                 fetch.homeManagerModules.default
+                umbriel.homeModules.default
               ];
             };
           };
@@ -93,6 +94,7 @@ in {
       # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       withUWSM = true;
     };
+    umbriel.enable = true;
     uwsm = {
       enable = true;
     };
@@ -101,6 +103,20 @@ in {
     };
 
     # --- System & Utility Tools ---
+    qtengine = {
+      enable = false;
+      config = {
+        theme = {
+          style = "oxygen";
+          colorScheme = "${config.users.users.utkar.home}/.local/share/color-schemes/DankMatugen.colors";
+        };
+        misc = {
+          singleClickActivate = true;
+          menusHaveIcons = true;
+          shortcutsForContextMenus = true;
+        };
+      };
+    };
     nh = {
       enable = true;
       flake = "${config.users.users.utkar.home}/dotfiles";
@@ -210,13 +226,13 @@ in {
     noctalia = {
       enable = true;
       package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      systemd = {
-        enable = true;
-        target = "hyprland-session.target";
-      };
+      # systemd = {
+      #   enable = true;
+      #   target = "hyprland-session.target";
+      # };
     };
     noctalia-greeter = {
-      enable = false;
+      enable = true;
       package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
     dank-material-shell = {
@@ -285,7 +301,7 @@ in {
       quickshell.package = pkgs.quickshell;
     };
     dms-greeter = {
-      enable = true;
+      enable = false;
       compositor.name = "niri";
       configHome = "${config.users.users.utkar.home}";
       quickshell.package = pkgs.quickshell;

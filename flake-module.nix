@@ -38,9 +38,11 @@ in {
       dankCalendar.nixosModules.default
       dank-greeter.nixosModules.default
       nvf.nixosModules.default
-      # noctalia.nixosModules.default
+      noctalia.nixosModules.default
       noctalia-greeter.nixosModules.default
       nix-minecraft.nixosModules.minecraft-servers
+      qtengine.nixosModules.default
+      umbriel.nixosModules.default
       (import ./hosts/utkar/home-manager.nix {inherit inputs self system pkgs;})
     ];
   };
