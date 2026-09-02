@@ -3,6 +3,7 @@
     # --- General ---
     ksm.enable = true;
     enableRedistributableFirmware = true;
+    acpilight.enable = true;
 
     # --- GPU & Graphics ---
     intelgpu = {

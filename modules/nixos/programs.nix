@@ -226,10 +226,10 @@ in {
     noctalia = {
       enable = true;
       package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      # systemd = {
-      #   enable = true;
-      #   target = "hyprland-session.target";
-      # };
+      systemd = {
+        enable = true;
+        target = "umbriel-session.target";
+      };
     };
     noctalia-greeter = {
       enable = true;
@@ -267,6 +267,7 @@ in {
         bongoCat.enable = true;
         nixPackageRunner.enable = true;
         mediaControlPlus.enable = true;
+        dankMenu.enable = true;
         dms-common = {
           src = pkgs.fetchFromGitHub {
             owner = "hthienloc";

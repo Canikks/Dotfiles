@@ -107,6 +107,8 @@ in {
     android-tools
     sshfs
     scrcpy
+    tmux
+    nvtopPackages.intel
 
     # --- Development & CLI Tools ---
     python3
@@ -186,12 +188,14 @@ in {
     libadwaita
     material-symbols
     material-icons
-    # libsForQt5.qt5ct
+    libsForQt5.qt5ct
     # libsForQt5.qtwayland
     # kdePackages.qt5compat
     kdePackages.qt6ct
     kdePackages.qt5compat
     kdePackages.qtwayland
+    kdePackages.kdialog
+    kdePackages.qtstyleplugin-kvantum
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # --- Desktop Environment / Wayland / Qt6 ---
@@ -240,5 +244,6 @@ in {
     nur.repos.xddxdd.magiskboot
     # python314Packages.aria2p
     # fcitx5
+    # inputs.tauritavern.packages.${pkgs.stdenv.hostPlatform.system}.canary
   ];
 }

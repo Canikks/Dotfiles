@@ -83,6 +83,7 @@
     tlp-power-profile.url = "github:peturh/tlp-power-profile";
     fetch.url = "github:areofyl/fetch";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    tauritavern.url = "github:Darkatse/TauriTavern/dev";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

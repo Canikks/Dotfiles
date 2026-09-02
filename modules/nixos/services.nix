@@ -41,7 +41,7 @@
           web_extract = {
             provider = "openrouter";
             base_url = "https://openrouter.ai/api/v1";
-            model = "z-ai/glm-5.3-flash";
+            model = "inception/mercury-2.5-preview";
           };
         };
         display = {
@@ -51,7 +51,7 @@
         compression = {
           enabled = true;
           threshold = 0.75;
-          summary_model = "z-ai/glm-5.3-flash";
+          summary_model = "inception/mercury-2.5-preview";
         };
         memory = {
           memory_enabled = true;
@@ -205,6 +205,7 @@
         };
       };
     };
+    playerctld.enable = true;
     homed.enable = true;
     gvfs.enable = true;
     udisks2 = {
@@ -404,9 +405,9 @@
     #   };
     # };
     scx = {
-      enable = false;
-      scheduler = "scx_cake";
-      extraArgs = ["-p gaming"];
+      enable = true;
+      scheduler = "scx_flow";
+      # extraArgs = ["-p gaming"];
     };
   };
 }

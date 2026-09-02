@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   programs.tmux = {
-    enable = true;
+    enable = false;
 
-    package = pkgs.tmux;
+    # package = pkgs.tmux;
 
     # shell = "${pkgs.zsh}/bin/zsh";
     #

@@ -30,7 +30,7 @@
     initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v4;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v4;
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "tcp_bbr"

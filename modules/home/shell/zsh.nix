@@ -102,6 +102,8 @@
         export ZSH_TMUX_AUTOQUIT=false
         export PAGER=moor
 
+
+        ZVM_CURSOR_STYLE_ENABLED=false
         ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK      
         ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
         ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
@@ -114,7 +116,7 @@
         zle -N zle-line-init
       '';
     in
-      lib.mkMerge [zshEarly];
+      lib.mkMerge [zshEarly zshLate];
 
     antidote = {
       enable = true;

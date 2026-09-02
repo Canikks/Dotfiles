@@ -6,13 +6,13 @@
     enableGitIntegration = true;
     font.name = "Maple Mono NF SemiBold";
     shellIntegration.mode = "no-cursor";
-    extraConfig = ''
-      include dank-tabs.conf
-      include dank-theme.conf
-    '';
     # extraConfig = ''
-    #   include themes/noctalia.conf
+    #   include dank-tabs.conf
+    #   include dank-theme.conf
     # '';
+    extraConfig = ''
+      include themes/noctalia.conf
+    '';
     quickAccessTerminalConfig = {
       lines = 35;
       edge = "center-sized";
