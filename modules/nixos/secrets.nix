@@ -11,6 +11,12 @@
     useSystemdActivation = true;
 
     secrets = {
+      proton_wireguard_private_key = {
+        key = "proton";
+        owner = "root";
+        group = "root";
+        mode = "0400";
+      };
       netrc = {
         key = "netrc";
         owner = "root";

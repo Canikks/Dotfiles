@@ -5,6 +5,7 @@
     pathsToLink = [
       "/share/zsh"
       "/share/fish"
+      "/share/nushell"
     ];
 
     sessionVariables = {

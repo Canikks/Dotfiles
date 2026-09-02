@@ -16,6 +16,9 @@ in {
     zsh = {
       enable = true;
     };
+    nushell = {
+      enable = true;
+    };
     tmux = {
       enable = true;
     };
@@ -234,6 +237,7 @@ in {
     noctalia-greeter = {
       enable = true;
       package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      passwordless-sync-users = ["utkar"];
     };
     dank-material-shell = {
       enable = true;

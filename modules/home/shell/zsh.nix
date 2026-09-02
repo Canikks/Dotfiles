@@ -43,6 +43,7 @@
       rm = "trash";
       pass-push = "git -C ~/.local/share/gopass/stores/root push";
       pass-pull = "git -C ~/.local/share/gopass/stores/root pull --rebase";
+      nix-update = "noctalia msg caffeine-enable && nh os switch --show-trace --show-activation-logs --cores=4 --max-jobs=4 --impure --accept-flake-config -- --extra-deprecated-features or-as-identifier --extra-experimental-features flake-self-attrs && noctalia msg caffeine-disable";
     };
 
     initContent = let
@@ -104,7 +105,7 @@
 
 
         ZVM_CURSOR_STYLE_ENABLED=false
-        ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK      
+        ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK
         ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
         ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
         ZVM_INIT_MODE=sourcing

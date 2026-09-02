@@ -27,9 +27,10 @@
 
     # --- Containers ---
     containers.enable = true;
-    docker.enable = true;
+    docker.enable = false;
     podman = {
       enable = true;
+      dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
   };

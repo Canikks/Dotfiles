@@ -14,7 +14,31 @@
     nat = {
       enable = true;
       internalInterfaces = ["virbr0"];
+      # externalInterface = "proton";
     };
+
+    # wg-quick.interfaces.proton = {
+    #   privateKeyFile = config.sops.secrets.proton_wireguard_private_key.path;
+
+    #   address = [
+    #     "10.2.0.2/32"
+    #     "2a07:b944::2:2/128"
+    #   ];
+
+    #   dns = [
+    #     "10.2.0.1"
+    #     "2a07:b944::2:1"
+    #   ];
+
+    #   peers = [
+    #     {
+    #       publicKey = "msLecK3aleRQCD0sfE3c7J5LlX0s2p3y5fp1BTUgczs=";
+    #       allowedIPs = ["0.0.0.0/0" "::/0"];
+    #       endpoint = "37.19.205.150:51820";
+    #       persistentKeepalive = 25;
+    #     }
+    #   ];
+    # };
 
     # --- NetworkManager ---
     networkmanager = {

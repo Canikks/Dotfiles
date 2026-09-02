@@ -1,6 +1,6 @@
 {
   programs.keepassxc = {
     enable = true;
-    autostart = true;
+    autostart = false;
   };
 }

@@ -59,6 +59,8 @@
         devices.system.cpu.intel_pstate.hwp_dynamic_boost = true;
       };
       sysctl = {
+        # "net.ipv4.ip_forward" = 1;
+        # "net.ipv6.conf.all.forwarding" = 1;
         "net.core.default_qdisc" = "fq";
         "net.ipv4.tcp_congestion_control" = "bbr";
         "net.core.wmem_max" = 1073741824;

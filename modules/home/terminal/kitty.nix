@@ -35,7 +35,7 @@
       input_delay = 0;
       repaint_delay = 2;
       wayland_enable_ime = "no";
-      tab_bar_edge = "left";
+      tab_bar_edge = "bottom";
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
       cursor_trail = 1;

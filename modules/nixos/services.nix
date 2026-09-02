@@ -95,6 +95,7 @@
     };
     tailscale = {
       enable = true;
+      useRoutingFeatures = "both";
       extraSetFlags = ["--advertise-exit-node"];
     };
     blocky = {
@@ -104,7 +105,7 @@
           freeBind = true;
           dns = [
             "127.0.0.1:53"
-            "100.95.103.84:53"
+            "100.108.9.38:53"
           ];
           http = 4000;
         };
@@ -122,10 +123,10 @@
           "p0.freedns.controld.com"
         ];
         caching = {
-          minTime = "10m";
-          maxTime = "1h";
+          minTime = "2m";
+          maxTime = "10m";
           prefetching = true;
-          prefetchExpires = "1h";
+          prefetchExpires = "10m";
           prefetchThreshold = 10;
         };
         blocking = {

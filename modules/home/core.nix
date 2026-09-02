@@ -6,6 +6,7 @@
     shell.enableFishIntegration = true;
     preferXdgDirectories = true;
     shell.enableZshIntegration = true;
+    shell.enableNushellIntegration = true;
   };
 
   i18n.inputMethod.fcitx5 = {

@@ -2,6 +2,7 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = false;
+    enableNushellIntegration = true;
     tmux.enableShellIntegration = true;
     # defaultOptions = ["--popup"];
     fileWidget = {

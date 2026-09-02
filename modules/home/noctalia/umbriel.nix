@@ -48,6 +48,7 @@
         "Mod+N" = "spawn:noctalia msg panel-toggle noctalia/notes:panel";
         "Mod+P" = "spawn:noctalia msg screenshot-region";
         "Mod+X" = "spawn:noctalia msg panel-toggle session";
+        "Alt+Tab" = "spawn:noctalia msg window-switcher";
         "Mod+Shift+A" = "spawn:noctalia msg screenshot-annotate";
         "Mod+Ctrl+A" = "spawn:noctalia msg annotate";
         "Mod+Tab" = "overview-toggle";
