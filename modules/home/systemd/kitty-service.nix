@@ -8,7 +8,7 @@
       Description = "Kitty daemon";
       PartOf = ["graphical-session.target"];
       After = ["graphical-session.target"];
-      X-SwitchMethod = "reload";
+      # X-SwitchMethod = "reload";
     };
 
     Service = {

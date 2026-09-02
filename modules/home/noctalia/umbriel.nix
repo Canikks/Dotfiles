@@ -15,8 +15,19 @@
       layout.gap = 5;
       input.keyboard.layout = "us";
       input.keyboard.options = "compose:ralt,ctrl:swapcaps";
+      appearance = {
+        prefer_no_csd = true;
+        border_width = 2;
+        corner_radius = 10;
+      };
       appearance.blur = {
         enabled = true;
+        passes = 3;
+        radius = 3;
+        noise = 0.02;
+        brightness = 0.9;
+        contrast = 0.9;
+        saturation = 1.1;
       };
       events = {
         lid_close = "umbriel msg dpms-off";
@@ -32,6 +43,118 @@
         }
       ];
       window_rule = [
+        {
+          match.app_id = "^(Alacritty|kitty|org\\.gnome\\.Nautilus)$";
+          default_width = 0.33;
+        }
+
+        {
+          match.app_id = "^(helium|chromium)$";
+          default_width = 0.75;
+        }
+
+        {
+          match.content_type = "game";
+          vrr = "always";
+        }
+
+        {
+          match.xdg_tag = "^proton-game$";
+          default_fullscreen = true;
+        }
+
+        {
+          match.app_id = "^steam_app_[0-9]+$";
+          hdr = "fullscreen";
+        }
+
+        {
+          match.app_id = "^(steam_app_[0-9]+|gamescope)$";
+          tearing = true;
+        }
+
+        {
+          match.app_id = "^(code|org\\.gnome\\.Nautilus)$";
+          opacity = 0.97;
+        }
+
+        {
+          match.app_id = "^(Emulator|zenity|xdg-desktop-portal|qalculate-gtk|org\\.pulseaudio\\.pavucontrol)$";
+          default_floating = true;
+        }
+
+        {
+          match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files)";
+          default_floating = true;
+        }
+
+        {
+          match.app_id = "^(steam.*|overwatch|overwatch\\.exe)$";
+          default_workspace = 4;
+        }
+
+        {
+          match.app_id = "^(steam_proton|steam_app.*|overwatch|overwatch\\.exe)$";
+          default_fullscreen = true;
+        }
+
+        {
+          match.title = "^notificationtoasts_.+_desktop";
+          default_position = {
+            x = 0;
+            y = 0;
+            anchor = "bottom_right";
+          };
+          default_focused = false;
+          default_pinned = true;
+        }
+
+        {
+          match.app_id = "^dev.noctalia.Noctalia$";
+          default_floating = true;
+          default_size = [1020 900];
+          blur_popups = false;
+        }
+
+        {
+          match.app_id = "^dev.noctalia.UmbrielSharePicker$";
+          default_floating = true;
+          default_size = [800 600];
+          default_position = {
+            x = 32;
+            y = 32;
+            anchor = "bottom_right";
+          };
+        }
+
+        {
+          match.app_id = "^dev.lemmy.swash$";
+          default_floating = true;
+          default_size = [1000 900];
+        }
+
+        {
+          match.is_focused = false;
+          opacity = 0.85;
+        }
+
+        {
+          match.is_focused = true;
+          opacity = 1.0;
+        }
+
+        {
+          match.is_floating = true;
+          match.is_scratchpad = false;
+          blur = false;
+        }
+
+        {
+          match.is_focused = false;
+          match.is_floating = true;
+          match.is_scratchpad = false;
+          opacity = 0.4;
+        }
         {
           opacity = 0.7;
           blur = true;

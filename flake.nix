@@ -16,6 +16,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     import-tree.url = "github:denful/import-tree";
     nixos-plymouth-theme.url = "github:ed7ed/nixos-plymouth-theme/main";
+    nix-graph.url = "github:AlexAntonik/nix-graph";
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
@@ -83,8 +84,8 @@
     tlp-power-profile.url = "github:peturh/tlp-power-profile";
     fetch.url = "github:areofyl/fetch";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    tauritavern.url = "github:Darkatse/TauriTavern/dev";
-    # tauritavern.url = "/home/utkar/workspace/TauriTavern";
+    # tauritavern.url = "github:Darkatse/TauriTavern/dev";
+    tauritavern.url = "/home/utkar/workspace/TauriTavern";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -131,6 +132,7 @@
     nixos-plymouth-theme.inputs.nixpkgs.follows = "nixpkgs";
     fetch.inputs.nixpkgs.follows = "nixpkgs";
     qtengine.inputs.nixpkgs.follows = "nixpkgs";
+    nix-graph.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

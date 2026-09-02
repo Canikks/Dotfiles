@@ -109,6 +109,7 @@ in {
     scrcpy
     tmux
     nvtopPackages.intel
+    # inputs.nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.nix-graph
 
     # --- Development & CLI Tools ---
     python3
@@ -238,6 +239,7 @@ in {
     # app2unit
     runapp
     nur.repos.lonerOrz.helium
+    inputs.tauritavern.packages.${pkgs.stdenv.hostPlatform.system}.canary
     # azahar
     nur.repos.dmfrpro.spflashtool5
     # nur.repos.nakido.zellij-forgot
