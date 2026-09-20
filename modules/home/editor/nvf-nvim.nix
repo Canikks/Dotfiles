@@ -61,15 +61,19 @@
             vim.g.base46_transparency = true
           '';
         };
-        # jj-nvim = {
-        #   package = pkgs.vimUtils.buildVimPlugin {
-        #     pname = "jj-nvim";
-        #     version = "unstable";
-        #
-        #     src = inputs.jj-nvim;
-        #   };
-        #   lazy = false;
-        # };
+        jj-nvim = {
+          package = pkgs.vimUtils.buildVimPlugin {
+            enabled = true;
+            pname = "jj-nvim";
+            version = "unstable";
+
+            src = inputs.jj-nvim;
+          };
+
+          # doCheck = false;
+          setupModule = "jj";
+          lazy = false;
+        };
       };
       vim.keymaps = [
         {

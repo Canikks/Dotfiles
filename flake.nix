@@ -42,7 +42,7 @@
     nom.url = "github:maralorn/nix-output-monitor";
     nys.url = "github:MercuryTechnologies/nix-your-shell";
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
-    dgop.url = "github:AvengeMedia/dgop";
+    dgop.url = "github:duxlabs-dev/dux-gop";
     dux-search.url = "github:duxlabs-dev/dux-search";
     dux-files.url = "github:duxlabs-dev/dux-files";
     rio.url = "github:raphamorim/rio/main";

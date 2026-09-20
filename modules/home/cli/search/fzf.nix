@@ -4,7 +4,7 @@
     enableFishIntegration = false;
     enableNushellIntegration = true;
     tmux.enableShellIntegration = true;
-    # defaultOptions = ["--popup"];
+    defaultOptions = ["--popup" "--prompt ⟫"];
     fileWidget = {
       options = [
         "--popup --preview 'bat --color=always --style=numbers --line-range=:500 {}'"

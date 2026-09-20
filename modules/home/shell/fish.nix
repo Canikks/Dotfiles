@@ -20,13 +20,13 @@
     };
     plugins = [
       {
+        name = "fzf-fish";
+        src = pkgs.fishPlugins.fzf-fish;
+      }
+      {
         name = "puffer";
         src = pkgs.fishPlugins.puffer;
       }
-      # {
-      #   name = "fzfish";
-      #   src = pkgs.nur.repos.adam0.fishPlugins.fzfish;
-      # }
       {
         name = "fish-bd";
         src = pkgs.fishPlugins.fish-bd;
@@ -45,7 +45,7 @@
     '';
     interactiveShellInit = ''
       set -g fish_color_autosuggestion brblack
-      set -Ux fzfish_editor hx
+      set -Ux fzfish_editor nvim
       set -g fish_color_command blue
       set -g fish_color_param cyan
       set -g fish_color_error red

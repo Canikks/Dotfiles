@@ -145,7 +145,6 @@ in {
     vivaldi
     firefox
     # handbrake
-    onlyoffice-desktopeditors
     lmstudio
     nautilus
     macchina
@@ -231,6 +230,7 @@ in {
     # --- Others & Custom Repos ---
     app2unit
     runapp
+    nur.repos.davinci42.fluxdown-server
     # nur.repos.lonerOrz.helium
     # inputs.tauritavern.packages.${pkgs.stdenv.hostPlatform.system}.canary
     # azahar

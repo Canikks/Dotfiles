@@ -12,7 +12,7 @@ in {
     ccache.enable = false;
     fish = {
       enable = true;
-      useBabelfish = true;
+      useBabelfish = false;
     };
     zsh = {
       enable = true;
@@ -186,6 +186,8 @@ in {
         libz
         icu
         libc
+        libxcb
+        libxkbcommon
         qt5.qtbase
         qt5.qtwayland
         openal
