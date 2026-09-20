@@ -27,6 +27,7 @@
     dank-greeter.url = "github:AvengeMedia/dank-greeter";
     qtengine.url = "github:kossLAN/qtengine";
     # dank-greeter.url = "/home/utkar/workspace/dank-greeter/";
+    ambxst.url = "github:Axenide/Ambxst";
 
     # Noctalia Stack
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
@@ -86,6 +87,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     # tauritavern.url = "github:Darkatse/TauriTavern/dev";
     tauritavern.url = "/home/utkar/workspace/TauriTavern";
+    zmx.url = "github:neurosnap/zmx";
 
     # Setting inputs to follow my shit
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

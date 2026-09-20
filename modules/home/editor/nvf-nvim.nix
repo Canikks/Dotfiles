@@ -5,8 +5,36 @@
 }: {
   programs.nvf = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     settings = {
+      mnw.enable = true;
+      mnw.initLua = ''
+        local nvim_lsp = vim.lsp
+        nvim_lsp.config("nixd", {
+          cmd = { "nixd" },
+          filetypes = { "nix" },
+          root_markers = { "flake.nix", ".git" },
+          settings = {
+            nixd = {
+              nixpkgs = {
+                expr = 'import (builtins.getFlake "/home/utkar/dotfiles").inputs.nixpkgs { }   ',
+              },
+              formatting = {
+                command = { "alejandra" },
+              },
+              options = {
+                nixos = {
+                  expr = "(builtins.getFlake (toString ./.)).nixosConfigurations.utkar.options",
+                },
+                home_manager = {
+                  expr = "(builtins.getFlake (toString ./.)).nixosConfigurations.utkar.options.home-manager.users.type.getSubOptions []",
+                },
+              },
+            },
+          },
+        })
+        nvim_lsp.enable("nixd")
+      '';
       vim.searchCase = "smart";
       vim.lazy.plugins = {
         "multiple-cursors.nvim" = {
@@ -142,10 +170,10 @@
       vim.syntaxHighlighting = true;
       vim.viAlias = true;
       vim.vimAlias = true;
-      vim.extraLuaFiles = [
-        ./nixd.lua
-        # ./multi.lua
-      ];
+      # vim.extraLuaFiles = [
+      #   ./nixd.lua
+      #   # ./multi.lua
+      # ];
       vim.fzf-lua = {
         enable = true;
       };
@@ -197,6 +225,7 @@
         rust.extensions.crates-nvim.enable = false;
       };
       vim.visuals = {
+        twilight-nvim.enable = true;
         blink-indent.enable = true;
         nvim-web-devicons.enable = true;
         nvim-cursorline.enable = true;
@@ -209,6 +238,12 @@
       };
       vim.statusline.lualine = {
         enable = true;
+        integrations = {
+          breadcrumbs = {
+            nvim-navic.enable = true;
+            navbuddy.enable = true;
+          };
+        };
       };
       vim.autopairs.nvim-autopairs.enable = true;
       vim.clipboard = {
@@ -266,6 +301,8 @@
             };
           };
         };
+        grug-far-nvim.enable = true;
+        mkdir.enable = true;
         diffview-nvim.enable = true;
         nix-develop.enable = true;
         yanky-nvim.enable = true;
@@ -310,10 +347,6 @@
         noice.enable = true;
         modes-nvim.enable = true;
         illuminate.enable = false;
-        breadcrumbs = {
-          enable = false;
-          navbuddy.enable = false;
-        };
         smartcolumn = {
           enable = true;
           setupOpts.custom_colorcolumn = {

@@ -2,6 +2,7 @@
   systemd = {
     # --- Hardware & TPM ---
     tpm2.enable = true;
+    # oomd.enable = false;
 
     # --- User Services & Targets ---
     user.services.niri-flake-polkit.enable = false;

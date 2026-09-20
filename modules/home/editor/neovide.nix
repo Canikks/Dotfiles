@@ -2,10 +2,11 @@
   programs.neovide = {
     enable = true;
     settings = {
-      fork = true;
+      fork = false;
       frame = "full";
       idle = true;
       maximized = false;
+      neovim-bin = "/etc/profiles/per-user/utkar/bin/nvim";
       no-multigrid = false;
       srgb = false;
       tabs = true;

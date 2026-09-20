@@ -12,8 +12,8 @@
     installVimSyntax = true;
     systemd.enable = true;
     settings = {
-      font-family = "MesloLGS Nerd Font";
-      font-size = 11;
+      # font-family = "MesloLGS Nerd Font";
+      # font-size = 11;
       window-decoration = false;
       window-padding-x = 12;
       window-padding-y = 12;
@@ -24,6 +24,7 @@
         "alt+up=unbind"
         "alt+down=unbind"
       ];
+      config-file = ["/home/utkar/.config/dms-theme-sync/ghostty.conf"];
       custom-shader = [
         "/home/utkar/.config/ghostty/shaders/cursor_warp.glsl"
         "/home/utkar/.config/ghostty/shaders/ripple_rectangle_cursor.glsl"

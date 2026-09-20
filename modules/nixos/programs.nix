@@ -9,6 +9,7 @@
 in {
   programs = {
     # --- Shells & Terminal ---
+    ccache.enable = true;
     fish = {
       enable = true;
       useBabelfish = true;
@@ -235,10 +236,11 @@ in {
       };
     };
     noctalia-greeter = {
-      enable = true;
+      enable = false;
       package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
       passwordless-sync-users = ["utkar"];
     };
+    ambxst.enable = false;
     dank-material-shell = {
       enable = true;
       enableSystemMonitoring = true;
@@ -303,13 +305,32 @@ in {
         target = "niri.service";
       };
       # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
-      quickshell.package = pkgs.quickshell;
+      # quickshell.package = pkgs.quickshell;
     };
     dms-greeter = {
-      enable = false;
+      enable = true;
       compositor.name = "niri";
       configHome = "${config.users.users.utkar.home}";
-      quickshell.package = pkgs.quickshell;
+      compositor.customConfig = ''
+        hotkey-overlay {
+            skip-at-startup
+        }
+
+        environment {
+            DMS_RUN_GREETER "1"
+        }
+
+        gestures {
+          hot-corners {
+            off
+          }
+        }
+
+        layout {
+          background-color "#000000"
+        }
+      '';
+      # quickshell.package = pkgs.quickshell;
       # quickshell.package = inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
     };
     dank-calendar = {

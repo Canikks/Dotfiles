@@ -22,6 +22,14 @@
     };
     sudo-rs = {
       enable = true;
+      configFile = ''
+        username ALL=(root) NOPASSWD: /run/current-system/sw/bin/tlp, \
+                              /run/current-system/sw/bin/tee /sys/firmware/acpi/platform_profile, \
+                              /run/current-system/sw/bin/tee /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference, \
+                              /run/current-system/sw/bin/tee /sys/devices/system/cpu/cpu1/cpufreq/energy_performance_preference, \
+                              /run/current-system/sw/bin/tee /sys/devices/system/cpu/cpu2/cpufreq/energy_performance_preference, \
+                              /run/current-system/sw/bin/tee /sys/devices/system/cpu/cpu3/cpufreq/energy_performance_preference
+      '';
     };
     pki = {
       certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"];

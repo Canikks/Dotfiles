@@ -1,18 +1,21 @@
 {
   programs.kitty = {
     enable = true;
-    shellIntegration.enableFishIntegration = true;
-    shellIntegration.enableZshIntegration = true;
+    shellIntegration = {
+      enableFishIntegration = true;
+      enableZshIntegration = true;
+      mode = "no-cursor";
+    };
     enableGitIntegration = true;
     font.name = "Maple Mono NF SemiBold";
-    shellIntegration.mode = "no-cursor";
-    # extraConfig = ''
-    #   include dank-tabs.conf
-    #   include dank-theme.conf
-    # '';
+
     extraConfig = ''
-      include themes/noctalia.conf
+      include dank-tabs.conf
+      include dank-theme.conf
     '';
+    # extraConfig = ''
+    #   include themes/noctalia.conf
+    # '';
     quickAccessTerminalConfig = {
       lines = 35;
       edge = "center-sized";
@@ -27,6 +30,7 @@
       "f2" = "launch --stdin-source=@last_cmd_output --stdin-add-formatting --type=overlay moor --statusbar=bold --no-linenumbers";
     };
     settings = {
+      custom_shaders = "cursor-trail-lightning";
       scrollback_pager = "moor --statusbar=bold --no-linenumbers";
       auto_reload_config = "-1";
       allow_remote_control = "socket-only";

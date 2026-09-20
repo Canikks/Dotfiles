@@ -27,5 +27,8 @@
 
   nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
   nixpkgs.config = self.nixosConfigurations.utkar.config.nixpkgs.config;
+  xdg.configFile."nixpkgs/config.nix".text = ''
+    { allowUnfree = true; }
+  '';
   # nixpkgs.config.allowUnfree = true;
 }

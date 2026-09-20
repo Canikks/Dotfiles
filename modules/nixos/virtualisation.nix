@@ -11,7 +11,7 @@
         vhostUserPackages = [pkgs.virtiofsd];
       };
     };
-    waydroid.enable = true;
+    waydroid.enable = false;
 
     # --- Guest Support ---
     vmware = {
@@ -27,10 +27,10 @@
 
     # --- Containers ---
     containers.enable = true;
-    docker.enable = false;
+    docker.enable = true;
     podman = {
       enable = true;
-      dockerCompat = true;
+      dockerCompat = false;
       defaultNetwork.settings.dns_enabled = true;
     };
   };

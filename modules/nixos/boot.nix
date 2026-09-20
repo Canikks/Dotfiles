@@ -3,6 +3,7 @@
   inputs,
   ...
 }: {
+  # system.etc.overlay.enable = true;
   boot = {
     # --- Boot Loader Configuration ---
     loader = {
@@ -25,12 +26,15 @@
       theme = "nixos";
       themePackages = [inputs.nixos-plymouth-theme.packages.${pkgs.stdenv.hostPlatform.system}.default];
     };
-    tmp.tmpfsHugeMemoryPages = "within_size";
-    tmp.useTmpfs = true;
+    tmp = {
+      tmpfsHugeMemoryPages = "within_size";
+      useTmpfs = true;
+      cleanOnBoot = true;
+    };
     initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v4;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "tcp_bbr"

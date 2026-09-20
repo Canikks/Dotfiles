@@ -11,8 +11,8 @@
     shellWrapperName = "y";
     theme = {
       flavor = {
-        dark = "noctalia";
-        light = "noctalia";
+        dark = "dank";
+        light = "dank";
       };
     };
     plugins = {
@@ -40,7 +40,7 @@
       opener = {
         extract = [
           {
-            run = ''ouch d -y "$@"'';
+            run = ''ouch d -y "$1"'';
             desc = "Extract here with ouch";
             for = "unix";
           }

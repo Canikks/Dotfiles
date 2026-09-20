@@ -3,6 +3,7 @@
 # hardware-configuration.nix
 *-mockup.nix
 mockup
+.local
 
 # Ignore build outputs from performing a nix-build or `nix build` command
 result

@@ -98,6 +98,7 @@ in {
       nix-minecraft.nixosModules.minecraft-servers
       qtengine.nixosModules.default
       umbriel.nixosModules.default
+      ambxst.nixosModules.default
       (import ./hosts/utkar/home-manager.nix {inherit inputs self system pkgs;})
     ];
   };

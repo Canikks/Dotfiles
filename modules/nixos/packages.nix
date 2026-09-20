@@ -47,7 +47,7 @@ in {
     #     doCheck = !prev.stdenv.hostPlatform.isi686;
     #   };
     # })
-    inputs.quickshell.overlays.default
+    # inputs.quickshell.overlays.default
     inputs.niri.overlays.niri
     inputs.hyprland.overlays.default
     inputs.alejandra.overlays.default
@@ -101,15 +101,17 @@ in {
     hydra-check
     moor
     intel-cmt-cat
-    hyprtoolkit
     freetype
     udev
-    android-tools
     sshfs
     scrcpy
     tmux
     nvtopPackages.intel
-    # inputs.nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.nix-graph
+    inputs.nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.nix-graph
+    inputs.zmx.packages.${pkgs.stdenv.hostPlatform.system}.zmx
+    # zmx
+    # gopeed
+    efibootmgr
 
     # --- Development & CLI Tools ---
     python3
@@ -135,7 +137,6 @@ in {
     alejandra
     # nur.repos.lonerOrz.surge
     sops
-    cloudflare-warp
     nix-zsh-completions
     lua-language-server
     stylua
@@ -153,15 +154,9 @@ in {
     gimp
 
     # --- Gaming & Emulation ---
-    glfw3-minecraft
-    openal
     mangohud
-    srb2
     # mindustry
     wineWow64Packages.waylandFull
-    # nur.repos.toyvo.fabricServers.fabric-1_21_1
-    fabricServers.fabric-1_21_1
-    # nur.repos.dima.playit-agent
 
     # --- Multimedia & Graphics ---
     ffmpeg-full
@@ -169,14 +164,12 @@ in {
     pwvucontrol
     cbonsai
     ueberzugpp
-    blender
 
     # --- Virtualization & Containers ---
     qemu_kvm
     qemu
     libvirt
     virtio-win
-    ollama-cpu
 
     # --- Themes, Icons & Appearance ---
     colloid-gtk-theme
@@ -197,7 +190,7 @@ in {
     kdePackages.qtwayland
     kdePackages.kdialog
     kdePackages.qtstyleplugin-kvantum
-    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
+    libsForQt5.qtstyleplugin-kvantum
 
     # --- Desktop Environment / Wayland / Qt6 ---
     xdg-desktop-portal-termfilechooser
@@ -242,10 +235,6 @@ in {
     inputs.tauritavern.packages.${pkgs.stdenv.hostPlatform.system}.canary
     # azahar
     nur.repos.dmfrpro.spflashtool5
-    # nur.repos.nakido.zellij-forgot
-    nur.repos.xddxdd.magiskboot
-    # python314Packages.aria2p
     # fcitx5
-    # inputs.tauritavern.packages.${pkgs.stdenv.hostPlatform.system}.canary
   ];
 }

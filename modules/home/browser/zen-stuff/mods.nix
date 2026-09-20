@@ -15,7 +15,7 @@
     "quick-tabs"
     "floating-findbar"
     "unloaded-tabs"
-    "zen-library"
+    # "zen-library"
     "bubble-pop-deleting"
     "dialog-fix"
   ];

@@ -18,7 +18,7 @@
       extraDependencyGroups = ["hindsight" "messaging"];
       addToSystemPackages = true;
       extraPackages = with pkgs; [
-        agent-browser
+        # agent-browser
         #   curl
         #   google-chrome
         #   chromium
@@ -164,6 +164,11 @@
       };
     };
     openssh.enable = true;
+    qbittorrent = {
+      enable = true;
+      openFirewall = true;
+      webuiPort = 7000;
+    };
 
     # --- System Maintenance & Hardware ---
     zram-generator.enable = true;
@@ -175,7 +180,7 @@
     geoclue2.enable = true;
     upower.enable = true;
     thermald.enable = false;
-    tlpPowerProfile.enable = true;
+    tlpPowerProfile.enable = false;
 
     # --- User & Desktop Services ---
     logind = {
@@ -297,6 +302,9 @@
     power-profiles-daemon.enable = false;
 
     # --- Others ---
+    emacs = {
+      enable = true;
+    };
     minecraft-servers = {
       enable = true;
       eula = true;
