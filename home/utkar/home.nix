@@ -7,13 +7,13 @@
   imports =
     (with inputs; [
       nix-index-database.homeModules.nix-index
-      dank-material-shell.homeModules.dank-material-shell
+      dms.homeModules.dank-material-shell
       # inputs.dank-material-shell.homeModules.niri
       mango.hmModules.mango
-      dsearch.homeModules.default
+      dux-search.homeModules.default
       nvf.homeManagerModules.default
       sops-nix.homeManagerModules.sops
-      dms-plugin-registry.homeModules.default
+      dux-plugin-registry.homeModules.default
       zen-browser.homeModules.twilight
       noctalia.homeModules.default
       stylix.homeModules.stylix

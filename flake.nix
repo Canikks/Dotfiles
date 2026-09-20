@@ -21,12 +21,11 @@
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
     niri.url = "github:epireyn/niri-flake";
-    dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
-    dms-plugin-registry.url = "github:AvengeMedia/dms-plugin-registry";
-    dankCalendar.url = "github:AvengeMedia/dankcalendar";
-    dank-greeter.url = "github:AvengeMedia/dank-greeter";
+    dms.url = "github:duxlabs-dev/dux-shell";
+    dux-plugin-registry.url = "github:duxlabs-dev/dux-plugin-registry";
+    dux-calendar.url = "github:duxlabs-dev/dux-calendar";
+    dux-greeter.url = "github:duxlabs-dev/dux-greeter";
     qtengine.url = "github:kossLAN/qtengine";
-    # dank-greeter.url = "/home/utkar/workspace/dank-greeter/";
     ambxst.url = "github:Axenide/Ambxst";
 
     # Noctalia Stack
@@ -40,11 +39,12 @@
     nvf.url = "github:notashelf/nvf";
     helix.url = "github:helix-editor/helix";
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-output-monitor.url = "github:maralorn/nix-output-monitor";
-    nix-your-shell.url = "github:MercuryTechnologies/nix-your-shell";
+    nom.url = "github:maralorn/nix-output-monitor";
+    nys.url = "github:MercuryTechnologies/nix-your-shell";
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
     dgop.url = "github:AvengeMedia/dgop";
-    dsearch.url = "github:AvengeMedia/danksearch";
+    dux-search.url = "github:duxlabs-dev/dux-search";
+    dux-files.url = "github:duxlabs-dev/dux-files";
     rio.url = "github:raphamorim/rio/main";
     ghostty.url = "github:ghostty-org/ghostty";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
@@ -86,7 +86,7 @@
     fetch.url = "github:areofyl/fetch";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     # tauritavern.url = "github:Darkatse/TauriTavern/dev";
-    tauritavern.url = "/home/utkar/workspace/TauriTavern";
+    # tauritavern.url = "/home/utkar/workspace/TauriTavern";
     zmx.url = "github:neurosnap/zmx";
 
     # Setting inputs to follow my shit
@@ -94,20 +94,20 @@
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
     niri.inputs.nixpkgs.follows = "nixpkgs";
     # nirinit.inputs.nixpkgs.follows = "nixpkgs";
-    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
-    dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
-    dank-greeter.inputs.nixpkgs.follows = "nixpkgs";
+    # dms.inputs.nixpkgs.follows = "nixpkgs";
+    # dux-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
+    # dux-greeter.inputs.nixpkgs.follows = "nixpkgs";
     # noctalia.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     mango.inputs.nixpkgs.follows = "nixpkgs";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     # helix.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-output-monitor.inputs.nixpkgs.follows = "nixpkgs";
-    nix-your-shell.inputs.nixpkgs.follows = "nixpkgs";
+    nom.inputs.nixpkgs.follows = "nixpkgs";
+    nys.inputs.nixpkgs.follows = "nixpkgs";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
     dgop.inputs.nixpkgs.follows = "nixpkgs";
-    dsearch.inputs.nixpkgs.follows = "nixpkgs";
+    # dux-search.inputs.nixpkgs.follows = "nixpkgs";
     rio.inputs.nixpkgs.follows = "nixpkgs";
     ghostty.inputs.nixpkgs.follows = "nixpkgs";
     ghostty.inputs.home-manager.follows = "home-manager";
@@ -129,7 +129,7 @@
     millennium.inputs.nixpkgs.follows = "nixpkgs";
     surge.inputs.nixpkgs.follows = "nixpkgs";
     yazelix-hm.inputs.nixpkgs.follows = "nixpkgs";
-    dankCalendar.inputs.nixpkgs.follows = "nixpkgs";
+    # dux-calendar.inputs.nixpkgs.follows = "nixpkgs";
     # chaotic.inputs.nixpkgs.follows = "nixpkgs";
     nixos-plymouth-theme.inputs.nixpkgs.follows = "nixpkgs";
     fetch.inputs.nixpkgs.follows = "nixpkgs";

@@ -229,12 +229,12 @@ in {
     babelfish
 
     # --- Others & Custom Repos ---
-    # app2unit
+    app2unit
     runapp
-    nur.repos.lonerOrz.helium
-    inputs.tauritavern.packages.${pkgs.stdenv.hostPlatform.system}.canary
+    # nur.repos.lonerOrz.helium
+    # inputs.tauritavern.packages.${pkgs.stdenv.hostPlatform.system}.canary
     # azahar
-    nur.repos.dmfrpro.spflashtool5
+    # nur.repos.dmfrpro.spflashtool5
     # fcitx5
   ];
 }

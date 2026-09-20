@@ -22,7 +22,7 @@
       columns = 160;
       start_as_hidden = false;
       hide_on_focus_loss = false;
-      background_opacity = 0.7;
+      background_opacity = 1.0;
     };
     keybindings = {
       "ctrl+c" = "copy_and_clear_or_interrupt";
@@ -44,7 +44,7 @@
       tab_powerline_style = "slanted";
       cursor_trail = 1;
       wayland_titlebar_color = "system";
-      background_opacity = 0.5;
+      background_opacity = 1.0;
       pixel_scroll = "yes";
       momentum_scroll = 0.96;
       # scrollback_pager = "less -R --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER";

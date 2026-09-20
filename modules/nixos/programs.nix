@@ -9,7 +9,7 @@
 in {
   programs = {
     # --- Shells & Terminal ---
-    ccache.enable = true;
+    ccache.enable = false;
     fish = {
       enable = true;
       useBabelfish = true;
@@ -40,13 +40,13 @@ in {
               modules = with inputs; [
                 nur.repos.moredhel.modules.homeManager
                 nix-index-database.homeModules.nix-index
-                dank-material-shell.homeModules.dank-material-shell
-                dank-material-shell.homeModules.niri
+                dms.homeModules.dank-material-shell
+                dms.homeModules.niri
                 mango.hmModules.mango
-                dsearch.homeModules.default
+                dux-search.homeModules.default
                 nvf.homeManagerModules.default
                 sops-nix.homeManagerModules.sops
-                dms-plugin-registry.homeModules.default
+                dux-plugin-registry.homeModules.default
                 zen-browser.homeModules.twilight
                 # noctalia.homeModules.default
                 stylix.homeModules.stylix
@@ -241,6 +241,15 @@ in {
       passwordless-sync-users = ["utkar"];
     };
     ambxst.enable = false;
+    dux-files = {
+      enable = true;
+      package = inputs.dux-files.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      portal.enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+    };
     dank-material-shell = {
       enable = true;
       enableSystemMonitoring = true;
@@ -282,6 +291,7 @@ in {
             sha256 = "sha256-nLY1oeSOocma2dOWMfU9Yz+wAFHYSg4MyZpjSi4I+pg=";
           };
         };
+        dmsThemeSync.enable = true;
         lutrisLauncher.enable = true;
         tlpPowerProfile.enable = true;
         clipboardPlus.enable = true;

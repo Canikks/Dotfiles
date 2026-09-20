@@ -47,14 +47,14 @@
 
       # --- Binary Caches (Substituters) ---
       substituters = [
-        "https://attic.xuyh0120.win/lantian"
+        "https://cache.lantian.pub/lantian"
       ];
       trusted-substituters = [
         "https://hydra.nixos.org/"
       ];
       trusted-public-keys = [
         "hydra.nixos.org-1:CNHJZBh9K4tP3EKF6FkkgeVYsS3ohTl+oS0Qa8bezVs="
-        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
       ];
       extra-substituters = [
         "https://cache.nixos.org"
@@ -70,7 +70,7 @@
         "https://hyprland.cachix.org"
         "https://cachix.cachix.org"
         "https://noctalia.cachix.org"
-        "https://attic.xuyh0120.win/lantian"
+        "https://cache.lantian.pub/lantian"
         # "https://cache.garnix.io"
         "https://millennium.cachix.org"
         "https://yazelix.cachix.org"
@@ -88,7 +88,7 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
         # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "millennium.cachix.org-1:oA14n26+32iES+5wBwfPAGR0y4ixRSG4rLMHzFxDwqc="
         "yazelix.cachix.org-1:ZgxIjQvaP0VTWL8Racx27mpUNzDJ97xC2y7QWYjmGNM="

@@ -6,13 +6,11 @@
 }: {
   programs.dsearch = {
     enable = true;
-    package = inputs.dsearch.packages.${system}.default;
+    package = inputs.dux-search.packages.${system}.default;
     config = {
       index_all_files = false;
       # index_path = ".cache/danksearch/index";
       listen_addr = ":43654";
-      auto_reindex = false;
-      reindex_interval_hours = 72;
       # max_depth = 0;
       max_file_bytes = 2097152;
       text_extentions = [
@@ -124,6 +122,10 @@
             "vesktop"
             ".devenv"
             "firefox"
+            "Lumiverse"
+            "pfx"
+            "shadercache"
+            "SillyTavern"
           ];
           max_depth = 0;
           path = "/home/utkar/.config";

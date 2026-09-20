@@ -35,7 +35,7 @@
             "gnome"
             "gtk"
           ];
-          "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
+          # "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
           "org.freedesktop.impl.portal.Settings" = [
             "kitty"
             "*"

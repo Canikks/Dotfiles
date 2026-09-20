@@ -15,15 +15,11 @@
       createUser = false;
       stateDir = "${config.users.users.utkar.home}/hermes";
       workingDirectory = "${config.users.users.utkar.home}/dotfiles";
-      extraDependencyGroups = ["hindsight" "messaging"];
+      extraDependencyGroups = ["messaging"];
       addToSystemPackages = true;
-      extraPackages = with pkgs; [
-        # agent-browser
-        #   curl
-        #   google-chrome
-        #   chromium
-      ];
       restartSec = 5;
+      backend.interfaceName = "tailscale0";
+      backend.waitFor = "interface";
       container = {
         backend = "podman";
         hostUsers = ["utkar"];
@@ -303,7 +299,7 @@
 
     # --- Others ---
     emacs = {
-      enable = true;
+      enable = false;
     };
     minecraft-servers = {
       enable = true;

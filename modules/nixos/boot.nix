@@ -31,10 +31,10 @@
       useTmpfs = true;
       cleanOnBoot = true;
     };
-    initrd.systemd.enable = true;
+    # initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
     resumeDevice = "/dev/disk/by-label/nix-swap";
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "tcp_bbr"

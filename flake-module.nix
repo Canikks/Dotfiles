@@ -69,7 +69,7 @@ in {
       niri-autoselect-portal.nixosModules.default
       niri.nixosModules.niri
       hyprland.nixosModules.default
-      dank-material-shell.nixosModules.dank-material-shell
+      dms.nixosModules.dank-material-shell
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
       nur.repos.iopq.modules.nixos.xraya
@@ -83,15 +83,15 @@ in {
       nixos-cli.nixosModules.nixos-cli
       # nirinit.nixosModules.nirinit
       stylix.nixosModules.stylix
-      dms-plugin-registry.nixosModules.default
+      dux-plugin-registry.nixosModules.default
       hermes-agent.nixosModules.default
       optnix.nixosModules.optnix
       surge.nixosModules.default
       # nyx-loner.nixosModules.default
       tlp-power-profile.nixosModules.default
       chaotic.nixosModules.default
-      dankCalendar.nixosModules.default
-      dank-greeter.nixosModules.default
+      dux-calendar.nixosModules.default
+      dux-greeter.nixosModules.default
       nvf.nixosModules.default
       noctalia.nixosModules.default
       noctalia-greeter.nixosModules.default
@@ -99,6 +99,8 @@ in {
       qtengine.nixosModules.default
       umbriel.nixosModules.default
       ambxst.nixosModules.default
+      # dux-files.nixosModules.dux-files
+      # dux-files.homeModules.dux-files
       (import ./hosts/utkar/home-manager.nix {inherit inputs self system pkgs;})
     ];
   };
