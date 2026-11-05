@@ -12,7 +12,7 @@
       mango.hmModules.mango
       dux-search.homeModules.default
       nvf.homeManagerModules.default
-      sops-nix.homeManagerModules.sops
+      omniflake.flakes.sops-nix.homeManagerModules.sops
       dux-plugin-registry.homeModules.default
       zen-browser.homeModules.twilight
       noctalia.homeModules.default
@@ -22,6 +22,7 @@
       chaotic.homeManagerModules.default
       fetch.homeManagerModules.default
       umbriel.homeModules.default
+      omniflake.flakes.nhx.homeManagerModules.default
     ])
     ++ [(inputs.import-tree ../../modules/home)];
 

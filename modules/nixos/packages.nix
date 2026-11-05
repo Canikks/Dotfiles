@@ -54,7 +54,7 @@ in {
     inputs.nixd.overlays.default
     inputs.nix-cachyos-kernel.overlays.pinned
     inputs.millennium.overlays.default
-    inputs.nh.overlays.default
+    inputs.omniflake.flakes.nh.overlays.default
     inputs.jj-starship.overlays.default
     inputs.quickemu.overlays.default
     inputs.devenv.overlays.default
@@ -112,6 +112,8 @@ in {
     # zmx
     # gopeed
     efibootmgr
+    keyguard
+    inputs.omniflake.flakes.rom.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # --- Development & CLI Tools ---
     python3

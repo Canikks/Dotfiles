@@ -17,6 +17,7 @@
     import-tree.url = "github:denful/import-tree";
     nixos-plymouth-theme.url = "github:ed7ed/nixos-plymouth-theme/main";
     nix-graph.url = "github:AlexAntonik/nix-graph";
+    omniflake.url = "github:fzakaria/omniflake";
 
     # Compositors and desktop shells
     hyprland.url = "github:hyprwm/Hyprland";
@@ -135,6 +136,7 @@
     fetch.inputs.nixpkgs.follows = "nixpkgs";
     qtengine.inputs.nixpkgs.follows = "nixpkgs";
     nix-graph.inputs.nixpkgs.follows = "nixpkgs";
+    omniflake.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

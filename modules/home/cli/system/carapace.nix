@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.carapace = {
     enable = true;
-    enableFishIntegration = true;
+    enableFishIntegration = false;
     extraPackages = with pkgs; [
       inshellisense
     ];

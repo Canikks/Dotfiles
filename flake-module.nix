@@ -79,7 +79,7 @@ in {
       nixos-hardware.nixosModules.common-cpu-intel
       nixos-hardware.nixosModules.common-gpu-intel
       nixos-hardware.nixosModules.common-pc-laptop-ssd
-      sops-nix.nixosModules.sops
+      omniflake.flakes.sops-nix.nixosModules.sops
       nixos-cli.nixosModules.nixos-cli
       # nirinit.nixosModules.nirinit
       stylix.nixosModules.stylix

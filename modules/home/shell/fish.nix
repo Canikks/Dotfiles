@@ -20,24 +20,24 @@
     };
     plugins = [
       {
-        name = "fzf-fish";
-        src = pkgs.fishPlugins.fzf-fish;
+        name = "fifc";
+        src = pkgs.fishPlugins.fifc.src;
       }
       {
         name = "puffer";
-        src = pkgs.fishPlugins.puffer;
+        src = pkgs.fishPlugins.puffer.src;
       }
       {
         name = "fish-bd";
-        src = pkgs.fishPlugins.fish-bd;
+        src = pkgs.fishPlugins.fish-bd.src;
       }
       {
         name = "pisces";
-        src = pkgs.fishPlugins.pisces;
+        src = pkgs.fishPlugins.pisces.src;
       }
       {
         name = "done";
-        src = pkgs.fishPlugins.done;
+        src = pkgs.fishPlugins.done.src;
       }
     ];
     shellInit = ''

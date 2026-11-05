@@ -409,10 +409,10 @@
     #     "com.mitchellh.ghostty" = "ghostty";
     #   };
     # };
-    scx = {
+    scx-loader = {
       enable = true;
-      scheduler = "scx_flow";
-      # extraArgs = ["-p gaming"];
+      schedsPackages = [pkgs.scx.full];
+      config.default_sched = "scx_flow";
     };
   };
 }
