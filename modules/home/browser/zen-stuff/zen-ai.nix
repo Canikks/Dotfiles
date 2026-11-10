@@ -59,5 +59,10 @@ in {
         id = "cc9eb243-b3d4-4747-aebd-9a3ce1b7ea1e";
         position = 405;
       };
+      Nano-GPT = mkAiPin {
+        url = "https://nano-gpt.com/";
+        id = "df791488-4772-4691-9f7d-3e1dcd6df743";
+        position = 406;
+      };
     };
 }
