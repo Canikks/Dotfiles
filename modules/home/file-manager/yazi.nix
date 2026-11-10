@@ -5,16 +5,16 @@
 }: {
   programs.yazi = {
     enable = true;
-    package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-      _7zz = pkgs._7zz-rar;
-    };
-    shellWrapperName = "y";
-    # theme = {
-    #   flavor = {
-    #     dark = "dank";
-    #     light = "dank";
-    #   };
+    # package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+    #   _7zz = pkgs._7zz-rar;
     # };
+    shellWrapperName = "y";
+    theme = {
+      flavor = {
+        dark = "dank";
+        light = "dank";
+      };
+    };
     plugins = {
       yatline = pkgs.yaziPlugins.yatline;
       yatline-githead = pkgs.yaziPlugins.yatline-githead;

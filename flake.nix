@@ -64,7 +64,7 @@
     niri-autoselect-portal.url = "git+https://codeberg.org/debugloop/niri-autoselect-portal.git";
     optnix.url = "sourcehut:~watersucks/optnix";
     base46-src = {
-      url = "github:AvengeMedia/base46";
+      url = "github:duxlabs-dev/base46";
       flake = false;
     };
     sddm-noctalia = {
