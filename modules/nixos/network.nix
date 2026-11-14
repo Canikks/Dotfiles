@@ -10,10 +10,11 @@
     hostName = "utkar";
     usePredictableInterfaceNames = lib.mkDefault true;
     nameservers = ["127.0.0.1"];
+    nftables.enable = true;
 
     nat = {
-      enable = true;
-      internalInterfaces = ["virbr0"];
+      enable = false;
+      # internalInterfaces = ["virbr0"];
       # externalInterface = "proton";
     };
 
@@ -95,7 +96,7 @@
     # --- Firewall ---
     firewall = {
       enable = true;
-      trustedInterfaces = ["tailscale0"];
+      trustedInterfaces = ["tailscale0" "virbr0"];
       allowedTCPPorts = [
         8888
         8080

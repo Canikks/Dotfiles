@@ -55,6 +55,7 @@ in {
                 chaotic.homeManagerModules.default
                 fetch.homeManagerModules.default
                 umbriel.homeModules.default
+                omniflake.flakes.nhx.homeManagerModules.default
               ];
             };
           };

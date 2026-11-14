@@ -8,9 +8,9 @@
     # --- GPU & Graphics ---
     intelgpu = {
       driver = "xe";
-      vaapiDriver = "intel-media-driver";
-      mediaRuntime = "vpl-gpu-rt";
-      computeRuntime = "default";
+      vaapiDriver = null;
+      # mediaRuntime = "intel-media-sdk";
+      computeRuntime = "legacy";
       enableHybridCodec = true;
       loadInInitrd = true;
     };

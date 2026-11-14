@@ -60,10 +60,15 @@ in {
         position = 104;
       };
 
-      Email = mkPersonalPin {
+      Proton_Email = mkPersonalPin {
         url = "https://mail.proton.me/u/0/inbox";
         id = "5b51393b-7bfb-46ab-ba70-eff78196f004";
         position = 105;
+      };
+      Aster_Email = mkPersonalPin {
+        url = "https://app.astermail.org/u/0";
+        id = "f855ab98-e6fd-4131-b741-9149b40c716a";
+        position = 106;
       };
     };
 }

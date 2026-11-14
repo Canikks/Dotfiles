@@ -4,7 +4,9 @@
   inputs,
   lib,
   ...
-}: {
+}: let
+  domain = "utkar.tail8ffd43.ts.net";
+in {
   services = {
     # --- AI & Web Services ---
     hermes-agent = {
@@ -70,9 +72,13 @@
       redisCreateLocally = true;
       # openFirewall = true;
       settings = {
-        server.bind_address = "0.0.0.0";
-        server.port = "8080";
-        server.secret_key = "${builtins.readFile config.sops.secrets.searx_key.path}";
+        server = {
+          bind_address = "127.0.0.1";
+          port = "8080";
+          base_url = "https://${domain}";
+          secret_key = "${builtins.readFile config.sops.secrets.searx_key.path}";
+        };
+        search.formats = ["html" "json"];
       };
     };
     open-webui = {
@@ -89,10 +95,20 @@
     cloudflare-warp = {
       enable = true;
     };
+    caddy = {
+      enable = true;
+      virtualHosts."${domain}".extraConfig = ''
+        reverse_proxy 127.0.0.1:8080
+      '';
+      virtualHosts."${domain}:8445".extraConfig = ''
+        reverse_proxy 127.0.0.1:7860
+      '';
+    };
     tailscale = {
       enable = true;
       useRoutingFeatures = "both";
       extraSetFlags = ["--advertise-exit-node"];
+      permitCertUid = "caddy";
     };
     blocky = {
       enable = true;

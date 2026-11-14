@@ -107,6 +107,7 @@ in {
     scrcpy
     tmux
     nvtopPackages.intel
+    intel-gpu-tools
     inputs.nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.nix-graph
     inputs.zmx.packages.${pkgs.stdenv.hostPlatform.system}.zmx
     # zmx

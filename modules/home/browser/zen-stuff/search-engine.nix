@@ -1,13 +1,13 @@
 {profileName, ...}: {
   programs.zen-browser.profiles.${profileName}.search = {
     force = true;
-    default = "Myxng";
+    default = "MyXNG";
     engines = {
-      Myxng = {
-        name = "Myxng";
+      MyXNG = {
+        name = "MyXNG";
         urls = [
           {
-            template = "http://127.0.0.1:8080/search?q={searchTerms}";
+            template = "https://utkar.tail8ffd43.ts.net/search?q={searchTerms}";
           }
         ];
         definedAliases = ["@mxng"];

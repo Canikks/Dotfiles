@@ -37,15 +37,15 @@
       yafg = pkgs.yaziPlugins.yafg;
     };
     settings = {
-      opener = {
-        extract = [
-          {
-            run = ''ouch d -y "$1"'';
-            desc = "Extract here with ouch";
-            for = "unix";
-          }
-        ];
-      };
+      # opener = {
+      #   extract = [
+      #     {
+      #       run = "ouch d -y ''$@''";
+      #       desc = "Extract here with ouch";
+      #       for = "unix";
+      #     }
+      #   ];
+      # };
       mgr = {
         linemode = "permissions";
         sort_by = "alphabetical";
