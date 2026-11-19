@@ -11,6 +11,12 @@
     useSystemdActivation = true;
 
     secrets = {
+      surge_token = {
+        key = "surge_token";
+        owner = "root";
+        group = "root";
+        mode = "0400";
+      };
       proton_wireguard_private_key = {
         key = "proton";
         owner = "root";

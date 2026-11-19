@@ -10,7 +10,7 @@ in {
   services = {
     # --- AI & Web Services ---
     hermes-agent = {
-      enable = true;
+      enable = false;
       environmentFiles = [config.sops.secrets."hermes_env".path];
       user = "utkar";
       group = "users";
@@ -93,6 +93,9 @@ in {
 
     # --- Network & DNS ---
     cloudflare-warp = {
+      enable = false;
+    };
+    bpftune = {
       enable = true;
     };
     caddy = {
@@ -102,6 +105,9 @@ in {
       '';
       virtualHosts."${domain}:8445".extraConfig = ''
         reverse_proxy 127.0.0.1:7860
+      '';
+      virtualHosts."${domain}:8446".extraConfig = ''
+        reverse_proxy 127.0.0.1:8000
       '';
     };
     tailscale = {
@@ -183,16 +189,21 @@ in {
     };
 
     # --- System Maintenance & Hardware ---
-    zram-generator.enable = true;
+    zram-generator.enable = false;
     systemd-lock-handler.enable = true;
-    btrfs.autoScrub.enable = false;
-    fstrim.enable = true;
+    btrfs.autoScrub.enable = true;
+    fstrim.enable = false;
     fwupd.enable = true;
     psd.enable = true;
     geoclue2.enable = true;
     upower.enable = true;
     thermald.enable = false;
     tlpPowerProfile.enable = false;
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-rules-cachyos;
+    };
 
     # --- User & Desktop Services ---
     logind = {

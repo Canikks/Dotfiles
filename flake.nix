@@ -80,8 +80,8 @@
     jj-starship.url = "github:dmmulroy/jj-starship";
     multios-usb.url = "github:Mexit/MultiOS-USB";
     quickemu.url = "github:quickemu-project/quickemu";
-    # surge.url = "github:SurgeDM/Surge/eebbc055baccff30de013e28d7de3ec4927a5ce6";
-    surge.url = "/home/utkar/workspace/Surge/";
+    surge.url = "github:SurgeDM/Surge";
+    # surge.url = "/home/utkar/workspace/Surge/";
     yazelix-hm.url = "github:luccahuguet/yazelix";
     tlp-power-profile.url = "github:peturh/tlp-power-profile";
     fetch.url = "github:areofyl/fetch";

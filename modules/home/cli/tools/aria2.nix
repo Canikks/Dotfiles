@@ -1,6 +1,6 @@
 {
   programs.aria2 = {
-    enable = true;
+    enable = false;
     systemd.enable = true;
     settings = {
       max-connection-per-server = 16;
@@ -13,6 +13,6 @@
     };
   };
   programs.aria2p = {
-    enable = true;
+    enable = false;
   };
 }

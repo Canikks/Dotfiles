@@ -23,13 +23,14 @@
       fetch.homeManagerModules.default
       umbriel.homeModules.default
       omniflake.flakes.nhx.homeManagerModules.default
+      surge.homeModules.default
     ])
     ++ [(inputs.import-tree ../../modules/home)];
 
   nixpkgs.overlays = self.nixosConfigurations.utkar.config.nixpkgs.overlays;
   nixpkgs.config = self.nixosConfigurations.utkar.config.nixpkgs.config;
   xdg.configFile."nixpkgs/config.nix".text = ''
-    { allowUnfree = true; }
+    { allowUnfree = true;  problems.handlers = { zfs.broken = "warn"; }; }
   '';
   # nixpkgs.config.allowUnfree = true;
 }

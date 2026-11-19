@@ -21,7 +21,7 @@
       enable = true;
     };
     sudo-rs = {
-      enable = true;
+      enable = lib.mkDefault true;
       configFile = ''
         username ALL=(root) NOPASSWD: /run/current-system/sw/bin/tlp, \
                               /run/current-system/sw/bin/tee /sys/firmware/acpi/platform_profile, \

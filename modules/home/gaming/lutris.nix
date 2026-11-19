@@ -10,7 +10,7 @@
       mangohud
       umu-launcher
       gamescope
-      gamemode
+      # gamemode
       vulkan-tools
       xrandr
       nur.repos.vladexa.proton-cachyos-v3

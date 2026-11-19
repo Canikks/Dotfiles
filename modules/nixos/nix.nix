@@ -99,5 +99,6 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.problems.handlers = {
     "gtk+".broken = "warn"; # or "ignore"
+    zfs.broken = "warn";
   };
 }

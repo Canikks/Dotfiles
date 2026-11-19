@@ -4,6 +4,11 @@
     ksm.enable = true;
     enableRedistributableFirmware = true;
     acpilight.enable = true;
+    block = {
+      defaultScheduler = "adios";
+      # Optional: keep bfq or mq-deadline if you have spinning HDDs
+      defaultSchedulerRotational = "bfq";
+    };
 
     # --- GPU & Graphics ---
     intelgpu = {

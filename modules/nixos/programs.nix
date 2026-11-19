@@ -56,6 +56,7 @@ in {
                 fetch.homeManagerModules.default
                 umbriel.homeModules.default
                 omniflake.flakes.nhx.homeManagerModules.default
+                surge.homeModules.default
               ];
             };
           };
@@ -202,7 +203,7 @@ in {
     };
     surge = {
       enable = true;
-      systemd.enable = true;
+      # systemd.enable = true;
     };
 
     # --- Gaming ---
@@ -226,7 +227,7 @@ in {
       package = pkgs.gamescope_git;
     };
     gamemode = {
-      enable = true;
+      enable = false;
     };
 
     # --- Desktop & UI Enhancements ---

@@ -30,6 +30,13 @@
       tmpfsHugeMemoryPages = "within_size";
       useTmpfs = true;
       cleanOnBoot = true;
+      tmpfsSize = "80%";
+    };
+    zswap = {
+      enable = true;
+      compressor = "zstd";
+      maxPoolPercent = 35;
+      shrinkerEnabled = true;
     };
     # initrd.systemd.enable = true;
     initrd.systemd.dbus.enable = true;
@@ -52,11 +59,6 @@
       # "i915.enable_guc=3"
       "i915.force_probe=!9a78"
       "xe.force_probe=9a78"
-      "zswap.enabled=1"
-      "zswap.compressor=zstd"
-      "zswap.zpool=zsmalloc"
-      "zswap.max_pool_percent=35"
-      "zswap.shrinker_enabled=1"
       "cfg80211.ieee80211_regdom=IN"
     ];
 
@@ -66,15 +68,15 @@
         devices.system.cpu.intel_pstate.hwp_dynamic_boost = true;
       };
       sysctl = {
-        # "net.ipv4.ip_forward" = 1;
+        "net.ipv4.ip_forward" = 1;
         # "net.ipv6.conf.all.forwarding" = 1;
         "vm.watermark_scale_factor" = 100;
         "net.core.default_qdisc" = "fq";
-        "net.ipv4.tcp_congestion_control" = "bbr";
-        "net.core.wmem_max" = 33554432;
-        "net.core.rmem_max" = 33554432;
-        "net.ipv4.tcp_rmem" = "4096 87380 33554432";
-        "net.ipv4.tcp_wmem" = "4096 87380 33554432";
+        # "net.ipv4.tcp_congestion_control" = "bbr";
+        # "net.core.wmem_max" = 33554432;
+        # "net.core.rmem_max" = 33554432;
+        # "net.ipv4.tcp_rmem" = "4096 87380 33554432";
+        # "net.ipv4.tcp_wmem" = "4096 87380 33554432";
         "dev.tty.ldisc_autoload" = 0;
         "vm.swappiness" = 150;
         "vm.vfs_cache_pressure" = 50;

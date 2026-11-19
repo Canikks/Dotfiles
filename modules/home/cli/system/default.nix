@@ -4,5 +4,6 @@
     ./hyfetch.nix
     ./pay-respects.nix
     ./fetch.nix
+    ./surge.nix
   ];
 }
