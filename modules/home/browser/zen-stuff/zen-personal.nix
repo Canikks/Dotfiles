@@ -55,7 +55,7 @@ in {
       };
 
       Dotfiles = mkPersonalPin {
-        url = "https://codeberg.org/Canix/dotfiles";
+        url = "https://codeberg.org/Canicks/dotfiles";
         id = "e94a2ed3-4d3a-4036-b60b-99cf2e40b455";
         position = 104;
       };

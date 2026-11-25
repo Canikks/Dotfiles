@@ -16,19 +16,19 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
     fsType = "btrfs";
-    options = ["subvol=@" "compress=zstd:1" "noatime"];
+    options = ["subvol=@" "compress=zstd" "noatime"];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
     fsType = "btrfs";
-    options = ["subvol=@home" "compress=zstd:1" "noatime"];
+    options = ["subvol=@home" "compress=zstd" "noatime"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
     fsType = "btrfs";
-    options = ["subvol=@nix" "compress=zstd:1" "noatime"];
+    options = ["subvol=@nix" "compress=zstd" "noatime"];
   };
 
   fileSystems."/tmp" = {
@@ -40,7 +40,7 @@
   fileSystems."/var/log" = {
     device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
     fsType = "btrfs";
-    options = ["subvol=@log" "compress=zstd:1" "noatime"];
+    options = ["subvol=@log" "compress=zstd" "noatime"];
   };
 
   fileSystems."/.snapshots" = {
@@ -58,7 +58,7 @@
   fileSystems."/var/cache" = {
     device = "/dev/disk/by-uuid/0cea2b95-7e3f-461a-a620-8da930550f6c";
     fsType = "btrfs";
-    options = ["subvol=@cache" "compress=zstd:1" "noatime"];
+    options = ["subvol=@cache" "compress=zstd" "noatime"];
   };
 
   swapDevices = [];
