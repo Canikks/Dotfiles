@@ -13,7 +13,7 @@ result-*
 hermes_conversation_*
 plan*
 PLAN*
-*.md
+# *.md
 PLAN.md
 .hermes
 
