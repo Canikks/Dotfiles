@@ -86,7 +86,6 @@
     fetch.url = "github:areofyl/fetch";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     # tauritavern.url = "github:Darkatse/TauriTavern/dev";
-    # tauritavern.url = "/home/utkar/workspace/TauriTavern";
     zmx.url = "github:neurosnap/zmx";
 
     # Setting inputs to follow my shit
